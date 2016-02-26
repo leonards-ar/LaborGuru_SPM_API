@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="schedule" namespace="/schedule" extends="spm-default">
+		<action name="addshiftbyemployee_*" method="{1}"
+			class="com.laborguru.action.schedule.AddShiftByEmployeeByDayPrepareAction">
+			<result name="edit" type="tiles">editShiftByEmployeeByDatePage</result>
+			<result name="input" type="tiles">editShiftByEmployeeByDatePage</result>
+			<result name="success" type="redirectAction"><param name="actionName">addshiftbyemployee_edit</param></result>
+		</action>
+		
+		<action name="addshiftbyemployeebyposition_*" method="{1}"
+			class="com.laborguru.action.schedule.AddShiftByEmployeeByPositionByDayPrepareAction">
+			<result name="edit" type="tiles">editShiftByEmployeeByPositionByDatePage</result>
+			<result name="input" type="tiles">editShiftByEmployeeByPositionByDatePage</result>
+			<result name="success" type="redirectAction"><param name="actionName">addshiftbyemployeebyposition_edit</param></result>
+		</action>
+
+		<action name="addweeklyshiftbyemployee_*" method="{1}"
+			class="com.laborguru.action.schedule.AddShiftByEmployeeByWeekPrepareAction">
+			<result name="edit" type="tiles">editShiftByEmployeeByWeekPage</result>
+			<result name="input" type="tiles">editShiftByEmployeeByWeekPage</result>
+			<result name="success" type="redirectAction"><param name="actionName">addweeklyshiftbyemployee_edit</param></result>
+		</action>
+
+		<action name="addweeklyshiftbyposition_*" method="{1}"
+			class="com.laborguru.action.schedule.AddShiftByPositionByWeekPrepareAction">
+			<result name="edit" type="tiles">editShiftByPositionByWeekPage</result>
+			<result name="input" type="tiles">editShiftByPositionByWeekPage</result>
+			<result name="success" type="redirectAction"><param name="actionName">addweeklyshiftbyposition_edit</param></result>
+		</action>
+
+		<action name="printweeklyshiftbyposition_*" method="{1}"
+			class="com.laborguru.action.schedule.PrintShiftByPositionByWeekPrepareAction">
+			<result name="input" type="tiles">viewPrintShiftByPositionByWeekPage</result>
+			<result name="print" type="tiles">printShiftByPositionByWeekPage</result>
+			<result name="success" type="tiles">viewPrintShiftByPositionByWeekPage</result>
+		</action>		
+
+		<action name="printweeklyshiftbyemployee_*" method="{1}"
+			class="com.laborguru.action.schedule.PrintShiftByEmployeeByWeekPrepareAction">
+			<result name="input" type="tiles">viewPrintShiftByEmployeeByWeekPage</result>
+			<result name="print" type="tiles">printShiftByEmployeeByWeekPage</result>
+			<result name="success" type="tiles">viewPrintShiftByEmployeeByWeekPage</result>
+		</action>
+
+		<action name="printdailyshiftbyposition_*" method="{1}"
+			class="com.laborguru.action.schedule.PrintShiftByPositionByDayPrepareAction">
+			<result name="input" type="tiles">viewPrintShiftByPositionByDayPage</result>
+			<result name="print" type="tiles">printShiftByPositionByDayPage</result>
+			<result name="success" type="tiles">viewPrintShiftByPositionByDayPage</result>
+		</action>		
+
+		<action name="printdailyshiftbyemployee_*" method="{1}"
+			class="com.laborguru.action.schedule.PrintShiftByEmployeeByDayPrepareAction">
+			<result name="input" type="tiles">viewPrintShiftByEmployeeByDayPage</result>
+			<result name="print" type="tiles">printShiftByEmployeeByDayPage</result>
+			<result name="success" type="tiles">viewPrintShiftByEmployeeByDayPage</result>
+		</action>
+
+		<action name="printweeklytotalhoursbyposition_*" method="{1}"
+			class="com.laborguru.action.schedule.PrintTotalHoursByPositionByWeekPrepareAction">
+			<result name="input" type="tiles">viewPrintTotalHoursByPositionByWeekPage</result>
+			<result name="success" type="tiles">viewPrintTotalHoursByPositionByWeekPage</result>
+		</action>		
+
+		<action name="printweeklyshiftbreaks_*" method="{1}"
+			class="com.laborguru.action.schedule.PrintShiftBreaksByWeekPrepareAction">
+			<result name="input" type="tiles">viewPrintShiftBreaksByWeekPage</result>
+			<result name="success" type="tiles">viewPrintShiftBreaksByWeekPage</result>
+		</action>		
+		
+		<action name="showscheduledetails" class="com.laborguru.action.schedule.ScheduleDetailsAction">
+			<result name="success" type="tiles">showScheduleDetailsPage</result>
+		</action>
+	</package>
+
+	<package name="schedule_ajax" namespace="/schedule" extends="json-default">
+		<action name="scheduleemployeeautocomplete" class="com.laborguru.action.schedule.ScheduleEmployeeAutocompleterAction">
+			<result type="json" name="success"><param name="root">storeEmployees</param></result>
+		</action>
+		<action name="scheduleemployeemaxhsday" class="com.laborguru.action.schedule.ScheduleEmployeeDataAction">
+			<result name="success">/spm/tiles/schedule/employeemaxhoursday.jsp</result>
+		</action>		
+	</package>
+
+</struts>

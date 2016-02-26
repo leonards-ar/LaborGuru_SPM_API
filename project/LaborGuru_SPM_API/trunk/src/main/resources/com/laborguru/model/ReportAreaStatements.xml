@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="ReportAreaStatements">
+
+
+  <resultMap id="get-actualSalesByArea-result" class="com.laborguru.model.report.TotalAreaManagerHour">
+    <result property="store.id" column="store_id"/>
+    <result property="store.name" column="store_name"/>
+    <result property="sales" column="main_value"/>
+  </resultMap>
+  
+  <select id="getActualSalesByArea" parameterClass="java.util.Map" resultMap="get-actualSalesByArea-result"> 
+    SELECT s.store_id as store_id, 
+    s.name as store_name, 
+    SUM(hs.main_value) as main_value,
+	SUM(hs.second_value) as secondValue, 
+	SUM(hs.third_value) as thirdValue, 
+	SUM(hs.fourth_value) as fourthValue
+    FROM tbl_stores s LEFT JOIN tbl_historic_sales hs ON s.store_id = hs.store_id AND DATE(hs.date_time) BETWEEN STR_TO_DATE(#start_date#, '%Y-%m-%d') AND STR_TO_DATE(#end_date#, '%Y-%m-%d') 
+    WHERE s.area_id = #area_id# 
+    GROUP BY s.store_id 
+    ORDER BY s.name;
+  </select>
+  
+  <resultMap id="get-scheduleHoursByArea-result" class="com.laborguru.model.report.TotalAreaManagerHour">
+    <result property="store.id" column="store_id"/>
+    <result property="store.name" column="store_name"/>
+    <result property="schedule" column="schedule"/>
+  </resultMap>
+  
+  <select id="getActualHoursByArea" parameterClass="java.util.Map" resultMap="get-scheduleHoursByArea-result">
+    SELECT
+    s.store_id as store_id, 
+    s.name as store_name,
+    sum(ah.hours) as schedule
+    FROM tbl_stores s LEFT JOIN tbl_actual_hours ah ON s.store_id = ah.store_id AND ah.date BETWEEN STR_TO_DATE(#start_date#, '%Y-%m-%d') AND STR_TO_DATE(#end_date#, '%Y-%m-%d') 
+    WHERE s.area_id = #area_id#
+    GROUP BY s.store_id 
+    ORDER BY s.name;
+  </select>
+
+  <select id="getScheduleTotalHoursByArea" parameterClass="java.util.Map" resultMap="get-scheduleHoursByArea-result">
+    SELECT
+    s.store_id as store_id,
+    s.name as store_name,
+    SUM(TIME_TO_SEC(TIMEDIFF(sh.to_hour, sh.from_hour)))/3600 as schedule
+    FROM tbl_stores s 
+    LEFT JOIN tbl_store_schedules as ss ON s.store_id = ss.store_id AND ss.day BETWEEN STR_TO_DATE(#start_date#,'%Y-%m-%d') AND STR_TO_DATE(#end_date#,'%Y-%m-%d')
+    LEFT JOIN tbl_employee_schedules as es ON ss.store_schedule_id = es.store_schedule_id
+    LEFT JOIN tbl_shifts as sh ON es.employee_schedule_id = sh.employee_schedule_id AND sh.position_id IS NOT NULL
+    WHERE s.area_id = #area_id#
+    GROUP BY s.store_id 
+    ORDER BY s.name;
+  </select>
+
+  <select id="getTargetTotalHoursByArea" parameterClass="java.util.Map" resultMap="get-scheduleHoursByArea-result">
+    SELECT
+    s.store_id as store_id,
+    s.name as store_name,
+    SUM(total_daily_target) as schedule
+    FROM tbl_stores s 
+    LEFT JOIN tbl_positions p ON s.store_id = p.store_id
+    LEFT JOIN tbl_staffing st ON p.position_id = st.position_id AND st.staffing_date BETWEEN STR_TO_DATE(#start_date#,'%Y-%m-%d') AND STR_TO_DATE(#end_date#,'%Y-%m-%d')
+    WHERE s.area_id = #area_id#
+    GROUP BY s.store_id 
+    ORDER BY s.name;
+  </select> 
+      
+</sqlMap>

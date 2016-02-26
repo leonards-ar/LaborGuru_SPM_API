@@ -1,0 +1,70 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.laborguru.model">
+	<class name="HistoricSales" table="tbl_historic_sales">
+	
+		<id name="id" type="long" unsaved-value="null" column="historic_sales_id">
+			<generator class="identity" />
+		</id>
+
+		<property name="dateTime" column="date_time" type="timestamp"/>
+		<property name="dayOfWeek" column="day_of_week" type="int"/>		
+		<property name="mainValue" column="main_value" type="big_decimal"/>
+		
+		<property name="secondValue" column="second_value" type="big_decimal" />
+		<property name="thirdValue" column="third_value" type="big_decimal" />
+		<property name="fourthValue" column="fourth_value" type="big_decimal" />
+				
+		<many-to-one name="store" class="Store" column="store_id" not-null="true" foreign-key="fk_historic_sales_stores" />
+		<many-to-one name="uploadFile" class="UploadFile" column="upload_file_id" not-null="true" foreign-key="fk_uploadFiles_historicSales" />
+	</class>
+	
+	
+	<sql-query name="halfHourProjections">
+	
+		<return-scalar column="hhTime" type="string"/>
+		<return-scalar column="value" type="big_decimal"/>
+		<return-scalar column="hhDate" type="string"/>
+		
+		<![CDATA[
+		SELECT if(MINUTE(hs.date_time) >= 30, CONCAT(HOUR(hs.date_time), ':30'), CONCAT(HOUR(hs.date_time),':00')) as hhTime, 
+		SUM(hs.main_value) as value,
+		DATE(hs.date_time) as hhDate
+		FROM tbl_historic_sales hs 
+		WHERE hs.store_id=:storeId 
+		AND hs.date_time BETWEEN STR_TO_DATE(:startDate,'%Y-%m-%d %H:%i:%s') AND STR_TO_DATE(:endDate,'%Y-%m-%d %H:%i:%s') 
+		AND day_of_week=:dayOfWeek 
+		AND hs.main_value > 0 
+		GROUP BY hhDate, if(MINUTE(hs.date_time) >= 30, CONCAT(HOUR(hs.date_time), ':30'), CONCAT(HOUR(hs.date_time),':00'))
+		ORDER BY STR_TO_DATE(if(MINUTE(hs.date_time) >= 30, CONCAT(HOUR(hs.date_time), ':30'), CONCAT(HOUR(hs.date_time),':00')), GET_FORMAT(TIME,'ISO')) ASC]]>
+	</sql-query> 
+	
+	<sql-query name="halfHourByDate">
+	
+		<return-scalar column="hhTime" type="string"/>
+		<return-scalar column="value" type="big_decimal"/>
+		<return-scalar column="value2" type="big_decimal"/>
+		<return-scalar column="value3" type="big_decimal"/>
+		<return-scalar column="value4" type="big_decimal"/>
+		
+		<![CDATA[
+		SELECT if(MINUTE(hs.date_time) >= 30, CONCAT(HOUR(hs.date_time), ':30'), CONCAT(HOUR(hs.date_time),':00')) as hhTime, 
+		SUM(hs.main_value) as value,
+		SUM(hs.second_value) as value2,
+		SUM(hs.third_value) as value3,
+		SUM(hs.fourth_value) as value4
+		FROM tbl_historic_sales hs 
+		WHERE hs.store_id=:storeId 
+		AND DATE(hs.date_time) = STR_TO_DATE(:selectedDate,'%Y-%m-%d')
+		GROUP BY if(MINUTE(hs.date_time) >= 30, CONCAT(HOUR(hs.date_time), ':30'), CONCAT(HOUR(hs.date_time),':00'))
+		ORDER BY STR_TO_DATE(if(MINUTE(hs.date_time) >= 30, CONCAT(HOUR(hs.date_time), ':30'), CONCAT(HOUR(hs.date_time),':00')), GET_FORMAT(TIME,'ISO')) ASC]]>
+	</sql-query> 
+	
+	<database-object>
+		<create>ALTER TABLE tbl_historic_sales AUTO_INCREMENT=10000</create>
+		<drop></drop>
+	</database-object>   	
+</hibernate-mapping>

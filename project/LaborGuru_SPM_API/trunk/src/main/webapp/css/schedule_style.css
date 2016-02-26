@@ -1,0 +1,385 @@
+/*
+Colors:
+Table Borders: #333333
+
+Selected: #33CC33
+Break: #D6DE26
+
+*/
+#scheduleActionsTable {
+}
+
+#scheduleMainTable {
+	border: 2px solid #333333;
+}
+
+.timeInput {
+	border: 1px solid #333333;
+	font-size: 11px;
+	width: 35px;
+}
+
+.scheduleMainTableHeader {
+	background-color: #C8C8C8;
+	color: #333333;
+	font-size: 13px;
+	text-align: center;
+	font-family: trebuchet ms, arial, sans-serif;
+	font-weight: bold;
+}
+
+.scheduleCellHeader {
+	border: 1px solid #333333;
+}
+
+.scheduleActionMessage {
+	color: #82B41E;
+	font-size: 11px;
+	text-align: left;
+	font-family: trebuchet ms, arial, sans-serif;
+	font-weight: bold;
+}
+
+.scheduleMainTableEmployeeRow {
+}
+
+.scheduleNameCell {
+	border: 1px solid #333333;
+	background-color: #E6E6E6;
+	color: #333333;
+	font-size: 12px;
+	text-align: left;
+	font-family: trebuchet ms, arial, sans-serif;
+}
+
+.scheduleValueCell {
+	border: 1px solid #333333;
+	background-color: #E6E6E6;
+	color: #333333;
+	font-size: 12px;
+	text-align: center;
+	font-family: trebuchet ms, arial, sans-serif;
+	font-weight: bold;
+}
+
+.scheduleValueCellText {
+	color: #333333;
+	font-size: 12px;
+	text-align: center;
+	font-family: trebuchet ms, arial, sans-serif;
+	font-weight: bold;
+}
+
+.scheduleEmployeeTotalHoursExceeded {
+	border: 1px solid #333333;
+	background-color: #FF6400;
+	color: #000000;
+	font-size: 12px;
+	text-align: center;
+	font-family: trebuchet ms, arial, sans-serif;
+	font-weight: bold;
+}
+
+.scheduleStaffingNameCell {
+	border: 1px solid #333333;
+	background-color: #FFFFFF;
+	color: #333333;
+	font-size: 12px;
+	text-align: right;
+	font-family: trebuchet ms, arial, sans-serif;	
+}
+
+.scheduleStaffingValueCell {
+	border: 1px solid #333333;
+	background-color: #E6E6E6;
+	color: #333333;
+	font-size: 12px;
+	text-align: center;
+	font-family: trebuchet ms, arial, sans-serif;
+}
+
+.scheduleTotalValueCell {
+	border: 1px solid #333333;
+	background-color: #FFFFFF;
+	color: #333333;
+	font-size: 10px;
+	text-align: center;
+	font-family: trebuchet ms, arial, sans-serif;	
+}
+
+.scheduleStaffingUnavailable {
+	background-color: #CACACA;
+	border: 1px solid #333333;
+	width: 5px;	
+}
+
+.scheduleStaffingCalculated {
+	background-color: #FFFFFF;
+	border: 1px solid #333333;
+	width: 6px;
+	color: #333333;
+	font-size: 10px;
+	text-align: center;	
+}
+
+.scheduleStaffingDifferenceNegative {
+	background-color: #FFCC99;
+	border: 1px solid #333333;
+	width: 6px;
+	color: #990000;
+	font-size: 10px;
+	text-align: center;		
+}
+
+.scheduleStaffingDifferencePositive {
+	background-color: #FFFFFF;
+	border: 1px solid #333333;
+	width: 6px;
+	color: #333333;
+	font-size: 10px;
+	text-align: center;		
+}
+
+.scheduleStaffingDifferenceEqual {
+	background-color: #FFFFFF;
+	border: 1px solid #333333;
+	width: 6px;
+	color: #999999;
+	font-size: 10px;
+	text-align: center;	
+}
+
+td.scheduleStartSelection {
+	background-color: #466E0A;
+	border: 1px solid #333333;
+}
+
+td.scheduleSelected {
+	border-right: 1px hidden #82B41E;
+	border-left: 1px hidden #82B41E;
+	border-top:1px solid #333333;
+	border-bottom: 1px solid #333333;
+	background-color: #82B41E;
+	width: 7px;
+}
+
+td.scheduleSelectedCaption {
+	border:1px solid #333333;
+	background-color: #82B41E;
+	width: 5px;
+}
+
+td.scheduleBreak {
+	border-right: 1px hidden #D6DE26;
+	border-left: 1px hidden #D6DE26;
+	border-top:1px solid #333333;
+	border-bottom: 1px solid #333333;
+	width: 7px;
+	background-color: #D6DE26;
+}
+
+td.scheduleBreakCaption {
+	border:1px solid #333333;
+	width: 5px;
+	background-color: #D6DE26;
+}
+
+td.scheduleEmptyCaption {
+	border:1px solid #333333;
+	width: 5px;
+	background-color: #FFFFFF;
+}
+
+td.scheduleEmpty {
+	background-color: #FFFFFF;
+	border: 1px solid #333333;
+	width: 5px;
+}
+
+
+
+td.scheduleUnavailable {
+	background-color: #CACACA;
+	border: 1px solid #333333;
+	width: 5px;
+}
+
+td.scheduleEndSelection {
+	background-color: #466E0A;
+	border: 1px solid #333333;
+}
+
+td.scheduleSelectingOver {
+	background-color: #466E0A;
+	border: 1px solid #333333;
+}
+
+img.scheduleActionImageOff {
+	border: none;
+}
+
+img.scheduleActionImageOn {
+	border: 1px solid #333333;
+}
+
+.scheduleActionLabel {
+	font-family: trebuchet ms, arial, sans-serif;
+	font-size: 12px;
+	font-weight: normal;
+	color: #466E0A;
+	text-decoration: none;	
+}
+	
+a.scheduleActionLink {
+	font-family: trebuchet ms, arial, sans-serif;
+	font-size: 12px;
+	font-weight: normal;
+	color: #466E0A;
+	text-decoration: none;	
+}
+
+a.scheduleActionLink:hover {
+	text-decoration: underline;
+}
+
+#weekScheduleMainTable {
+	border: 1px solid #969696;
+}
+
+#weekScheduleTimeInputTable {
+}
+
+.weekScheduleMainTableHeader {
+	background-color: #C8C8C8;
+	color: #333333;
+	font-size: 12px;
+	text-align: center;
+	font-family: trebuchet ms, arial, sans-serif;
+	font-weight: bold;
+}
+
+.weekScheduleCellHeader {
+	border: 1px solid #969696;
+}
+
+.weekScheduleTimeInputCellText {
+	border: 0px;
+	color: #333333;
+	font-size: 11px;
+	text-align: center;
+	font-family: trebuchet ms, arial, sans-serif;
+	font-weight: bold;
+}
+
+.weekScheduleValueCell {
+	border: 1px solid #969696;
+	background-color: #E6E6E6;
+	color: #333333;
+	font-size: 11px;
+	text-align: center;
+	font-family: trebuchet ms, arial, sans-serif;
+	font-weight: bold;	
+}
+
+.weekScheduleNameCell {
+	border: 1px solid #969696;
+	background-color: #E6E6E6;
+	color: #333333;
+	font-size: 11px;
+	text-align: center;
+	font-family: trebuchet ms, arial, sans-serif;
+}
+
+.weekScheduleValueCellText {
+	border: 1px solid #969696;
+	color: #333333;
+	font-size: 11px;
+	text-align: center;
+	font-family: trebuchet ms, arial, sans-serif;
+	font-weight: bold;
+}
+
+
+.weekScheduleEmployeeTotalHoursExceeded {
+	background-color: #FF6400;
+	color: #000000;
+	font-size: 11px;
+	text-align: center;
+	font-family: trebuchet ms, arial, sans-serif;
+	font-weight: bold;
+}
+
+.weekScheduleEmployeeTotalWeekHoursExceeded {
+	border: 1px solid #969696;
+	background-color: #FF6400;
+	color: #000000;
+	font-size: 11px;
+	text-align: center;
+	font-family: trebuchet ms, arial, sans-serif;
+	font-weight: bold;
+}
+
+.weekScheduleEmployeeTotalWeekDaysExceeded {
+	border: 1px solid #969696;
+	background-color: #FF6400;
+	color: #000000;
+	font-size: 11px;
+	text-align: center;
+	font-family: trebuchet ms, arial, sans-serif;
+	font-weight: bold;
+}
+
+#printScheduleMainTable {
+	border: 1px solid #969696;
+}
+
+.printScheduleMainTableHeader {
+	background-color: #C8C8C8;
+	color: #333333;
+	font-size: 12px;
+	text-align: center;
+	font-family: trebuchet ms, arial, sans-serif;
+	font-weight: bold;
+}
+
+.printScheduleCellHeader {
+	border: 1px solid #969696;
+}
+
+.printSchedulePositionTitle {
+	border: 1px solid #969696;
+	background-color: #C0C0C0;
+	color: #333333;
+	font-size: 12px;
+	font-weight: bold;
+	text-align: left;
+	font-family: trebuchet ms, arial, sans-serif;
+}
+
+.printSchedulePositionTotalHours {
+	border: 1px solid #969696;
+	background-color: #C0C0C0;
+	color: #333333;
+	font-size: 11px;
+	font-weight: bold;
+	text-align: center;
+	font-family: trebuchet ms, arial, sans-serif;
+}
+
+.printScheduleValueTextCell {
+	background-color: #E6E6E6;
+	color: #333333;
+	font-size: 11px;
+	text-align: center;
+	font-family: trebuchet ms, arial, sans-serif;
+	font-weight: bold;	}
+
+.printScheduleValueCell {
+	border: 1px solid #969696;
+	background-color: #E6E6E6;
+	color: #333333;
+	font-size: 11px;
+	text-align: center;
+	font-family: trebuchet ms, arial, sans-serif;
+	font-weight: bold;	
+}

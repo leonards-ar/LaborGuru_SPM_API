@@ -1,0 +1,24 @@
+<!DOCTYPE validators PUBLIC "-//OpenSymphony Group//XWork Validator 1.0.2// 
+       EN" "http://www.opensymphony.com/xwork/xwork-validator-1.0.2.dtd">
+<validators>
+	<field name="user">
+		<field-validator type="visitor">
+			<message>User: </message>
+		</field-validator>
+	</field>
+	<field name="user.password">
+		<field-validator type="requiredstring">
+			<message key="error.password.required" />
+		</field-validator>
+	</field>
+	<field name="passwordConfirmation">
+		<field-validator type="requiredstring">
+			<message key="error.confirm.password.required" />
+		</field-validator>
+	</field>		
+	<validator type="expression">
+		<param name="expression">user.password==passwordConfirmation</param>
+		<message key="error.password.confirm.not.same" />
+	</validator>
+	
+</validators>

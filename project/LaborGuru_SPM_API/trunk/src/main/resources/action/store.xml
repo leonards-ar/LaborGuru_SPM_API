@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="store" namespace="/store" extends="spm-default">		
+		<action name="store_*" method="{1}" class="com.laborguru.action.store.StorePrepareAction">
+			<result name="edit" type="tiles">editStorePage</result>
+			<result name="show" type="tiles">showStorePage</result>
+			<result name="list" type="tiles">listStoresPage</result>
+			<result name="listAction" type="redirectAction">store_list</result>
+			<result name="input" type="tiles">editStorePage</result>			
+		</action>
+		
+		<action name="storeOperationTimes_*" method="{1}" class="com.laborguru.action.store.OperationTimePrepareAction">
+			<result name="edit" type="tiles">editOperationTimePage</result>
+			<result name="show" type="tiles">showOperationTimePage</result>
+			<result name="cancelEdit" type="redirectAction">store_edit</result> 
+			<result name="cancelShow" type="redirectAction">store_show</result> 
+			<result name="input" type="tiles">editOperationTimePage</result>
+			<result name="success" type="redirectAction">store_edit</result> 			
+		</action>
+		
+		<action name="storePositionNames_*" method="{1}" class="com.laborguru.action.store.StorePositionPrepareAction">
+			<result name="edit" type="tiles">editPositionNames</result>
+			<result name="show" type="tiles">showPositionNames</result>
+			<result name="cancelEdit" type="redirectAction">store_edit</result>
+			<result name="cancelShow" type="redirectAction">store_show</result>
+			<result name="input" type="tiles">editPositionNames</result>
+			<result name="success" type="redirectAction">store_edit</result>
+		</action>		
+
+		<action name="storeVariableDefinitions_*" method="{1}" class="com.laborguru.action.store.StoreVariableDefinitionPrepareAction">
+			<result name="edit" type="tiles">editVariableDefinitions</result>
+			<result name="show" type="tiles">showVariableDefinitions</result>
+			<result name="cancelEdit" type="redirectAction">store_edit</result>
+			<result name="cancelShow" type="redirectAction">store_show</result>
+			<result name="input" type="tiles">editVariableDefinitions</result>
+			<result name="success" type="redirectAction">store_edit</result>
+		</action>	
+
+		<action name="storeSecondaryVariables_*" method="{1}" class="com.laborguru.action.store.SecondaryVariablesPrepareAction">
+			<result name="edit" type="tiles">editSecondaryVariables</result>
+			<result name="show" type="tiles">showSecondaryVariables</result>
+			<result name="cancelEdit" type="redirectAction">store_edit</result>
+			<result name="cancelShow" type="redirectAction">store_show</result>
+			<result name="input" type="tiles">editSecondaryVariables</result>
+			<result name="success" type="redirectAction">store_edit</result>
+		</action>	
+
+		<action name="storeDayPartDefinition_*" method="{1}" class="com.laborguru.action.store.DayPartAction">
+			<result name="edit" type="tiles">editDaypartDefinition</result>
+			<result name="show" type="tiles">showDaypartDefinition</result>
+			<result name="cancelEdit" type="redirectAction">listStoresPage</result>
+			<result name="cancelShow" type="redirectAction">store_list</result>
+			<result name="input" type="tiles">editDaypartDefinition</result>
+			<result name="success" type="redirectAction">store_edit</result> 			
+						
+			<interceptor-ref name="spmStackWithoutConversionError"/>
+		</action>		
+
+		<action name="storeWeekdayGuestServ_*" method="{1}" class="com.laborguru.action.store.WeekdayGuestServicesPrepareAction">
+			<result name="edit" type="tiles">editWeekdayGuestServ</result>
+			<result name="show" type="tiles">showWeekdayGuestServ</result>
+			<result name="cancelEdit" type="redirectAction">store_edit</result>
+			<result name="cancelShow" type="redirectAction">store_show</result>
+			<result name="input" type="tiles">editWeekdayGuestServ</result>
+			<result name="success" type="redirectAction">store_edit</result>
+		</action>
+
+		<action name="storeWeekendGuestServ_*" method="{1}" class="com.laborguru.action.store.WeekendGuestServicesPrepareAction">
+			<result name="edit" type="tiles">editWeekendGuestServ</result>
+			<result name="show" type="tiles">showWeekendGuestServ</result>
+			<result name="cancelEdit" type="redirectAction">store_edit</result>
+			<result name="cancelShow" type="redirectAction">store_show</result>
+			<result name="input" type="tiles">editWeekendGuestServ</result>
+			<result name="success" type="redirectAction">store_edit</result>
+		</action>	
+
+		<action name="storeVariableFlexible_*" method="{1}" class="com.laborguru.action.store.VariableFlexiblePrepareAction">
+			<result name="edit" type="tiles">editVariableFlexible</result>
+			<result name="show" type="tiles">showVariableFlexible</result>
+			<result name="cancelEdit" type="redirectAction">store_edit</result>
+			<result name="cancelShow" type="redirectAction">store_show</result>
+			<result name="input" type="tiles">editVariableFlexible</result>
+			<result name="success" type="redirectAction">store_edit</result>
+		</action>			
+
+		<action name="storeVariableOpening_*" method="{1}" class="com.laborguru.action.store.VariableOpeningPrepareAction">
+			<result name="edit" type="tiles">editVariableOpening</result>
+			<result name="show" type="tiles">showVariableOpening</result>
+			<result name="cancelEdit" type="redirectAction">store_edit</result>
+			<result name="cancelShow" type="redirectAction">store_show</result>
+			<result name="input" type="tiles">editVariableOpening</result>
+			<result name="success" type="redirectAction">store_edit</result>
+		</action>
+
+		<action name="storeFixedGuestServ_*" method="{1}" class="com.laborguru.action.store.FixedGuestServicesPrepareAction">
+			<result name="edit" type="tiles">editFixedGuestServ</result>
+			<result name="show" type="tiles">showFixedGuestServ</result>
+			<result name="cancelEdit" type="redirectAction">store_edit</result>
+			<result name="cancelShow" type="redirectAction">store_show</result>
+			<result name="input" type="tiles">editFixedGuestServ</result>
+			<result name="success" type="redirectAction">store_edit</result>
+		</action>		
+
+		<action name="storeFixedFlexible_*" method="{1}" class="com.laborguru.action.store.FixedFlexiblePrepareAction">
+			<result name="edit" type="tiles">editFixedFlexible</result>
+			<result name="show" type="tiles">showFixedFlexible</result>
+			<result name="cancelEdit" type="redirectAction">store_edit</result>
+			<result name="cancelShow" type="redirectAction">store_show</result>
+			<result name="input" type="tiles">editFixedFlexible</result>
+			<result name="success" type="redirectAction">store_edit</result>
+		</action>
+
+		<action name="storeMinimumStaffing_*" method="{1}" class="com.laborguru.action.store.MinimumStaffingPrepareAction">
+			<result name="edit" type="tiles">editMinimumStaffing</result>
+			<result name="show" type="tiles">showMinimumStaffing</result>
+			<result name="cancelEdit" type="redirectAction">store_edit</result>
+			<result name="cancelShow" type="redirectAction">store_show</result>
+			<result name="input" type="tiles">editMinimumStaffing</result>
+			<result name="success" type="redirectAction">store_edit</result>
+		</action>
+
+		<action name="storeFixedOpening_*" method="{1}" class="com.laborguru.action.store.FixedOpeningPrepareAction">
+			<result name="edit" type="tiles">editFixedOpening</result>
+			<result name="show" type="tiles">showFixedOpening</result>
+			<result name="cancelEdit" type="redirectAction">store_edit</result>
+			<result name="cancelShow" type="redirectAction">store_show</result>
+			<result name="input" type="tiles">editFixedOpening</result>
+			<result name="success" type="redirectAction">store_edit</result>
+		</action>
+		
+		<action name="storeFixedClosing_*" method="{1}" class="com.laborguru.action.store.FixedClosingPrepareAction">
+			<result name="edit" type="tiles">editFixedClosing</result>
+			<result name="show" type="tiles">showFixedClosing</result>
+			<result name="cancelEdit" type="redirectAction">store_edit</result>
+			<result name="cancelShow" type="redirectAction">store_show</result>
+			<result name="input" type="tiles">editFixedClosing</result>
+			<result name="success" type="redirectAction">store_edit</result>
+		</action>
+		
+		<action name="storeFixedPostRush_*" method="{1}" class="com.laborguru.action.store.FixedPostRushPrepareAction">
+			<result name="edit" type="tiles">editFixedPostRush</result>
+			<result name="show" type="tiles">showFixedPostRush</result>
+			<result name="cancelEdit" type="redirectAction">store_edit</result>
+			<result name="cancelShow" type="redirectAction">store_show</result>
+			<result name="input" type="tiles">editFixedPostRush</result>
+			<result name="success" type="redirectAction">store_edit</result>
+		</action>			
+
+		<action name="storeUtilization_*" method="{1}" class="com.laborguru.action.store.UtilizationPrepareAction">
+			<result name="edit" type="tiles">editUtilization</result>
+			<result name="show" type="tiles">showUtilization</result>
+			<result name="cancelEdit" type="redirectAction">store_edit</result>
+			<result name="cancelShow" type="redirectAction">store_show</result>
+			<result name="input" type="tiles">editUtilization</result>
+			<result name="success" type="redirectAction">store_edit</result>
+			
+			<interceptor-ref name="spmStackWithoutConversionError"/>
+		</action>			
+
+		<action name="storeUtilizationLimits_*" method="{1}" class="com.laborguru.action.store.UtilizationLimitsAction">
+			<result name="edit" type="tiles">editUtilizationLimits</result>
+			<result name="show" type="tiles">showUtilizationLimits</result>
+			<result name="cancelEdit" type="redirectAction">store_edit</result>
+			<result name="cancelShow" type="redirectAction">store_show</result>
+			<result name="input" type="tiles">editUtilizationLimits</result>
+			<result name="success" type="redirectAction">store_edit</result>
+			
+			<interceptor-ref name="spmStackWithoutConversionError"/>
+		</action>
+		
+		<action name="storeActivitySharing_*" method="{1}" class="com.laborguru.action.store.ActivitySharingPrepareAction">
+			<result name="edit" type="tiles">editActivitySharing</result>
+			<result name="show" type="tiles">showActivitySharing</result>
+			<result name="cancelEdit" type="redirectAction">store_edit</result>
+			<result name="cancelShow" type="redirectAction">store_show</result>
+			<result name="input" type="tiles">editActivitySharing</result>
+			<result name="success" type="redirectAction">store_edit</result>
+		</action>
+		
+		<action name="positionGroup_*" method="{1}" class="com.laborguru.action.store.PositionGroupPrepareAction">
+			<result name="edit" type="tiles">editPositionGroup</result>
+			<result name="show" type="tiles">showPositionGroup</result>
+			<result name="cancelEdit" type="redirectAction">store_edit</result>
+			<result name="cancelShow" type="redirectAction">store_show</result>
+			<result name="input" type="tiles">editPositionGroup</result>
+			<result name="success" type="redirectAction">store_edit</result>
+		</action>
+				
+		<action name="employeeStore_*" method="{1}" class="com.laborguru.action.employee.EmployeeStorePrepareAction">
+			<result name="edit" type="tiles">editStoreEmployeePage</result>
+			<result name="show" type="tiles">showStoreEmployeePage</result>
+			<result name="list" type="tiles">listStoreEmployeePage</result>
+			<result name="listAction" type="redirectAction">
+			  <param name="actionName">employeeStore_list</param>
+			  <param name="storeId">${storeId}</param>
+			</result>
+			<result name="input" type="tiles">editStoreEmployeePage</result>			
+		</action>
+
+		<action name="storeOtherFactors_*" method="{1}" class="com.laborguru.action.store.OtherFactorsPrepareAction">
+			<result name="edit" type="tiles">editOtherFactorsPage</result>
+			<result name="show" type="tiles">showOtherFactorsPage</result>
+			<result name="cancelEdit" type="redirectAction">store_edit</result> 
+			<result name="cancelShow" type="redirectAction">store_show</result> 
+			<result name="input" type="tiles">editOtherFactorsPage</result>
+			<result name="success" type="redirectAction">store_edit</result> 			
+		</action>		
+		<action name="uploadDefinition_*" method="{1}" class="com.laborguru.action.store.UploadDefinitionPrepareAction">
+			<result name="edit" type="tiles">storeDefinitionUploadPage</result>
+			<result name="input" type="tiles">storeDefinitionUploadPage</result>
+			<result name="cancel" type="redirectAction">store_list</result>						
+		</action>
+
+		<action name="projectionSettings_*" method="{1}" class="com.laborguru.action.store.ProjectionSettingsPrepareAction">
+			<result name="edit" type="tiles">editStoreProjectionSettings</result>
+			<result name="show" type="tiles">showStoreProjectionSettings</result>
+			<result name="cancelEdit" type="redirectAction">store_edit</result>
+			<result name="cancelShow" type="redirectAction">store_show</result>
+			<result name="input" type="tiles">editStoreProjectionSettings</result>
+			<result name="success" type="redirectAction">store_edit</result>
+		</action>		
+	</package>
+</struts>

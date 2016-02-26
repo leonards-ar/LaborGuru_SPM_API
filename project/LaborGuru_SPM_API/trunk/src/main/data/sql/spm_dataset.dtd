@@ -1,0 +1,213 @@
+<!ELEMENT dataset (
+    tbl_customers*,
+    tbl_regions*,
+    tbl_areas*,
+    tbl_employees*,
+    tbl_customer_users*,
+    tbl_region_users*,
+    tbl_area_users*,
+    tbl_permissions*,    
+    tbl_menu_items*,
+    tbl_operation_times*,
+    tbl_stores*,
+    tbl_positions*,
+    tbl_profiles*,
+    tbl_profiles_permissions*,
+    tbl_users*,
+    tbl_day_parts*,
+    tbl_users_profiles*,
+    tbl_upload_files*,
+    tbl_historic_sales*,
+    tbl_projections*,
+    tbl_halfhour_projections*)>
+
+<!ELEMENT tbl_areas EMPTY>
+<!ATTLIST tbl_areas
+    area_id CDATA #REQUIRED
+    name CDATA #IMPLIED
+    region_id CDATA #IMPLIED
+>
+
+<!ELEMENT tbl_customers EMPTY>
+<!ATTLIST tbl_customers
+    customer_id CDATA #REQUIRED
+    name CDATA #IMPLIED
+    code CDATA #IMPLIED
+>
+
+<!ELEMENT tbl_employees EMPTY>
+<!ATTLIST tbl_employees
+    user_id CDATA #REQUIRED
+    store_id CDATA #IMPLIED
+    default_position CDATA #IMPLIED
+    manager CDATA #IMPLIED
+    phone CDATA #IMPLIED
+    phone2 CDATA #IMPLIED
+    hire_date CDATA #IMPLIED
+    max_hours_week CDATA #IMPLIED
+    max_days_week CDATA #IMPLIED
+    max_hour_day CDATA #IMPLIED
+    address CDATA #IMPLIED
+    address2 CDATA #IMPLIED
+    city CDATA #IMPLIED
+    state CDATA #IMPLIED
+    zip CDATA #IMPLIED
+    comments CDATA #IMPLIED
+    employee_id CDATA #IMPLIED
+    wage CDATA #IMPLIED
+>
+
+<!ELEMENT tbl_customer_users EMPTY>
+<!ATTLIST tbl_customer_users
+    user_id CDATA #REQUIRED
+    customer_id CDATA #REQUIRED
+>
+
+<!ELEMENT tbl_region_users EMPTY>
+<!ATTLIST tbl_region_users
+    user_id CDATA #REQUIRED
+    region_id CDATA #REQUIRED
+>
+
+<!ELEMENT tbl_area_users EMPTY>
+<!ATTLIST tbl_area_users
+    user_id CDATA #REQUIRED
+    area_id CDATA #REQUIRED
+>
+<!ELEMENT tbl_menu_items EMPTY>
+<!ATTLIST tbl_menu_items
+    menu_item_id CDATA #REQUIRED
+    label_key CDATA #REQUIRED
+    help_key CDATA #IMPLIED
+    target CDATA #IMPLIED
+    position CDATA #IMPLIED
+    parent_id CDATA #IMPLIED
+    permission_id CDATA #REQUIRED
+>
+
+<!ELEMENT tbl_operation_times EMPTY>
+<!ATTLIST tbl_operation_times
+    operation_time_id CDATA #REQUIRED
+    open_hour CDATA #REQUIRED
+    close_hour CDATA #REQUIRED
+    day_of_week CDATA #REQUIRED
+    store_id CDATA #IMPLIED
+    opening_extra_hours CDATA #IMPLIED
+    closing_extra_hours CDATA #IMPLIED
+>
+
+<!ELEMENT tbl_permissions EMPTY>
+<!ATTLIST tbl_permissions
+    permission_id CDATA #REQUIRED
+    name CDATA #REQUIRED
+    description CDATA #IMPLIED
+>
+
+<!ELEMENT tbl_positions EMPTY>
+<!ATTLIST tbl_positions
+    position_id CDATA #REQUIRED
+    name CDATA #IMPLIED
+    manager CDATA #IMPLIED
+    guest_service CDATA #IMPLIED
+    position_index CDATA #IMPLIED
+    store_id CDATA #IMPLIED
+>
+
+<!ELEMENT tbl_profiles EMPTY>
+<!ATTLIST tbl_profiles
+    profile_id CDATA #REQUIRED
+    name CDATA #REQUIRED
+    description CDATA #IMPLIED
+    home_result CDATA #IMPLIED
+>
+
+<!ELEMENT tbl_profiles_permissions EMPTY>
+<!ATTLIST tbl_profiles_permissions
+    profile_id CDATA #REQUIRED
+    permission_id CDATA #REQUIRED
+>
+
+<!ELEMENT tbl_regions EMPTY>
+<!ATTLIST tbl_regions
+    region_id CDATA #REQUIRED
+    name CDATA #IMPLIED
+    customer_id CDATA #IMPLIED
+>
+
+<!ELEMENT tbl_stores EMPTY>
+<!ATTLIST tbl_stores
+    store_id CDATA #REQUIRED
+    name CDATA #IMPLIED
+    code CDATA #IMPLIED
+    first_day_of_week CDATA #IMPLIED
+    area_id CDATA #IMPLIED
+    daily_projections_weeks_default CDATA #IMPLIED
+    half_hour_projections_weeks_default CDATA #IMPLIED
+>
+
+<!ELEMENT tbl_users EMPTY>
+<!ATTLIST tbl_users
+    user_id CDATA #REQUIRED
+    username CDATA #REQUIRED
+    password CDATA #IMPLIED
+    status CDATA #IMPLIED
+    email CDATA #IMPLIED
+    name CDATA #IMPLIED
+    surname CDATA #IMPLIED
+    last_logon CDATA #IMPLIED
+    login_count CDATA #IMPLIED
+    creation_date CDATA #IMPLIED
+    last_update_date CDATA #IMPLIED
+>
+
+<!ELEMENT tbl_day_parts EMPTY>
+<!ATTLIST tbl_day_parts
+    day_part_id CDATA #REQUIRED
+    name CDATA #REQUIRED
+    start_hour CDATA #IMPLIED
+    store_id CDATA #REQUIRED
+    position_index CDATA #REQUIRED
+>
+
+<!ELEMENT tbl_users_profiles EMPTY>
+<!ATTLIST tbl_users_profiles
+    user_id CDATA #REQUIRED
+    profile_id CDATA #REQUIRED
+>
+
+<!ELEMENT tbl_upload_files EMPTY>
+<!ATTLIST tbl_upload_files
+	upload_file_id CDATA #REQUIRED
+	upload_date CDATA #IMPLIED
+	filename CDATA #IMPLIED
+>
+
+<!ELEMENT tbl_historic_sales EMPTY>
+<!ATTLIST tbl_historic_sales
+    historic_sales_id CDATA #REQUIRED
+    date_time CDATA #REQUIRED
+    day_of_week CDATA #REQUIRED
+    main_value CDATA #IMPLIED
+    second_value CDATA #IMPLIED
+    third_value CDATA #IMPLIED
+    fourth_value CDATA #IMPLIED    
+    store_id CDATA #REQUIRED
+    upload_file_id CDATA #REQUIRED
+>
+
+<!ELEMENT tbl_projections EMPTY>
+<!ATTLIST tbl_projections
+	projection_id CDATA #REQUIRED
+	projection_date CDATA #IMPLIED
+	starting_time CDATA #IMPLIED
+	store_id CDATA #REQUIRED
+>
+
+<!ELEMENT tbl_halfhour_projections EMPTY>
+<!ATTLIST tbl_halfhour_projections
+	half_hour_id CDATA #REQUIRED
+	adjusted_value CDATA #IMPLIED
+	half_hour_index CDATA #IMPLIED
+	projection_id CDATA #REQUIRED
+>
+

@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.laborguru.model">
+	<class name="StoreVariableDefinition" table="tbl_store_variable_definitions">
+
+		<id name="id" type="int" unsaved-value="null" column="variable_definition_id">
+			<generator class="identity" />
+		</id>
+		
+		<property name="name" column="name" length="100" not-null="false"/>
+		
+		<many-to-one name="store" class="Store" foreign-key="fk_positions_stores">
+			<column name="store_id"/>
+		</many-to-one>
+		
+	    <property name="variableIndex" column="variable_index" type="int" not-null="true"/>
+	    
+	    <property name="average" column="average" type="double"/>	    
+	</class>	
+	<database-object>
+		<create>ALTER TABLE tbl_store_variable_definitions AUTO_INCREMENT=1000</create>
+		<drop></drop>
+	</database-object> 	    		
+</hibernate-mapping>

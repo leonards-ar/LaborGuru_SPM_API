@@ -1,0 +1,70 @@
+<!DOCTYPE validators PUBLIC "-//OpenSymphony Group//XWork Validator 1.0.2// 
+       EN" "http://www.opensymphony.com/xwork/xwork-validator-1.0.2.dtd"> 
+<validators> 
+  <field name="scheduleInefficiency">
+	   <field-validator type="conversion" short-circuit="true">
+	   		<message key="error.otherfactors.scheduleinefficiency.invalid"/>
+	    </field-validator>
+	    	
+		<field-validator type="double">
+			<param name="minInclusive">0.00</param>
+			<param name="maxInclusive">100.00</param>
+			<message key="error.otherfactors.scheduleinefficiency.invalid"/>
+		</field-validator>   
+  </field> 
+  <field name="fillInefficiency">
+	   <field-validator type="conversion" short-circuit="true">
+	   		<message key="error.otherfactors.fillinefficiency.invalid"/>
+	    </field-validator>
+	    	
+		<field-validator type="double">
+			<param name="minInclusive">0.00</param>
+			<param name="maxInclusive">100.00</param>
+			<message key="error.otherfactors.fillinefficiency.invalid"/>
+		</field-validator>   
+  </field> 
+  <field name="trainingFactor">
+	   <field-validator type="conversion" short-circuit="true">
+	   		<message key="error.otherfactors.trainingfactor.invalid"/>
+	    </field-validator>
+	    	
+		<field-validator type="double">
+			<param name="minInclusive">0.00</param>
+			<param name="maxInclusive">100.00</param>
+			<message key="error.otherfactors.trainingfactor.invalid"/>
+		</field-validator>   
+  </field> 
+  <field name="earnedBreakFactor">
+	   <field-validator type="conversion" short-circuit="true">
+	   		<message key="error.otherfactors.earnedbreakfactor.invalid"/>
+	    </field-validator>
+	    	
+		<field-validator type="double">
+			<param name="minInclusive">0.00</param>
+			<param name="maxInclusive">100.00</param>
+			<message key="error.otherfactors.earnedbreakfactor.invalid"/>
+		</field-validator>   
+  </field> 
+  <field name="floorManagementFactor">
+	   <field-validator type="conversion" short-circuit="true">
+	   		<message key="error.otherfactors.floormanagementfactor.invalid"/>
+	    </field-validator>
+	    	
+		<field-validator type="double">
+			<param name="minInclusive">0.00</param>
+			<param name="maxInclusive">100.00</param>
+			<message key="error.otherfactors.floormanagementfactor.invalid"/>
+		</field-validator>   
+  </field> 
+  <field name="minimumFloorManagementHours">
+	   <field-validator type="conversion" short-circuit="true">
+	   		<message key="error.otherfactors.minimumfloormanagementhours.invalid"/>
+	    </field-validator>
+	    	
+		<field-validator type="int">
+     		<param name="min">0</param>
+      		<param name="max">24</param>
+			<message key="error.otherfactors.minimumfloormanagementhours.invalid"/>
+		</field-validator>   
+  </field> 
+</validators>

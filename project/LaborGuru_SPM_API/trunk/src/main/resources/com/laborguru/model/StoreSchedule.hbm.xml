@@ -1,0 +1,71 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.laborguru.model">
+	<class name="StoreSchedule" table="tbl_store_schedules">
+		<id name="id" type="int" unsaved-value="null" column="store_schedule_id">
+			<generator class="identity" />
+		</id>
+		
+        <property name="day" column="day" type="date" not-null="false"/>       
+
+		<many-to-one name="store" class="Store" foreign-key="fk_storeschedules_stores" not-null="true">
+			<column name="store_id" not-null="true"/>
+		</many-to-one>
+
+		<set name="employeeSchedules" lazy="false" cascade="all-delete-orphan" table="tbl_employee_schedules" inverse="true">
+	        <key column="store_schedule_id" foreign-key="fk_storeschedules_employeeschedules"/>
+	        <one-to-many class="EmployeeSchedule"/>
+	    </set>
+	</class>
+
+	<sql-query name="totalScheduledHoursByDate">
+	
+		<return-scalar column="totalHours" type="big_decimal"/>
+		
+		<![CDATA[SELECT SUM(s.service_hours + s.opening_hours + s.closing_hours) as totalHours
+		FROM tbl_store_schedules as ss, tbl_employee_schedules as es, tbl_shifts as s
+		WHERE ss.store_schedule_id = es.store_schedule_id
+		AND es.employee_schedule_id = s.employee_schedule_id
+		AND s.position_id IS NOT NULL
+		AND ss.day BETWEEN STR_TO_DATE(:startDate,'%Y-%m-%d %H:%i:%s') AND STR_TO_DATE(:endDate,'%Y-%m-%d %H:%i:%s')
+		AND ss.store_id = :storeId]]>
+	</sql-query> 	
+
+	<sql-query name="totalScheduledLaborCostByDate">
+	
+		<return-scalar column="totalLaborCost" type="big_decimal"/>
+		
+		<![CDATA[SELECT SUM((s.service_hours + s.opening_hours + s.closing_hours) * e.wage) as totalLaborCost
+		FROM tbl_store_schedules as ss, tbl_employee_schedules as es, tbl_shifts as s, tbl_employees as e
+		WHERE ss.store_schedule_id = es.store_schedule_id
+		AND es.employee_schedule_id = s.employee_schedule_id
+		AND es.employee_id = e.user_id
+		AND s.position_id IS NOT NULL
+		AND ss.day BETWEEN STR_TO_DATE(:startDate,'%Y-%m-%d %H:%i:%s') AND STR_TO_DATE(:endDate,'%Y-%m-%d %H:%i:%s')
+		AND ss.store_id = :storeId]]>
+	</sql-query> 	
+	
+	<sql-query name="totalScheduledHoursByPositionByDate">
+
+		<return-scalar column="positionId" type="integer"/>
+		<return-scalar column="totalHours" type="big_decimal"/>
+		
+		<![CDATA[SELECT s.position_id as positionId, SUM(s.service_hours + s.opening_hours + s.closing_hours) as totalHours
+		FROM tbl_store_schedules as ss, tbl_employee_schedules as es, tbl_shifts as s
+		WHERE ss.store_schedule_id = es.store_schedule_id
+		AND es.employee_schedule_id = s.employee_schedule_id
+		AND s.position_id IS NOT NULL
+		AND ss.day BETWEEN STR_TO_DATE(:startDate,'%Y-%m-%d %H:%i:%s') AND STR_TO_DATE(:endDate,'%Y-%m-%d %H:%i:%s')
+		AND ss.store_id = :storeId
+		GROUP BY s.position_id]]>
+		
+	</sql-query> 	
+		
+	<database-object>
+		<create>ALTER TABLE tbl_store_schedules AUTO_INCREMENT=1000</create>
+		<drop></drop>
+	</database-object>   	
+</hibernate-mapping>

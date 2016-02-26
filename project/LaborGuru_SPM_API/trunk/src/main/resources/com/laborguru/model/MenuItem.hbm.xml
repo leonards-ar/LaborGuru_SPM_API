@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.laborguru.model">
+    <class name="MenuItem" table="tbl_menu_items">
+
+        <id name="id" type="int" unsaved-value="null" column="menu_item_id">
+        	<generator class="identity"/>
+        </id>
+
+        <property name="labelKey" column="label_key" type="string" length="50" not-null="true"/>       
+        <property name="helpKey" column="help_key" type="string" length="50" />        
+        <property name="target" column="target" type="string" length="200"/>       
+        <property name="position" column="position" type="int"/>        
+
+
+		<!-- Parent can be null for root menu items -->
+		<!-- set name="childMenuItems" cascade="all-delete-orphan" inverse="true" lazy="false"-->
+		<set name="childMenuItems" inverse="true" lazy="false" >
+			<key column="parent_id" foreign-key="fk_menuitems_menuitems"/>
+			<one-to-many class="MenuItem"/>
+		</set>
+		
+ 		<many-to-one name="parentMenuItem" class="MenuItem" foreign-key="fk_menuitems_menuitems">
+			<column name="parent_id"/>
+		</many-to-one>
+
+		<many-to-one name="permission" class="Permission" lazy="false" column="permission_id" not-null="true" foreign-key="fk_menuitems_permissions"/>
+    </class>
+	<database-object>
+		<create>ALTER TABLE tbl_menu_items AUTO_INCREMENT=1000</create>
+		<drop></drop>
+	</database-object>      
+</hibernate-mapping>
+
+

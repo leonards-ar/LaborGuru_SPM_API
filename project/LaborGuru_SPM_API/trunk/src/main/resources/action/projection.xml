@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="projection" namespace="/projection" extends="spm-default">
+	
+		<action name="daily_*" method="{1}" class="com.laborguru.action.projection.DailyProjectionsPrepareAction">
+			<result name="edit" type="tiles">editDailyPage</result>
+			<result name="input" type="tiles">editDailyPage</result>			
+			<result name="success" type="tiles">editDailyPage</result>				
+			<interceptor-ref name="spmStackWithoutConversionError"/>
+		</action>
+				
+		<action name="halfhour_*" method="{1}" class="com.laborguru.action.projection.HalfHourProjectionsPrepareAction">
+			<result name="edit" type="tiles">editHalfHourPage</result>
+			<result name="input" type="tiles">editHalfHourPage</result>			
+			<result name="success" type="tiles">editHalfHourPage</result>
+			<interceptor-ref name="spmStackWithoutConversionError"/>			
+		</action>		
+
+		<action name="actualValues_*" method="{1}" class="com.laborguru.action.projection.ActualValuesPrepareAction">
+			<result name="edit" type="tiles">editActualValuesPage</result>
+			<result name="input" type="tiles">editActualValuesPage</result>			
+			<result name="success" type="tiles">editActualValuesPage</result>
+		</action>		
+
+
+		<action name="settings_*" method="{1}" class="com.laborguru.action.projection.ProjectionSettingsPrepareAction">
+			<result name="edit" type="tiles">editSettingsPage</result>
+			<result name="input" type="tiles">editSettingsPage</result>
+			<result name="success" type="tiles">editSettingsPage</result>	
+		</action>
+	</package>
+</struts>

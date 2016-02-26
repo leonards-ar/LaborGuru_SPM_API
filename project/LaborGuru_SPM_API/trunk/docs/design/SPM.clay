@@ -1,0 +1,1815 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<clay-model clay-version="1.4.2">
+<database-model alias="" author="" begin-script="" end-script="" name="SPM" remarks="" sql-dialect-id="jp.azzurri.clay.dialect.MySQL_5_0_Dialect" uid="e94c62:11a07671122:-8000" version="1.0">
+<database-model-description></database-model-description>
+<schema-list>
+<schema alias="" name="DEFAULT_SCHEMA" remarks="" uid="e94c62:11a07671122:-7ffd">
+<schema-description></schema-description>
+<domain-list/>
+<table-list>
+<table alias="" name="tbl_profiles" remarks="" uid="e94c62:11a07671122:-7fff">
+<table-description></table-description>
+<table-figure-bounds height="-1" width="-1" x="22" y="7"/>
+<column-list>
+<column alias="" auto-increment="false" column-size="0" decimal-digits="0" default-value="" mandatory="true" name="profile_id" remarks="" uid="e94c62:11a07671122:-7ffa">
+<column-description></column-description>
+<data-type jdbc-type="4" name="INT" selected-variant-pattern="INT">
+<variant type-name-pattern="INT"/>
+</data-type>
+</column>
+<column alias="" auto-increment="false" column-size="255" decimal-digits="0" default-value="" mandatory="true" name="description" remarks="" uid="e94c62:11a07671122:-7ff9">
+<column-description></column-description>
+<data-type jdbc-type="12" literal-prefix="'" literal-suffix="'" name="VARCHAR" selected-variant-pattern="VARCHAR(%n)">
+<variant precision-max="2147483647" precision-min="1" precision-variable="%n" type-name-pattern="VARCHAR(%n)"/>
+</data-type>
+</column>
+</column-list>
+<primary-key alias="" name="PK_TBL_PROFILES" remarks="" uid="e94c62:11a07671122:-7ffe">
+<primary-key-description></primary-key-description>
+<primary-key-column name="profile_id"/>
+</primary-key>
+<unique-key-list/>
+<foreign-key-list/>
+<index-list/>
+</table>
+<table alias="" name="tbl_users" remarks="" uid="e94c62:11a07671122:-7ff7">
+<table-description></table-description>
+<table-figure-bounds height="-1" width="-1" x="655" y="11"/>
+<column-list>
+<column alias="" auto-increment="false" column-size="0" decimal-digits="0" default-value="" mandatory="true" name="user_id" remarks="" uid="e94c62:11a07671122:-7ff3">
+<column-description></column-description>
+<data-type jdbc-type="4" name="INT" selected-variant-pattern="INT">
+<variant type-name-pattern="INT"/>
+</data-type>
+</column>
+<column alias="" auto-increment="false" column-size="255" decimal-digits="0" default-value="" mandatory="false" name="username" remarks="" uid="e94c62:11a07671122:-7ff2">
+<column-description></column-description>
+<data-type jdbc-type="12" literal-prefix="'" literal-suffix="'" name="VARCHAR" selected-variant-pattern="VARCHAR(%n)">
+<variant precision-max="2147483647" precision-min="1" precision-variable="%n" type-name-pattern="VARCHAR(%n)"/>
+</data-type>
+</column>
+<column alias="" auto-increment="false" column-size="255" decimal-digits="0" default-value="" mandatory="false" name="password" remarks="" uid="e94c62:11a07671122:-7ff1">
+<column-description></column-description>
+<data-type jdbc-type="12" literal-prefix="'" literal-suffix="'" name="VARCHAR" selected-variant-pattern="VARCHAR(%n)">
+<variant precision-max="2147483647" precision-min="1" precision-variable="%n" type-name-pattern="VARCHAR(%n)"/>
+</data-type>
+</column>
+<column alias="" auto-increment="false" column-size="0" decimal-digits="0" default-value="" mandatory="false" name="status" remarks="" uid="e94c62:11a07671122:-7ff0">
+<column-description></column-description>
+<data-type jdbc-type="4" name="INT" selected-variant-pattern="INT">
+<variant type-name-pattern="INT"/>
+</data-type>
+</column>
+<column alias="" auto-increment="false" column-size="255" decimal-digits="0" default-value="" mandatory="false" name="email" remarks="" uid="e94c62:11a07671122:-7fef">
+<column-description></column-description>
+<data-type jdbc-type="12" literal-prefix="'" literal-suffix="'" name="VARCHAR" selected-variant-pattern="VARCHAR(%n)">
+<variant precision-max="2147483647" precision-min="1" precision-variable="%n" type-name-pattern="VARCHAR(%n)"/>
+</data-type>
+</column>
+<column alias="" auto-increment="false" column-size="255" decimal-digits="0" default-value="" mandatory="false" name="name" remarks="" uid="e94c62:11a07671122:-7fee">
+<column-description></column-description>
+<data-type jdbc-type="12" literal-prefix="'" literal-suffix="'" name="VARCHAR" selected-variant-pattern="VARCHAR(%n)">
+<variant precision-max="2147483647" precision-min="1" precision-variable="%n" type-name-pattern="VARCHAR(%n)"/>
+</data-type>
+</column>
+<column alias="" auto-increment="false" column-size="255" decimal-digits="0" default-value="" mandatory="false" name="surname" remarks="" uid="e94c62:11a07671122:-7fed">
+<column-description></column-description>
+<data-type jdbc-type="12" literal-prefix="'" literal-suffix="'" name="VARCHAR" selected-variant-pattern="VARCHAR(%n)">
+<variant precision-max="2147483647" precision-min="1" precision-variable="%n" type-name-pattern="VARCHAR(%n)"/>
+</data-type>
+</column>
+<column alias="" auto-increment="false" column-size="0" decimal-digits="0" default-value="" mandatory="false" name="last_logon" remarks="" uid="1929d62:11a687bcbb7:-7fe3">
+<column-description></column-description>
+<data-type jdbc-type="93" name="TIMESTAMP" selected-variant-pattern="TIMESTAMP">
+<variant type-name-pattern="TIMESTAMP"/>
+<variant precision-max="9" precision-min="1" precision-variable="%p" type-name-pattern="TIMESTAMP(%p)"/>
+<variant type-name-pattern="TIMESTAMP WITH TIME ZONE"/>
+<variant precision-max="9" precision-min="1" precision-variable="%p" type-name-pattern="TIMESTAMP(%p) WITH TIME ZONE"/>
+<variant precision-max="9" precision-min="1" precision-variable="%p" type-name-pattern="TIMESTAMP(%p) WITHOUT TIME ZONE"/>
+</data-type>
+</column>
+<column alias="" auto-increment="false" column-size="0" decimal-digits="0" default-value="" mandatory="false" name="logon_count" remarks="" uid="1929d62:11a687bcbb7:-7fe2">
+<column-description></column-description>
+<data-type jdbc-type="4" name="INT" selected-variant-pattern="INT">
+<variant type-name-pattern="INT"/>
+</data-type>
+</column>
+<column alias="" auto-increment="false" column-size="0" decimal-digits="0" default-value="" mandatory="false" name="creation_date" remarks="" uid="1929d62:11a687bcbb7:-7fe1">
+<column-description></column-description>
+<data-type jdbc-type="93" name="TIMESTAMP" selected-variant-pattern="TIMESTAMP">
+<variant type-name-pattern="TIMESTAMP"/>
+<variant precision-max="9" precision-min="1" precision-variable="%p" type-name-pattern="TIMESTAMP(%p)"/>
+<variant type-name-pattern="TIMESTAMP WITH TIME ZONE"/>
+<variant precision-max="9" precision-min="1" precision-variable="%p" type-name-pattern="TIMESTAMP(%p) WITH TIME ZONE"/>
+<variant precision-max="9" precision-min="1" precision-variable="%p" type-name-pattern="TIMESTAMP(%p) WITHOUT TIME ZONE"/>
+</data-type>
+</column>
+<column alias="" auto-increment="false" column-size="0" decimal-digits="0" default-value="" mandatory="false" name="last_update_date" remarks="" uid="1929d62:11a687bcbb7:-7fe0">
+<column-description></column-description>
+<data-type jdbc-type="93" name="TIMESTAMP" selected-variant-pattern="TIMESTAMP">
+<variant type-name-pattern="TIMESTAMP"/>
+<variant precision-max="9" precision-min="1" precision-variable="%p" type-name-pattern="TIMESTAMP(%p)"/>
+<variant type-name-pattern="TIMESTAMP WITH TIME ZONE"/>
+<variant precision-max="9" precision-min="1" precision-variable="%p" type-name-pattern="TIMESTAMP(%p) WITH TIME ZONE"/>
+<variant precision-max="9" precision-min="1" precision-variable="%p" type-name-pattern="TIMESTAMP(%p) WITHOUT TIME ZONE"/>
+</data-type>
+</column>
+</column-list>
+<primary-key alias="" name="PK_TBL_USERS" remarks="" uid="e94c62:11a07671122:-7ff6">
+<primary-key-description></primary-key-description>
+<primary-key-column name="user_id"/>
+</primary-key>
+<unique-key-list/>
+<foreign-key-list/>
+<index-list/>
+</table>
+<table alias="" name="tbl_user_profiles" remarks="" uid="e94c62:11a07671122:-7feb">
+<table-description></table-description>
+<table-figure-bounds height="-1" width="-1" x="311" y="12"/>
+<column-list>
+<column alias="" auto-increment="false" column-size="0" decimal-digits="0" default-value="" mandatory="true" name="profile_id" remarks="" uid="e94c62:11a07671122:-7fe7">
+<column-description></column-description>
+<data-type jdbc-type="4" name="INT" selected-variant-pattern="INT">
+<variant type-name-pattern="INT"/>
+</data-type>
+</column>
+<column alias="" auto-increment="false" column-size="0" decimal-digits="0" default-value="" mandatory="true" name="user_id" remarks="" uid="e94c62:11a07671122:-7fe6">
+<column-description></column-description>
+<data-type jdbc-type="4" name="INT" selected-variant-pattern="INT">
+<variant type-name-pattern="INT"/>
+</data-type>
+</column>
+</column-list>
+<primary-key alias="" name="PK_TBL_USER_PROFILES" remarks="" uid="e94c62:11a07671122:-7fea">
+<primary-key-description></primary-key-description>
+<primary-key-column name="profile_id"/>
+<primary-key-column name="user_id"/>
+</primary-key>
+<unique-key-list/>
+<foreign-key-list>
+<foreign-key alias="" name="FK_tbl_user_profiles_1" on-delete="" on-update="" referenced-key="PK_TBL_PROFILES" referenced-table="tbl_profiles" referenced-table-schema="DEFAULT_SCHEMA" remarks="" source-entity-role="" source-multiplicity="0..*" source-relationship-type="" target-entity-role="" target-multiplicity="1" target-relationship-type="" uid="e94c62:11a07671122:-7eae">
+<foreign-key-description></foreign-key-description>
+<foreign-key-figure>
+<fk-fig-bendpoint-list/>
+</foreign-key-figure>
+<foreign-key-column column-name="profile_id" referenced-key-column-name="profile_id"/>
+</foreign-key>
+<foreign-key alias="" name="FK_tbl_user_profiles_2" on-delete="" on-update="" referenced-key="PK_TBL_USERS" referenced-table="tbl_users" referenced-table-schema="DEFAULT_SCHEMA" remarks="" source-entity-role="" source-multiplicity="0..*" source-relationship-type="" target-entity-role="" target-multiplicity="1" target-relationship-type="" uid="e94c62:11a07671122:-7e7f">
+<foreign-key-description></foreign-key-description>
+<foreign-key-figure>
+<fk-fig-bendpoint-list/>
+</foreign-key-figure>
+<foreign-key-column column-name="user_id" referenced-key-column-name="user_id"/>
+</foreign-key>
+</foreign-key-list>
+<index-list/>
+</table>
+<table alias="" name="tbl_customer_ext_attributes" remarks="" uid="e94c62:11a07671122:-7f8a">
+<table-description></table-description>
+<table-figure-bounds height="-1" width="-1" x="225" y="223"/>
+<column-list>
+<column alias="" auto-increment="false" column-size="0" decimal-digits="0" default-value="" mandatory="true" name="attribute_id" remarks="" uid="e94c62:11a07671122:-7f86">
+<column-description></column-description>
+<data-type jdbc-type="4" name="INT" selected-variant-pattern="INT">
+<variant type-name-pattern="INT"/>
+</data-type>
+</column>
+<column alias="" auto-increment="false" column-size="150" decimal-digits="0" default-value="" mandatory="false" name="label_key" remarks="" uid="e94c62:11a07671122:-7f85">
+<column-description></column-description>
+<data-type jdbc-type="12" literal-prefix="'" literal-suffix="'" name="VARCHAR" selected-variant-pattern="VARCHAR(%n)">
+<variant precision-max="2147483647" precision-min="1" precision-variable="%n" type-name-pattern="VARCHAR(%n)"/>
+</data-type>
+</column>
+<column alias="" auto-increment="false" column-size="0" decimal-digits="0" default-value="" mandatory="false" name="type_id" remarks="" uid="e94c62:11a07671122:-7f84">
+<column-description></column-description>
+<data-type jdbc-type="4" name="INT" selected-variant-pattern="INT">
+<variant type-name-pattern="INT"/>
+</data-type>
+</column>
+<column alias="" auto-increment="false" column-size="0" decimal-digits="0" default-value="" mandatory="false" name="help_key" remarks="" uid="e94c62:11a07671122:-7f83">
+<column-description></column-description>
+<data-type jdbc-type="4" name="INT" selected-variant-pattern="INT">
+<variant type-name-pattern="INT"/>
+</data-type>
+</column>
+<column alias="" auto-increment="false" column-size="0" decimal-digits="0" default-value="" mandatory="false" name="customer_id" remarks="" uid="e94c62:11a07671122:-7f82">
+<column-description></column-description>
+<data-type jdbc-type="4" name="INT" selected-variant-pattern="INT">
+<variant type-name-pattern="INT"/>
+</data-type>
+</column>
+</column-list>
+<primary-key alias="" name="PK_TBL_CUSTOMER_EXT_ATTRIBUTES" remarks="" uid="e94c62:11a07671122:-7f89">
+<primary-key-description></primary-key-description>
+<primary-key-column name="attribute_id"/>
+</primary-key>
+<unique-key-list/>
+<foreign-key-list>
+<foreign-key alias="" name="FK_tbl_customer_ext_attributes_1" on-delete="" on-update="" referenced-key="PK_TBL_CUSTOMERS" referenced-table="tbl_customers" referenced-table-schema="DEFAULT_SCHEMA" remarks="" source-entity-role="" source-multiplicity="0..*" source-relationship-type="" target-entity-role="" target-multiplicity="1" target-relationship-type="" uid="d276c:11ad0fa8fd2:-7fc3">
+<foreign-key-description></foreign-key-description>
+<foreign-key-figure>
+<fk-fig-bendpoint-list/>
+</foreign-key-figure>
+<foreign-key-column column-name="customer_id" referenced-key-column-name="customer_id"/>
+</foreign-key>
+</foreign-key-list>
+<index-list/>
+</table>
+<table alias="" name="tbl_user_ext_attributes" remarks="" uid="e94c62:11a07671122:-7f81">
+<table-description></table-description>
+<table-figure-bounds height="-1" width="-1" x="263" y="86"/>
+<column-list>
+<column alias="" auto-increment="false" column-size="0" decimal-digits="0" default-value="" mandatory="true" name="user_id" remarks="" uid="e94c62:11a07671122:-7f7d">
+<column-description></column-description>
+<data-type jdbc-type="4" name="INT" selected-variant-pattern="INT">
+<variant type-name-pattern="INT"/>
+</data-type>
+</column>
+<column alias="" auto-increment="false" column-size="0" decimal-digits="0" default-value="" mandatory="true" name="attribute_id" remarks="" uid="e94c62:11a07671122:-7f7c">
+<column-description></column-description>
+<data-type jdbc-type="4" name="INT" selected-variant-pattern="INT">
+<variant type-name-pattern="INT"/>
+</data-type>
+</column>
+<column alias="" auto-increment="false" column-size="0" decimal-digits="0" default-value="" mandatory="false" name="attribute_value" remarks="" uid="e94c62:11a07671122:-7f79">
+<column-description></column-description>
+<data-type jdbc-type="-1" literal-prefix="'" literal-suffix="'" name="TEXT" selected-variant-pattern="TEXT">
+<variant type-name-pattern="TEXT"/>
+</data-type>
+</column>
+</column-list>
+<primary-key alias="" name="PK_TBL_USER_EXT_ATTRIBUTES" remarks="" uid="e94c62:11a07671122:-7f80">
+<primary-key-description></primary-key-description>
+<primary-key-column name="user_id"/>
+<primary-key-column name="attribute_id"/>
+</primary-key>
+<unique-key-list/>
+<foreign-key-list>
+<foreign-key alias="" name="FK_tbl_user_ext_attributes_1" on-delete="" on-update="" referenced-key="PK_TBL_USERS" referenced-table="tbl_users" referenced-table-schema="DEFAULT_SCHEMA" remarks="" source-entity-role="" source-multiplicity="0..*" source-relationship-type="" target-entity-role="" target-multiplicity="1" target-relationship-type="" uid="e94c62:11a07671122:-7e3f">
+<foreign-key-description></foreign-key-description>
+<foreign-key-figure>
+<fk-fig-bendpoint-list/>
+</foreign-key-figure>
+<foreign-key-column column-name="user_id" referenced-key-column-name="user_id"/>
+</foreign-key>
+<foreign-key alias="" name="FK_tbl_user_ext_attributes_2" on-delete="" on-update="" referenced-key="PK_TBL_CUSTOMER_EXT_ATTRIBUTES" referenced-table="tbl_customer_ext_attributes" referenced-table-schema="DEFAULT_SCHEMA" remarks="" source-entity-role="" source-multiplicity="0..*" source-relationship-type="" target-entity-role="" target-multiplicity="1" target-relationship-type="" uid="e94c62:11a07671122:-7e15">
+<foreign-key-description></foreign-key-description>
+<foreign-key-figure>
+<fk-fig-bendpoint-list/>
+</foreign-key-figure>
+<foreign-key-column column-name="attribute_id" referenced-key-column-name="attribute_id"/>
+</foreign-key>
+</foreign-key-list>
+<index-list/>
+</table>
+<table alias="" name="tbl_stores" remarks="" uid="e94c62:11a07671122:-7e0a">
+<table-description></table-description>
+<table-figure-bounds height="141" width="302" x="548" y="512"/>
+<column-list>
+<column alias="" auto-increment="false" column-size="0" decimal-digits="0" default-value="" mandatory="true" name="store_id" remarks="" uid="e94c62:11a07671122:-7dff">
+<column-description></column-description>
+<data-type jdbc-type="4" name="INT" selected-variant-pattern="INT">
+<variant type-name-pattern="INT"/>
+</data-type>
+</column>
+<column alias="" auto-increment="false" column-size="255" decimal-digits="0" default-value="" mandatory="true" name="name" remarks="" uid="1c5cdac:11a1b05b15e:-7ed2">
+<column-description></column-description>
+<data-type jdbc-type="12" literal-prefix="'" literal-suffix="'" name="VARCHAR" selected-variant-pattern="VARCHAR(%n)">
+<variant precision-max="2147483647" precision-min="1" precision-variable="%n" type-name-pattern="VARCHAR(%n)"/>
+</data-type>
+</column>
+<column alias="" auto-increment="false" column-size="0" decimal-digits="0" default-value="" mandatory="false" name="start_week_day" remarks="" uid="16d864e:11abbfde91b:-7feb">
+<column-description></column-description>
+<data-type jdbc-type="4" name="INT" selected-variant-pattern="INT">
+<variant type-name-pattern="INT"/>
+</data-type>
+</column>
+<column alias="" auto-increment="false" column-size="30" decimal-digits="0" default-value="" mandatory="false" name="store_number" remarks="" uid="16d864e:11abbfde91b:-7fea">
+<column-description></column-description>
+<data-type jdbc-type="12" literal-prefix="'" literal-suffix="'" name="VARCHAR" selected-variant-pattern="VARCHAR(%n)">
+<variant precision-max="2147483647" precision-min="1" precision-variable="%n" type-name-pattern="VARCHAR(%n)"/>
+</data-type>
+</column>
+<column alias="" auto-increment="false" column-size="0" decimal-digits="0" default-value="" mandatory="false" name="area_id" remarks="" uid="d276c:11ad0fa8fd2:-7faf">
+<column-description></column-description>
+<data-type jdbc-type="4" name="INT" selected-variant-pattern="INT">
+<variant type-name-pattern="INT"/>
+</data-type>
+</column>
+<column alias="" auto-increment="false" column-size="0" decimal-digits="0" default-value="" mandatory="false" name="non_guest_utilization" remarks="" uid="c5acfe:11b18d1c771:-7d8b">
+<column-description></column-description>
+<data-type jdbc-type="8" name="DOUBLE" selected-variant-pattern="DOUBLE">
+<variant type-name-pattern="DOUBLE"/>
+<variant precision-max="255" precision-min="0" precision-variable="%p" scale-max="30" scale-min="0" scale-variable="%s" type-name-pattern="DOUBLE(%p, %s)"/>
+<variant precision-max="255" precision-min="0" precision-variable="%p" scale-max="30" scale-min="0" scale-variable="%s" type-name-pattern="DOUBLE(%p, %s) UNSIGNED"/>
+<variant precision-max="255" precision-min="0" precision-variable="%p" scale-max="30" scale-min="0" scale-variable="%s" type-name-pattern="DOUBLE(%p, %s) UNSIGNED ZEROFILL"/>
+<variant precision-max="255" precision-min="0" precision-variable="%p" scale-max="30" scale-min="0" scale-variable="%s" type-name-pattern="DOUBLE(%p, %s) ZEROFILL"/>
+<variant type-name-pattern="DOUBLE UNSIGNED"/>
+<variant type-name-pattern="DOUBLE UNSIGNED ZEROFILL"/>
+<variant type-name-pattern="DOUBLE ZEROFILL"/>
+</data-type>
+</column>
+<column alias="" auto-increment="false" column-size="0" decimal-digits="0" default-value="" mandatory="false" name="daily_projections_weeks_default" remarks="" uid="d62b0c:11c20169b35:-7fe4">
+<column-description></column-description>
+<data-type jdbc-type="4" name="INT" selected-variant-pattern="INT">
+<variant type-name-pattern="INT"/>
+<variant precision-max="10" precision-min="0" precision-variable="%n" type-name-pattern="INT(%n)"/>
+<variant precision-max="10" precision-min="0" precision-variable="%n" type-name-pattern="INT(%n) UNSIGNED"/>
+<variant precision-max="10" precision-min="0" precision-variable="%n" type-name-pattern="INT(%n) UNSIGNED ZEROFILL"/>
+<variant precision-max="10" precision-min="0" precision-variable="%n" type-name-pattern="INT(%n) ZEROFILL"/>
+<variant type-name-pattern="INT UNSIGNED"/>
+<variant type-name-pattern="INT UNSIGNED ZEROFILL"/>
+<variant type-name-pattern="INT ZEROFILL"/>
+</data-type>
+</column>
+<column alias="" auto-increment="false" column-size="0" decimal-digits="0" default-value="" mandatory="false" name="half_hour_projections_weeks_default" remarks="" uid="d62b0c:11c20169b35:-7fe1">
+<column-description></column-description>
+<data-type jdbc-type="4" name="INT" selected-variant-pattern="INT">
+<variant type-name-pattern="INT"/>
+<variant precision-max="10" precision-min="0" precision-variable="%n" type-name-pattern="INT(%n)"/>
+<variant precision-max="10" precision-min="0" precision-variable="%n" type-name-pattern="INT(%n) UNSIGNED"/>
+<variant precision-max="10" precision-min="0" precision-variable="%n" type-name-pattern="INT(%n) UNSIGNED ZEROFILL"/>
+<variant precision-max="10" precision-min="0" precision-variable="%n" type-name-pattern="INT(%n) ZEROFILL"/>
+<variant type-name-pattern="INT UNSIGNED"/>
+<variant type-name-pattern="INT UNSIGNED ZEROFILL"/>
+<variant type-name-pattern="INT ZEROFILL"/>
+</data-type>
+</column>
+</column-list>
+<primary-key alias="" name="PK_TBL_STORES" remarks="" uid="e94c62:11a07671122:-7e09">
+<primary-key-description></primary-key-description>
+<primary-key-column name="store_id"/>
+</primary-key>
+<unique-key-list/>
+<foreign-key-list>
+<foreign-key alias="" name="FK_tbl_stores_3" on-delete="" on-update="" referenced-key="PK_TBL_AREAS" referenced-table="tbl_areas" referenced-table-schema="DEFAULT_SCHEMA" remarks="" source-entity-role="" source-multiplicity="0..*" source-relationship-type="" target-entity-role="" target-multiplicity="1" target-relationship-type="" uid="d276c:11ad0fa8fd2:-7ec9">
+<foreign-key-description></foreign-key-description>
+<foreign-key-figure>
+<fk-fig-bendpoint-list/>
+</foreign-key-figure>
+<foreign-key-column column-name="area_id" referenced-key-column-name="area_id"/>
+</foreign-key>
+</foreign-key-list>
+<index-list/>
+</table>
+<table alias="" name="tbl_permissions" remarks="" uid="1c5cdac:11a1b05b15e:-7ffa">
+<table-description></table-description>
+<table-figure-bounds height="-1" width="-1" x="14" y="192"/>
+<column-list>
+<column alias="" auto-increment="false" column-size="0" decimal-digits="0" default-value="" mandatory="true" name="permission_id" remarks="" uid="1c5cdac:11a1b05b15e:-7ff0">
+<column-description></column-description>
+<data-type jdbc-type="4" name="INT" selected-variant-pattern="INT">
+<variant type-name-pattern="INT"/>
+</data-type>
+</column>
+<column alias="" auto-increment="false" column-size="100" decimal-digits="0" default-value="" mandatory="true" name="name" remarks="" uid="1c5cdac:11a1b05b15e:-7fef">
+<column-description></column-description>
+<data-type jdbc-type="12" literal-prefix="'" literal-suffix="'" name="VARCHAR" selected-variant-pattern="VARCHAR(%n)">
+<variant precision-max="255" precision-min="1" precision-variable="%n" type-name-pattern="VARCHAR(%n)"/>
+<variant precision-max="255" precision-min="1" precision-variable="%n" type-name-pattern="VARCHAR(%n) BINARY"/>
+</data-type>
+</column>
+<column alias="" auto-increment="false" column-size="255" decimal-digits="0" default-value="" mandatory="false" name="description" remarks="" uid="1c5cdac:11a1b05b15e:-7fee">
+<column-description></column-description>
+<data-type jdbc-type="12" literal-prefix="'" literal-suffix="'" name="VARCHAR" selected-variant-pattern="VARCHAR(%n)">
+<variant precision-max="2147483647" precision-min="1" precision-variable="%n" type-name-pattern="VARCHAR(%n)"/>
+</data-type>
+</column>
+</column-list>
+<primary-key alias="" name="PK_TBL_PERMISSIONS" remarks="" uid="1c5cdac:11a1b05b15e:-7ff9">
+<primary-key-description></primary-key-description>
+<primary-key-column name="permission_id"/>
+</primary-key>
+<unique-key-list/>
+<foreign-key-list/>
+<index-list/>
+</table>
+<table alias="" name="tbl_profile_permissions" remarks="" uid="1c5cdac:11a1b05b15e:-7fed">
+<table-description></table-description>
+<table-figure-bounds height="-1" width="-1" x="20" y="95"/>
+<column-list>
+<column alias="" auto-increment="false" column-size="0" decimal-digits="0" default-value="" mandatory="true" name="profile_id" remarks="" uid="1c5cdac:11a1b05b15e:-7fe7">
+<column-description></column-description>
+<data-type jdbc-type="4" name="INT" selected-variant-pattern="INT">
+<variant type-name-pattern="INT"/>
+</data-type>
+</column>
+<column alias="" auto-increment="false" column-size="0" decimal-digits="0" default-value="" mandatory="true" name="permission_id" remarks="" uid="1c5cdac:11a1b05b15e:-7fe6">
+<column-description></column-description>
+<data-type jdbc-type="4" name="INT" selected-variant-pattern="INT">
+<variant type-name-pattern="INT"/>
+</data-type>
+</column>
+</column-list>
+<primary-key alias="" name="PK_TBL_PROFILE_PERMISSIONS" remarks="" uid="1c5cdac:11a1b05b15e:-7fec">
+<primary-key-description></primary-key-description>
+<primary-key-column name="profile_id"/>
+<primary-key-column name="permission_id"/>
+</primary-key>
+<unique-key-list/>
+<foreign-key-list>
+<foreign-key alias="" name="FK_tbl_profile_permissions_1" on-delete="" on-update="" referenced-key="PK_TBL_PROFILES" referenced-table="tbl_profiles" referenced-table-schema="DEFAULT_SCHEMA" remarks="" source-entity-role="" source-multiplicity="0..*" source-relationship-type="" target-entity-role="" target-multiplicity="1" target-relationship-type="" uid="1c5cdac:11a1b05b15e:-7f8e">
+<foreign-key-description></foreign-key-description>
+<foreign-key-figure>
+<fk-fig-bendpoint-list/>
+</foreign-key-figure>
+<foreign-key-column column-name="profile_id" referenced-key-column-name="profile_id"/>
+</foreign-key>
+<foreign-key alias="" name="FK_tbl_profile_permissions_2" on-delete="" on-update="" referenced-key="PK_TBL_PERMISSIONS" referenced-table="tbl_permissions" referenced-table-schema="DEFAULT_SCHEMA" remarks="" source-entity-role="" source-multiplicity="0..*" source-relationship-type="" target-entity-role="" target-multiplicity="1" target-relationship-type="" uid="1c5cdac:11a1b05b15e:-7f72">
+<foreign-key-description></foreign-key-description>
+<foreign-key-figure>
+<fk-fig-bendpoint-list/>
+</foreign-key-figure>
+<foreign-key-column column-name="permission_id" referenced-key-column-name="permission_id"/>
+</foreign-key>
+</foreign-key-list>
+<index-list/>
+</table>
+<table alias="" name="tbl_menu_items" remarks="" uid="1c5cdac:11a1b05b15e:-7ed1">
+<table-description></table-description>
+<table-figure-bounds height="-1" width="-1" x="12" y="335"/>
+<column-list>
+<column alias="" auto-increment="false" column-size="0" decimal-digits="0" default-value="" mandatory="true" name="menu_item_id" remarks="" uid="1c5cdac:11a1b05b15e:-7ecd">
+<column-description></column-description>
+<data-type jdbc-type="4" name="INT" selected-variant-pattern="INT">
+<variant type-name-pattern="INT"/>
+</data-type>
+</column>
+<column alias="" auto-increment="false" column-size="150" decimal-digits="0" default-value="" mandatory="true" name="label_key" remarks="" uid="1c5cdac:11a1b05b15e:-7ecc">
+<column-description></column-description>
+<data-type jdbc-type="12" literal-prefix="'" literal-suffix="'" name="VARCHAR" selected-variant-pattern="VARCHAR(%n)">
+<variant precision-max="2147483647" precision-min="1" precision-variable="%n" type-name-pattern="VARCHAR(%n)"/>
+</data-type>
+</column>
+<column alias="" auto-increment="false" column-size="150" decimal-digits="0" default-value="" mandatory="false" name="help_key" remarks="" uid="1c5cdac:11a1b05b15e:-7e61">
+<column-description></column-description>
+<data-type jdbc-type="12" literal-prefix="'" literal-suffix="'" name="VARCHAR" selected-variant-pattern="VARCHAR(%n)">
+<variant precision-max="2147483647" precision-min="1" precision-variable="%n" type-name-pattern="VARCHAR(%n)"/>
+</data-type>
+</column>
+<column alias="" auto-increment="false" column-size="0" decimal-digits="0" default-value="" mandatory="false" name="permission_id" remarks="" uid="1c5cdac:11a1b05b15e:-7e60">
+<column-description></column-description>
+<data-type jdbc-type="4" name="INT" selected-variant-pattern="INT">
+<variant type-name-pattern="INT"/>
+</data-type>
+</column>
+<column alias="" auto-increment="false" column-size="0" decimal-digits="0" default-value="" mandatory="false" name="position" remarks="" uid="1c5cdac:11a1b05b15e:-7e43">
+<column-description></column-description>
+<data-type jdbc-type="4" name="INT" selected-variant-pattern="INT">
+<variant type-name-pattern="INT"/>
+</data-type>
+</column>
+<column alias="" auto-increment="false" column-size="255" decimal-digits="0" default-value="" mandatory="false" name="target" remarks="" uid="7baddd:11a1ce0ec00:-7fee">
+<column-description></column-description>
+<data-type jdbc-type="12" literal-prefix="'" literal-suffix="'" name="VARCHAR" selected-variant-pattern="VARCHAR(%n)">
+<variant precision-max="2147483647" precision-min="1" precision-variable="%n" type-name-pattern="VARCHAR(%n)"/>
+</data-type>
+</column>
+<column alias="" auto-increment="false" column-size="0" decimal-digits="0" default-value="" mandatory="false" name="parent_id" remarks="" uid="1b81deb:11a3f2d8c74:-7ff0">
+<column-description></column-description>
+<data-type jdbc-type="4" name="INT" selected-variant-pattern="INT">
+<variant type-name-pattern="INT"/>
+</data-type>
+</column>
+</column-list>
+<primary-key alias="" name="PK_TBL_MENU_ITEMS" remarks="" uid="1c5cdac:11a1b05b15e:-7ed0">
+<primary-key-description></primary-key-description>
+<primary-key-column name="menu_item_id"/>
+</primary-key>
+<unique-key-list/>
+<foreign-key-list>
+<foreign-key alias="" name="FK_tbl_menu_items_1" on-delete="" on-update="" referenced-key="PK_TBL_PERMISSIONS" referenced-table="tbl_permissions" referenced-table-schema="DEFAULT_SCHEMA" remarks="" source-entity-role="" source-multiplicity="0..*" source-relationship-type="" target-entity-role="" target-multiplicity="1" target-relationship-type="" uid="1c5cdac:11a1b05b15e:-7e53">
+<foreign-key-description></foreign-key-description>
+<foreign-key-figure>
+<fk-fig-bendpoint-list/>
+</foreign-key-figure>
+<foreign-key-column column-name="permission_id" referenced-key-column-name="permission_id"/>
+</foreign-key>
+<foreign-key alias="" name="FK_tbl_menu_items_2" on-delete="" on-update="" referenced-key="PK_TBL_MENU_ITEMS" referenced-table="tbl_menu_items" referenced-table-schema="DEFAULT_SCHEMA" remarks="" source-entity-role="" source-multiplicity="0..*" source-relationship-type="" target-entity-role="" target-multiplicity="1" target-relationship-type="" uid="1b81deb:11a3f2d8c74:-7fd6">
+<foreign-key-description></foreign-key-description>
+<foreign-key-figure>
+<fk-fig-bendpoint-list/>
+</foreign-key-figure>
+<foreign-key-column column-name="parent_id" referenced-key-column-name="menu_item_id"/>
+</foreign-key>
+</foreign-key-list>
+<index-list/>
+</table>
+<table alias="" name="tbl_customers" remarks="" uid="1c5cdac:11a1b05b15e:-7e49">
+<table-description></table-description>
+<table-figure-bounds height="72" width="178" x="280" y="383"/>
+<column-list>
+<column alias="" auto-increment="false" column-size="0" decimal-digits="0" default-value="" mandatory="true" name="customer_id" remarks="" uid="1c5cdac:11a1b05b15e:-7e40">
+<column-description></column-description>
+<data-type jdbc-type="4" name="INT" selected-variant-pattern="INT">
+<variant type-name-pattern="INT"/>
+</data-type>
+</column>
+<column alias="" auto-increment="false" column-size="255" decimal-digits="0" default-value="" mandatory="false" name="name" remarks="" uid="1c5cdac:11a1b05b15e:-7e3f">
+<column-description></column-description>
+<data-type jdbc-type="12" literal-prefix="'" literal-suffix="'" name="VARCHAR" selected-variant-pattern="VARCHAR(%n)">
+<variant precision-max="2147483647" precision-min="1" precision-variable="%n" type-name-pattern="VARCHAR(%n)"/>
+</data-type>
+</column>
+<column alias="" auto-increment="false" column-size="30" decimal-digits="0" default-value="" mandatory="false" name="code" remarks="" uid="bc7fa9:11e201bfa15:-7fe3">
+<column-description></column-description>
+<data-type jdbc-type="12" literal-prefix="'" literal-suffix="'" name="VARCHAR" selected-variant-pattern="VARCHAR(%n)">
+<variant precision-max="255" precision-min="1" precision-variable="%n" type-name-pattern="VARCHAR(%n)"/>
+<variant precision-max="255" precision-min="1" precision-variable="%n" type-name-pattern="VARCHAR(%n) BINARY"/>
+</data-type>
+</column>
+</column-list>
+<primary-key alias="" name="PK_TBL_CUSTOMERS" remarks="" uid="1c5cdac:11a1b05b15e:-7e48">
+<primary-key-description></primary-key-description>
+<primary-key-column name="customer_id"/>
+</primary-key>
+<unique-key-list/>
+<foreign-key-list/>
+<index-list/>
+</table>
+<table alias="" name="tbl_customer_users" remarks="" uid="1c5cdac:11a1b05b15e:-7d8a">
+<table-description></table-description>
+<table-figure-bounds height="-1" width="-1" x="447" y="195"/>
+<column-list>
+<column alias="" auto-increment="false" column-size="0" decimal-digits="0" default-value="" mandatory="true" name="customer_id" remarks="" uid="1c5cdac:11a1b05b15e:-7d86">
+<column-description></column-description>
+<data-type jdbc-type="4" name="INT" selected-variant-pattern="INT">
+<variant type-name-pattern="INT"/>
+</data-type>
+</column>
+<column alias="" auto-increment="false" column-size="0" decimal-digits="0" default-value="" mandatory="true" name="user_id" remarks="" uid="1c5cdac:11a1b05b15e:-7d83">
+<column-description></column-description>
+<data-type jdbc-type="4" name="INT" selected-variant-pattern="INT">
+<variant type-name-pattern="INT"/>
+</data-type>
+</column>
+</column-list>
+<primary-key alias="" name="PK_TBL_CUSTOMER_USERS" remarks="" uid="1c5cdac:11a1b05b15e:-7d89">
+<primary-key-description></primary-key-description>
+<primary-key-column name="customer_id"/>
+<primary-key-column name="user_id"/>
+</primary-key>
+<unique-key-list/>
+<foreign-key-list>
+<foreign-key alias="" name="FK_tbl_customer_users_2" on-delete="" on-update="" referenced-key="PK_TBL_CUSTOMERS" referenced-table="tbl_customers" referenced-table-schema="DEFAULT_SCHEMA" remarks="" source-entity-role="" source-multiplicity="0..*" source-relationship-type="" target-entity-role="" target-multiplicity="1" target-relationship-type="" uid="d276c:11ad0fa8fd2:-7fd2">
+<foreign-key-description></foreign-key-description>
+<foreign-key-figure>
+<fk-fig-bendpoint-list/>
+</foreign-key-figure>
+<foreign-key-column column-name="customer_id" referenced-key-column-name="customer_id"/>
+</foreign-key>
+<foreign-key alias="" name="FK_tbl_office_users_1" on-delete="" on-update="" referenced-key="PK_TBL_USERS" referenced-table="tbl_users" referenced-table-schema="DEFAULT_SCHEMA" remarks="" source-entity-role="" source-multiplicity="1" source-relationship-type="" target-entity-role="" target-multiplicity="1" target-relationship-type="" uid="1c5cdac:11a1b05b15e:-7d6a">
+<foreign-key-description></foreign-key-description>
+<foreign-key-figure>
+<fk-fig-bendpoint-list/>
+</foreign-key-figure>
+<foreign-key-column column-name="user_id" referenced-key-column-name="user_id"/>
+</foreign-key>
+</foreign-key-list>
+<index-list/>
+</table>
+<table alias="" name="tbl_store_ext_attributes" remarks="" uid="1c5cdac:11a1b05b15e:-7d26">
+<table-description></table-description>
+<table-figure-bounds height="-1" width="-1" x="629" y="362"/>
+<column-list>
+<column alias="" auto-increment="false" column-size="0" decimal-digits="0" default-value="" mandatory="true" name="store_id" remarks="" uid="1c5cdac:11a1b05b15e:-7d22">
+<column-description></column-description>
+<data-type jdbc-type="4" name="INT" selected-variant-pattern="INT">
+<variant type-name-pattern="INT"/>
+</data-type>
+</column>
+<column alias="" auto-increment="false" column-size="0" decimal-digits="0" default-value="" mandatory="true" name="attribute_id" remarks="" uid="1c5cdac:11a1b05b15e:-7d21">
+<column-description></column-description>
+<data-type jdbc-type="4" name="INT" selected-variant-pattern="INT">
+<variant type-name-pattern="INT"/>
+</data-type>
+</column>
+<column alias="" auto-increment="false" column-size="0" decimal-digits="0" default-value="" mandatory="false" name="attribute_value" remarks="" uid="1c5cdac:11a1b05b15e:-7d20">
+<column-description></column-description>
+<data-type jdbc-type="-1" literal-prefix="'" literal-suffix="'" name="TEXT" selected-variant-pattern="TEXT">
+<variant type-name-pattern="TEXT"/>
+</data-type>
+</column>
+</column-list>
+<primary-key alias="" name="PK_TBL_STORE_EXT_ATTRIBUTES" remarks="" uid="1c5cdac:11a1b05b15e:-7d25">
+<primary-key-description></primary-key-description>
+<primary-key-column name="store_id"/>
+<primary-key-column name="attribute_id"/>
+</primary-key>
+<unique-key-list/>
+<foreign-key-list>
+<foreign-key alias="" name="FK_tbl_store_ext_attributes_1" on-delete="" on-update="" referenced-key="PK_TBL_STORES" referenced-table="tbl_stores" referenced-table-schema="DEFAULT_SCHEMA" remarks="" source-entity-role="" source-multiplicity="0..*" source-relationship-type="" target-entity-role="" target-multiplicity="1" target-relationship-type="" uid="1c5cdac:11a1b05b15e:-7d06">
+<foreign-key-description></foreign-key-description>
+<foreign-key-figure>
+<fk-fig-bendpoint-list/>
+</foreign-key-figure>
+<foreign-key-column column-name="store_id" referenced-key-column-name="store_id"/>
+</foreign-key>
+<foreign-key alias="" name="FK_tbl_store_ext_attributes_2" on-delete="" on-update="" referenced-key="PK_TBL_CUSTOMER_EXT_ATTRIBUTES" referenced-table="tbl_customer_ext_attributes" referenced-table-schema="DEFAULT_SCHEMA" remarks="" source-entity-role="" source-multiplicity="0..*" source-relationship-type="" target-entity-role="" target-multiplicity="1" target-relationship-type="" uid="1c5cdac:11a1b05b15e:-7ce7">
+<foreign-key-description></foreign-key-description>
+<foreign-key-figure>
+<fk-fig-bendpoint-list/>
+</foreign-key-figure>
+<foreign-key-column column-name="attribute_id" referenced-key-column-name="attribute_id"/>
+</foreign-key>
+</foreign-key-list>
+<index-list/>
+</table>
+<table alias="" name="tbl_positions" remarks="" uid="120bd5b:11a46b11a63:-7fc6">
+<table-description></table-description>
+<table-figure-bounds height="151" width="246" x="911" y="320"/>
+<column-list>
+<column alias="" auto-increment="false" column-size="0" decimal-digits="0" default-value="" mandatory="true" name="position_id" remarks="" uid="120bd5b:11a46b11a63:-7fc2">
+<column-description></column-description>
+<data-type jdbc-type="4" name="INT" selected-variant-pattern="INT">
+<variant type-name-pattern="INT"/>
+</data-type>
+</column>
+<column alias="" auto-increment="false" column-size="0" decimal-digits="0" default-value="" mandatory="false" name="store_id" remarks="" uid="120bd5b:11a46b11a63:-7fc1">
+<column-description></column-description>
+<data-type jdbc-type="4" name="INT" selected-variant-pattern="INT">
+<variant type-name-pattern="INT"/>
+</data-type>
+</column>
+<column alias="" auto-increment="false" column-size="150" decimal-digits="0" default-value="" mandatory="false" name="name" remarks="" uid="120bd5b:11a46b11a63:-7fbe">
+<column-description></column-description>
+<data-type jdbc-type="12" literal-prefix="'" literal-suffix="'" name="VARCHAR" selected-variant-pattern="VARCHAR(%n)">
+<variant precision-max="2147483647" precision-min="1" precision-variable="%n" type-name-pattern="VARCHAR(%n)"/>
+</data-type>
+</column>
+<column alias="" auto-increment="false" column-size="0" decimal-digits="0" default-value="" mandatory="false" name="guest_utilization_bottom" remarks="" uid="c5acfe:11b18d1c771:-7d98">
+<column-description></column-description>
+<data-type jdbc-type="8" name="DOUBLE" selected-variant-pattern="DOUBLE">
+<variant type-name-pattern="DOUBLE"/>
+<variant precision-max="255" precision-min="0" precision-variable="%p" scale-max="30" scale-min="0" scale-variable="%s" type-name-pattern="DOUBLE(%p, %s)"/>
+<variant precision-max="255" precision-min="0" precision-variable="%p" scale-max="30" scale-min="0" scale-variable="%s" type-name-pattern="DOUBLE(%p, %s) UNSIGNED"/>
+<variant precision-max="255" precision-min="0" precision-variable="%p" scale-max="30" scale-min="0" scale-variable="%s" type-name-pattern="DOUBLE(%p, %s) UNSIGNED ZEROFILL"/>
+<variant precision-max="255" precision-min="0" precision-variable="%p" scale-max="30" scale-min="0" scale-variable="%s" type-name-pattern="DOUBLE(%p, %s) ZEROFILL"/>
+<variant type-name-pattern="DOUBLE UNSIGNED"/>
+<variant type-name-pattern="DOUBLE UNSIGNED ZEROFILL"/>
+<variant type-name-pattern="DOUBLE ZEROFILL"/>
+</data-type>
+</column>
+<column alias="" auto-increment="false" column-size="0" decimal-digits="0" default-value="" mandatory="false" name="guest_utilization_top" remarks="" uid="c5acfe:11b18d1c771:-7d95">
+<column-description></column-description>
+<data-type jdbc-type="8" name="DOUBLE" selected-variant-pattern="DOUBLE">
+<variant type-name-pattern="DOUBLE"/>
+<variant precision-max="255" precision-min="0" precision-variable="%p" scale-max="30" scale-min="0" scale-variable="%s" type-name-pattern="DOUBLE(%p, %s)"/>
+<variant precision-max="255" precision-min="0" precision-variable="%p" scale-max="30" scale-min="0" scale-variable="%s" type-name-pattern="DOUBLE(%p, %s) UNSIGNED"/>
+<variant precision-max="255" precision-min="0" precision-variable="%p" scale-max="30" scale-min="0" scale-variable="%s" type-name-pattern="DOUBLE(%p, %s) UNSIGNED ZEROFILL"/>
+<variant precision-max="255" precision-min="0" precision-variable="%p" scale-max="30" scale-min="0" scale-variable="%s" type-name-pattern="DOUBLE(%p, %s) ZEROFILL"/>
+<variant type-name-pattern="DOUBLE UNSIGNED"/>
+<variant type-name-pattern="DOUBLE UNSIGNED ZEROFILL"/>
+<variant type-name-pattern="DOUBLE ZEROFILL"/>
+</data-type>
+</column>
+<column alias="" auto-increment="false" column-size="0" decimal-digits="0" default-value="" mandatory="false" name="guest_utilization_minimum" remarks="" uid="c5acfe:11b18d1c771:-7d94">
+<column-description></column-description>
+<data-type jdbc-type="8" name="DOUBLE" selected-variant-pattern="DOUBLE">
+<variant type-name-pattern="DOUBLE"/>
+<variant precision-max="255" precision-min="0" precision-variable="%p" scale-max="30" scale-min="0" scale-variable="%s" type-name-pattern="DOUBLE(%p, %s)"/>
+<variant precision-max="255" precision-min="0" precision-variable="%p" scale-max="30" scale-min="0" scale-variable="%s" type-name-pattern="DOUBLE(%p, %s) UNSIGNED"/>
+<variant precision-max="255" precision-min="0" precision-variable="%p" scale-max="30" scale-min="0" scale-variable="%s" type-name-pattern="DOUBLE(%p, %s) UNSIGNED ZEROFILL"/>
+<variant precision-max="255" precision-min="0" precision-variable="%p" scale-max="30" scale-min="0" scale-variable="%s" type-name-pattern="DOUBLE(%p, %s) ZEROFILL"/>
+<variant type-name-pattern="DOUBLE UNSIGNED"/>
+<variant type-name-pattern="DOUBLE UNSIGNED ZEROFILL"/>
+<variant type-name-pattern="DOUBLE ZEROFILL"/>
+</data-type>
+</column>
+<column alias="" auto-increment="false" column-size="10" decimal-digits="0" default-value="" mandatory="false" name="guest_utilization_maximum" remarks="" uid="c5acfe:11b18d1c771:-7d93">
+<column-description></column-description>
+<data-type jdbc-type="1" literal-prefix="'" literal-suffix="'" name="CHAR" selected-variant-pattern="CHAR(%n)">
+<variant precision-max="255" precision-min="0" precision-variable="%n" type-name-pattern="CHAR(%n)"/>
+<variant type-name-pattern="CHAR"/>
+<variant precision-max="255" precision-min="0" precision-variable="%n" type-name-pattern="CHAR(%n) BINARY"/>
+</data-type>
+</column>
+<column alias="" auto-increment="false" column-size="0" decimal-digits="0" default-value="" mandatory="false" name="position_group_id" remarks="" uid="1b2c43e:11b78cd6309:-7e11">
+<column-description></column-description>
+<data-type jdbc-type="4" name="INT" selected-variant-pattern="INT">
+<variant type-name-pattern="INT"/>
+<variant precision-max="10" precision-min="0" precision-variable="%n" type-name-pattern="INT(%n)"/>
+<variant precision-max="10" precision-min="0" precision-variable="%n" type-name-pattern="INT(%n) UNSIGNED"/>
+<variant precision-max="10" precision-min="0" precision-variable="%n" type-name-pattern="INT(%n) UNSIGNED ZEROFILL"/>
+<variant precision-max="10" precision-min="0" precision-variable="%n" type-name-pattern="INT(%n) ZEROFILL"/>
+<variant type-name-pattern="INT UNSIGNED"/>
+<variant type-name-pattern="INT UNSIGNED ZEROFILL"/>
+<variant type-name-pattern="INT ZEROFILL"/>
+</data-type>
+</column>
+</column-list>
+<primary-key alias="" name="PK_TBL_POSITIONS" remarks="" uid="120bd5b:11a46b11a63:-7fc5">
+<primary-key-description></primary-key-description>
+<primary-key-column name="position_id"/>
+</primary-key>
+<unique-key-list/>
+<foreign-key-list>
+<foreign-key alias="" name="FK_tbl_positions_1" on-delete="" on-update="" referenced-key="PK_TBL_STORES" referenced-table="tbl_stores" referenced-table-schema="DEFAULT_SCHEMA" remarks="" source-entity-role="" source-multiplicity="0..*" source-relationship-type="" target-entity-role="" target-multiplicity="1" target-relationship-type="" uid="120bd5b:11a46b11a63:-7fa1">
+<foreign-key-description></foreign-key-description>
+<foreign-key-figure>
+<fk-fig-bendpoint-list/>
+</foreign-key-figure>
+<foreign-key-column column-name="store_id" referenced-key-column-name="store_id"/>
+</foreign-key>
+<foreign-key alias="" name="FK_tbl_positions_2" on-delete="" on-update="" referenced-key="PK_TBL_POSITION_GROUPS" referenced-table="tbl_position_groups" referenced-table-schema="DEFAULT_SCHEMA" remarks="" source-entity-role="" source-multiplicity="0..*" source-relationship-type="" target-entity-role="" target-multiplicity="1" target-relationship-type="" uid="1b2c43e:11b78cd6309:-7e77">
+<foreign-key-description></foreign-key-description>
+<foreign-key-figure>
+<fk-fig-bendpoint-list/>
+</foreign-key-figure>
+<foreign-key-column column-name="position_group_id" referenced-key-column-name="position_group_id"/>
+</foreign-key>
+</foreign-key-list>
+<index-list/>
+</table>
+<table alias="" name="tbl_employees" remarks="" uid="107610f:11a88a6d470:-7fe6">
+<table-description></table-description>
+<table-figure-bounds height="263" width="194" x="927" y="7"/>
+<column-list>
+<column alias="" auto-increment="false" column-size="0" decimal-digits="0" default-value="" mandatory="true" name="user_id" remarks="" uid="107610f:11a88a6d470:-7f59">
+<column-description></column-description>
+<data-type jdbc-type="4" name="INT" selected-variant-pattern="INT">
+<variant type-name-pattern="INT"/>
+</data-type>
+</column>
+<column alias="" auto-increment="false" column-size="0" decimal-digits="0" default-value="" mandatory="false" name="store_id" remarks="" uid="107610f:11a88a6d470:-7fe2">
+<column-description></column-description>
+<data-type jdbc-type="4" name="INT" selected-variant-pattern="INT">
+<variant type-name-pattern="INT"/>
+</data-type>
+</column>
+<column alias="" auto-increment="false" column-size="0" decimal-digits="0" default-value="" mandatory="true" name="default_positon_id" remarks="" uid="107610f:11a88a6d470:-7fe1">
+<column-description></column-description>
+<data-type jdbc-type="4" name="INT" selected-variant-pattern="INT">
+<variant type-name-pattern="INT"/>
+</data-type>
+</column>
+<column alias="" auto-increment="false" column-size="0" decimal-digits="0" default-value="" mandatory="false" name="is_manager" remarks="" uid="107610f:11a88a6d470:-7fe0">
+<column-description></column-description>
+<data-type jdbc-type="16" name="BOOL" selected-variant-pattern="BOOL">
+<variant type-name-pattern="BOOL"/>
+</data-type>
+</column>
+<column alias="" auto-increment="false" column-size="50" decimal-digits="0" default-value="" mandatory="false" name="mobile_phone" remarks="" uid="107610f:11a88a6d470:-7fdf">
+<column-description></column-description>
+<data-type jdbc-type="12" literal-prefix="'" literal-suffix="'" name="VARCHAR" selected-variant-pattern="VARCHAR(%n)">
+<variant precision-max="2147483647" precision-min="1" precision-variable="%n" type-name-pattern="VARCHAR(%n)"/>
+</data-type>
+</column>
+<column alias="" auto-increment="false" column-size="50" decimal-digits="0" default-value="" mandatory="false" name="home_phone" remarks="" uid="107610f:11a88a6d470:-7fde">
+<column-description></column-description>
+<data-type jdbc-type="12" literal-prefix="'" literal-suffix="'" name="VARCHAR" selected-variant-pattern="VARCHAR(%n)">
+<variant precision-max="2147483647" precision-min="1" precision-variable="%n" type-name-pattern="VARCHAR(%n)"/>
+</data-type>
+</column>
+<column alias="" auto-increment="false" column-size="0" decimal-digits="0" default-value="" mandatory="false" name="hire_date" remarks="" uid="107610f:11a88a6d470:-7fdd">
+<column-description></column-description>
+<data-type jdbc-type="91" name="DATE" selected-variant-pattern="DATE">
+<variant type-name-pattern="DATE"/>
+</data-type>
+</column>
+<column alias="" auto-increment="false" column-size="0" decimal-digits="0" default-value="" mandatory="false" name="max_hours_week" remarks="" uid="107610f:11a88a6d470:-7fdc">
+<column-description></column-description>
+<data-type jdbc-type="4" name="INT" selected-variant-pattern="INT">
+<variant type-name-pattern="INT"/>
+</data-type>
+</column>
+<column alias="" auto-increment="false" column-size="0" decimal-digits="0" default-value="" mandatory="false" name="max_days_week" remarks="" uid="107610f:11a88a6d470:-7fdb">
+<column-description></column-description>
+<data-type jdbc-type="4" name="INT" selected-variant-pattern="INT">
+<variant type-name-pattern="INT"/>
+</data-type>
+</column>
+<column alias="" auto-increment="false" column-size="0" decimal-digits="0" default-value="" mandatory="false" name="max_hours_day" remarks="" uid="107610f:11a88a6d470:-7fda">
+<column-description></column-description>
+<data-type jdbc-type="4" name="INT" selected-variant-pattern="INT">
+<variant type-name-pattern="INT"/>
+</data-type>
+</column>
+<column alias="" auto-increment="false" column-size="100" decimal-digits="0" default-value="" mandatory="false" name="address" remarks="" uid="107610f:11a88a6d470:-7fd7">
+<column-description></column-description>
+<data-type jdbc-type="12" literal-prefix="'" literal-suffix="'" name="VARCHAR" selected-variant-pattern="VARCHAR(%n)">
+<variant precision-max="2147483647" precision-min="1" precision-variable="%n" type-name-pattern="VARCHAR(%n)"/>
+</data-type>
+</column>
+<column alias="" auto-increment="false" column-size="100" decimal-digits="0" default-value="" mandatory="false" name="address2" remarks="" uid="107610f:11a88a6d470:-7fd6">
+<column-description></column-description>
+<data-type jdbc-type="12" literal-prefix="'" literal-suffix="'" name="VARCHAR" selected-variant-pattern="VARCHAR(%n)">
+<variant precision-max="2147483647" precision-min="1" precision-variable="%n" type-name-pattern="VARCHAR(%n)"/>
+</data-type>
+</column>
+<column alias="" auto-increment="false" column-size="100" decimal-digits="0" default-value="" mandatory="false" name="city" remarks="" uid="107610f:11a88a6d470:-7fd3">
+<column-description></column-description>
+<data-type jdbc-type="12" literal-prefix="'" literal-suffix="'" name="VARCHAR" selected-variant-pattern="VARCHAR(%n)">
+<variant precision-max="2147483647" precision-min="1" precision-variable="%n" type-name-pattern="VARCHAR(%n)"/>
+</data-type>
+</column>
+<column alias="" auto-increment="false" column-size="100" decimal-digits="0" default-value="" mandatory="false" name="state" remarks="" uid="107610f:11a88a6d470:-7fd2">
+<column-description></column-description>
+<data-type jdbc-type="12" literal-prefix="'" literal-suffix="'" name="VARCHAR" selected-variant-pattern="VARCHAR(%n)">
+<variant precision-max="2147483647" precision-min="1" precision-variable="%n" type-name-pattern="VARCHAR(%n)"/>
+</data-type>
+</column>
+<column alias="" auto-increment="false" column-size="50" decimal-digits="0" default-value="" mandatory="false" name="zip" remarks="" uid="107610f:11a88a6d470:-7fd1">
+<column-description></column-description>
+<data-type jdbc-type="12" literal-prefix="'" literal-suffix="'" name="VARCHAR" selected-variant-pattern="VARCHAR(%n)">
+<variant precision-max="2147483647" precision-min="1" precision-variable="%n" type-name-pattern="VARCHAR(%n)"/>
+</data-type>
+</column>
+<column alias="" auto-increment="false" column-size="0" decimal-digits="0" default-value="" mandatory="false" name="comments" remarks="" uid="107610f:11a88a6d470:-7fd0">
+<column-description></column-description>
+<data-type jdbc-type="-1" literal-prefix="'" literal-suffix="'" name="TEXT" selected-variant-pattern="TEXT">
+<variant type-name-pattern="TEXT"/>
+</data-type>
+</column>
+</column-list>
+<primary-key alias="" name="PK_TBL_EMPLOYEES" remarks="" uid="107610f:11a88a6d470:-7fe5">
+<primary-key-description></primary-key-description>
+<primary-key-column name="user_id"/>
+</primary-key>
+<unique-key-list/>
+<foreign-key-list>
+<foreign-key alias="" name="FK_tbl_employees_2" on-delete="" on-update="" referenced-key="PK_TBL_POSITIONS" referenced-table="tbl_positions" referenced-table-schema="DEFAULT_SCHEMA" remarks="" source-entity-role="" source-multiplicity="1" source-relationship-type="" target-entity-role="" target-multiplicity="1" target-relationship-type="" uid="107610f:11a88a6d470:-7dac">
+<foreign-key-description></foreign-key-description>
+<foreign-key-figure>
+<fk-fig-bendpoint-list/>
+</foreign-key-figure>
+<foreign-key-column column-name="default_positon_id" referenced-key-column-name="position_id"/>
+</foreign-key>
+<foreign-key alias="" name="FK_tbl_employees_1" on-delete="" on-update="" referenced-key="PK_TBL_USERS" referenced-table="tbl_users" referenced-table-schema="DEFAULT_SCHEMA" remarks="" source-entity-role="" source-multiplicity="1" source-relationship-type="" target-entity-role="" target-multiplicity="1" target-relationship-type="" uid="107610f:11a88a6d470:-7efc">
+<foreign-key-description></foreign-key-description>
+<foreign-key-figure>
+<fk-fig-bendpoint-list/>
+</foreign-key-figure>
+<foreign-key-column column-name="user_id" referenced-key-column-name="user_id"/>
+</foreign-key>
+</foreign-key-list>
+<index-list/>
+</table>
+<table alias="" name="tbl_operation_times" remarks="" uid="16d864e:11abbfde91b:-7ff2">
+<table-description></table-description>
+<table-figure-bounds height="101" width="179" x="761" y="764"/>
+<column-list>
+<column alias="" auto-increment="false" column-size="0" decimal-digits="0" default-value="" mandatory="true" name="operation_time_id" remarks="" uid="16d864e:11abbfde91b:-7fe7">
+<column-description></column-description>
+<data-type jdbc-type="4" name="INT" selected-variant-pattern="INT">
+<variant type-name-pattern="INT"/>
+</data-type>
+</column>
+<column alias="" auto-increment="false" column-size="0" decimal-digits="0" default-value="" mandatory="true" name="store_id" remarks="" uid="16d864e:11abbfde91b:-7fe1">
+<column-description></column-description>
+<data-type jdbc-type="4" name="INT" selected-variant-pattern="INT">
+<variant type-name-pattern="INT"/>
+</data-type>
+</column>
+<column alias="" auto-increment="false" column-size="0" decimal-digits="0" default-value="" mandatory="true" name="day_of_week" remarks="" uid="16d864e:11abbfde91b:-7fe4">
+<column-description></column-description>
+<data-type jdbc-type="4" name="INT" selected-variant-pattern="INT">
+<variant type-name-pattern="INT"/>
+</data-type>
+</column>
+<column alias="" auto-increment="false" column-size="0" decimal-digits="0" default-value="" mandatory="true" name="open_hour" remarks="" uid="16d864e:11abbfde91b:-7fe3">
+<column-description></column-description>
+<data-type jdbc-type="92" literal-prefix="'" literal-suffix="'" name="TIME" selected-variant-pattern="TIME">
+<variant type-name-pattern="TIME"/>
+<variant precision-max="9" precision-min="1" precision-variable="%p" type-name-pattern="TIME(%p)"/>
+<variant precision-max="9" precision-min="1" precision-variable="%p" type-name-pattern="TIME(%p) WITH TIME ZONE"/>
+<variant precision-max="9" precision-min="1" precision-variable="%p" type-name-pattern="TIME(%p) WITHOUT TIME ZONE"/>
+</data-type>
+</column>
+<column alias="" auto-increment="false" column-size="0" decimal-digits="0" default-value="" mandatory="false" name="close_hour" remarks="" uid="16d864e:11abbfde91b:-7fe2">
+<column-description></column-description>
+<data-type jdbc-type="92" literal-prefix="'" literal-suffix="'" name="TIME" selected-variant-pattern="TIME">
+<variant type-name-pattern="TIME"/>
+<variant precision-max="9" precision-min="1" precision-variable="%p" type-name-pattern="TIME(%p)"/>
+<variant precision-max="9" precision-min="1" precision-variable="%p" type-name-pattern="TIME(%p) WITH TIME ZONE"/>
+<variant precision-max="9" precision-min="1" precision-variable="%p" type-name-pattern="TIME(%p) WITHOUT TIME ZONE"/>
+</data-type>
+</column>
+</column-list>
+<primary-key alias="" name="PK_TBL_OPERATION_TIMES" remarks="" uid="16d864e:11abbfde91b:-7ff1">
+<primary-key-description></primary-key-description>
+<primary-key-column name="operation_time_id"/>
+</primary-key>
+<unique-key-list/>
+<foreign-key-list>
+<foreign-key alias="" name="FK_tbl_open_close_hour_1" on-delete="" on-update="" referenced-key="PK_TBL_STORES" referenced-table="tbl_stores" referenced-table-schema="DEFAULT_SCHEMA" remarks="" source-entity-role="" source-multiplicity="1..*" source-relationship-type="" target-entity-role="" target-multiplicity="1" target-relationship-type="" uid="16d864e:11abbfde91b:-7f99">
+<foreign-key-description></foreign-key-description>
+<foreign-key-figure>
+<fk-fig-bendpoint-list/>
+</foreign-key-figure>
+<foreign-key-column column-name="store_id" referenced-key-column-name="store_id"/>
+</foreign-key>
+</foreign-key-list>
+<index-list/>
+</table>
+<table alias="" name="tbl_day_parts" remarks="" uid="16d864e:11abbfde91b:-7f78">
+<table-description></table-description>
+<table-figure-bounds height="105" width="172" x="1002" y="744"/>
+<column-list>
+<column alias="" auto-increment="false" column-size="0" decimal-digits="0" default-value="" mandatory="true" name="day_part_id" remarks="" uid="c5acfe:11b18d1c771:-7f25">
+<column-description></column-description>
+<data-type jdbc-type="4" name="INT" selected-variant-pattern="INT">
+<variant type-name-pattern="INT"/>
+<variant precision-max="10" precision-min="0" precision-variable="%n" type-name-pattern="INT(%n)"/>
+<variant precision-max="10" precision-min="0" precision-variable="%n" type-name-pattern="INT(%n) UNSIGNED"/>
+<variant precision-max="10" precision-min="0" precision-variable="%n" type-name-pattern="INT(%n) UNSIGNED ZEROFILL"/>
+<variant precision-max="10" precision-min="0" precision-variable="%n" type-name-pattern="INT(%n) ZEROFILL"/>
+<variant type-name-pattern="INT UNSIGNED"/>
+<variant type-name-pattern="INT UNSIGNED ZEROFILL"/>
+<variant type-name-pattern="INT ZEROFILL"/>
+</data-type>
+</column>
+<column alias="" auto-increment="false" column-size="0" decimal-digits="0" default-value="" mandatory="true" name="store_id" remarks="" uid="16d864e:11abbfde91b:-7f74">
+<column-description></column-description>
+<data-type jdbc-type="4" name="INT" selected-variant-pattern="INT">
+<variant type-name-pattern="INT"/>
+<variant precision-max="10" precision-min="0" precision-variable="%n" type-name-pattern="INT(%n)"/>
+<variant precision-max="10" precision-min="0" precision-variable="%n" type-name-pattern="INT(%n) UNSIGNED"/>
+<variant precision-max="10" precision-min="0" precision-variable="%n" type-name-pattern="INT(%n) UNSIGNED ZEROFILL"/>
+<variant precision-max="10" precision-min="0" precision-variable="%n" type-name-pattern="INT(%n) ZEROFILL"/>
+<variant type-name-pattern="INT UNSIGNED"/>
+<variant type-name-pattern="INT UNSIGNED ZEROFILL"/>
+<variant type-name-pattern="INT ZEROFILL"/>
+</data-type>
+</column>
+<column alias="" auto-increment="false" column-size="50" decimal-digits="0" default-value="" mandatory="true" name="name" remarks="" uid="16d864e:11abbfde91b:-7f73">
+<column-description></column-description>
+<data-type jdbc-type="12" literal-prefix="'" literal-suffix="'" name="VARCHAR" selected-variant-pattern="VARCHAR(%n)">
+<variant precision-max="255" precision-min="1" precision-variable="%n" type-name-pattern="VARCHAR(%n)"/>
+<variant precision-max="255" precision-min="1" precision-variable="%n" type-name-pattern="VARCHAR(%n) BINARY"/>
+</data-type>
+</column>
+<column alias="" auto-increment="false" column-size="0" decimal-digits="0" default-value="" mandatory="true" name="start_hour" remarks="" uid="16d864e:11abbfde91b:-7f72">
+<column-description></column-description>
+<data-type jdbc-type="92" literal-prefix="'" literal-suffix="'" name="TIME" selected-variant-pattern="TIME">
+<variant type-name-pattern="TIME"/>
+<variant precision-max="9" precision-min="1" precision-variable="%p" type-name-pattern="TIME(%p)"/>
+<variant precision-max="9" precision-min="1" precision-variable="%p" type-name-pattern="TIME(%p) WITH TIME ZONE"/>
+<variant precision-max="9" precision-min="1" precision-variable="%p" type-name-pattern="TIME(%p) WITHOUT TIME ZONE"/>
+</data-type>
+</column>
+<column alias="" auto-increment="false" column-size="0" decimal-digits="0" default-value="" mandatory="false" name="position_index" remarks="" uid="c5acfe:11b18d1c771:-7ec6">
+<column-description></column-description>
+<data-type jdbc-type="4" name="INT" selected-variant-pattern="INT">
+<variant type-name-pattern="INT"/>
+<variant precision-max="10" precision-min="0" precision-variable="%n" type-name-pattern="INT(%n)"/>
+<variant precision-max="10" precision-min="0" precision-variable="%n" type-name-pattern="INT(%n) UNSIGNED"/>
+<variant precision-max="10" precision-min="0" precision-variable="%n" type-name-pattern="INT(%n) UNSIGNED ZEROFILL"/>
+<variant precision-max="10" precision-min="0" precision-variable="%n" type-name-pattern="INT(%n) ZEROFILL"/>
+<variant type-name-pattern="INT UNSIGNED"/>
+<variant type-name-pattern="INT UNSIGNED ZEROFILL"/>
+<variant type-name-pattern="INT ZEROFILL"/>
+</data-type>
+</column>
+</column-list>
+<primary-key alias="" name="PK_TBL_DAY_PARTS" remarks="" uid="16d864e:11abbfde91b:-7f77">
+<primary-key-description></primary-key-description>
+<primary-key-column name="day_part_id"/>
+</primary-key>
+<unique-key-list/>
+<foreign-key-list>
+<foreign-key alias="" name="FK_tbl_stores_day_part_2" on-delete="" on-update="" referenced-key="PK_TBL_STORES" referenced-table="tbl_stores" referenced-table-schema="DEFAULT_SCHEMA" remarks="" source-entity-role="" source-multiplicity="1..*" source-relationship-type="" target-entity-role="" target-multiplicity="1" target-relationship-type="" uid="16d864e:11abbfde91b:-7f3d">
+<foreign-key-description></foreign-key-description>
+<foreign-key-figure>
+<fk-fig-bendpoint-list/>
+</foreign-key-figure>
+<foreign-key-column column-name="store_id" referenced-key-column-name="store_id"/>
+</foreign-key>
+</foreign-key-list>
+<index-list/>
+</table>
+<table alias="" name="tbl_regions" remarks="" uid="d276c:11ad0fa8fd2:-7fac">
+<table-description></table-description>
+<table-figure-bounds height="-1" width="-1" x="109" y="499"/>
+<column-list>
+<column alias="" auto-increment="false" column-size="0" decimal-digits="0" default-value="" mandatory="true" name="region_id" remarks="" uid="d276c:11ad0fa8fd2:-7fa8">
+<column-description></column-description>
+<data-type jdbc-type="4" name="INT" selected-variant-pattern="INT">
+<variant type-name-pattern="INT"/>
+</data-type>
+</column>
+<column alias="" auto-increment="false" column-size="255" decimal-digits="0" default-value="" mandatory="false" name="name" remarks="" uid="d276c:11ad0fa8fd2:-7fa7">
+<column-description></column-description>
+<data-type jdbc-type="12" literal-prefix="'" literal-suffix="'" name="VARCHAR" selected-variant-pattern="VARCHAR(%n)">
+<variant precision-max="2147483647" precision-min="1" precision-variable="%n" type-name-pattern="VARCHAR(%n)"/>
+</data-type>
+</column>
+<column alias="" auto-increment="false" column-size="0" decimal-digits="0" default-value="" mandatory="false" name="customer_id" remarks="" uid="d276c:11ad0fa8fd2:-7f9f">
+<column-description></column-description>
+<data-type jdbc-type="4" name="INT" selected-variant-pattern="INT">
+<variant type-name-pattern="INT"/>
+</data-type>
+</column>
+</column-list>
+<primary-key alias="" name="PK_TBL_REGIONS" remarks="" uid="d276c:11ad0fa8fd2:-7fab">
+<primary-key-description></primary-key-description>
+<primary-key-column name="region_id"/>
+</primary-key>
+<unique-key-list/>
+<foreign-key-list>
+<foreign-key alias="" name="FK_tbl_regions_1" on-delete="" on-update="" referenced-key="PK_TBL_CUSTOMERS" referenced-table="tbl_customers" referenced-table-schema="DEFAULT_SCHEMA" remarks="" source-entity-role="" source-multiplicity="0..*" source-relationship-type="" target-entity-role="" target-multiplicity="1" target-relationship-type="" uid="d276c:11ad0fa8fd2:-7f3d">
+<foreign-key-description></foreign-key-description>
+<foreign-key-figure>
+<fk-fig-bendpoint-list/>
+</foreign-key-figure>
+<foreign-key-column column-name="customer_id" referenced-key-column-name="customer_id"/>
+</foreign-key>
+</foreign-key-list>
+<index-list/>
+</table>
+<table alias="" name="tbl_areas" remarks="" uid="d276c:11ad0fa8fd2:-7fa6">
+<table-description></table-description>
+<table-figure-bounds height="-1" width="-1" x="250" y="620"/>
+<column-list>
+<column alias="" auto-increment="false" column-size="0" decimal-digits="0" default-value="" mandatory="true" name="area_id" remarks="" uid="d276c:11ad0fa8fd2:-7fa2">
+<column-description></column-description>
+<data-type jdbc-type="4" name="INT" selected-variant-pattern="INT">
+<variant type-name-pattern="INT"/>
+</data-type>
+</column>
+<column alias="" auto-increment="false" column-size="255" decimal-digits="0" default-value="" mandatory="false" name="name" remarks="" uid="d276c:11ad0fa8fd2:-7f9c">
+<column-description></column-description>
+<data-type jdbc-type="12" literal-prefix="'" literal-suffix="'" name="VARCHAR" selected-variant-pattern="VARCHAR(%n)">
+<variant precision-max="2147483647" precision-min="1" precision-variable="%n" type-name-pattern="VARCHAR(%n)"/>
+</data-type>
+</column>
+<column alias="" auto-increment="false" column-size="0" decimal-digits="0" default-value="" mandatory="false" name="region_id" remarks="" uid="d276c:11ad0fa8fd2:-7f9b">
+<column-description></column-description>
+<data-type jdbc-type="4" name="INT" selected-variant-pattern="INT">
+<variant type-name-pattern="INT"/>
+</data-type>
+</column>
+</column-list>
+<primary-key alias="" name="PK_TBL_AREAS" remarks="" uid="d276c:11ad0fa8fd2:-7fa5">
+<primary-key-description></primary-key-description>
+<primary-key-column name="area_id"/>
+</primary-key>
+<unique-key-list/>
+<foreign-key-list>
+<foreign-key alias="" name="FK_tbl_areas_1" on-delete="" on-update="" referenced-key="PK_TBL_REGIONS" referenced-table="tbl_regions" referenced-table-schema="DEFAULT_SCHEMA" remarks="" source-entity-role="" source-multiplicity="0..*" source-relationship-type="" target-entity-role="" target-multiplicity="1" target-relationship-type="" uid="d276c:11ad0fa8fd2:-7f18">
+<foreign-key-description></foreign-key-description>
+<foreign-key-figure>
+<fk-fig-bendpoint-list/>
+</foreign-key-figure>
+<foreign-key-column column-name="region_id" referenced-key-column-name="region_id"/>
+</foreign-key>
+</foreign-key-list>
+<index-list/>
+</table>
+<table alias="" name="tbl_region_users" remarks="" uid="d276c:11ad0fa8fd2:-7f98">
+<table-description></table-description>
+<table-figure-bounds height="-1" width="-1" x="604" y="267"/>
+<column-list>
+<column alias="" auto-increment="false" column-size="0" decimal-digits="0" default-value="" mandatory="true" name="region_id" remarks="" uid="d276c:11ad0fa8fd2:-7f94">
+<column-description></column-description>
+<data-type jdbc-type="4" name="INT" selected-variant-pattern="INT">
+<variant type-name-pattern="INT"/>
+</data-type>
+</column>
+<column alias="" auto-increment="false" column-size="0" decimal-digits="0" default-value="" mandatory="true" name="user_id" remarks="" uid="d276c:11ad0fa8fd2:-7f93">
+<column-description></column-description>
+<data-type jdbc-type="4" name="INT" selected-variant-pattern="INT">
+<variant type-name-pattern="INT"/>
+</data-type>
+</column>
+</column-list>
+<primary-key alias="" name="PK_TBL_REGION_USERS" remarks="" uid="d276c:11ad0fa8fd2:-7f97">
+<primary-key-description></primary-key-description>
+<primary-key-column name="region_id"/>
+<primary-key-column name="user_id"/>
+</primary-key>
+<unique-key-list/>
+<foreign-key-list>
+<foreign-key alias="" name="FK_tbl_region_users_2" on-delete="" on-update="" referenced-key="PK_TBL_REGIONS" referenced-table="tbl_regions" referenced-table-schema="DEFAULT_SCHEMA" remarks="" source-entity-role="" source-multiplicity="0..*" source-relationship-type="" target-entity-role="" target-multiplicity="1" target-relationship-type="" uid="d276c:11ad0fa8fd2:-7e57">
+<foreign-key-description></foreign-key-description>
+<foreign-key-figure>
+<fk-fig-bendpoint-list/>
+</foreign-key-figure>
+<foreign-key-column column-name="region_id" referenced-key-column-name="region_id"/>
+</foreign-key>
+<foreign-key alias="" name="FK_tbl_region_users_1" on-delete="" on-update="" referenced-key="PK_TBL_USERS" referenced-table="tbl_users" referenced-table-schema="DEFAULT_SCHEMA" remarks="" source-entity-role="" source-multiplicity="1" source-relationship-type="" target-entity-role="" target-multiplicity="1" target-relationship-type="" uid="d276c:11ad0fa8fd2:-7e7c">
+<foreign-key-description></foreign-key-description>
+<foreign-key-figure>
+<fk-fig-bendpoint-list/>
+</foreign-key-figure>
+<foreign-key-column column-name="user_id" referenced-key-column-name="user_id"/>
+</foreign-key>
+</foreign-key-list>
+<index-list/>
+</table>
+<table alias="" name="tbl_area_users" remarks="" uid="d276c:11ad0fa8fd2:-7f92">
+<table-description></table-description>
+<table-figure-bounds height="-1" width="-1" x="780" y="261"/>
+<column-list>
+<column alias="" auto-increment="false" column-size="0" decimal-digits="0" default-value="" mandatory="true" name="area_id" remarks="" uid="d276c:11ad0fa8fd2:-7f8e">
+<column-description></column-description>
+<data-type jdbc-type="4" name="INT" selected-variant-pattern="INT">
+<variant type-name-pattern="INT"/>
+</data-type>
+</column>
+<column alias="" auto-increment="false" column-size="0" decimal-digits="0" default-value="" mandatory="false" name="user_id" remarks="" uid="d276c:11ad0fa8fd2:-7f8d">
+<column-description></column-description>
+<data-type jdbc-type="4" name="INT" selected-variant-pattern="INT">
+<variant type-name-pattern="INT"/>
+</data-type>
+</column>
+</column-list>
+<primary-key alias="" name="PK_TBL_AREA_USERS" remarks="" uid="d276c:11ad0fa8fd2:-7f91">
+<primary-key-description></primary-key-description>
+<primary-key-column name="area_id"/>
+</primary-key>
+<unique-key-list/>
+<foreign-key-list>
+<foreign-key alias="" name="FK_tbl_area_users_2" on-delete="" on-update="" referenced-key="PK_TBL_AREAS" referenced-table="tbl_areas" referenced-table-schema="DEFAULT_SCHEMA" remarks="" source-entity-role="" source-multiplicity="0..*" source-relationship-type="" target-entity-role="" target-multiplicity="1" target-relationship-type="" uid="d276c:11ad0fa8fd2:-7e2d">
+<foreign-key-description></foreign-key-description>
+<foreign-key-figure>
+<fk-fig-bendpoint-list/>
+</foreign-key-figure>
+<foreign-key-column column-name="area_id" referenced-key-column-name="area_id"/>
+</foreign-key>
+<foreign-key alias="" name="FK_tbl_area_users_1" on-delete="" on-update="" referenced-key="PK_TBL_USERS" referenced-table="tbl_users" referenced-table-schema="DEFAULT_SCHEMA" remarks="" source-entity-role="" source-multiplicity="1" source-relationship-type="" target-entity-role="" target-multiplicity="1" target-relationship-type="" uid="d276c:11ad0fa8fd2:-7e98">
+<foreign-key-description></foreign-key-description>
+<foreign-key-figure>
+<fk-fig-bendpoint-list/>
+</foreign-key-figure>
+<foreign-key-column column-name="user_id" referenced-key-column-name="user_id"/>
+</foreign-key>
+</foreign-key-list>
+<index-list/>
+</table>
+<table alias="" name="tbl_day_part_values" remarks="" uid="c5acfe:11b18d1c771:-7fec">
+<table-description></table-description>
+<table-figure-bounds height="135" width="217" x="1199" y="510"/>
+<column-list>
+<column alias="" auto-increment="false" column-size="0" decimal-digits="0" default-value="" mandatory="true" name="position_id" remarks="" uid="c5acfe:11b18d1c771:-7fe8">
+<column-description></column-description>
+<data-type jdbc-type="4" name="INT" selected-variant-pattern="INT">
+<variant type-name-pattern="INT"/>
+<variant precision-max="10" precision-min="0" precision-variable="%n" type-name-pattern="INT(%n)"/>
+<variant precision-max="10" precision-min="0" precision-variable="%n" type-name-pattern="INT(%n) UNSIGNED"/>
+<variant precision-max="10" precision-min="0" precision-variable="%n" type-name-pattern="INT(%n) UNSIGNED ZEROFILL"/>
+<variant precision-max="10" precision-min="0" precision-variable="%n" type-name-pattern="INT(%n) ZEROFILL"/>
+<variant type-name-pattern="INT UNSIGNED"/>
+<variant type-name-pattern="INT UNSIGNED ZEROFILL"/>
+<variant type-name-pattern="INT ZEROFILL"/>
+</data-type>
+</column>
+<column alias="" auto-increment="false" column-size="0" decimal-digits="0" default-value="" mandatory="true" name="day_part_id" remarks="" uid="c5acfe:11b18d1c771:-7fe7">
+<column-description></column-description>
+<data-type jdbc-type="4" name="INT" selected-variant-pattern="INT">
+<variant type-name-pattern="INT"/>
+<variant precision-max="10" precision-min="0" precision-variable="%n" type-name-pattern="INT(%n)"/>
+<variant precision-max="10" precision-min="0" precision-variable="%n" type-name-pattern="INT(%n) UNSIGNED"/>
+<variant precision-max="10" precision-min="0" precision-variable="%n" type-name-pattern="INT(%n) UNSIGNED ZEROFILL"/>
+<variant precision-max="10" precision-min="0" precision-variable="%n" type-name-pattern="INT(%n) ZEROFILL"/>
+<variant type-name-pattern="INT UNSIGNED"/>
+<variant type-name-pattern="INT UNSIGNED ZEROFILL"/>
+<variant type-name-pattern="INT ZEROFILL"/>
+</data-type>
+</column>
+<column alias="" auto-increment="false" column-size="0" decimal-digits="0" default-value="" mandatory="false" name="minimum_staffing" remarks="" uid="c5acfe:11b18d1c771:-7fe6">
+<column-description></column-description>
+<data-type jdbc-type="4" name="INT" selected-variant-pattern="INT">
+<variant type-name-pattern="INT"/>
+<variant precision-max="10" precision-min="0" precision-variable="%n" type-name-pattern="INT(%n)"/>
+<variant precision-max="10" precision-min="0" precision-variable="%n" type-name-pattern="INT(%n) UNSIGNED"/>
+<variant precision-max="10" precision-min="0" precision-variable="%n" type-name-pattern="INT(%n) UNSIGNED ZEROFILL"/>
+<variant precision-max="10" precision-min="0" precision-variable="%n" type-name-pattern="INT(%n) ZEROFILL"/>
+<variant type-name-pattern="INT UNSIGNED"/>
+<variant type-name-pattern="INT UNSIGNED ZEROFILL"/>
+<variant type-name-pattern="INT ZEROFILL"/>
+</data-type>
+</column>
+<column alias="" auto-increment="false" column-size="0" decimal-digits="0" default-value="" mandatory="false" name="variable_opening" remarks="" uid="c5acfe:11b18d1c771:-7d7a">
+<column-description></column-description>
+<data-type jdbc-type="8" name="DOUBLE" selected-variant-pattern="DOUBLE">
+<variant type-name-pattern="DOUBLE"/>
+<variant precision-max="255" precision-min="0" precision-variable="%p" scale-max="30" scale-min="0" scale-variable="%s" type-name-pattern="DOUBLE(%p, %s)"/>
+<variant precision-max="255" precision-min="0" precision-variable="%p" scale-max="30" scale-min="0" scale-variable="%s" type-name-pattern="DOUBLE(%p, %s) UNSIGNED"/>
+<variant precision-max="255" precision-min="0" precision-variable="%p" scale-max="30" scale-min="0" scale-variable="%s" type-name-pattern="DOUBLE(%p, %s) UNSIGNED ZEROFILL"/>
+<variant precision-max="255" precision-min="0" precision-variable="%p" scale-max="30" scale-min="0" scale-variable="%s" type-name-pattern="DOUBLE(%p, %s) ZEROFILL"/>
+<variant type-name-pattern="DOUBLE UNSIGNED"/>
+<variant type-name-pattern="DOUBLE UNSIGNED ZEROFILL"/>
+<variant type-name-pattern="DOUBLE ZEROFILL"/>
+</data-type>
+</column>
+<column alias="" auto-increment="false" column-size="0" decimal-digits="0" default-value="" mandatory="false" name="variable_flexible" remarks="" uid="c5acfe:11b18d1c771:-7fe5">
+<column-description></column-description>
+<data-type jdbc-type="8" name="DOUBLE" selected-variant-pattern="DOUBLE">
+<variant type-name-pattern="DOUBLE"/>
+<variant precision-max="255" precision-min="0" precision-variable="%p" scale-max="30" scale-min="0" scale-variable="%s" type-name-pattern="DOUBLE(%p, %s)"/>
+<variant precision-max="255" precision-min="0" precision-variable="%p" scale-max="30" scale-min="0" scale-variable="%s" type-name-pattern="DOUBLE(%p, %s) UNSIGNED"/>
+<variant precision-max="255" precision-min="0" precision-variable="%p" scale-max="30" scale-min="0" scale-variable="%s" type-name-pattern="DOUBLE(%p, %s) UNSIGNED ZEROFILL"/>
+<variant precision-max="255" precision-min="0" precision-variable="%p" scale-max="30" scale-min="0" scale-variable="%s" type-name-pattern="DOUBLE(%p, %s) ZEROFILL"/>
+<variant type-name-pattern="DOUBLE UNSIGNED"/>
+<variant type-name-pattern="DOUBLE UNSIGNED ZEROFILL"/>
+<variant type-name-pattern="DOUBLE ZEROFILL"/>
+</data-type>
+</column>
+<column alias="" auto-increment="false" column-size="0" decimal-digits="0" default-value="" mandatory="false" name="fixed_guest_service" remarks="" uid="c5acfe:11b18d1c771:-7d75">
+<column-description></column-description>
+<data-type jdbc-type="8" name="DOUBLE" selected-variant-pattern="DOUBLE">
+<variant type-name-pattern="DOUBLE"/>
+<variant precision-max="255" precision-min="0" precision-variable="%p" scale-max="30" scale-min="0" scale-variable="%s" type-name-pattern="DOUBLE(%p, %s)"/>
+<variant precision-max="255" precision-min="0" precision-variable="%p" scale-max="30" scale-min="0" scale-variable="%s" type-name-pattern="DOUBLE(%p, %s) UNSIGNED"/>
+<variant precision-max="255" precision-min="0" precision-variable="%p" scale-max="30" scale-min="0" scale-variable="%s" type-name-pattern="DOUBLE(%p, %s) UNSIGNED ZEROFILL"/>
+<variant precision-max="255" precision-min="0" precision-variable="%p" scale-max="30" scale-min="0" scale-variable="%s" type-name-pattern="DOUBLE(%p, %s) ZEROFILL"/>
+<variant type-name-pattern="DOUBLE UNSIGNED"/>
+<variant type-name-pattern="DOUBLE UNSIGNED ZEROFILL"/>
+<variant type-name-pattern="DOUBLE ZEROFILL"/>
+</data-type>
+</column>
+<column alias="" auto-increment="false" column-size="0" decimal-digits="0" default-value="" mandatory="false" name="weekend_guest_service" remarks="" uid="c5acfe:11b18d1c771:-7d74">
+<column-description></column-description>
+<data-type jdbc-type="8" name="DOUBLE" selected-variant-pattern="DOUBLE">
+<variant type-name-pattern="DOUBLE"/>
+<variant precision-max="255" precision-min="0" precision-variable="%p" scale-max="30" scale-min="0" scale-variable="%s" type-name-pattern="DOUBLE(%p, %s)"/>
+<variant precision-max="255" precision-min="0" precision-variable="%p" scale-max="30" scale-min="0" scale-variable="%s" type-name-pattern="DOUBLE(%p, %s) UNSIGNED"/>
+<variant precision-max="255" precision-min="0" precision-variable="%p" scale-max="30" scale-min="0" scale-variable="%s" type-name-pattern="DOUBLE(%p, %s) UNSIGNED ZEROFILL"/>
+<variant precision-max="255" precision-min="0" precision-variable="%p" scale-max="30" scale-min="0" scale-variable="%s" type-name-pattern="DOUBLE(%p, %s) ZEROFILL"/>
+<variant type-name-pattern="DOUBLE UNSIGNED"/>
+<variant type-name-pattern="DOUBLE UNSIGNED ZEROFILL"/>
+<variant type-name-pattern="DOUBLE ZEROFILL"/>
+</data-type>
+</column>
+<column alias="" auto-increment="false" column-size="0" decimal-digits="0" default-value="" mandatory="false" name="weekday_guest_service" remarks="" uid="c5acfe:11b18d1c771:-7d71">
+<column-description></column-description>
+<data-type jdbc-type="8" name="DOUBLE" selected-variant-pattern="DOUBLE">
+<variant type-name-pattern="DOUBLE"/>
+<variant precision-max="255" precision-min="0" precision-variable="%p" scale-max="30" scale-min="0" scale-variable="%s" type-name-pattern="DOUBLE(%p, %s)"/>
+<variant precision-max="255" precision-min="0" precision-variable="%p" scale-max="30" scale-min="0" scale-variable="%s" type-name-pattern="DOUBLE(%p, %s) UNSIGNED"/>
+<variant precision-max="255" precision-min="0" precision-variable="%p" scale-max="30" scale-min="0" scale-variable="%s" type-name-pattern="DOUBLE(%p, %s) UNSIGNED ZEROFILL"/>
+<variant precision-max="255" precision-min="0" precision-variable="%p" scale-max="30" scale-min="0" scale-variable="%s" type-name-pattern="DOUBLE(%p, %s) ZEROFILL"/>
+<variant type-name-pattern="DOUBLE UNSIGNED"/>
+<variant type-name-pattern="DOUBLE UNSIGNED ZEROFILL"/>
+<variant type-name-pattern="DOUBLE ZEROFILL"/>
+</data-type>
+</column>
+</column-list>
+<primary-key alias="" name="PK_TBL_DAY_PART_VALUES" remarks="" uid="c5acfe:11b18d1c771:-7feb">
+<primary-key-description></primary-key-description>
+<primary-key-column name="position_id"/>
+<primary-key-column name="day_part_id"/>
+</primary-key>
+<unique-key-list/>
+<foreign-key-list>
+<foreign-key alias="" name="FK_tbl_day_part_values_1" on-delete="" on-update="" referenced-key="PK_TBL_POSITIONS" referenced-table="tbl_positions" referenced-table-schema="DEFAULT_SCHEMA" remarks="" source-entity-role="" source-multiplicity="0..*" source-relationship-type="" target-entity-role="" target-multiplicity="1" target-relationship-type="" uid="c5acfe:11b18d1c771:-7fda">
+<foreign-key-description></foreign-key-description>
+<foreign-key-figure>
+<fk-fig-bendpoint-list/>
+</foreign-key-figure>
+<foreign-key-column column-name="position_id" referenced-key-column-name="position_id"/>
+</foreign-key>
+<foreign-key alias="" name="FK_tbl_day_part_values_2" on-delete="" on-update="" referenced-key="PK_TBL_DAY_PARTS" referenced-table="tbl_day_parts" referenced-table-schema="DEFAULT_SCHEMA" remarks="" source-entity-role="" source-multiplicity="0..*" source-relationship-type="" target-entity-role="" target-multiplicity="1" target-relationship-type="" uid="c5acfe:11b18d1c771:-7efd">
+<foreign-key-description></foreign-key-description>
+<foreign-key-figure>
+<fk-fig-bendpoint-list/>
+</foreign-key-figure>
+<foreign-key-column column-name="day_part_id" referenced-key-column-name="day_part_id"/>
+</foreign-key>
+</foreign-key-list>
+<index-list/>
+</table>
+<table alias="" name="tbl_day_of_week_values" remarks="" uid="c5acfe:11b18d1c771:-7f6d">
+<table-description></table-description>
+<table-figure-bounds height="-1" width="-1" x="1298" y="336"/>
+<column-list>
+<column alias="" auto-increment="false" column-size="0" decimal-digits="0" default-value="" mandatory="true" name="day_of_week_value_id" remarks="" uid="c5acfe:11b18d1c771:-7f5f">
+<column-description></column-description>
+<data-type jdbc-type="4" name="INT" selected-variant-pattern="INT">
+<variant type-name-pattern="INT"/>
+<variant precision-max="10" precision-min="0" precision-variable="%n" type-name-pattern="INT(%n)"/>
+<variant precision-max="10" precision-min="0" precision-variable="%n" type-name-pattern="INT(%n) UNSIGNED"/>
+<variant precision-max="10" precision-min="0" precision-variable="%n" type-name-pattern="INT(%n) UNSIGNED ZEROFILL"/>
+<variant precision-max="10" precision-min="0" precision-variable="%n" type-name-pattern="INT(%n) ZEROFILL"/>
+<variant type-name-pattern="INT UNSIGNED"/>
+<variant type-name-pattern="INT UNSIGNED ZEROFILL"/>
+<variant type-name-pattern="INT ZEROFILL"/>
+</data-type>
+</column>
+<column alias="" auto-increment="false" column-size="0" decimal-digits="0" default-value="" mandatory="false" name="position_id" remarks="" uid="c5acfe:11b18d1c771:-7f69">
+<column-description></column-description>
+<data-type jdbc-type="4" name="INT" selected-variant-pattern="INT">
+<variant type-name-pattern="INT"/>
+<variant precision-max="10" precision-min="0" precision-variable="%n" type-name-pattern="INT(%n)"/>
+<variant precision-max="10" precision-min="0" precision-variable="%n" type-name-pattern="INT(%n) UNSIGNED"/>
+<variant precision-max="10" precision-min="0" precision-variable="%n" type-name-pattern="INT(%n) UNSIGNED ZEROFILL"/>
+<variant precision-max="10" precision-min="0" precision-variable="%n" type-name-pattern="INT(%n) ZEROFILL"/>
+<variant type-name-pattern="INT UNSIGNED"/>
+<variant type-name-pattern="INT UNSIGNED ZEROFILL"/>
+<variant type-name-pattern="INT ZEROFILL"/>
+</data-type>
+</column>
+<column alias="" auto-increment="false" column-size="0" decimal-digits="0" default-value="" mandatory="false" name="day_of_week" remarks="" uid="c5acfe:11b18d1c771:-7f62">
+<column-description></column-description>
+<data-type jdbc-type="4" name="INT" selected-variant-pattern="INT">
+<variant type-name-pattern="INT"/>
+<variant precision-max="10" precision-min="0" precision-variable="%n" type-name-pattern="INT(%n)"/>
+<variant precision-max="10" precision-min="0" precision-variable="%n" type-name-pattern="INT(%n) UNSIGNED"/>
+<variant precision-max="10" precision-min="0" precision-variable="%n" type-name-pattern="INT(%n) UNSIGNED ZEROFILL"/>
+<variant precision-max="10" precision-min="0" precision-variable="%n" type-name-pattern="INT(%n) ZEROFILL"/>
+<variant type-name-pattern="INT UNSIGNED"/>
+<variant type-name-pattern="INT UNSIGNED ZEROFILL"/>
+<variant type-name-pattern="INT ZEROFILL"/>
+</data-type>
+</column>
+<column alias="" auto-increment="false" column-size="0" decimal-digits="0" default-value="" mandatory="false" name="fixed_closing" remarks="" uid="c5acfe:11b18d1c771:-7d86">
+<column-description></column-description>
+<data-type jdbc-type="8" name="DOUBLE" selected-variant-pattern="DOUBLE">
+<variant type-name-pattern="DOUBLE"/>
+<variant precision-max="255" precision-min="0" precision-variable="%p" scale-max="30" scale-min="0" scale-variable="%s" type-name-pattern="DOUBLE(%p, %s)"/>
+<variant precision-max="255" precision-min="0" precision-variable="%p" scale-max="30" scale-min="0" scale-variable="%s" type-name-pattern="DOUBLE(%p, %s) UNSIGNED"/>
+<variant precision-max="255" precision-min="0" precision-variable="%p" scale-max="30" scale-min="0" scale-variable="%s" type-name-pattern="DOUBLE(%p, %s) UNSIGNED ZEROFILL"/>
+<variant precision-max="255" precision-min="0" precision-variable="%p" scale-max="30" scale-min="0" scale-variable="%s" type-name-pattern="DOUBLE(%p, %s) ZEROFILL"/>
+<variant type-name-pattern="DOUBLE UNSIGNED"/>
+<variant type-name-pattern="DOUBLE UNSIGNED ZEROFILL"/>
+<variant type-name-pattern="DOUBLE ZEROFILL"/>
+</data-type>
+</column>
+<column alias="" auto-increment="false" column-size="0" decimal-digits="0" default-value="" mandatory="false" name="fixed_post_rush" remarks="" uid="c5acfe:11b18d1c771:-7d83">
+<column-description></column-description>
+<data-type jdbc-type="8" name="DOUBLE" selected-variant-pattern="DOUBLE">
+<variant type-name-pattern="DOUBLE"/>
+<variant precision-max="255" precision-min="0" precision-variable="%p" scale-max="30" scale-min="0" scale-variable="%s" type-name-pattern="DOUBLE(%p, %s)"/>
+<variant precision-max="255" precision-min="0" precision-variable="%p" scale-max="30" scale-min="0" scale-variable="%s" type-name-pattern="DOUBLE(%p, %s) UNSIGNED"/>
+<variant precision-max="255" precision-min="0" precision-variable="%p" scale-max="30" scale-min="0" scale-variable="%s" type-name-pattern="DOUBLE(%p, %s) UNSIGNED ZEROFILL"/>
+<variant precision-max="255" precision-min="0" precision-variable="%p" scale-max="30" scale-min="0" scale-variable="%s" type-name-pattern="DOUBLE(%p, %s) ZEROFILL"/>
+<variant type-name-pattern="DOUBLE UNSIGNED"/>
+<variant type-name-pattern="DOUBLE UNSIGNED ZEROFILL"/>
+<variant type-name-pattern="DOUBLE ZEROFILL"/>
+</data-type>
+</column>
+<column alias="" auto-increment="false" column-size="0" decimal-digits="0" default-value="" mandatory="false" name="fixed_opening" remarks="" uid="c5acfe:11b18d1c771:-7d80">
+<column-description></column-description>
+<data-type jdbc-type="8" name="DOUBLE" selected-variant-pattern="DOUBLE">
+<variant type-name-pattern="DOUBLE"/>
+<variant precision-max="255" precision-min="0" precision-variable="%p" scale-max="30" scale-min="0" scale-variable="%s" type-name-pattern="DOUBLE(%p, %s)"/>
+<variant precision-max="255" precision-min="0" precision-variable="%p" scale-max="30" scale-min="0" scale-variable="%s" type-name-pattern="DOUBLE(%p, %s) UNSIGNED"/>
+<variant precision-max="255" precision-min="0" precision-variable="%p" scale-max="30" scale-min="0" scale-variable="%s" type-name-pattern="DOUBLE(%p, %s) UNSIGNED ZEROFILL"/>
+<variant precision-max="255" precision-min="0" precision-variable="%p" scale-max="30" scale-min="0" scale-variable="%s" type-name-pattern="DOUBLE(%p, %s) ZEROFILL"/>
+<variant type-name-pattern="DOUBLE UNSIGNED"/>
+<variant type-name-pattern="DOUBLE UNSIGNED ZEROFILL"/>
+<variant type-name-pattern="DOUBLE ZEROFILL"/>
+</data-type>
+</column>
+<column alias="" auto-increment="false" column-size="0" decimal-digits="0" default-value="" mandatory="false" name="fixed_flexible" remarks="" uid="c5acfe:11b18d1c771:-7d7d">
+<column-description></column-description>
+<data-type jdbc-type="8" name="DOUBLE" selected-variant-pattern="DOUBLE">
+<variant type-name-pattern="DOUBLE"/>
+<variant precision-max="255" precision-min="0" precision-variable="%p" scale-max="30" scale-min="0" scale-variable="%s" type-name-pattern="DOUBLE(%p, %s)"/>
+<variant precision-max="255" precision-min="0" precision-variable="%p" scale-max="30" scale-min="0" scale-variable="%s" type-name-pattern="DOUBLE(%p, %s) UNSIGNED"/>
+<variant precision-max="255" precision-min="0" precision-variable="%p" scale-max="30" scale-min="0" scale-variable="%s" type-name-pattern="DOUBLE(%p, %s) UNSIGNED ZEROFILL"/>
+<variant precision-max="255" precision-min="0" precision-variable="%p" scale-max="30" scale-min="0" scale-variable="%s" type-name-pattern="DOUBLE(%p, %s) ZEROFILL"/>
+<variant type-name-pattern="DOUBLE UNSIGNED"/>
+<variant type-name-pattern="DOUBLE UNSIGNED ZEROFILL"/>
+<variant type-name-pattern="DOUBLE ZEROFILL"/>
+</data-type>
+</column>
+</column-list>
+<primary-key alias="" name="PK_TBL_DAY_OF_WEEK_VALUES" remarks="" uid="c5acfe:11b18d1c771:-7f6c">
+<primary-key-description></primary-key-description>
+<primary-key-column name="day_of_week_value_id"/>
+</primary-key>
+<unique-key-list/>
+<foreign-key-list>
+<foreign-key alias="" name="FK_tbl_day_values_1" on-delete="" on-update="" referenced-key="PK_TBL_POSITIONS" referenced-table="tbl_positions" referenced-table-schema="DEFAULT_SCHEMA" remarks="" source-entity-role="" source-multiplicity="0..*" source-relationship-type="" target-entity-role="" target-multiplicity="1" target-relationship-type="" uid="c5acfe:11b18d1c771:-7f52">
+<foreign-key-description></foreign-key-description>
+<foreign-key-figure>
+<fk-fig-bendpoint-list/>
+</foreign-key-figure>
+<foreign-key-column column-name="position_id" referenced-key-column-name="position_id"/>
+</foreign-key>
+</foreign-key-list>
+<index-list/>
+</table>
+<table alias="" name="tbl_position_groups" remarks="" uid="b16656:11b6af0c8fd:-7fe9">
+<table-description></table-description>
+<table-figure-bounds height="78" width="176" x="937" y="533"/>
+<column-list>
+<column alias="" auto-increment="false" column-size="0" decimal-digits="0" default-value="" mandatory="true" name="position_group_id" remarks="" uid="b16656:11b6af0c8fd:-7fe5">
+<column-description></column-description>
+<data-type jdbc-type="4" name="INT" selected-variant-pattern="INT">
+<variant type-name-pattern="INT"/>
+<variant precision-max="10" precision-min="0" precision-variable="%n" type-name-pattern="INT(%n)"/>
+<variant precision-max="10" precision-min="0" precision-variable="%n" type-name-pattern="INT(%n) UNSIGNED"/>
+<variant precision-max="10" precision-min="0" precision-variable="%n" type-name-pattern="INT(%n) UNSIGNED ZEROFILL"/>
+<variant precision-max="10" precision-min="0" precision-variable="%n" type-name-pattern="INT(%n) ZEROFILL"/>
+<variant type-name-pattern="INT UNSIGNED"/>
+<variant type-name-pattern="INT UNSIGNED ZEROFILL"/>
+<variant type-name-pattern="INT ZEROFILL"/>
+</data-type>
+</column>
+<column alias="" auto-increment="false" column-size="150" decimal-digits="0" default-value="" mandatory="false" name="name" remarks="" uid="b16656:11b6af0c8fd:-7fe4">
+<column-description></column-description>
+<data-type jdbc-type="12" literal-prefix="'" literal-suffix="'" name="VARCHAR" selected-variant-pattern="VARCHAR(%n)">
+<variant precision-max="255" precision-min="1" precision-variable="%n" type-name-pattern="VARCHAR(%n)"/>
+<variant precision-max="255" precision-min="1" precision-variable="%n" type-name-pattern="VARCHAR(%n) BINARY"/>
+</data-type>
+</column>
+<column alias="" auto-increment="false" column-size="0" decimal-digits="0" default-value="" mandatory="false" name="store_id" remarks="" uid="1b2c43e:11b78cd6309:-7fe7">
+<column-description></column-description>
+<data-type jdbc-type="4" name="INT" selected-variant-pattern="INT">
+<variant type-name-pattern="INT"/>
+<variant precision-max="10" precision-min="0" precision-variable="%n" type-name-pattern="INT(%n)"/>
+<variant precision-max="10" precision-min="0" precision-variable="%n" type-name-pattern="INT(%n) UNSIGNED"/>
+<variant precision-max="10" precision-min="0" precision-variable="%n" type-name-pattern="INT(%n) UNSIGNED ZEROFILL"/>
+<variant precision-max="10" precision-min="0" precision-variable="%n" type-name-pattern="INT(%n) ZEROFILL"/>
+<variant type-name-pattern="INT UNSIGNED"/>
+<variant type-name-pattern="INT UNSIGNED ZEROFILL"/>
+<variant type-name-pattern="INT ZEROFILL"/>
+</data-type>
+</column>
+</column-list>
+<primary-key alias="" name="PK_TBL_POSITION_GROUPS" remarks="" uid="b16656:11b6af0c8fd:-7fe8">
+<primary-key-description></primary-key-description>
+<primary-key-column name="position_group_id"/>
+</primary-key>
+<unique-key-list/>
+<foreign-key-list>
+<foreign-key alias="" name="FK_tbl_position_groups_2" on-delete="" on-update="" referenced-key="PK_TBL_STORES" referenced-table="tbl_stores" referenced-table-schema="DEFAULT_SCHEMA" remarks="" source-entity-role="" source-multiplicity="0..*" source-relationship-type="" target-entity-role="" target-multiplicity="1" target-relationship-type="" uid="1b2c43e:11b78cd6309:-7fbd">
+<foreign-key-description></foreign-key-description>
+<foreign-key-figure>
+<fk-fig-bendpoint-list/>
+</foreign-key-figure>
+<foreign-key-column column-name="store_id" referenced-key-column-name="store_id"/>
+</foreign-key>
+</foreign-key-list>
+<index-list/>
+</table>
+<table alias="" name="tbl_historic_sales" remarks="" uid="cb5cd6:11b99e89965:-7fe9">
+<table-description></table-description>
+<table-figure-bounds height="148" width="189" x="131" y="720"/>
+<column-list>
+<column alias="" auto-increment="false" column-size="0" decimal-digits="0" default-value="" mandatory="true" name="historic_sales_id" remarks="" uid="cb5cd6:11b99e89965:-7fe0">
+<column-description></column-description>
+<data-type jdbc-type="4" name="INT" selected-variant-pattern="INT">
+<variant type-name-pattern="INT"/>
+<variant precision-max="10" precision-min="0" precision-variable="%n" type-name-pattern="INT(%n)"/>
+<variant precision-max="10" precision-min="0" precision-variable="%n" type-name-pattern="INT(%n) UNSIGNED"/>
+<variant precision-max="10" precision-min="0" precision-variable="%n" type-name-pattern="INT(%n) UNSIGNED ZEROFILL"/>
+<variant precision-max="10" precision-min="0" precision-variable="%n" type-name-pattern="INT(%n) ZEROFILL"/>
+<variant type-name-pattern="INT UNSIGNED"/>
+<variant type-name-pattern="INT UNSIGNED ZEROFILL"/>
+<variant type-name-pattern="INT ZEROFILL"/>
+</data-type>
+</column>
+<column alias="" auto-increment="false" column-size="0" decimal-digits="0" default-value="" mandatory="false" name="date_time" remarks="" uid="cb5cd6:11b99e89965:-7fe5">
+<column-description></column-description>
+<data-type jdbc-type="93" literal-prefix="'" literal-suffix="'" name="TIMESTAMP" selected-variant-pattern="TIMESTAMP">
+<variant type-name-pattern="TIMESTAMP"/>
+<variant precision-max="14" precision-min="0" precision-variable="%n" type-name-pattern="TIMESTAMP(%n)"/>
+</data-type>
+</column>
+<column alias="" auto-increment="false" column-size="0" decimal-digits="0" default-value="" mandatory="false" name="day_of_week" remarks="" uid="ebc6bf:11ba9a5c2dd:-7fe1">
+<column-description></column-description>
+<data-type jdbc-type="5" name="SMALLINT" selected-variant-pattern="SMALLINT">
+<variant type-name-pattern="SMALLINT"/>
+<variant precision-max="5" precision-min="0" precision-variable="%n" type-name-pattern="SMALLINT(%n)"/>
+<variant precision-max="5" precision-min="0" precision-variable="%n" type-name-pattern="SMALLINT(%n) UNSIGNED"/>
+<variant precision-max="5" precision-min="0" precision-variable="%n" type-name-pattern="SMALLINT(%n) UNSIGNED ZEROFILL"/>
+<variant precision-max="5" precision-min="0" precision-variable="%n" type-name-pattern="SMALLINT(%n) ZEROFILL"/>
+<variant type-name-pattern="SMALLINT UNSIGNED"/>
+<variant type-name-pattern="SMALLINT UNSIGNED ZEROFILL"/>
+<variant type-name-pattern="SMALLINT ZEROFILL"/>
+</data-type>
+</column>
+<column alias="" auto-increment="false" column-size="0" decimal-digits="0" default-value="" mandatory="false" name="main_value" remarks="" uid="cb5cd6:11b99e89965:-7fdb">
+<column-description></column-description>
+<data-type jdbc-type="3" name="DECIMAL" selected-variant-pattern="DECIMAL">
+<variant type-name-pattern="DECIMAL"/>
+<variant precision-max="65" precision-min="0" precision-variable="%n" type-name-pattern="DECIMAL(%n)"/>
+<variant precision-max="65" precision-min="0" precision-variable="%n" type-name-pattern="DECIMAL(%n) UNSIGNED"/>
+<variant precision-max="65" precision-min="0" precision-variable="%n" type-name-pattern="DECIMAL(%n) UNSIGNED ZEROFILL"/>
+<variant precision-max="65" precision-min="0" precision-variable="%n" type-name-pattern="DECIMAL(%n) ZEROFILL"/>
+<variant precision-max="65" precision-min="0" precision-variable="%p" scale-max="30" scale-min="0" scale-variable="%s" type-name-pattern="DECIMAL(%p, %s)"/>
+<variant precision-max="65" precision-min="0" precision-variable="%p" scale-max="30" scale-min="0" scale-variable="%s" type-name-pattern="DECIMAL(%p, %s) UNSIGNED"/>
+<variant precision-max="65" precision-min="0" precision-variable="%p" scale-max="30" scale-min="0" scale-variable="%s" type-name-pattern="DECIMAL(%p, %s) UNSIGNED ZEROFILL"/>
+<variant precision-max="65" precision-min="0" precision-variable="%p" scale-max="30" scale-min="0" scale-variable="%s" type-name-pattern="DECIMAL(%p, %s) ZEROFILL"/>
+</data-type>
+</column>
+<column alias="" auto-increment="false" column-size="0" decimal-digits="0" default-value="" mandatory="false" name="second_value" remarks="" uid="cb5cd6:11b99e89965:-7fda">
+<column-description></column-description>
+<data-type jdbc-type="3" name="DECIMAL" selected-variant-pattern="DECIMAL">
+<variant type-name-pattern="DECIMAL"/>
+<variant precision-max="65" precision-min="0" precision-variable="%n" type-name-pattern="DECIMAL(%n)"/>
+<variant precision-max="65" precision-min="0" precision-variable="%n" type-name-pattern="DECIMAL(%n) UNSIGNED"/>
+<variant precision-max="65" precision-min="0" precision-variable="%n" type-name-pattern="DECIMAL(%n) UNSIGNED ZEROFILL"/>
+<variant precision-max="65" precision-min="0" precision-variable="%n" type-name-pattern="DECIMAL(%n) ZEROFILL"/>
+<variant precision-max="65" precision-min="0" precision-variable="%p" scale-max="30" scale-min="0" scale-variable="%s" type-name-pattern="DECIMAL(%p, %s)"/>
+<variant precision-max="65" precision-min="0" precision-variable="%p" scale-max="30" scale-min="0" scale-variable="%s" type-name-pattern="DECIMAL(%p, %s) UNSIGNED"/>
+<variant precision-max="65" precision-min="0" precision-variable="%p" scale-max="30" scale-min="0" scale-variable="%s" type-name-pattern="DECIMAL(%p, %s) UNSIGNED ZEROFILL"/>
+<variant precision-max="65" precision-min="0" precision-variable="%p" scale-max="30" scale-min="0" scale-variable="%s" type-name-pattern="DECIMAL(%p, %s) ZEROFILL"/>
+</data-type>
+</column>
+<column alias="" auto-increment="false" column-size="0" decimal-digits="0" default-value="" mandatory="false" name="third_value" remarks="" uid="cb5cd6:11b99e89965:-7fd9">
+<column-description></column-description>
+<data-type jdbc-type="3" name="DECIMAL" selected-variant-pattern="DECIMAL">
+<variant type-name-pattern="DECIMAL"/>
+<variant precision-max="65" precision-min="0" precision-variable="%n" type-name-pattern="DECIMAL(%n)"/>
+<variant precision-max="65" precision-min="0" precision-variable="%n" type-name-pattern="DECIMAL(%n) UNSIGNED"/>
+<variant precision-max="65" precision-min="0" precision-variable="%n" type-name-pattern="DECIMAL(%n) UNSIGNED ZEROFILL"/>
+<variant precision-max="65" precision-min="0" precision-variable="%n" type-name-pattern="DECIMAL(%n) ZEROFILL"/>
+<variant precision-max="65" precision-min="0" precision-variable="%p" scale-max="30" scale-min="0" scale-variable="%s" type-name-pattern="DECIMAL(%p, %s)"/>
+<variant precision-max="65" precision-min="0" precision-variable="%p" scale-max="30" scale-min="0" scale-variable="%s" type-name-pattern="DECIMAL(%p, %s) UNSIGNED"/>
+<variant precision-max="65" precision-min="0" precision-variable="%p" scale-max="30" scale-min="0" scale-variable="%s" type-name-pattern="DECIMAL(%p, %s) UNSIGNED ZEROFILL"/>
+<variant precision-max="65" precision-min="0" precision-variable="%p" scale-max="30" scale-min="0" scale-variable="%s" type-name-pattern="DECIMAL(%p, %s) ZEROFILL"/>
+</data-type>
+</column>
+<column alias="" auto-increment="false" column-size="0" decimal-digits="0" default-value="" mandatory="false" name="fourth_value" remarks="" uid="cb5cd6:11b99e89965:-7fd8">
+<column-description></column-description>
+<data-type jdbc-type="3" name="DECIMAL" selected-variant-pattern="DECIMAL">
+<variant type-name-pattern="DECIMAL"/>
+<variant precision-max="65" precision-min="0" precision-variable="%n" type-name-pattern="DECIMAL(%n)"/>
+<variant precision-max="65" precision-min="0" precision-variable="%n" type-name-pattern="DECIMAL(%n) UNSIGNED"/>
+<variant precision-max="65" precision-min="0" precision-variable="%n" type-name-pattern="DECIMAL(%n) UNSIGNED ZEROFILL"/>
+<variant precision-max="65" precision-min="0" precision-variable="%n" type-name-pattern="DECIMAL(%n) ZEROFILL"/>
+<variant precision-max="65" precision-min="0" precision-variable="%p" scale-max="30" scale-min="0" scale-variable="%s" type-name-pattern="DECIMAL(%p, %s)"/>
+<variant precision-max="65" precision-min="0" precision-variable="%p" scale-max="30" scale-min="0" scale-variable="%s" type-name-pattern="DECIMAL(%p, %s) UNSIGNED"/>
+<variant precision-max="65" precision-min="0" precision-variable="%p" scale-max="30" scale-min="0" scale-variable="%s" type-name-pattern="DECIMAL(%p, %s) UNSIGNED ZEROFILL"/>
+<variant precision-max="65" precision-min="0" precision-variable="%p" scale-max="30" scale-min="0" scale-variable="%s" type-name-pattern="DECIMAL(%p, %s) ZEROFILL"/>
+</data-type>
+</column>
+<column alias="" auto-increment="false" column-size="0" decimal-digits="0" default-value="" mandatory="true" name="store_id" remarks="" uid="cb5cd6:11b99e89965:-7eef">
+<column-description></column-description>
+<data-type jdbc-type="4" name="INT" selected-variant-pattern="INT">
+<variant type-name-pattern="INT"/>
+</data-type>
+</column>
+<column alias="" auto-increment="false" column-size="0" decimal-digits="0" default-value="" mandatory="true" name="upload_file_id" remarks="" uid="d28fdc:11d82741e4a:-7f35">
+<column-description></column-description>
+<data-type jdbc-type="-5" name="BIGINT" selected-variant-pattern="BIGINT">
+<variant type-name-pattern="BIGINT"/>
+<variant precision-max="255" precision-min="0" precision-variable="%n" type-name-pattern="BIGINT(%n)"/>
+<variant precision-max="255" precision-min="0" precision-variable="%n" type-name-pattern="BIGINT(%n) UNSIGNED"/>
+<variant precision-max="255" precision-min="0" precision-variable="%n" type-name-pattern="BIGINT(%n) UNSIGNED ZEROFILL"/>
+<variant precision-max="255" precision-min="0" precision-variable="%n" type-name-pattern="BIGINT(%n) ZEROFILL"/>
+<variant type-name-pattern="BIGINT UNSIGNED"/>
+<variant type-name-pattern="BIGINT UNSIGNED ZEROFILL"/>
+<variant type-name-pattern="BIGINT ZEROFILL"/>
+</data-type>
+</column>
+</column-list>
+<primary-key alias="" name="PK_TBL_HISTORIC_SALES" remarks="" uid="cb5cd6:11b99e89965:-7fe8">
+<primary-key-description></primary-key-description>
+<primary-key-column name="historic_sales_id"/>
+</primary-key>
+<unique-key-list/>
+<foreign-key-list>
+<foreign-key alias="" name="FK_tbl_historic_sales_1" on-delete="" on-update="" referenced-key="PK_TBL_STORES" referenced-table="tbl_stores" referenced-table-schema="DEFAULT_SCHEMA" remarks="" source-entity-role="" source-multiplicity="0..*" source-relationship-type="" target-entity-role="" target-multiplicity="1" target-relationship-type="" uid="cb5cd6:11b99e89965:-7ef0">
+<foreign-key-description></foreign-key-description>
+<foreign-key-figure>
+<fk-fig-bendpoint-list/>
+</foreign-key-figure>
+<foreign-key-column column-name="store_id" referenced-key-column-name="store_id"/>
+</foreign-key>
+<foreign-key alias="" name="FK_tbl_historic_sales_2" on-delete="" on-update="" referenced-key="PK_TBL_UPLOAD_FILE" referenced-table="tbl_upload_file" referenced-table-schema="DEFAULT_SCHEMA" remarks="" source-entity-role="" source-multiplicity="0..*" source-relationship-type="" target-entity-role="" target-multiplicity="1" target-relationship-type="" uid="d28fdc:11d82741e4a:-7f36">
+<foreign-key-description></foreign-key-description>
+<foreign-key-figure>
+<fk-fig-bendpoint-list/>
+</foreign-key-figure>
+<foreign-key-column column-name="upload_file_id" referenced-key-column-name="upload_file_id"/>
+</foreign-key>
+</foreign-key-list>
+<index-list/>
+</table>
+<table alias="" name="tbl_projections" remarks="" uid="cb5cd6:11b99e89965:-7f97">
+<table-description></table-description>
+<table-figure-bounds height="87" width="152" x="586" y="750"/>
+<column-list>
+<column alias="" auto-increment="false" column-size="0" decimal-digits="0" default-value="" mandatory="true" name="projections_id" remarks="" uid="cb5cd6:11b99e89965:-7f93">
+<column-description></column-description>
+<data-type jdbc-type="4" name="INT" selected-variant-pattern="INT">
+<variant type-name-pattern="INT"/>
+<variant precision-max="10" precision-min="0" precision-variable="%n" type-name-pattern="INT(%n)"/>
+<variant precision-max="10" precision-min="0" precision-variable="%n" type-name-pattern="INT(%n) UNSIGNED"/>
+<variant precision-max="10" precision-min="0" precision-variable="%n" type-name-pattern="INT(%n) UNSIGNED ZEROFILL"/>
+<variant precision-max="10" precision-min="0" precision-variable="%n" type-name-pattern="INT(%n) ZEROFILL"/>
+<variant type-name-pattern="INT UNSIGNED"/>
+<variant type-name-pattern="INT UNSIGNED ZEROFILL"/>
+<variant type-name-pattern="INT ZEROFILL"/>
+</data-type>
+</column>
+<column alias="" auto-increment="false" column-size="0" decimal-digits="0" default-value="" mandatory="false" name="projection_date" remarks="" uid="cb5cd6:11b99e89965:-7f8d">
+<column-description></column-description>
+<data-type jdbc-type="91" literal-prefix="'" literal-suffix="'" name="DATE" selected-variant-pattern="DATE">
+<variant type-name-pattern="DATE"/>
+</data-type>
+</column>
+<column alias="" auto-increment="false" column-size="0" decimal-digits="0" default-value="" mandatory="false" name="starting_time" remarks="" uid="cb5cd6:11b99e89965:-7f8c">
+<column-description></column-description>
+<data-type jdbc-type="93" literal-prefix="'" literal-suffix="'" name="TIMESTAMP" selected-variant-pattern="TIMESTAMP">
+<variant type-name-pattern="TIMESTAMP"/>
+<variant precision-max="14" precision-min="0" precision-variable="%n" type-name-pattern="TIMESTAMP(%n)"/>
+</data-type>
+</column>
+<column alias="" auto-increment="false" column-size="0" decimal-digits="0" default-value="" mandatory="true" name="store_id" remarks="" uid="cb5cd6:11b99e89965:-7f7d">
+<column-description></column-description>
+<data-type jdbc-type="4" name="INT" selected-variant-pattern="INT">
+<variant type-name-pattern="INT"/>
+</data-type>
+</column>
+</column-list>
+<primary-key alias="" name="PK_TBL_PROJECTIONS" remarks="" uid="cb5cd6:11b99e89965:-7f96">
+<primary-key-description></primary-key-description>
+<primary-key-column name="projections_id"/>
+</primary-key>
+<unique-key-list/>
+<foreign-key-list>
+<foreign-key alias="" name="FK_tbl_projections_1" on-delete="" on-update="" referenced-key="PK_TBL_STORES" referenced-table="tbl_stores" referenced-table-schema="DEFAULT_SCHEMA" remarks="" source-entity-role="" source-multiplicity="0..*" source-relationship-type="" target-entity-role="" target-multiplicity="1" target-relationship-type="" uid="cb5cd6:11b99e89965:-7e4a">
+<foreign-key-description></foreign-key-description>
+<foreign-key-figure>
+<fk-fig-bendpoint-list/>
+</foreign-key-figure>
+<foreign-key-column column-name="store_id" referenced-key-column-name="store_id"/>
+</foreign-key>
+</foreign-key-list>
+<index-list/>
+</table>
+<table alias="" name="tbl_halfhour_projections" remarks="" uid="cb5cd6:11b99e89965:-7f59">
+<table-description></table-description>
+<table-figure-bounds height="101" width="213" x="536" y="914"/>
+<column-list>
+<column alias="" auto-increment="false" column-size="0" decimal-digits="0" default-value="" mandatory="true" name="half_hour_projections_id" remarks="" uid="cb5cd6:11b99e89965:-7f3e">
+<column-description></column-description>
+<data-type jdbc-type="-5" name="BIGINT" selected-variant-pattern="BIGINT">
+<variant type-name-pattern="BIGINT"/>
+<variant precision-max="255" precision-min="0" precision-variable="%n" type-name-pattern="BIGINT(%n)"/>
+<variant precision-max="255" precision-min="0" precision-variable="%n" type-name-pattern="BIGINT(%n) UNSIGNED"/>
+<variant precision-max="255" precision-min="0" precision-variable="%n" type-name-pattern="BIGINT(%n) UNSIGNED ZEROFILL"/>
+<variant precision-max="255" precision-min="0" precision-variable="%n" type-name-pattern="BIGINT(%n) ZEROFILL"/>
+<variant type-name-pattern="BIGINT UNSIGNED"/>
+<variant type-name-pattern="BIGINT UNSIGNED ZEROFILL"/>
+<variant type-name-pattern="BIGINT ZEROFILL"/>
+</data-type>
+</column>
+<column alias="" auto-increment="false" column-size="0" decimal-digits="0" default-value="" mandatory="false" name="adjusted_value" remarks="" uid="cb5cd6:11b99e89965:-7f40">
+<column-description></column-description>
+<data-type jdbc-type="3" name="DECIMAL" selected-variant-pattern="DECIMAL(%p, %s)">
+<variant precision-max="65" precision-min="0" precision-variable="%p" scale-max="30" scale-min="0" scale-variable="%s" type-name-pattern="DECIMAL(%p, %s)"/>
+<variant type-name-pattern="DECIMAL"/>
+<variant precision-max="65" precision-min="0" precision-variable="%n" type-name-pattern="DECIMAL(%n)"/>
+<variant precision-max="65" precision-min="0" precision-variable="%n" type-name-pattern="DECIMAL(%n) UNSIGNED"/>
+<variant precision-max="65" precision-min="0" precision-variable="%n" type-name-pattern="DECIMAL(%n) UNSIGNED ZEROFILL"/>
+<variant precision-max="65" precision-min="0" precision-variable="%n" type-name-pattern="DECIMAL(%n) ZEROFILL"/>
+<variant precision-max="65" precision-min="0" precision-variable="%p" scale-max="30" scale-min="0" scale-variable="%s" type-name-pattern="DECIMAL(%p, %s) UNSIGNED"/>
+<variant precision-max="65" precision-min="0" precision-variable="%p" scale-max="30" scale-min="0" scale-variable="%s" type-name-pattern="DECIMAL(%p, %s) UNSIGNED ZEROFILL"/>
+<variant precision-max="65" precision-min="0" precision-variable="%p" scale-max="30" scale-min="0" scale-variable="%s" type-name-pattern="DECIMAL(%p, %s) ZEROFILL"/>
+</data-type>
+</column>
+<column alias="" auto-increment="false" column-size="0" decimal-digits="0" default-value="" mandatory="false" name="half_hour_index" remarks="" uid="cb5cd6:11b99e89965:-7f3f">
+<column-description></column-description>
+<data-type jdbc-type="4" name="INT" selected-variant-pattern="INT">
+<variant type-name-pattern="INT"/>
+<variant precision-max="10" precision-min="0" precision-variable="%n" type-name-pattern="INT(%n)"/>
+<variant precision-max="10" precision-min="0" precision-variable="%n" type-name-pattern="INT(%n) UNSIGNED"/>
+<variant precision-max="10" precision-min="0" precision-variable="%n" type-name-pattern="INT(%n) UNSIGNED ZEROFILL"/>
+<variant precision-max="10" precision-min="0" precision-variable="%n" type-name-pattern="INT(%n) ZEROFILL"/>
+<variant type-name-pattern="INT UNSIGNED"/>
+<variant type-name-pattern="INT UNSIGNED ZEROFILL"/>
+<variant type-name-pattern="INT ZEROFILL"/>
+</data-type>
+</column>
+<column alias="" auto-increment="false" column-size="0" decimal-digits="0" default-value="" mandatory="true" name="projections_id" remarks="" uid="cb5cd6:11b99e89965:-7ea1">
+<column-description></column-description>
+<data-type jdbc-type="4" name="INT" selected-variant-pattern="INT">
+<variant type-name-pattern="INT"/>
+<variant precision-max="10" precision-min="0" precision-variable="%n" type-name-pattern="INT(%n)"/>
+<variant precision-max="10" precision-min="0" precision-variable="%n" type-name-pattern="INT(%n) UNSIGNED"/>
+<variant precision-max="10" precision-min="0" precision-variable="%n" type-name-pattern="INT(%n) UNSIGNED ZEROFILL"/>
+<variant precision-max="10" precision-min="0" precision-variable="%n" type-name-pattern="INT(%n) ZEROFILL"/>
+<variant type-name-pattern="INT UNSIGNED"/>
+<variant type-name-pattern="INT UNSIGNED ZEROFILL"/>
+<variant type-name-pattern="INT ZEROFILL"/>
+</data-type>
+</column>
+<column alias="" auto-increment="false" column-size="0" decimal-digits="0" default-value="" mandatory="false" name="time" remarks="" uid="10e18c:11d1566d0b4:-7fe1">
+<column-description></column-description>
+<data-type jdbc-type="93" literal-prefix="'" literal-suffix="'" name="TIMESTAMP" selected-variant-pattern="TIMESTAMP">
+<variant type-name-pattern="TIMESTAMP"/>
+<variant precision-max="14" precision-min="0" precision-variable="%n" type-name-pattern="TIMESTAMP(%n)"/>
+</data-type>
+</column>
+</column-list>
+<primary-key alias="" name="PK_TBL_HALFHOUR_PROJECTIONS" remarks="" uid="cb5cd6:11b99e89965:-7f58">
+<primary-key-description></primary-key-description>
+<primary-key-column name="half_hour_projections_id"/>
+</primary-key>
+<unique-key-list/>
+<foreign-key-list>
+<foreign-key alias="" name="FK_tbl_halfhour_projections_1" on-delete="" on-update="" referenced-key="PK_TBL_PROJECTIONS" referenced-table="tbl_projections" referenced-table-schema="DEFAULT_SCHEMA" remarks="" source-entity-role="" source-multiplicity="0..*" source-relationship-type="" target-entity-role="" target-multiplicity="1" target-relationship-type="" uid="cb5cd6:11b99e89965:-7ea2">
+<foreign-key-description></foreign-key-description>
+<foreign-key-figure>
+<fk-fig-bendpoint-list/>
+</foreign-key-figure>
+<foreign-key-column column-name="projections_id" referenced-key-column-name="projections_id"/>
+</foreign-key>
+</foreign-key-list>
+<index-list/>
+</table>
+<table alias="" name="tbl_upload_file" remarks="" uid="d28fdc:11d82741e4a:-7fe6">
+<table-description></table-description>
+<table-figure-bounds height="78" width="196" x="131" y="938"/>
+<column-list>
+<column alias="" auto-increment="false" column-size="0" decimal-digits="0" default-value="" mandatory="true" name="upload_file_id" remarks="" uid="d28fdc:11d82741e4a:-7fe0">
+<column-description></column-description>
+<data-type jdbc-type="-5" name="BIGINT" selected-variant-pattern="BIGINT">
+<variant type-name-pattern="BIGINT"/>
+<variant precision-max="255" precision-min="0" precision-variable="%n" type-name-pattern="BIGINT(%n)"/>
+<variant precision-max="255" precision-min="0" precision-variable="%n" type-name-pattern="BIGINT(%n) UNSIGNED"/>
+<variant precision-max="255" precision-min="0" precision-variable="%n" type-name-pattern="BIGINT(%n) UNSIGNED ZEROFILL"/>
+<variant precision-max="255" precision-min="0" precision-variable="%n" type-name-pattern="BIGINT(%n) ZEROFILL"/>
+<variant type-name-pattern="BIGINT UNSIGNED"/>
+<variant type-name-pattern="BIGINT UNSIGNED ZEROFILL"/>
+<variant type-name-pattern="BIGINT ZEROFILL"/>
+</data-type>
+</column>
+<column alias="" auto-increment="false" column-size="100" decimal-digits="0" default-value="" mandatory="false" name="filename" remarks="" uid="d28fdc:11d82741e4a:-7fd9">
+<column-description></column-description>
+<data-type jdbc-type="1" literal-prefix="'" literal-suffix="'" name="CHAR" selected-variant-pattern="CHAR(%n)">
+<variant precision-max="255" precision-min="0" precision-variable="%n" type-name-pattern="CHAR(%n)"/>
+<variant type-name-pattern="CHAR"/>
+<variant precision-max="255" precision-min="0" precision-variable="%n" type-name-pattern="CHAR(%n) BINARY"/>
+</data-type>
+</column>
+<column alias="" auto-increment="false" column-size="0" decimal-digits="0" default-value="" mandatory="false" name="upload_date" remarks="" uid="d28fdc:11d82741e4a:-7fd6">
+<column-description></column-description>
+<data-type jdbc-type="93" literal-prefix="'" literal-suffix="'" name="TIMESTAMP" selected-variant-pattern="TIMESTAMP">
+<variant type-name-pattern="TIMESTAMP"/>
+<variant precision-max="14" precision-min="0" precision-variable="%n" type-name-pattern="TIMESTAMP(%n)"/>
+</data-type>
+</column>
+</column-list>
+<primary-key alias="" name="PK_TBL_UPLOAD_FILE" remarks="" uid="d28fdc:11d82741e4a:-7fe5">
+<primary-key-description></primary-key-description>
+<primary-key-column name="upload_file_id"/>
+</primary-key>
+<unique-key-list/>
+<foreign-key-list/>
+<index-list/>
+</table>
+<table alias="" name="tbl_actual_hours" remarks="" uid="93e6e2:11f330df2c0:-7fe5">
+<table-description></table-description>
+<table-figure-bounds height="99" width="176" x="361" y="778"/>
+<column-list>
+<column alias="" auto-increment="false" column-size="0" decimal-digits="0" default-value="" mandatory="true" name="actual_hours_id" remarks="" uid="93e6e2:11f330df2c0:-7fe3">
+<column-description></column-description>
+<data-type jdbc-type="4" name="INT" selected-variant-pattern="INT">
+<variant type-name-pattern="INT"/>
+<variant precision-max="10" precision-min="0" precision-variable="%n" type-name-pattern="INT(%n)"/>
+<variant precision-max="10" precision-min="0" precision-variable="%n" type-name-pattern="INT(%n) UNSIGNED"/>
+<variant precision-max="10" precision-min="0" precision-variable="%n" type-name-pattern="INT(%n) UNSIGNED ZEROFILL"/>
+<variant precision-max="10" precision-min="0" precision-variable="%n" type-name-pattern="INT(%n) ZEROFILL"/>
+<variant type-name-pattern="INT UNSIGNED"/>
+<variant type-name-pattern="INT UNSIGNED ZEROFILL"/>
+<variant type-name-pattern="INT ZEROFILL"/>
+</data-type>
+</column>
+<column alias="" auto-increment="false" column-size="0" decimal-digits="0" default-value="" mandatory="false" name="date" remarks="" uid="93e6e2:11f330df2c0:-7fe2">
+<column-description></column-description>
+<data-type jdbc-type="93" literal-prefix="'" literal-suffix="'" name="TIMESTAMP" selected-variant-pattern="TIMESTAMP">
+<variant type-name-pattern="TIMESTAMP"/>
+<variant precision-max="14" precision-min="0" precision-variable="%n" type-name-pattern="TIMESTAMP(%n)"/>
+</data-type>
+</column>
+<column alias="" auto-increment="false" column-size="0" decimal-digits="0" default-value="" mandatory="false" name="labor_hours" remarks="" uid="93e6e2:11f330df2c0:-7fdd">
+<column-description></column-description>
+<data-type jdbc-type="3" name="DECIMAL" selected-variant-pattern="DECIMAL">
+<variant type-name-pattern="DECIMAL"/>
+<variant precision-max="65" precision-min="0" precision-variable="%n" type-name-pattern="DECIMAL(%n)"/>
+<variant precision-max="65" precision-min="0" precision-variable="%n" type-name-pattern="DECIMAL(%n) UNSIGNED"/>
+<variant precision-max="65" precision-min="0" precision-variable="%n" type-name-pattern="DECIMAL(%n) UNSIGNED ZEROFILL"/>
+<variant precision-max="65" precision-min="0" precision-variable="%n" type-name-pattern="DECIMAL(%n) ZEROFILL"/>
+<variant precision-max="65" precision-min="0" precision-variable="%p" scale-max="30" scale-min="0" scale-variable="%s" type-name-pattern="DECIMAL(%p, %s)"/>
+<variant precision-max="65" precision-min="0" precision-variable="%p" scale-max="30" scale-min="0" scale-variable="%s" type-name-pattern="DECIMAL(%p, %s) UNSIGNED"/>
+<variant precision-max="65" precision-min="0" precision-variable="%p" scale-max="30" scale-min="0" scale-variable="%s" type-name-pattern="DECIMAL(%p, %s) UNSIGNED ZEROFILL"/>
+<variant precision-max="65" precision-min="0" precision-variable="%p" scale-max="30" scale-min="0" scale-variable="%s" type-name-pattern="DECIMAL(%p, %s) ZEROFILL"/>
+</data-type>
+</column>
+<column alias="" auto-increment="false" column-size="0" decimal-digits="0" default-value="" mandatory="true" name="store_id" remarks="" uid="93e6e2:11f330df2c0:-7fdc">
+<column-description></column-description>
+<data-type jdbc-type="4" name="INT" selected-variant-pattern="INT">
+<variant type-name-pattern="INT"/>
+</data-type>
+</column>
+</column-list>
+<primary-key alias="" name="PK_TBL_ACTUAL_HOURS" remarks="" uid="93e6e2:11f330df2c0:-7fda">
+<primary-key-description></primary-key-description>
+<primary-key-column name="actual_hours_id"/>
+</primary-key>
+<unique-key-list/>
+<foreign-key-list>
+<foreign-key alias="" name="FK_tbl_actual_hours_1" on-delete="" on-update="" referenced-key="PK_TBL_STORES" referenced-table="tbl_stores" referenced-table-schema="DEFAULT_SCHEMA" remarks="" source-entity-role="" source-multiplicity="0..*" source-relationship-type="" target-entity-role="" target-multiplicity="1" target-relationship-type="" uid="93e6e2:11f330df2c0:-7fb4">
+<foreign-key-description></foreign-key-description>
+<foreign-key-figure>
+<fk-fig-bendpoint-list/>
+</foreign-key-figure>
+<foreign-key-column column-name="store_id" referenced-key-column-name="store_id"/>
+</foreign-key>
+</foreign-key-list>
+<index-list/>
+</table>
+</table-list>
+</schema>
+</schema-list>
+</database-model>
+</clay-model>

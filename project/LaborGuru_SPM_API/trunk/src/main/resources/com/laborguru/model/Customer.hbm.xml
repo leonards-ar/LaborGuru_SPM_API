@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.laborguru.model">
+	<class name="Customer" table="tbl_customers">
+		<id name="id" type="int" unsaved-value="null" column="customer_id">
+			<generator class="identity" />
+		</id>
+		<property name="name" column="name" type="string" length="100" />
+		<property name="code" column="code" type="string" length="30" />
+		
+	    <set name="regions" table="tbl_regions" lazy="true" cascade="all-delete-orphan" inverse="true">
+	        <key column="customer_id" foreign-key="fk_customers_regions"/>
+	        <one-to-many class="Region"/>
+	    </set>		
+	</class>
+	<database-object>
+		<create>ALTER TABLE tbl_customers AUTO_INCREMENT=1000</create>
+		<drop></drop>
+	</database-object>   	
+</hibernate-mapping>

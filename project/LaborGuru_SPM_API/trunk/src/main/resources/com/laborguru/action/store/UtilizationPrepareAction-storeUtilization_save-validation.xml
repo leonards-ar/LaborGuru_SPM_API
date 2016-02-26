@@ -1,0 +1,21 @@
+<!DOCTYPE validators PUBLIC "-//OpenSymphony Group//XWork Validator 1.0.2// 
+       EN" "http://www.opensymphony.com/xwork/xwork-validator-1.0.2.dtd"> 
+<validators> 
+  <field name="storePositions">
+       <field-validator type="visitor">
+          <param name="context">utilizationSave</param>               
+          <message>Utilization: </message>
+      </field-validator>       
+  </field>
+  <field name="allPositionsUtilization">
+	   <field-validator type="conversion" short-circuit="true">
+	   		<message key="error.utilization.all.positions.invalid"/>
+	    </field-validator>
+	    	
+		<field-validator type="double">
+			<param name="minInclusive">0.01</param>
+			<param name="maxInclusive">100.00</param>
+			<message key="error.utilization.all.positions.invalid"/>
+		</field-validator>   
+  </field>  
+</validators> 

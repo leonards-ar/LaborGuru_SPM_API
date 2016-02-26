@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.laborguru.model">
+    <class name="DayOfWeekData" table="tbl_day_of_week_values">
+
+        <id name="id" type="int" unsaved-value="null" column="day_of_week_value_id">
+	        <generator class="identity" />
+        </id>
+
+        <property name="dayOfWeekIndex" column="day_of_week" type="int" not-null="true"/>        
+
+        <property name="fixedFlexible" column="fixed_flexible" type="double" not-null="false"/>       
+        <property name="fixedOpening" column="fixed_opening" type="double" not-null="false"/>       
+        <property name="fixedPostRush" column="fixed_post_rush" type="double" not-null="false"/>       
+        <property name="fixedClosing" column="fixed_closing" type="double" not-null="false"/>       
+
+		<many-to-one name="position" class="Position" foreign-key="fk_dayofweekvalues_position">
+			<column name="position_id"/>
+		</many-to-one>
+    </class>
+	<database-object>
+		<create>ALTER TABLE tbl_day_of_week_values AUTO_INCREMENT=1000</create>
+		<drop></drop>
+	</database-object> 	    
+</hibernate-mapping>

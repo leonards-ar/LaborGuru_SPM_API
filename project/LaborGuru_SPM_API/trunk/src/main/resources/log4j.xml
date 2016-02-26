@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
+
+
+	<appender name="STDOUT" class="org.apache.log4j.ConsoleAppender">
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="[%d{ISO8601}]%10p %C{1} - %m%n" />
+		</layout>
+	</appender>
+
+	<!--  this has to be a DataBase logging -->
+	<!--  appender name="auditory_append" class="org.apache.log4j.RollingFileAppender">
+		<param name="file" value="${lws.logs}/.log" />
+		<param name="append" value="true" />
+		<param name="bufferedIO" value="false" />
+		<param name="maxFileSize" value="500MB" />
+		<param name="maxBackupIndex" value="5" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="[%C{2} - %d{ISO8601}] - %m%n" />
+		</layout>
+	</appender-->
+
+	
+	<appender name="message_append" class="org.apache.log4j.RollingFileAppender">
+		<param name="file" value="message.log" />
+		<param name="append" value="true" />
+		<param name="bufferedIO" value="false" />
+		<param name="maxFileSize" value="500MB" />
+		<param name="maxBackupIndex" value="5" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="[%d{ISO8601}]%10p %C{1} - %m%n" />
+		</layout>
+	</appender>
+
+	<appender name="error_append" class="org.apache.log4j.RollingFileAppender">
+		<param name="file" value="error.log" />
+		<param name="append" value="true" />
+		<param name="bufferedIO" value="false" />
+		<param name="maxFileSize" value="500MB" />
+		<param name="maxBackupIndex" value="5" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern"
+				value="[%d{ISO8601}]%10p %C{1} - %m%n" />
+		</layout>
+	</appender>
+
+	<appender name="dataimport_appender" class="org.apache.log4j.DailyRollingFileAppender">
+		<param name="file" value="historicdataimport.log" />
+		<param name="append" value="true" />
+		<param name="bufferedIO" value="false"/>
+		<param name="datePattern" value="'.'yyyy-MM-dd"/>
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="[%d{ISO8601}]%10p %C{1} - %m%n" />
+		</layout>
+	</appender>
+
+	<!--  logger name="auditory" additivity="false">
+		<level value="INFO" />
+		<appender-ref ref="auditory_append" />
+	</logger-->
+	
+	<logger name="message" additivity="false">
+		<level value="DEBUG" />
+		<appender-ref ref="message_append"/>
+	</logger>
+	
+	<logger name="error" additivity="false">
+		<level value="ERROR" />
+		<appender-ref ref="error_append"/>
+	</logger>
+	
+	<logger name="com.mindpool" additivity="false">
+		<level value="${debug.level}"/>
+		<appender-ref ref="message_append"/>
+		<appender-ref ref="STDOUT"/>
+	</logger>
+
+	<logger name="com.laborguru" additivity="false">
+		<level value="${debug.level}"/>
+		<appender-ref ref="message_append"/>
+		<appender-ref ref="STDOUT"/>
+	</logger>
+		
+	<logger name="org.acegisecurity" additivity="false">
+		<level value="INFO"/>
+		<appender-ref ref="STDOUT" />
+	</logger>
+
+	<logger name="com.opensymphony" additivity="false">
+		<level value="WARN"/>
+		<appender-ref ref="STDOUT" />
+	</logger>
+	
+	<logger name="org.springframework" additivity="false">
+		<level value="WARN"/>
+		<appender-ref ref="STDOUT" />
+	</logger>
+
+	<logger name="org.hibernate" additivity="false">
+		<level value="WARN"/>
+		<appender-ref ref="STDOUT" />
+	</logger>
+	
+	<logger name="com.laborguru.service.dataimport.csv" additivity="false">
+		<level value="ERROR"/>
+		<appender-ref ref="dataimport_appender"/>
+		<appender-ref ref="error_append"/>
+	</logger>
+	
+	<logger name="com.ibatis" additivity="false">
+		<level value="DEBUG"/>
+		<appender-ref ref="STDOUT"/>
+	</logger> 		
+	
+	<logger name="org.springframework.ws" additivity="false">
+		<level value="WARN"/>
+		<appender-ref ref="STDOUT"/>
+	</logger> 		
+	
+	<root>
+		<priority value="INFO" />
+		<appender-ref ref="STDOUT" />
+	</root>
+</log4j:configuration>

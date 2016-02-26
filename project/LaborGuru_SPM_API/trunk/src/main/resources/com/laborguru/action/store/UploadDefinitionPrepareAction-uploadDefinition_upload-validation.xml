@@ -1,0 +1,9 @@
+<!DOCTYPE validators PUBLIC "-//OpenSymphony Group//XWork Validator 1.0.2// 
+       EN" "http://www.opensymphony.com/xwork/xwork-validator-1.0.2.dtd">
+<validators>
+	<field name="storeDefinition">
+		<field-validator type="required">
+			<message key="error.store.storeDefinition.required" />
+		</field-validator>
+	</field>
+</validators>

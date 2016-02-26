@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="
+    http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+
+	<!--  Action's declarations  -->
+	<bean id="employee" class="com.laborguru.model.Employee" scope="prototype">
+		<property name="maxHoursWeek" value="40"/>
+		<property name="maxDaysWeek" value="5"/>
+		<property name="maxHoursDay" value="8"/>
+		<property name="wage" value="7.0"/>
+		<property name="status" value="0"/>
+		<property name="hireDate" ref="dateTemplateToday"/>
+	</bean>
+
+	<bean id="position" class="com.laborguru.model.Position" scope="prototype">
+		<property name="utilizationBottom" value="65.0"/>	
+		<property name="utilizationTop" value="85.0"/>
+	</bean>
+	
+	<bean id="demoPosition" class="com.laborguru.model.Position" scope="prototype">
+		<property name="utilizationMaximum" value="100"/>
+		<property name="utilizationMinimum" value="0"/>
+		<property name="utilizationBottom" value="65.0"/>	
+		<property name="utilizationTop" value="85.0"/>
+		<property name="variable2Flexible" value="0"/>
+		<property name="variable2Opening" value="0"/>
+		<property name="variable3Flexible" value="0"/>
+		<property name="variable3Opening" value="0"/>
+		<property name="variable4Flexible" value="0"/>
+		<property name="variable4Opening" value="0"/>
+	</bean>
+
+	<bean id="demoEmployee" class="com.laborguru.model.Employee" scope="prototype">
+		<property name="maxHoursWeek" value="40"/>
+		<property name="maxDaysWeek" value="5"/>
+		<property name="maxHoursDay" value="8"/>
+		<property name="wage" value="7.0"/>
+		<property name="status" value="0"/>
+		<property name="hireDate" ref="dateTemplateToday"/>
+		<property name="manager" value="true"/>
+	</bean>
+		
+	<bean id="storeToSave" class="com.laborguru.model.Store" scope="prototype">
+		<property name="allPositionsUtilization" value="90"/>
+		<property name="firstDayOfWeekAsInteger" value="0"/>
+		<property name="dailyProjectionsWeeksDefault" value="4"/>
+		<property name="halfHourProjectionsWeeksDefault" value="4"/>
+		<property name="distributionType">
+			<bean class="com.laborguru.model.DistributionType" factory-method="valueOf">
+				<constructor-arg>
+				<value>HISTORIC_AVG</value>
+				</constructor-arg>
+			</bean>		
+		</property>
+	</bean>		
+	<bean id="dateTemplateToday" class="java.util.Date"/>
+</beans>
+
