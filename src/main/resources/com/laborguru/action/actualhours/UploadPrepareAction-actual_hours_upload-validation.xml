@@ -1,0 +1,9 @@
+<!DOCTYPE validators PUBLIC "-//OpenSymphony Group//XWork Validator 1.0.2// 
+       EN" "http://www.opensymphony.com/xwork/xwork-validator-1.0.2.dtd">
+<validators>
+	<field name="actualHours">
+		<field-validator type="required">
+			<message key="error.upload.file.required" />
+		</field-validator>
+	</field>
+</validators>

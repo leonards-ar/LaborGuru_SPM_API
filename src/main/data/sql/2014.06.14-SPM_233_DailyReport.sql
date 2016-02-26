@@ -1,0 +1,1 @@
+insert into tbl_menu_items(menu_item_id,label_key,help_key,target,position,parent_id,permission_id) values(37,'report.dailyFlashReport.title','DAYLY_FLASH_REPORT_HELP','/report/dailyFlashReport_showFirstReport.action',4,21,19);

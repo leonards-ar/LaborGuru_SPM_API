@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.laborguru.model">
+    <class name="DayPartData" table="tbl_day_part_values">
+
+        <id name="id" type="int" unsaved-value="null" column="day_part_value_id">
+	        <generator class="identity" />
+        </id>
+
+        <property name="weekdayGuestService" column="weekday_guest_service" type="double" not-null="false"/>       
+        <property name="weekendGuestService" column="weekend_guest_service" type="double" not-null="false"/>       
+        <property name="variableFlexible" column="variable_flexible" type="double" not-null="false"/>       
+        <property name="variableOpening" column="variable_opening" type="double" not-null="false"/>       
+        <property name="fixedGuestService" column="fixed_guest_service" type="double" not-null="false"/>       
+        <property name="minimunStaffing" column="minimum_staffing" type="int" not-null="false"/>       
+
+		<many-to-one name="position" class="Position" foreign-key="fk_daypartvalues_positions">
+			<column name="position_id"/>
+		</many-to-one>
+		
+		<many-to-one name="dayPart" class="DayPart" foreign-key="fk_daypartvalues_dayparts">
+			<column name="day_part_id"/>
+		</many-to-one>
+    </class>
+	<database-object>
+		<create>ALTER TABLE tbl_day_part_values AUTO_INCREMENT=1000</create>
+		<drop></drop>
+	</database-object> 	    
+</hibernate-mapping>

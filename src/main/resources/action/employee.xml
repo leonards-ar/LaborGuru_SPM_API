@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="employee" namespace="/employee" extends="spm-default">		
+		<action name="employee_*" method="{1}" class="com.laborguru.action.employee.EmployeePrepareAction">
+			<result name="edit" type="tiles">editEmployeePage</result>
+			<result name="show" type="tiles">showEmployeePage</result>
+			<result name="list" type="tiles">listEmployeesPage</result>
+			<result name="listAction" type="redirectAction">employee_list</result>
+			<result name="input" type="tiles">editEmployeePage</result>			
+		</action>
+		
+		<action name="uploadDefinition_*" method="{1}" class="com.laborguru.action.employee.UploadDefinitionPrepareAction">
+			<result name="edit" type="tiles">employeesDefinitionUploadPage</result>
+			<result name="input" type="tiles">employeesDefinitionUploadPage</result>
+			<result name="cancel" type="redirectAction">store_list</result>						
+		</action>		
+	</package>
+</struts>

@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="report"  namespace="/report" extends="spm-default">
+		<action name="totalHoursReport_*" method="{1}" class="com.laborguru.action.report.SchedulingEfficiencyReportPrepareAction">
+			<result name="input" type="tiles">showWeeklyTotalHours</result>
+			<result name="show">/tiles/report/weekly_totalHours_table_report.jsp</result>
+		</action>
+
+		<action name="performanceEfficiencyReport_*" method="{1}" class="com.laborguru.action.report.PerformanceEfficiencyReportPrepareAction">
+			<result name="input" type="tiles">showPerformanceEfficiencyReport</result>
+			<result name="show">/tiles/report/performance_efficiency_table_report.jsp</result>		
+		</action>
+
+		<action name="scheduleExecutionEfficiencyReport_*" method="{1}" class="com.laborguru.action.report.ScheduleExecutionEfficiencyReportPrepareAction">
+			<result name="input" type="tiles">showScheduleExecutionEfficiencyReport</result>
+			<result name="show">/tiles/report/schedule_execution_efficiency_table_report.jsp</result>		
+		</action>
+		
+		<action name="foreCastReport_*" method="{1}" class="com.laborguru.action.report.ForecastByPositionPrepareAction">
+			<result name="show">/tiles/report/position_forecast_report.jsp</result>
+		</action>
+		
+		<action name="positionAutocompleter" class="com.laborguru.action.report.PositionAutocompleterAction">
+			<result name="success">/tiles/report/position_group_selector.jsp</result>
+		</action>
+		
+		<action name="halfHourReport_*" method="{1}" class="com.laborguru.action.report.HalfHoursReportPrepareAction">
+			<result name="input" type="tiles">showHalfHours</result>
+			<result name="show">/tiles/report/halfhour_table_report.jsp</result>
+		</action>
+		
+		<action name="fixedLaborReport_*" method="{1}" class="com.laborguru.action.report.FixedLaborHoursReportPrepareAction">
+			<result name="show">/tiles/report/fixed_labor_hours_report.jsp</result>
+		</action>
+		
+		<action name="historicalComparisonReport_*" method="{1}" class="com.laborguru.action.report.HistoricalComparisonPrepareAction">
+			<result name="input" type="tiles">showHistoricalComparisonReport</result>
+			<result name="show">/tiles/report/historical_comparison_table.jsp</result>
+		</action>
+		
+	    <action name="customerReport_*" method="{1}" class="com.laborguru.action.report.ReportCustomerPrepareAction">
+	      <result name="input" type="tiles">showCustomerReport</result>
+	      <result name="show">/tiles/report/manager_table_report.jsp</result>
+	    </action>
+
+      <action name="regionalReport_*" method="{1}" class="com.laborguru.action.report.ReportRegionPrepareAction">
+        <result name="input" type="tiles">showRegionReport</result>
+        <result name="show">/tiles/report/manager_table_report.jsp</result>
+      </action>
+
+      <action name="areaReport_*" method="{1}" class="com.laborguru.action.report.ReportAreaPrepareAction">
+        <result name="input" type="tiles">showAreaReport</result>
+        <result name="show">/tiles/report/manager_table_report.jsp</result>
+      </action>
+	    
+	  <action name="percentLaborReport_*" method="{1}" class="com.laborguru.action.report.PercentageLaborHoursReportPrepareAction">
+	    <result name="show">/tiles/report/percent_labor_hours_report.jsp</result>
+	  </action>
+	  
+	  <action name="dailyFlashReport_*" method="{1}" class="com.laborguru.action.report.DailyFlashReportPrepareAction">
+	    <result name="input" type="tiles">showDailyFlashHours</result>
+		<!-- result name="show">/tiles/report/halfhour_table_report.jsp</result -->
+	  </action>
+	  	    
+	</package>
+	
+	<package name="dailyFlashReport_ajax" namespace="/report" extends="json-default">
+	  		
+	  <action name="saveDailyFlashReport" class="com.laborguru.action.report.DailyFlashSaveAction">
+	    <interceptor-ref name="json">
+		    <param name="enableSMD">true</param>
+      </interceptor-ref>
+	    <result type="json">
+	      <param name="root">responseMessage</param>
+	    </result>
+	  </action>
+	  
+    <action name="calculateIdealDailyFlashReport" class="com.laborguru.action.report.DailyFlashIdealHoursAction">
+      <interceptor-ref name="json">
+        <param name="enableSMD">true</param>
+      </interceptor-ref>
+      <result type="json">
+        <param name="root">responseMessage</param>
+      </result>
+    </action>
+    	  
+	</package>	
+</struts>

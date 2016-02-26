@@ -1,0 +1,516 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="ReportStatements">
+	
+
+	<select id="getScheduleWeeklyTotalHours" parameterClass='java.util.Map' resultClass="com.laborguru.model.report.TotalHour">
+		SELECT
+		ss.day as day,
+		SUM(s.service_hours + s.opening_hours + s.closing_hours) as schedule
+		FROM tbl_store_schedules as ss, tbl_employee_schedules as es, tbl_shifts as s
+		WHERE ss.store_schedule_id = es.store_schedule_id
+		AND es.employee_schedule_id = s.employee_schedule_id
+		AND s.position_id IS NOT NULL
+		AND ss.day BETWEEN STR_TO_DATE(#start_date#,'%Y-%m-%d') AND STR_TO_DATE(#end_date#,'%Y-%m-%d')
+		AND ss.store_id = #store_id#
+		GROUP BY ss.day
+		ORDER BY ss.day
+	</select>
+
+	<select id="getTargetWeeklyTotalHours" parameterClass='java.util.Map' resultClass="com.laborguru.model.report.TotalHour">
+		SELECT
+		s.staffing_date as day,
+		SUM(total_daily_target) as target
+		FROM tbl_staffing as s, tbl_positions as p
+		WHERE s.position_id = p.position_id
+		AND s.staffing_date BETWEEN STR_TO_DATE(#start_date#,'%Y-%m-%d') AND STR_TO_DATE(#end_date#,'%Y-%m-%d')
+		AND p.store_id = #store_id#
+		GROUP BY s.staffing_date
+		ORDER BY s.staffing_date
+	</select>
+	
+	<select id="getScheduleWeeklyTotalHoursByPosition" parameterClass='java.util.Map' resultClass="com.laborguru.model.report.TotalHour">
+		SELECT
+		ss.day as day,
+		SUM(s.service_hours + s.opening_hours + s.closing_hours) as schedule
+		FROM tbl_store_schedules as ss, tbl_employee_schedules as es, tbl_shifts as s
+		WHERE ss.store_schedule_id = es.store_schedule_id
+		AND es.employee_schedule_id = s.employee_schedule_id
+		AND s.position_id = #position_id#
+		AND ss.day BETWEEN STR_TO_DATE(#start_date#,'%Y-%m-%d') AND STR_TO_DATE(#end_date#,'%Y-%m-%d')
+		AND ss.store_id = #store_id#
+		GROUP BY s.position_id, ss.day
+		ORDER BY s.position_id, ss.day
+	</select>
+
+	<select id="getTargetWeeklyTotalHoursByPosition" parameterClass='java.util.Map' resultClass="com.laborguru.model.report.TotalHour">
+		SELECT
+		s.staffing_date as day,
+		SUM(total_daily_target) as target
+		FROM tbl_staffing as s
+		WHERE s.position_id = #position_id#
+		AND s.staffing_date BETWEEN STR_TO_DATE(#start_date#,'%Y-%m-%d') AND STR_TO_DATE(#end_date#,'%Y-%m-%d')
+		GROUP BY s.position_id, s.staffing_date
+		ORDER BY s.position_id, s.staffing_date
+	</select>
+	
+	<select id="getScheduleWeeklyTotalHoursByService" parameterClass='java.util.Map' resultClass="com.laborguru.model.report.TotalHour">
+		SELECT
+		ss.day as day,
+		SUM(s.service_hours + s.opening_hours + s.closing_hours) as schedule
+		FROM tbl_store_schedules as ss, tbl_employee_schedules as es, tbl_shifts as s, tbl_positions as p
+		WHERE ss.store_schedule_id = es.store_schedule_id
+		AND es.employee_schedule_id = s.employee_schedule_id
+		AND s.position_id = p.position_id
+		AND p.position_group_id=#position_group_id#
+		AND ss.day BETWEEN STR_TO_DATE(#start_date#,'%Y-%m-%d') AND STR_TO_DATE(#end_date#,'%Y-%m-%d')
+		AND ss.store_id = #store_id#
+		GROUP BY p.position_group_id, ss.day
+		ORDER BY p.position_group_id, ss.day
+	</select>
+		
+	<select id="getTargetWeeklyTotalHoursByService" parameterClass='java.util.Map' resultClass="com.laborguru.model.report.TotalHour">
+		SELECT
+		s.staffing_date as day,
+		SUM(total_daily_target) as target
+		FROM tbl_staffing as s, tbl_positions as p
+		WHERE s.position_id = p.position_id
+		AND s.staffing_date BETWEEN STR_TO_DATE(#start_date#,'%Y-%m-%d') AND STR_TO_DATE(#end_date#,'%Y-%m-%d')
+		AND p.store_id = #store_id#
+		AND p.position_group_id = #position_group_id#
+		GROUP BY p.position_group_id, s.staffing_date
+		ORDER BY p.position_group_id, s.staffing_date
+	</select>
+			
+	<select id="getScheduleHalfHourlyTotalHours" parameterClass='java.util.Map' resultClass="com.laborguru.model.report.TotalHour">
+		SELECT h.time as day,
+		COUNT(s.position_id) as schedule
+		FROM tbl_store_schedules as ss, tbl_employee_schedules as es, tbl_shifts as s, tbl_halfhour_staffing h, tbl_staffing as st
+		WHERE ss.store_schedule_id = es.store_schedule_id
+		AND es.employee_schedule_id = s.employee_schedule_id
+		AND s.position_id = st.position_id
+		AND s.position_id IS NOT NULL
+		AND st.staffing_id = h.staffing_id 
+		AND st.staffing_date = ss.day
+		AND TIME(h.time) <![CDATA[ >= ]]> TIME(#open_hour#) 
+		AND TIME(h.time) <![CDATA[ < ]]>  TIME(#close_hour#)
+		AND TIME(h.time) <![CDATA[ >= ]]>TIME(s.from_hour) 
+		AND TIME(h.time) <![CDATA[ < ]]> TIME(s.to_hour)
+		AND ss.store_id = #store_id#
+		AND ss.day = STR_TO_DATE(#date#,'%Y-%m-%d')
+		GROUP BY h.time
+		ORDER BY TIME(h.time);
+	</select>
+
+	<select id="getTargetHalfHourlyTotalHours" parameterClass='java.util.Map' resultClass="com.laborguru.model.report.TotalHour">
+		SELECT 
+		h.time as day, 
+		sum(h.calculated_staff) as target
+		FROM tbl_staffing as s, tbl_halfhour_staffing as h, tbl_positions as p 
+		WHERE p.position_id = s.position_id 
+		AND s.staffing_id = h.staffing_id 
+		AND s.staffing_date = STR_TO_DATE(#date#,'%Y-%m-%d')
+		AND TIME(h.time) <![CDATA[ >= ]]> TIME(#open_hour#) 
+		AND TIME(h.time) <![CDATA[ < ]]>  TIME(#close_hour#)
+		AND p.store_id=#store_id# 
+		GROUP BY h.time 
+		ORDER BY TIME(h.time)
+	</select>
+
+	<select id="getScheduleHalfHourlyTotalHoursSplitInTwoDays" parameterClass='java.util.Map' resultClass="com.laborguru.model.report.TotalHour">
+		SELECT h.time as day, COUNT(s.position_id) as schedule
+		FROM tbl_employee_schedules as es, tbl_shifts as s,tbl_store_schedules as ss,
+		(
+			SELECT distinct(h.time) as time
+			FROM tbl_halfhour_staffing h, tbl_staffing as st
+			WHERE st.staffing_id = h.staffing_id
+				AND st.staffing_date = STR_TO_DATE(#date#,'%Y-%m-%d')
+			ORDER BY h.time
+        ) as h
+		WHERE ss.store_schedule_id = es.store_schedule_id
+		AND es.employee_schedule_id = s.employee_schedule_id
+		AND s.position_id IS NOT NULL
+		AND(	
+	        TIME(s.to_hour) = TIME(s.from_hour)
+            OR
+			(
+				TIME(s.to_hour) <![CDATA[ > ]]> TIME(s.from_hour)
+				AND TIME(h.time) <![CDATA[ >= ]]> TIME(s.from_hour)
+				AND TIME(h.time) <![CDATA[ < ]]> TIME(s.to_hour)
+			)
+			OR
+			(
+				TIME(s.to_hour) <![CDATA[ < ]]> TIME(s.from_hour)
+				AND NOT
+				(
+					TIME(h.time) <![CDATA[ >= ]]> TIME(s.to_hour)
+					AND TIME(h.time) <![CDATA[ < ]]> TIME(s.from_hour)
+				)
+			)
+		)
+		AND ss.day = STR_TO_DATE(#date#,'%Y-%m-%d')		
+		AND ss.store_id = #store_id#	
+		GROUP BY TIME(h.time)
+		ORDER BY TIME(h.time)
+	</select>
+
+	<select id="getTargetHalfHourlyTotalHoursSplitInTwoDays" parameterClass='java.util.Map' resultClass="com.laborguru.model.report.TotalHour">
+		SELECT 
+		h.time as day, 
+		sum(h.calculated_staff) as target
+		FROM tbl_staffing as s, tbl_halfhour_staffing as h, tbl_positions as p 
+		WHERE p.position_id = s.position_id 
+		AND s.staffing_id = h.staffing_id
+		AND(
+			( 
+				TIME(h.time) <![CDATA[ >= ]]> TIME(#open_hour#) 
+				AND TIME(h.time) <![CDATA[ <= ]]>  TIME('1970-01-01 23:59:59')
+			)
+			OR
+			(
+				TIME(h.time) <![CDATA[ >= ]]> TIME('1970-01-01 00:00:00') 
+				AND TIME(h.time) <![CDATA[ < ]]>  TIME(#close_hour#)
+			)
+		)
+		AND s.staffing_date = STR_TO_DATE(#date#,'%Y-%m-%d')		
+		AND p.store_id=#store_id# 
+		GROUP BY s.staffing_date, h.time 
+		ORDER BY s.staffing_date, TIME(h.time)
+	</select>
+	
+	<select id="getScheduleHalfHourlyTotalHoursByPosition" parameterClass='java.util.Map' resultClass="com.laborguru.model.report.TotalHour">
+		SELECT h.time as day,
+		COUNT(s.position_id) as schedule
+		FROM tbl_store_schedules as ss, tbl_employee_schedules as es, tbl_shifts as s, tbl_halfhour_staffing h, tbl_staffing as st
+		WHERE ss.store_schedule_id = es.store_schedule_id
+		AND es.employee_schedule_id = s.employee_schedule_id
+		AND s.position_id = st.position_id
+		AND s.position_id IS NOT NULL
+		AND st.staffing_id = h.staffing_id 
+		AND st.staffing_date = ss.day
+		AND s.position_id = #position_id#
+		AND TIME(h.time) <![CDATA[ >= ]]> TIME(#open_hour#) 
+		AND TIME(h.time) <![CDATA[ < ]]>  TIME(#close_hour#)
+		AND TIME(h.time) <![CDATA[ >= ]]>TIME(s.from_hour) 
+		AND TIME(h.time) <![CDATA[ < ]]> TIME(s.to_hour)
+		AND ss.store_id = #store_id#
+		AND ss.day = STR_TO_DATE(#date#,'%Y-%m-%d')
+		GROUP BY h.time
+		ORDER BY TIME(h.time);
+	</select>
+	
+	<select id="getTargetHalfHourlyTotalHoursByPosition" parameterClass='java.util.Map' resultClass="com.laborguru.model.report.TotalHour">
+		SELECT 
+		h.time as day, 
+		sum(h.calculated_staff) as target
+		FROM tbl_staffing as s, tbl_halfhour_staffing as h, tbl_positions as p 
+		WHERE p.position_id = s.position_id 
+		AND s.staffing_id = h.staffing_id 
+		AND s.staffing_date = STR_TO_DATE(#date#,'%Y-%m-%d')
+		AND TIME(h.time) <![CDATA[ >= ]]> TIME(#open_hour#) 
+		AND TIME(h.time) <![CDATA[ < ]]>  TIME(#close_hour#)
+		AND p.store_id=#store_id# 
+		AND p.position_id=#position_id#
+		GROUP BY h.time 
+		ORDER BY TIME(h.time)
+	</select>
+
+	<select id="getScheduleHalfHourlyTotalHoursByPositionSplitInTwoDays" parameterClass='java.util.Map' resultClass="com.laborguru.model.report.TotalHour">
+		SELECT h.time as day, COUNT(s.position_id) as schedule
+		FROM tbl_employee_schedules as es, tbl_shifts as s,tbl_store_schedules as ss,
+		(
+			SELECT distinct(h.time) as time
+			FROM tbl_halfhour_staffing h, tbl_staffing as st
+			WHERE st.staffing_id = h.staffing_id
+				AND st.staffing_date = STR_TO_DATE(#date#,'%Y-%m-%d')
+			ORDER BY h.time
+        ) as h
+		WHERE ss.store_schedule_id = es.store_schedule_id
+		AND es.employee_schedule_id = s.employee_schedule_id
+		AND s.position_id = #position_id#
+		AND s.position_id IS NOT NULL
+		AND(	
+	        TIME(s.to_hour) = TIME(s.from_hour)
+            OR
+			(
+				TIME(s.to_hour) <![CDATA[ > ]]> TIME(s.from_hour)
+				AND TIME(h.time) <![CDATA[ >= ]]> TIME(s.from_hour)
+				AND TIME(h.time) <![CDATA[ < ]]> TIME(s.to_hour)
+			)
+			OR
+			(
+				TIME(s.to_hour) <![CDATA[ < ]]> TIME(s.from_hour)
+				AND NOT
+				(
+					TIME(h.time) <![CDATA[ >= ]]> TIME(s.to_hour)
+					AND TIME(h.time) <![CDATA[ < ]]> TIME(s.from_hour)
+				)
+			)
+		)
+		AND ss.day = STR_TO_DATE(#date#,'%Y-%m-%d')		
+		AND ss.store_id = #store_id#	
+		GROUP BY TIME(h.time)
+		ORDER BY TIME(h.time)
+	</select>
+
+	<select id="getTargetHalfHourlyTotalHoursByPositionSplitInTwoDays" parameterClass='java.util.Map' resultClass="com.laborguru.model.report.TotalHour">
+		SELECT 
+		h.time as day, 
+		sum(h.calculated_staff) as target
+		FROM tbl_staffing as s, tbl_halfhour_staffing as h, tbl_positions as p 
+		WHERE p.position_id = s.position_id 
+		AND s.staffing_id = h.staffing_id 
+		AND s.staffing_date = STR_TO_DATE(#date#,'%Y-%m-%d')
+		AND(
+			( 
+				TIME(h.time) <![CDATA[ >= ]]> TIME(#open_hour#) 
+				AND TIME(h.time) <![CDATA[ <= ]]>  TIME('1970-01-01 23:59:59')
+			)
+			OR
+			(
+				TIME(h.time) <![CDATA[ >= ]]> TIME('1970-01-01 00:00:00') 
+				AND TIME(h.time) <![CDATA[ < ]]>  TIME(#close_hour#)
+			)
+		)
+		AND s.staffing_date = STR_TO_DATE(#date#,'%Y-%m-%d')
+		AND p.store_id=#store_id# 
+		AND p.position_id=#position_id#
+		GROUP BY s.staffing_date, h.time 
+		ORDER BY s.staffing_date, TIME(h.time)
+	</select>
+	
+	<select id="getScheduleHalfHourlyTotalHoursByService" parameterClass='java.util.Map' resultClass="com.laborguru.model.report.TotalHour">
+		SELECT h.time as day,
+		COUNT(s.position_id) as schedule
+		FROM tbl_store_schedules as ss, tbl_employee_schedules as es, tbl_shifts as s, tbl_halfhour_staffing h, tbl_staffing as st, tbl_positions as p
+		WHERE ss.store_schedule_id = es.store_schedule_id
+		AND es.employee_schedule_id = s.employee_schedule_id
+		AND s.position_id = st.position_id
+		AND s.position_id IS NOT NULL
+		AND st.staffing_id = h.staffing_id 
+		AND st.staffing_date = ss.day
+		AND s.position_id = p.position_id
+		AND p.position_group_id = #position_group_id#
+		AND TIME(h.time) <![CDATA[ >= ]]> TIME(#open_hour#) 
+		AND TIME(h.time) <![CDATA[ < ]]>  TIME(#close_hour#)
+		AND TIME(h.time) <![CDATA[ >= ]]>TIME(s.from_hour) 
+		AND TIME(h.time) <![CDATA[ < ]]> TIME(s.to_hour)
+		AND ss.store_id = #store_id#
+		AND ss.day = STR_TO_DATE(#date#,'%Y-%m-%d')
+		AND ss.store_id = #store_id#
+		GROUP BY h.time
+		ORDER BY TIME(h.time);
+	</select>
+	
+	<select id="getTargetHalfHourlyTotalHoursByService" parameterClass='java.util.Map' resultClass="com.laborguru.model.report.TotalHour">
+		SELECT 
+		h.time as day, 
+		sum(h.calculated_staff) as target
+		FROM tbl_staffing as s, tbl_halfhour_staffing as h, tbl_positions as p 
+		WHERE p.position_id = s.position_id 
+		AND s.staffing_id = h.staffing_id 
+		AND s.staffing_date = STR_TO_DATE(#date#,'%Y-%m-%d')
+		AND TIME(h.time) <![CDATA[ >= ]]> TIME(#open_hour#) 
+		AND TIME(h.time) <![CDATA[ < ]]>  TIME(#close_hour#)
+		AND p.store_id=#store_id# 
+		AND p.position_group_id=#position_group_id#
+		GROUP BY h.time 
+		ORDER BY TIME(h.time)
+	</select>	
+
+	<select id="getScheduleHalfHourlyTotalHoursByServiceSplitInTwoDays" parameterClass='java.util.Map' resultClass="com.laborguru.model.report.TotalHour">
+		SELECT h.time as day, COUNT(s.position_id) as schedule
+		FROM tbl_employee_schedules as es, tbl_shifts as s,tbl_store_schedules as ss, tbl_positions as p, 
+		(
+			SELECT distinct(h.time) as time
+			FROM tbl_halfhour_staffing h, tbl_staffing as st
+			WHERE st.staffing_id = h.staffing_id
+				AND st.staffing_date = STR_TO_DATE(#date#,'%Y-%m-%d')
+			ORDER BY h.time
+        ) as h
+		WHERE ss.store_schedule_id = es.store_schedule_id
+		AND es.employee_schedule_id = s.employee_schedule_id
+		AND s.position_id = p.position_id
+		AND p.position_group_id = #position_group_id#		
+		AND s.position_id IS NOT NULL
+		AND(	
+	        TIME(s.to_hour) = TIME(s.from_hour)
+            OR
+			(
+				TIME(s.to_hour) <![CDATA[ > ]]> TIME(s.from_hour)
+				AND TIME(h.time) <![CDATA[ >= ]]> TIME(s.from_hour)
+				AND TIME(h.time) <![CDATA[ < ]]> TIME(s.to_hour)
+			)
+			OR
+			(
+				TIME(s.to_hour) <![CDATA[ < ]]> TIME(s.from_hour)
+				AND NOT
+				(
+					TIME(h.time) <![CDATA[ >= ]]> TIME(s.to_hour)
+					AND TIME(h.time) <![CDATA[ < ]]> TIME(s.from_hour)
+				)
+			)
+		)
+		AND ss.day = STR_TO_DATE(#date#,'%Y-%m-%d')		
+		AND ss.store_id = #store_id#	
+		GROUP BY TIME(h.time)
+		ORDER BY TIME(h.time);
+	</select>
+	
+	<select id="getTargetHalfHourlyTotalHoursByServiceSplitInTwoDays" parameterClass='java.util.Map' resultClass="com.laborguru.model.report.TotalHour">
+		SELECT 
+		h.time as day, 
+		sum(h.calculated_staff) as target
+		FROM tbl_staffing as s, tbl_halfhour_staffing as h, tbl_positions as p 
+		WHERE p.position_id = s.position_id 
+		AND s.staffing_id = h.staffing_id 
+		AND s.staffing_date = STR_TO_DATE(#date#,'%Y-%m-%d')
+		AND(
+			( 
+				TIME(h.time) <![CDATA[ >= ]]> TIME(#open_hour#) 
+				AND TIME(h.time) <![CDATA[ <= ]]>  TIME('1970-01-01 23:59:59')
+			)
+			OR
+			(
+				TIME(h.time) <![CDATA[ >= ]]> TIME('1970-01-01 00:00:00') 
+				AND TIME(h.time) <![CDATA[ < ]]>  TIME(#close_hour#)
+			)
+		)
+		AND s.staffing_date = STR_TO_DATE(#date#,'%Y-%m-%d')
+		AND p.store_id=#store_id# 
+		AND p.position_group_id=#position_group_id#
+		GROUP BY s.staffing_date, h.time 
+		ORDER BY s.staffing_date, TIME(h.time)
+	</select>	
+			
+	<resultMap id="get-schedule-forecast-result" class="com.laborguru.model.report.TotalHourByPosition">
+		<result property="position.id" column="id"/>
+		<result property="totalHour.schedule" column="schedule"/>
+	</resultMap>
+		
+	<select id="getScheduleForecastByPosition" parameterClass='java.util.Map' resultMap="get-schedule-forecast-result">
+		SELECT
+		s.position_id as id, 
+		SUM(s.service_hours + s.opening_hours + s.closing_hours) as schedule
+		FROM tbl_store_schedules as ss, tbl_employee_schedules as es, tbl_shifts as s
+		WHERE ss.store_schedule_id = es.store_schedule_id
+		AND es.employee_schedule_id = s.employee_schedule_id
+		AND s.position_id IS NOT NULL
+		AND ss.day BETWEEN STR_TO_DATE(#start_date#,'%Y-%m-%d') AND STR_TO_DATE(#end_date#,'%Y-%m-%d')
+		AND ss.store_id = #store_id#
+		GROUP BY s.position_id		
+	</select>
+	
+	<resultMap id="get-target-forecast-result" class="com.laborguru.model.report.TotalHourByPosition">
+		<result property="position.id" column="id"/>
+		<result property="totalHour.target" column="target"/>
+	</resultMap>
+		
+	<select id="getTargetForecastByPosition" parameterClass='java.util.Map' resultMap="get-target-forecast-result">
+		SELECT
+		p.position_id as id, 
+		SUM(total_daily_target) as target
+		FROM tbl_staffing as s, tbl_positions as p
+		WHERE s.position_id = p.position_id
+		AND s.staffing_date BETWEEN STR_TO_DATE(#start_date#,'%Y-%m-%d') AND STR_TO_DATE(#end_date#,'%Y-%m-%d')
+		AND p.store_id = #store_id#
+		GROUP BY p.position_id
+	</select>
+	
+	<select id="getActualSales" parameterClass="java.util.Map" resultClass="com.laborguru.model.HistoricSales">
+		SELECT
+		DATE(hs.date_time) as dateTime, 
+		hs.day_of_week as dayOfWeek, 
+		sum(hs.main_value) as mainValue,
+		sum(hs.second_value) as secondValue, 
+		sum(hs.third_value) as thirdValue, 
+		sum(hs.fourth_value) as fourthValue
+		FROM tbl_historic_sales as hs
+		WHERE DATE(hs.date_time) BETWEEN STR_TO_DATE(#start_date#, '%Y-%m-%d') AND STR_TO_DATE(#end_date#, '%Y-%m-%d')
+		AND hs.store_id = #store_id#
+		GROUP BY DATE(hs.date_time), hs.day_of_week
+		ORDER BY DATE(hs.date_time), hs.day_of_week;
+	</select>
+	
+	<select id="getActualHours" parameterClass="java.util.Map" resultClass="com.laborguru.model.report.TotalHour">
+		SELECT
+		a.date as day,
+		a.hours as schedule
+		FROM tbl_actual_hours a
+		WHERE a.date BETWEEN STR_TO_DATE(#start_date#, '%Y-%m-%d') AND STR_TO_DATE(#end_date#, '%Y-%m-%d')
+		AND a.store_id = #store_id# 
+	</select>
+		
+	<select id="getScheduleFixedLaborHours" parameterClass="java.util.Map" resultClass="com.laborguru.model.report.FixedLaborHours">
+		SELECT 	SUM(service_hours) as serviceHours, 
+				SUM(opening_hours) as openHours,
+				SUM(closing_hours) as closeHours 
+		FROM tbl_store_schedules ss, tbl_employee_schedules es, tbl_shifts s
+		WHERE ss.store_schedule_id = es.store_schedule_id 
+		AND es.employee_schedule_id = s.employee_schedule_id 
+		AND ss.day = STR_TO_DATE(#date#,'%Y-%m-%d') 
+		AND ss.store_id=#store_id#
+		AND s.position_id is not null
+	</select>
+	
+	<select id="getTargetFixedLaborHours" parameterClass="java.util.Map" resultClass="com.laborguru.model.report.FixedLaborHours">
+		 select SUM(total_service_hours) as serviceHours, 
+		 		SUM(total_opening) as openHours, 
+		 		SUM(fixed_closing) as closeHours, 
+		 		SUM(total_flexible) as flexHours
+		 FROM tbl_staffing s, tbl_positions p  
+		 WHERE s.position_id = p.position_id
+		 AND s.staffing_date = STR_TO_DATE(#date#,'%Y-%m-%d')
+		 AND p.store_id=#store_id#
+	</select>
+	
+  <select id="getScheduleFixedLaborHoursByPosition" parameterClass="java.util.Map" resultClass="com.laborguru.model.report.FixedLaborHours">
+  		SELECT 	SUM(service_hours) as serviceHours, 
+				SUM(opening_hours) as openHours,
+				SUM(closing_hours) as closeHours 
+		FROM tbl_store_schedules ss, tbl_employee_schedules es, tbl_shifts s
+		WHERE ss.store_schedule_id = es.store_schedule_id 
+		AND es.employee_schedule_id = s.employee_schedule_id 
+		AND ss.day = STR_TO_DATE(#date#,'%Y-%m-%d') 
+		AND ss.store_id=#store_id#
+		AND s.position_id = #position_id#
+		AND s.position_id is not null
+  </select>
+    
+  <select id="getTargetFixedLaborHoursByPosition" parameterClass="java.util.Map" resultClass="com.laborguru.model.report.FixedLaborHours">
+     select SUM(total_service_hours) as serviceHours, 
+     		SUM(total_opening) as openHours, 
+     		SUM(fixed_closing) as closeHours, 
+     		SUM(total_flexible) as flexHours
+     FROM tbl_staffing s, tbl_positions p  
+     WHERE s.position_id = p.position_id
+     AND s.staffing_date = STR_TO_DATE(#date#,'%Y-%m-%d')
+     AND p.store_id=#store_id#
+     AND p.position_id=#position_id#
+  </select>
+
+  <select id="getScheduleFixedLaborHoursByService" parameterClass="java.util.Map" resultClass="com.laborguru.model.report.FixedLaborHours">
+    SELECT 	SUM(service_hours) as serviceHours, 
+			SUM(opening_hours) as openHours,
+			SUM(closing_hours) as closeHours 
+    FROM tbl_store_schedules ss, tbl_employee_schedules es, tbl_shifts s, tbl_positions p 
+    WHERE ss.store_schedule_id = es.store_schedule_id 
+    AND es.employee_schedule_id = s.employee_schedule_id 
+    AND ss.day = STR_TO_DATE(#date#,'%Y-%m-%d') 
+    AND ss.store_id=#store_id#
+    AND s.position_id = p.position_id
+    AND p.position_group_id = #position_group_id# 
+  </select>
+  
+  <select id="getTargetFixedLaborHoursByService" parameterClass="java.util.Map" resultClass="com.laborguru.model.report.FixedLaborHours">
+     select SUM(total_service_hours) as serviceHours, 
+     		SUM(total_opening) as openHours, 
+     		SUM(fixed_closing) as closeHours, 
+     		SUM(total_flexible) as flexHours
+     FROM tbl_staffing s, tbl_positions p  
+     WHERE s.position_id = p.position_id
+     AND s.staffing_date = STR_TO_DATE(#date#,'%Y-%m-%d')
+     AND p.store_id=#store_id#
+     AND p.position_group_id = #position_group_id#
+  </select>	
+</sqlMap>

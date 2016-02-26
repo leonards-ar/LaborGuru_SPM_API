@@ -1,0 +1,235 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE dataset SYSTEM "spm_dataset.dtd">
+<dataset>
+  <tbl_customers customer_id="1" name="Mac Donalds" code="MD"/>
+  <tbl_customers customer_id="2" name="Burger King" code="BK"/>
+  <tbl_customers customer_id="3" name="Pizza Hut" code="PH"/>
+  <tbl_regions region_id="1" name="Capital Federal" customer_id="1"/>
+  <tbl_regions region_id="2" name="Gran Buenos Aires" customer_id="1"/>
+  <tbl_regions region_id="3" name="Cuyo" customer_id="2"/>
+  <tbl_regions region_id="4" name="Mesopotamia" customer_id="2"/>
+  <tbl_regions region_id="5" name="Patagonia" customer_id="3"/>
+  <tbl_regions region_id="6" name="Buenos Aires" customer_id="3"/>
+  <tbl_areas area_id="1" name="Monserrat" region_id="1"/>
+  <tbl_areas area_id="2" name="Caballito" region_id="1"/>
+  <tbl_areas area_id="3" name="Tigre" region_id="2"/>
+  <tbl_areas area_id="4" name="Bahia Blanca" region_id="2"/>
+  <tbl_areas area_id="5" name="San Juan" region_id="3"/>
+  <tbl_areas area_id="6" name="Mendoza" region_id="3"/>
+  <tbl_areas area_id="7" name="Entre Rios" region_id="4"/>
+  <tbl_areas area_id="8" name="Misiones" region_id="4"/>
+  <tbl_areas area_id="9" name="Chubut" region_id="5"/>
+  <tbl_areas area_id="10" name="Santa Cruz" region_id="5"/>
+  <tbl_areas area_id="11" name="Capital Federal" region_id="6"/>
+  <tbl_areas area_id="12" name="Gran Buenos Aires" region_id="6"/>
+  
+  <tbl_permissions permission_id="1" name="HOME_ACCESS" description="Dummy permission that all profiles should have"/>
+  <tbl_permissions permission_id="2" name="VIEW_EMPLOYEE" description="View and query employees of the own store"/>
+  <tbl_permissions permission_id="3" name="EDIT_EMPLOYEE" description="Edit existing employees of the own store"/>
+  <tbl_permissions permission_id="4" name="CREATE_EMPLOYEE" description="Create new employees in the own store"/>
+  <tbl_permissions permission_id="5" name="VIEW_STORE" description="View and query stores"/>
+  <tbl_permissions permission_id="6" name="EDIT_STORE" description="Edit existing stores"/>
+  <tbl_permissions permission_id="7" name="CREATE_STORE" description="Create new stores"/>
+  <tbl_permissions permission_id="8" name="VIEW_CUSTOMER" description="View and query customers"/>
+  <tbl_permissions permission_id="9" name="EDIT_CUSTOMER" description="Edit existing customers"/>
+  <tbl_permissions permission_id="10" name="CREATE_CUSTOMER" description="Create new customers"/>  
+  <tbl_permissions permission_id="11" name="MANAGER_PROJECTIONS" description="Manage projections"/>  
+  <tbl_permissions permission_id="12" name="EDIT_DAILY_PROJECTIONS" description="Manage daily projections"/>  
+  <tbl_permissions permission_id="13" name="EDIT_HALFHOUR_PROJECTIONS" description="Manage half hour projections"/>
+  <tbl_permissions permission_id="14" name="EDIT_SETTINGS_PROJECTIONS" description="Manage settings projections"/>
+  <tbl_permissions permission_id="15" name="ADD_SHIFT" description="Assign hours to employees"/>
+  <tbl_permissions permission_id="16" name="VIEW_USER" description="View and query admin users" />
+  <tbl_permissions permission_id="17" name="EDIT_USER" description="Edit existing admin users"/>
+  <tbl_permissions permission_id="18" name="CREATE_USER" description="Create new admin users"/>
+  <tbl_permissions permission_id="19" name="REPORTS" description="Reports for each store" />
+  <tbl_permissions permission_id="20" name="REMOVE_STORE" description="Remove stores"/>
+  <tbl_permissions permission_id="21" name="ADD_EMPLOYEE_STORE" description="Create an Employee from a Store"/>
+  <tbl_permissions permission_id="22" name="LIST_EMPLOYEE_STORE" description="List Employees from a Store"/>
+  <tbl_permissions permission_id="23" name="VIEW_EMPLOYEE_STORE" description="VIEW Employees from a Store"/>
+  <tbl_permissions permission_id="24" name="EDIT_EMPLOYEE_STORE" description="VIEW Employees from a Store"/>
+  <tbl_permissions permission_id="25" name="REMOVE_EMPLOYEE_STORE" description="VIEW Employees from a Store"/>`
+  <tbl_permissions permission_id="26" name="REMOVE_CUSTOMER" description="Remove a Customer"/>
+  <tbl_permissions permission_id="27" name="ADD_MANAGER_CUSTOMER" description="Create an Office Manager"/>
+  <tbl_permissions permission_id="28" name="VIEW_MANAGER_CUSTOMER" description="View an Office Manager"/>
+  <tbl_permissions permission_id="29" name="EDIT_MANAGER_CUSTOMER" description="Edit an Office Manager"/>
+  <tbl_permissions permission_id="30" name="REMOVE_MANAGER_CUSTOMER" description="Remove an Office Manager"/>
+  <tbl_permissions permission_id="31" name="ADD_REGIONAL_CUSTOMER" description="Create Regional Manager"/>
+  <tbl_permissions permission_id="32" name="VIEW_REGIONAL_CUSTOMER" description="View Regional Manager"/>
+  <tbl_permissions permission_id="33" name="EDIT_REGIONAL_CUSTOMER" description="Edit Regional Manager"/>
+  <tbl_permissions permission_id="34" name="REMOVE_REGIONAL_CUSTOMER" description="Remove Regional Manager"/>
+  <tbl_permissions permission_id="35" name="ADD_AREA_CUSTOMER" description="Create Area Manager"/>
+  <tbl_permissions permission_id="36" name="VIEW_AREA_CUSTOMER" description="View Area Manager"/>
+  <tbl_permissions permission_id="37" name="EDIT_AREA_CUSTOMER" description="Edit Area Manager"/>
+  <tbl_permissions permission_id="38" name="REMOVE_AREA_CUSTOMER" description="Remove Area Manager"/>
+  <tbl_permissions permission_id="39" name="REMOVE_USER" description="Remove admin users"/>
+  <tbl_permissions permission_id="40" name="REMOVE_EMPLOYEE" description="Remove an Employee"/>
+  <tbl_permissions permission_id="41" name="PRINT_SHIFT" description="Print Schedule Shifts"/>
+  <tbl_permissions permission_id="42" name="SHOW_SHIFT_SUBMENU" description="Show main Schedule menu item"/>
+  <tbl_permissions permission_id="43" name="SHOW_CUSTOMER_REPORT" description="Show Report for Customer Manager"/>
+  <tbl_permissions permission_id="44" name="SHOW_REGIONAL_REPORT" description="Show Report for Regional Manager"/>
+  <tbl_permissions permission_id="45" name="SHOW_AREA_REPORT" description="Show Report for Area Manager"/>
+  <!--  tbl_permissions permission_id="46" name="SHOW_STORE_SUBMENU" description="Show Report for Stores"/-->
+  <tbl_permissions permission_id="47" name="CUSTOMER_MANAGER_REPORTS" description="Show Report Menu for Customer, Regional and Area managers"/>
+  <tbl_permissions permission_id="48" name="POST_SHIFT" description="Post Schedule Shifts"/>
+
+  <tbl_menu_items menu_item_id="1" label_key="home.menu.label" help_key="HOME_MENU_HELP" target="/home/home.action" position="0" permission_id="1"/>
+  <tbl_menu_items menu_item_id="2" label_key="employee.menu.label" help_key="EMPLOYEE_MENU_HELP" target="/employee/employee_list.action" position="1" permission_id="2"/>
+  <tbl_menu_items menu_item_id="3" label_key="employee.submenu.list" help_key="EMPLOYEE_LIST_HELP" target="/employee/employee_list.action" position="1" parent_id="2" permission_id="3"/>
+  <tbl_menu_items menu_item_id="4" label_key="employee.submenu.create" help_key="EMPLOYEE_ADD_HELP" target="/employee/employee_add.action" position="0" parent_id="2" permission_id="4"/>
+  <tbl_menu_items menu_item_id="5" label_key="store.menu.label" help_key="STORE_MENU_HELP" target="/store/store_list.action" position="3" permission_id="5"/>
+  <tbl_menu_items menu_item_id="6" label_key="store.submenu.list" help_key="STORE_LIST_HELP" target="/store/store_list.action" position="1" parent_id="5" permission_id="6"/>
+  <tbl_menu_items menu_item_id="7" label_key="store.submenu.create" help_key="STORE_ADD_HELP" target="/store/store_add.action" position="0" parent_id="5" permission_id="7"/>
+  <tbl_menu_items menu_item_id="8" label_key="customer.menu.label" help_key="CUSTOMER_MENU_HELP" target="/customer/customer_list.action" position="4" permission_id="8"/>
+  <tbl_menu_items menu_item_id="9" label_key="customer.submenu.list" help_key="CUSTOMER_LIST_HELP" target="/customer/customer_list.action" position="1" parent_id="8" permission_id="9"/>
+  <tbl_menu_items menu_item_id="10" label_key="customer.submenu.create" help_key="CUSTOMER_ADD_HELP" target="/customer/customer_add.action" position="0" parent_id="8" permission_id="10"/>
+  <tbl_menu_items menu_item_id="11" label_key="projection.menu.create" help_key="PROJECTION_HELP" target="/projection/daily_edit.action" position="5" permission_id="11"/>
+  <tbl_menu_items menu_item_id="12" label_key="projection.submenu.daily" help_key="PROJECTION_DAILY_HELP" target="/projection/daily_edit.action" position="0" parent_id="11" permission_id="12"/>
+  <tbl_menu_items menu_item_id="13" label_key="projection.submenu.halfhour" help_key="PROJECTION_HALFHOUR_HELP" target="/projection/halfhour_edit.action" position="1" parent_id="11" permission_id="13"/>
+  <tbl_menu_items menu_item_id="14" label_key="projection.submenu.settings" help_key="PROJECTION_SETTINGS_HELP" target="/projection/settings_edit.action" position="2" parent_id="11" permission_id="14"/>
+  <tbl_menu_items menu_item_id="15" label_key="schedule.menu.label" help_key="SCHEDULE_MENU_HELP" position="6" permission_id="42"/>
+  <tbl_menu_items menu_item_id="16" label_key="schedule.submenu.addshift" help_key="SCHEDULE_ADDSHIFT_HELP" target="/schedule/addweeklyshiftbyemployee_edit.action?selectedDate=${selectedDate}&amp;selectedWeekDay=${selectedWeekDay}" position="1" parent_id="15" permission_id="15"/>
+  <tbl_menu_items menu_item_id="17" label_key="user.menu.label" help_key="USER_MENU_HELP" target="/user/user_list.action" position="2" permission_id="16"/>
+  <tbl_menu_items menu_item_id="18" label_key="user.submenu.list" help_key="USER_LIST_HELP" target="/user/user_list.action" position="1" parent_id="17" permission_id="17"/>
+  <tbl_menu_items menu_item_id="19" label_key="user.submenu.create" help_key="USER_ADD_HELP" target="/user/user_add.action" position="0" parent_id="17" permission_id="18"/>
+  <tbl_menu_items menu_item_id="20" label_key="store.submenu.uploadsales" help_key="STORE_UPLOAD_SALES_HELP" target="/sales/sales_edit.action" position="3" parent_id="5" permission_id="6"/>
+  <tbl_menu_items menu_item_id="21" label_key="report.menu.label" help_key="REPORT_MENU_HELP" position="7" permission_id="19"/>
+  <tbl_menu_items menu_item_id="22" label_key="store.submenu.uploadstoredefinition" help_key="STORE_UPLOAD_DEFINITION_HELP" target="/store/uploadDefinition_edit.action" position="2" parent_id="5" permission_id="6"/>
+  <tbl_menu_items menu_item_id="23" label_key="report.weekByDay.title" help_key="WEEK_BY_DAY_REPORT_HELP" target="/report/totalHoursReport_showFirstReport.action?selectedDate=${selectedDate}&amp;selectedWeekDay=${selectedWeekDay}" position="1" parent_id="21" permission_id="19"/>
+  <tbl_menu_items menu_item_id="24" label_key="report.dailyHours.title" help_key="DAY_BY_HALFHOUR_REPORT_HELP" target="/report/halfHourReport_showFirstReport.action?selectedDate=${selectedDate}&amp;selectedWeekDay=${selectedWeekDay}" position="2" parent_id="21" permission_id="19"/>
+  <tbl_menu_items menu_item_id="25" label_key="schedule.submenu.printshift" help_key="SCHEDULE_PRINTSHIFT_HELP" target="/schedule/printweeklyshiftbyposition_view.action?selectedDate=${selectedDate}&amp;selectedWeekDay=${selectedWeekDay}" position="2" parent_id="15" permission_id="41"/>
+  <tbl_menu_items menu_item_id="26" label_key="schedule.submenu.printbreak" help_key="SCHEDULE_PRINTBREAK_HELP" target="/schedule/printweeklyshiftbreaks_view.action?selectedDate=${selectedDate}&amp;selectedWeekDay=${selectedWeekDay}" position="3" parent_id="15" permission_id="41"/>
+  <tbl_menu_items menu_item_id="27" label_key="schedule.submenu.printtotalhours" help_key="SCHEDULE_PRINTTOTALHOURS_HELP" target="/schedule/printweeklytotalhoursbyposition_view.action?selectedDate=${selectedDate}&amp;selectedWeekDay=${selectedWeekDay}" position="4" parent_id="15" permission_id="41"/>
+  <tbl_menu_items menu_item_id="28" label_key="store.submenu.uploadactualhours" help_key="UPLOAD_ACTUAL_HOURS" target="/actualhours/actual_hours_edit.action" position="4" parent_id="5" permission_id="6"/>
+  <tbl_menu_items menu_item_id="29" label_key="report.historicalComparison.title" help_key="HISTORICAL_COMPARISON_REPORT_HELP" target="/report/historicalComparisonReport_showFirstReport.action" position="3" parent_id="21" permission_id="19"/>
+  <tbl_menu_items menu_item_id="30" label_key="projection.submenu.actualvalues" help_key="PROJECTION_ACTUAL_VALUES_HELP" target="/projection/actualValues_edit.action" position="3" parent_id="11" permission_id="11"/>
+  <tbl_menu_items menu_item_id="31" label_key="report.customerManager.title" help_key="CUSTOMER_MANAGER_REPORT" target="/report/customerReport_showFirstReport.action?selectedDate=${selectedDate}&amp;selectedWeekDay=${selectedWeekDay}" position="0" parent_id="35" permission_id="43"/>
+  <tbl_menu_items menu_item_id="32" label_key="report.reginalManager.title" help_key="CUSTOMER_REGIONAL_REPORT" target="/report/regionalReport_showFirstReport.action?selectedDate=${selectedDate}&amp;selectedWeekDay=${selectedWeekDay}" position="1" parent_id="35" permission_id="44">
+  <tbl_menu_items menu_item_id="33" label_key="report.areaCustomerManager.title" help_key="CUSTOMER_AREA_REPORT" target="/report/areaReport_showFirstReport.action?selectedDate=${selectedDate}&amp;selectedWeekDay=${selectedWeekDay}" position="2" parent_id="35" permission_id="45"/>
+  <tbl_menu_items menu_item_id="34" label_key="employee.submenu.uploademployeesdefinition" help_key="EMPLOYEES_UPLOAD_DEFINITION_HELP" target="/employee/uploadDefinition_edit.action" position="5" parent_id="5" permission_id="6"/>
+  <tbl_menu_items menu_item_id="35" label_key="report.manager.menu.label" help_key="CUSTOMER_ADMIN_REPORT_MENU_HELP" target="/report/home.action" position="0" permission_id="47"/>
+    
+  <tbl_stores store_id="1" name="microcentro" area_id="1" half_hour_projections_weeks_default="4" daily_projections_weeks_default="4" code="MD0001"/>
+  <tbl_positions position_id="1" name="chef" manager="0" position_index="0" store_id="1" guest_service="true"/>
+  <tbl_positions position_id="2" name="waiter" manager="0" position_index="1" store_id="1" guest_service="true"/>
+  <tbl_positions position_id="3" name="cook" manager="0" position_index="2" store_id="1" guest_service="true"/>
+  <tbl_positions position_id="4" name="porter" manager="0" position_index="3" store_id="1" guest_service="true"/>
+  <tbl_positions position_id="5" name="manager" manager="1" position_index="4" store_id="1" guest_service="true"/>
+  
+  <tbl_profiles profile_id="1" name="Administrator" description="Administrator of the application" home_result="administrator"/>
+  <tbl_profiles profile_id="2" name="Store_Manager" description="Manager of a Store" home_result="employee"/>
+  <tbl_profiles profile_id="3" name="Employee" description="Employee of a Store" home_result="employee"/>
+  <tbl_profiles profile_id="4" name="Customer_Manager" description="User with a Client associated" home_result="customerReport"/>
+  <tbl_profiles profile_id="5" name="Regional_Manager" description="User with a Region associated" home_result="regionReport"/>
+  <tbl_profiles profile_id="6" name="Area_Manager" description="User with an Area associated" home_result="areaReport"/>
+
+<!-- Admin Permissions -->  
+  <tbl_profiles_permissions profile_id="1" permission_id="1"/><!-- Home -->
+  <tbl_profiles_permissions profile_id="1" permission_id="5"/><!-- View Store -->
+  <tbl_profiles_permissions profile_id="1" permission_id="6"/><!-- Edit Store -->
+  <tbl_profiles_permissions profile_id="1" permission_id="7"/><!-- Create Store -->
+  <tbl_profiles_permissions profile_id="1" permission_id="20"/><!-- Remove Store -->
+  <tbl_profiles_permissions profile_id="1" permission_id="8"/><!-- View Customer -->
+  <tbl_profiles_permissions profile_id="1" permission_id="9"/><!-- Edit Customer -->
+  <tbl_profiles_permissions profile_id="1" permission_id="10"/><!-- Create Customer -->
+  <tbl_profiles_permissions profile_id="1" permission_id="16"/><!-- View User -->
+  <tbl_profiles_permissions profile_id="1" permission_id="17"/><!-- Edit User -->
+  <tbl_profiles_permissions profile_id="1" permission_id="18"/><!-- Create User -->
+  <tbl_profiles_permissions profile_id="1" permission_id="39"/><!-- Remove User -->
+  <tbl_profiles_permissions profile_id="1" permission_id="21"/><!-- Create a Employee from Store -->
+  <tbl_profiles_permissions profile_id="1" permission_id="22"/><!-- List Employees from Store -->
+  <tbl_profiles_permissions profile_id="1" permission_id="23"/><!-- View an Employee from Store -->
+  <tbl_profiles_permissions profile_id="1" permission_id="24"/><!-- Edit an Employee from Store -->
+  <tbl_profiles_permissions profile_id="1" permission_id="25"/><!-- Remove an Employee from Store -->
+  <tbl_profiles_permissions profile_id="1" permission_id="26"/><!-- Remove Customer -->
+  <tbl_profiles_permissions profile_id="1" permission_id="27"/><!-- Create an Office Manager -->
+  <tbl_profiles_permissions profile_id="1" permission_id="28"/><!-- View an Office Manager -->
+  <tbl_profiles_permissions profile_id="1" permission_id="29"/><!-- Edit an Office Manager -->
+  <tbl_profiles_permissions profile_id="1" permission_id="30"/><!-- Remove an Office Manager -->
+  <tbl_profiles_permissions profile_id="1" permission_id="31"/><!-- Create a Regional Manager -->
+  <tbl_profiles_permissions profile_id="1" permission_id="32"/><!-- View a Regional Manager -->
+  <tbl_profiles_permissions profile_id="1" permission_id="33"/><!-- Edit a Regional Manager -->
+  <tbl_profiles_permissions profile_id="1" permission_id="34"/><!-- Remove a Regional Manager -->
+  <tbl_profiles_permissions profile_id="1" permission_id="35"/><!-- Create an Area Manager -->
+  <tbl_profiles_permissions profile_id="1" permission_id="36"/><!-- View an Area Manager -->
+  <tbl_profiles_permissions profile_id="1" permission_id="37"/><!-- Edit an Area Manager -->
+  <tbl_profiles_permissions profile_id="1" permission_id="38"/><!-- Remove an Area Manager -->
+  
+  
+<!-- Store Manager Permissions -->
+  <tbl_profiles_permissions profile_id="2" permission_id="1"/><!-- Home -->
+  <tbl_profiles_permissions profile_id="2" permission_id="2"/><!-- View Employee -->
+  <tbl_profiles_permissions profile_id="2" permission_id="3"/><!-- Edit Employee -->
+  <tbl_profiles_permissions profile_id="2" permission_id="4"/><!-- Create Employee -->
+  <tbl_profiles_permissions profile_id="2" permission_id="40"/><!-- Delete Employee -->
+  <!--tbl_profiles_permissions profile_id="2" permission_id="5"/--><!-- View Store -->
+  <!--tbl_profiles_permissions profile_id="2" permission_id="6"/--><!-- Edit Store -->
+  <!--tbl_profiles_permissions profile_id="2" permission_id="7"/--><!-- Create Store -->
+  <tbl_profiles_permissions profile_id="2" permission_id="11"/><!-- Manager Projections -->
+  <tbl_profiles_permissions profile_id="2" permission_id="12"/><!-- Edit Projections -->
+  <tbl_profiles_permissions profile_id="2" permission_id="13"/><!-- Edit Half Hour Projections -->
+  <tbl_profiles_permissions profile_id="2" permission_id="14"/><!-- Edit Projections Settings-->
+  <tbl_profiles_permissions profile_id="2" permission_id="42"/><!-- See Shift Main Menu -->
+  <tbl_profiles_permissions profile_id="2" permission_id="15"/><!-- Add shift (TODO only see shifts) -->
+  <tbl_profiles_permissions profile_id="2" permission_id="41"/><!-- Print shift -->
+  <tbl_profiles_permissions profile_id="2" permission_id="19"/><!-- Reports -->
+  <tbl_profiles_permissions profile_id="2" permission_id="48"/><!-- Post shift -->
+  
+  
+<!-- Employee Permissions -->
+  <tbl_profiles_permissions profile_id="3" permission_id="42"/><!-- Add shift (TODO only see projections) -->
+  <tbl_profiles_permissions profile_id="3" permission_id="41"/><!-- Print shift -->
+<!-- Customer Manager Permissions -->  
+  <tbl_profiles_permissions profile_id="4" permission_id="47"/><!-- Show Report Menu -->
+  <tbl_profiles_permissions profile_id="4" permission_id="43"/><!-- Customer Reports -->
+<!-- Region Manager Permissions -->  
+  <tbl_profiles_permissions profile_id="5" permission_id="47"/><!-- Show Report Menu -->
+  <tbl_profiles_permissions profile_id="5" permission_id="44"/><!-- Region Reports -->
+<!-- Area Manager Permissions -->
+  <tbl_profiles_permissions profile_id="6" permission_id="47"/><!-- Show Report Menu -->
+  <tbl_profiles_permissions profile_id="6" permission_id="45"/><!-- Area Reports -->
+  
+  <tbl_users user_id="1" username="mcapurro" password="1234" status="0" email="mcapurro@gmail.com" name="Mariano" surname="Capurro" login_count="0" creation_date="2008-07-07"/>
+  <tbl_users user_id="2" username="cnunezre" password="1234" status="0" email="cnunezre@gmail.com" name="Cristian" surname="Nunez Rebolledo" login_count="0" creation_date="2008-07-07"/>
+  <tbl_users user_id="3" username="fbarrera" password="1234" status="0" email="fbarrera@gmail.com" name="Federico" surname="Barrera Oro" login_count="0" creation_date="2008-07-07"/>
+  <tbl_users user_id="4" username="igoris" password="1234" status="0" email="ignacio@laborguru.com" name="Ignacio" surname="Goris" login_count="0" creation_date="2008-07-07"/>
+  <tbl_users user_id="5" username="admin" password="admin" status="0" email="admin@laborguru.com" name="Administrator" surname="User" login_count="0" creation_date="2008-10-20"/>
+  <tbl_users user_id="6" username="customer" password="custom" status="0" email="custom@laborguru.com" name="Customer" surname="User" login_count="0" creation_date="2008-10-20"/>
+  <tbl_users user_id="7" username="region" password="region" status="0" email="region@laborguru.com" name="Region" surname="User" login_count="0" creation_date="2008-10-20"/>
+  <tbl_users user_id="8" username="area" password="area" status="0" email="area@laborguru.com" name="Area" surname="User" login_count="0" creation_date="2008-10-20"/>
+
+  <tbl_day_parts day_part_id="1" store_id="1" name="Breakfast" position_index="0"/>
+  <tbl_day_parts day_part_id="2" store_id="1" name="Lunch" position_index="1"/>
+  <tbl_day_parts day_part_id="3" store_id="1" name="Post Lunch" position_index="2"/>
+  <tbl_day_parts day_part_id="4" store_id="1" name="Pre Dinner" position_index="3"/>
+  <tbl_day_parts day_part_id="5" store_id="1" name="Dinner" position_index="4"/>
+
+  <tbl_operation_times operation_time_id="0" open_hour="1970-01-01 04:00:00" close_hour="1970-01-01 20:00:00" day_of_week="0" store_id="1"/>
+  <tbl_operation_times operation_time_id="1" open_hour="1970-01-01 04:00:00" close_hour="1970-01-01 20:00:00" day_of_week="1" store_id="1"/>
+  <tbl_operation_times operation_time_id="2" open_hour="1970-01-01 04:00:00" close_hour="1970-01-01 20:00:00" day_of_week="2" store_id="1"/>
+  <tbl_operation_times operation_time_id="3" open_hour="1970-01-01 04:00:00" close_hour="1970-01-01 20:00:00" day_of_week="3" store_id="1"/>
+  <tbl_operation_times operation_time_id="4" open_hour="1970-01-01 04:00:00" close_hour="1970-01-01 20:00:00" day_of_week="4" store_id="1"/>
+  <tbl_operation_times operation_time_id="5" open_hour="1970-01-01 04:00:00" close_hour="1970-01-01 20:00:00" day_of_week="5" store_id="1"/>
+  <tbl_operation_times operation_time_id="6" open_hour="1970-01-01 04:00:00" close_hour="1970-01-01 20:00:00" day_of_week="6" store_id="1"/>
+
+  <tbl_users_profiles user_id="1" profile_id="2"/>
+  <tbl_users_profiles user_id="2" profile_id="2"/>
+  <tbl_users_profiles user_id="3" profile_id="2"/>
+  <tbl_users_profiles user_id="4" profile_id="2"/>
+  <tbl_users_profiles user_id="5" profile_id="1"/>
+  <tbl_users_profiles user_id="6" profile_id="4"/>
+  <tbl_users_profiles user_id="7" profile_id="5"/>
+  <tbl_users_profiles user_id="8" profile_id="6"/>
+
+
+  <tbl_employees user_id="1" store_id="1" manager="1" max_hours_week="40" max_days_week="5" max_hour_day="8"/>
+  <tbl_employees user_id="2" store_id="1" manager="1" max_hours_week="40" max_days_week="5" max_hour_day="8"/>
+  <tbl_employees user_id="3" store_id="1" manager="1" max_hours_week="40" max_days_week="5" max_hour_day="8"/>
+  <tbl_employees user_id="4" store_id="1" manager="1" max_hours_week="40" max_days_week="5" max_hour_day="8"/>
+  
+  <tbl_customer_users user_id="6" customer_id="1"/>
+  
+  <tbl_region_users user_id="7" region_id="1"/>
+  
+  <tbl_area_users user_id="8" area_id="1"/>
+ 
+</dataset>

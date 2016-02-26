@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.laborguru.model">
+	<class name="Shift" table="tbl_shifts">
+		<id name="id" type="int" unsaved-value="null" column="shift_id">
+			<generator class="identity" />
+		</id>
+        <property name="fromHour" column="from_hour" type="timestamp" not-null="false"/>       
+        <property name="toHour" column="to_hour" type="timestamp" not-null="false"/>        
+        <property name="shiftIndex" column="shift_index" type="int" not-null="true"/>        
+        <property name="serviceHours" column="service_hours" type="double" not-null="false"/>
+        <property name="openingHours" column="opening_hours" type="double" not-null="false"/>
+        <property name="closingHours" column="closing_hours" type="double" not-null="false"/>
+
+		<many-to-one name="position" class="Position" foreign-key="fk_shifts_positions">
+			<column name="position_id" not-null="false"/>
+		</many-to-one>
+
+		<many-to-one name="employeeSchedule" class="EmployeeSchedule" foreign-key="fk_shifts_employeeschedules">
+			<column name="employee_schedule_id" not-null="true"/>
+		</many-to-one>
+
+        <property name="contiguousShiftId" column="contiguous_shift_id" type="int" not-null="false"/>        
+        <property name="startingShiftId" column="starting_shift_id" type="int" not-null="false"/>        
+
+		<many-to-one insert="false" update="false" name="contiguousShift" not-null="false" column="contiguous_shift_id" class="Shift" foreign-key="fk_shifts_contiguousshifts" cascade="none" lazy="false"/>
+		
+		<many-to-one insert="false" update="false" name="startingShift" not-null="false" column="starting_shift_id" class="Shift" foreign-key="fk_shifts_startingshifts" cascade="none" lazy="false"/>
+
+	</class>
+	<database-object>
+		<create>ALTER TABLE tbl_shifts AUTO_INCREMENT=1000</create>
+		<drop></drop>
+	</database-object>   	
+</hibernate-mapping>

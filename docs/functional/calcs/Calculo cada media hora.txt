@@ -1,0 +1,39 @@
+En base al documento Calculos_de_horas_de_servicio.xls se derivan los siguientes cálculos
+
+1) Input: proyección cada media hora para un determinado día y store (P)
+
+-------------------------------------------------------
+POR CADA POSICION y según corresponda el DAY PART hacer
+-------------------------------------------------------
+
+2) Calculo de UTILIZATION
+   Inputs del ABM de Stores: Utilization (Porcentaje) - MIN% y MAX%
+                             Utilization Limits (Cantidad de tickets o facturación) - MIN y MAX
+   Inputs: Proyección (P) del punto 1
+                             
+
+   Función partida:
+   UTILIZATION = MIN% cuando la proyección de la media hora es menor a MIN
+               = MAX% cuando la proyección de la media hora es mayor a MAX
+               = MIN% + [(P - MIN) * (MAX% - MIN%)/(MAX - MIN)]  => Lineal entre MIN% y MAX%
+
+3) Contenido de mano de obra (WC)
+   Inputs del ABM de Stores: Weekday Guest Service o Weekend Guest Service (depende del día) - GS
+                             Fixed Guest Service - FGS
+   Inputs: UTILIZATION (Del punto 2)
+
+   WC = [(P * GS) + FGS] / UTILIZATION
+
+4) a. WCE: Parte entera del valor obtenido en el punto 3
+   b. WCD: Parte decimal del valor obtenido en el punto 3
+   c. RANK: El ranking consiste en ordenar de acuerdo al grupo de las posiciones (Activity Sharing del ABM
+      de stores) las posiciones de acuerdo al WCD (o sea, la parte decimal) de mayor a menor. Sirve para poder
+      determinar en que orden se van a estar prestando gente.
+   d. S: Por cada posición, se suman los WCD del grupo (Activity Sharing) al cual pertenece
+   e. SR: Se redondea para arriba el valor de S obtenido en el punto 4d
+   f. Distribución de los restos entre las posiciones que tuvieron parte entera. Valor WCA (WC Adicional)
+      Si WCD = 0, entonces WCA = 0
+      Si WCD != 0, entonces WCA de asigna de acuerdo al RANK, sumando 1 a las posiciones con mejor RANK 
+      hasta agotar el valor de SR. 
+   g. Finalmente se obtiene el staff (cantidad de empleados) por cada posición:
+      Minimum Staffing = WCE + WCA 

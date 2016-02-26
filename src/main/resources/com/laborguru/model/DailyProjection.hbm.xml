@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.laborguru.model">
+	<class name="DailyProjection" table="tbl_projections">
+	
+		<id name="id" type="long" unsaved-value="null" column="projection_id">
+			<generator class="identity" />
+		</id>
+		
+		<property name="projectionDate" column="projection_date" type="timestamp"/>
+		<property name="startingTime" column="starting_time" type="timestamp" />
+
+		<property name="dailyProjectionVariable2" column="daily_projection_variable2" type="big_decimal"/>
+		<property name="dailyProjectionVariable3" column="daily_projection_variable3" type="big_decimal"/>
+		<property name="dailyProjectionVariable4" column="daily_projection_variable4" type="big_decimal"/>
+
+		<many-to-one name="store" class="Store" column="store_id" not-null="true" foreign-key="fk_projections_stores" />
+
+	    <list name="halfHourProjections" cascade="all-delete-orphan" table="tbl_halfhour_projections" lazy="true" inverse="true">
+	        <key column="projection_id" foreign-key="fk_halfhours_projections"/>
+	        <list-index column="half_hour_index"/>
+	        <one-to-many class="HalfHourProjection"/>
+	    </list>
+	</class>
+	<database-object>
+		<create>ALTER TABLE tbl_projections AUTO_INCREMENT=1000</create>
+		<drop></drop>
+	</database-object>   	
+</hibernate-mapping>

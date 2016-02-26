@@ -1,0 +1,13 @@
+<p>
+Dear ${employee.name},
+</p>
+<p>
+The schedule for the ${weekStartDay} has been posted. To look at the schedule please log on the 
+<b>Labor Guru scheduler</b> at <a href="http://www.laborguru.com/sign_on.html">http://www.laborguru.com/sign_on.html</a>
+</p>
+<p>
+Thank you,
+</p>
+<p>
+The Labor Guru Support team
+</p>

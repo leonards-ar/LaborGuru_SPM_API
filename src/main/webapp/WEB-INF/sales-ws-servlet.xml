@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:oxm="http://www.springframework.org/schema/oxm"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+    http://www.springframework.org/schema/oxm http://www.springframework.org/schema/oxm/spring-oxm-1.5.xsd">
+
+
+  <bean id="sales" class="org.springframework.ws.wsdl.wsdl11.DynamicWsdl11Definition">
+    <property name="builder">
+      <bean class="org.springframework.ws.wsdl.wsdl11.builder.XsdBasedSoap11Wsdl4jDefinitionBuilder">
+        <property name="schema" value="/xsd/sales-schema.xsd"/>
+        <property name="portTypeName" value="sales"/>
+        <property name="locationUri" value="/ws/sales/"/>
+      </bean>
+    </property>
+  </bean>
+  
+ <bean class="org.springframework.ws.server.endpoint.mapping.PayloadRootAnnotationMethodEndpointMapping"/>
+   
+  <bean id="salesEndPoint" class="com.laborguru.webservice.sales.endpoint.SalesEndPoint">
+    <property name="storeService" ref="storeService"/>
+    <property name="historicSalesService" ref="historicSalesService"/>
+  </bean>
+
+  <oxm:jibx-marshaller id="importSalesRequestMarshaller" target-class="com.laborguru.webservice.sales.binding.ImportSalesRequest"/>
+  <oxm:jibx-marshaller id="importSalesResponseMarshaller" target-class="com.laborguru.webservice.sales.binding.ImportSalesResponse"/>  
+  
+  <bean id="salesEndPointAdapter" class="org.springframework.ws.server.endpoint.adapter.GenericMarshallingMethodEndpointAdapter">
+    <constructor-arg ref="importSalesResponseMarshaller"/>
+    <constructor-arg ref="importSalesRequestMarshaller"/>
+  </bean>
+
+</beans>

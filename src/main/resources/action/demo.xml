@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="demo" namespace="/demo" extends="spm-default">
+		<default-interceptor-ref name="defaultStack"/>
+
+		<action name="stepOne_*" method="{1}" class="com.laborguru.action.demo.DemoWizardStepOnePrepareAction">
+			<result name="cancel" type="tiles">loginPage</result>
+			<result name="restart" type="redirectAction"><param name="actionName">stepOne_execute</param></result>
+			<result name="input" type="tiles">demoWizardStep1Page</result>
+			<result name="step1" type="tiles">demoWizardStep1Page</result>
+			<result name="step2" type="tiles">demoWizardStep2Page</result>
+		</action>
+
+		<action name="stepTwo_*" method="{1}" class="com.laborguru.action.demo.DemoWizardStepTwoPrepareAction">
+			<result name="cancel" type="tiles">loginPage</result>
+			<result name="restart" type="redirectAction"><param name="actionName">stepOne_execute</param></result>
+			<result name="input" type="tiles">demoWizardStep1Page</result>
+			<result name="step1" type="tiles">demoWizardStep1Page</result>
+			<result name="step2" type="tiles">demoWizardStep2Page</result>
+		</action>
+
+		<action name="stepThree_*" method="{1}" class="com.laborguru.action.demo.DemoWizardStepThreePrepareAction">
+			<result name="cancel" type="tiles">loginPage</result>
+			<result name="restart" type="redirectAction"><param name="actionName">stepOne_execute</param></result>
+			<result name="input" type="tiles">demoWizardStep2Page</result>
+			<result name="step3" type="tiles">demoWizardStep3Page</result>
+		</action>
+		
+		<action name="stepFour_*" method="{1}" class="com.laborguru.action.demo.DemoWizardStepFourPrepareAction">
+			<result name="cancel" type="tiles">loginPage</result>
+			<result name="restart" type="redirectAction"><param name="actionName">stepOne_execute</param></result>
+			<result name="input" type="tiles">demoWizardStep3Page</result>
+			<result name="step4" type="tiles">demoWizardStep4Page</result>
+		</action>
+
+		<action name="stepFive_*" method="{1}" class="com.laborguru.action.demo.DemoWizardStepFivePrepareAction">
+			<result name="cancel" type="tiles">loginPage</result>
+			<result name="restart" type="redirectAction"><param name="actionName">stepOne_execute</param></result>
+			<result name="input" type="tiles">demoWizardStep4Page</result>
+			<result name="step5" type="tiles">demoWizardStep5Page</result>
+		</action>				
+		
+		<action name="stepSix_*" method="{1}" class="com.laborguru.action.demo.DemoWizardStepSixPrepareAction">
+			<result name="cancel" type="tiles">loginPage</result>
+			<result name="restart" type="redirectAction"><param name="actionName">stepOne_execute</param></result>
+			<result name="input" type="tiles">demoWizardStep5Page</result>
+			<result name="step6" type="tiles">demoWizardStep6Page</result>
+		</action>				
+
+		<action name="stepSeven_*" method="{1}" class="com.laborguru.action.demo.DemoWizardStepSevenPrepareAction">
+			<result name="cancel" type="tiles">loginPage</result>
+			<result name="restart" type="redirectAction"><param name="actionName">stepOne_execute</param></result>
+			<result name="input" type="tiles">demoWizardStep6Page</result>
+			<result name="step7" type="tiles">demoWizardStep7Page</result>
+		</action>				
+
+		<action name="stepEight_*" method="{1}" class="com.laborguru.action.demo.DemoWizardStepEightPrepareAction">
+			<result name="cancel" type="tiles">loginPage</result>
+			<result name="restart" type="redirectAction"><param name="actionName">stepOne_execute</param></result>
+			<result name="input" type="tiles">demoWizardStep7Page</result>
+			<result name="step8" type="tiles">demoWizardStep8Page</result>
+		</action>
+	</package>
+</struts>

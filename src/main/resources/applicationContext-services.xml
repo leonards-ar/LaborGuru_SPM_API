@@ -1,0 +1,368 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+    http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+
+	<bean id="baseTransactionProxy" abstract="true"
+		class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
+		<property name="transactionManager">
+			<ref bean="transactionManager" />
+		</property>
+		<property name="transactionAttributeSource">
+			<ref bean="transactionAttributeSourceDefault" />
+		</property>
+	</bean>
+
+	<bean id="storeService" parent="baseTransactionProxy">
+		<property name="proxyInterfaces" value="com.laborguru.service.store.StoreService" />
+		<property name="target" ref="storeServiceTarget" />
+	</bean>
+
+	<bean id="storeServiceTarget" class="com.laborguru.service.store.StoreServiceBean">
+		<property name="storeDao" ref="storeDao" />
+	</bean>
+
+	<!-- Bean's wiring declaration -->
+	<bean id="salesFileParser"
+		class="com.laborguru.service.dataimport.csv.SalesCSVFileParserBean"
+		autowire="no">
+		<property name="storeService" ref="storeService" />
+	</bean>
+
+	<bean id="storeDefinitionFileParser"
+		class="com.laborguru.service.store.file.StoreDefinitionFileParserBean"
+		autowire="byType" />
+
+	<bean id="employeeDefinitionFileParser"
+		class="com.laborguru.service.employee.file.EmployeeDefinitionFileParserBean"
+		autowire="byType" />
+
+	<bean id="actualHoursFileParser"
+		class="com.laborguru.service.dataimport.actualhours.csv.ActualHoursSimpleCSVParserBean"
+		autowire="no">
+		<property name="storeService" ref="storeService" />
+		<property name="assembler" ref="actualHoursAssembler" />
+	</bean>
+
+	<bean id="actualHoursAssembler"
+		class="com.laborguru.service.dataimport.actualhours.csv.ActualHoursSimpleAssembler"
+		autowire="byType" />
+
+	<!-- Transactional Services's declarations -->
+	<bean id="actualHoursServiceTarget"
+		class="com.laborguru.service.actualhours.ActualHoursServiceBean"
+		autowire="byType" />
+
+	<bean id="actualHoursService" parent="baseTransactionProxy">
+		<property name="proxyInterfaces"
+			value="com.laborguru.service.actualhours.ActualHoursService" />
+		<property name="target" ref="actualHoursServiceTarget" />
+	</bean>
+
+
+	<bean id="actualHoursFileProcessor" parent="baseTransactionProxy">
+		<property name="proxyInterfaces"
+			value="com.laborguru.service.dataimport.actualhours.ActualHoursFileProcessor" />
+		<property name="target" ref="actualHoursFileProcessorTarget" />
+	</bean>
+
+	<bean id="actualHoursFileProcessorTarget"
+		class="com.laborguru.service.dataimport.actualhours.csv.ActualHoursFileProcessorBean"
+		autowire="no">
+		<property name="fileParser" ref="actualHoursFileParser" />
+		<property name="actualHoursService" ref="actualHoursService" />
+	</bean>
+
+
+	<bean id="uploadFileService" parent="baseTransactionProxy">
+		<property name="proxyInterfaces"
+			value="com.laborguru.service.uploadfile.UploadFileService" />
+		<property name="target" ref="uploadFileServiceTarget" />
+	</bean>
+
+	<bean id="uploadFileServiceTarget" class="com.laborguru.service.uploadfile.UploadFileServiceBean"
+		autowire="byType" />
+
+	<bean id="salesFileProcessorServiceTarget"
+		class="com.laborguru.service.dataimport.csv.SalesCSVFileProcessorBean">
+		<property name="fileParser" ref="salesFileParser" />
+		<property name="historicSalesService" ref="historicSalesService" />
+		<property name="uploadFileDao" ref="uploadFileDao" />
+		<property name="spmDaoUtils" ref="spmDaoUtils" />
+	</bean>
+
+	<bean id="salesFileProcessorService" parent="baseTransactionProxy">
+		<property name="proxyInterfaces"
+			value="com.laborguru.service.dataimport.csv.SalesFileProcessorService" />
+		<property name="target" ref="salesFileProcessorServiceTarget" />
+	</bean>
+
+	<bean id="historicSalesServiceTarget"
+		class="com.laborguru.service.historicsales.HistoricSalesServiceBean">
+		<property name="projectionService" ref="projectionService" />
+		<property name="uploadFileDao" ref="uploadFileDao" />
+		<property name="historicSalesDao" ref="historicSalesDao" />
+	</bean>
+
+	<bean id="historicSalesService" parent="baseTransactionProxy">
+		<property name="proxyInterfaces"
+			value="com.laborguru.service.historicsales.HistoricSalesService" />
+		<property name="target" ref="historicSalesServiceTarget" />
+	</bean>
+
+	<bean id="projectionServiceTarget" class="com.laborguru.service.projection.ProjectionServiceBean">
+		<property name="staffingService" ref="staffingService" />
+		<property name="projectionDao" ref="projectionDao" />
+	</bean>
+
+	<bean id="projectionService" parent="baseTransactionProxy">
+		<property name="proxyInterfaces"
+			value="com.laborguru.service.projection.ProjectionService" />
+		<property name="target" ref="projectionServiceTarget" />
+	</bean>
+
+	<bean id="customerService" parent="baseTransactionProxy">
+		<property name="proxyInterfaces"
+			value="com.laborguru.service.customer.CustomerService" />
+		<property name="target" ref="customerServiceTarget" />
+	</bean>
+
+	<bean id="customerServiceTarget" class="com.laborguru.service.customer.CustomerServiceBean"
+		autowire="byType" />
+
+	<bean id="regionServiceTarget" class="com.laborguru.service.region.RegionServiceBean"
+		autowire="byType" />
+
+	<bean id="regionService" parent="baseTransactionProxy">
+		<property name="proxyInterfaces" value="com.laborguru.service.region.RegionService" />
+		<property name="target" ref="regionServiceTarget" />
+	</bean>
+
+	<bean id="areaService" class="com.laborguru.service.area.AreaServiceBean">
+		<property name="areaDao" ref="areaDao" />
+	</bean>
+
+	<bean id="referenceDataService" class="com.laborguru.service.data.ReferenceDataServiceBean">
+		<property name="referenceData" ref="referenceData" />
+	</bean>
+
+	<bean id="positionService" class="com.laborguru.service.position.PositionServiceBean">
+		<property name="positionDao" ref="positionDao" />
+	</bean>
+
+	<bean id="positionGroupService"
+		class="com.laborguru.service.positionGroup.PositionGroupServiceBean">
+		<property name="positionGroupDao" ref="positionGroupDao" />
+	</bean>
+
+	<bean id="menuService" class="com.laborguru.service.menu.MenuServiceBean">
+		<property name="menuDao" ref="menuDao" />
+	</bean>
+	<bean id="profileService" class="com.laborguru.service.profile.ProfileServiceBean">
+		<property name="profileDao" ref="profileDao" />
+	</bean>
+
+	<bean id="reportServiceTarget" class="com.laborguru.service.report.ReportServiceBean">
+		<property name="reportDao" ref="reportDao" />
+		<property name="staffingService" ref="staffingService" />
+		<property name="projectionService" ref="projectionService" />
+		<property name="scheduleService" ref="scheduleService" />
+		<property name="dailyFlashService" ref="dailyFlashService" />
+		<property name="storeDao" ref="storeDao" />
+	</bean>
+
+	<bean id="reportService" parent="baseTransactionProxy">
+		<property name="proxyInterfaces" value="com.laborguru.service.report.ReportService" />
+		<property name="target" ref="reportServiceTarget" />
+	</bean>
+
+	<bean id="reportCustomerServiceTarget" class="com.laborguru.service.report.ReportCustomerServiceBean">
+		<property name="reportDao" ref="reportDao" />
+		<property name="staffingService" ref="staffingService" />
+		<property name="customerService" ref="customerService" />
+		<property name="regionService" ref="regionService" />
+		<property name="projectionService" ref="projectionService" />
+		<property name="scheduleService" ref="scheduleService" />
+	</bean>
+
+	<bean id="reportCustomerService" parent="baseTransactionProxy">
+		<property name="proxyInterfaces"
+			value="com.laborguru.service.report.ReportCustomerService" />
+		<property name="target" ref="reportCustomerServiceTarget" />
+	</bean>
+
+	<bean id="reportRegionServiceTarget" class="com.laborguru.service.report.ReportRegionServiceBean">
+		<property name="reportDao" ref="reportDao" />
+		<property name="staffingService" ref="staffingService" />
+		<property name="regionService" ref="regionService" />
+		<property name="areaService" ref="areaService" />
+		<property name="projectionService" ref="projectionService" />
+		<property name="scheduleService" ref="scheduleService" />
+	</bean>
+
+	<bean id="reportRegionService" parent="baseTransactionProxy">
+		<property name="proxyInterfaces"
+			value="com.laborguru.service.report.ReportRegionService" />
+		<property name="target" ref="reportRegionServiceTarget" />
+	</bean>
+
+	<bean id="reportAreaServiceTarget" class="com.laborguru.service.report.ReportAreaServiceBean">
+		<property name="reportDao" ref="reportDao" />
+		<property name="staffingService" ref="staffingService" />
+		<property name="areaService" ref="areaService" />
+		<property name="projectionService" ref="projectionService" />
+		<property name="scheduleService" ref="scheduleService" />
+	</bean>
+
+	<bean id="reportAreaService" parent="baseTransactionProxy">
+		<property name="proxyInterfaces"
+			value="com.laborguru.service.report.ReportAreaService" />
+		<property name="target" ref="reportAreaServiceTarget" />
+	</bean>
+
+
+	<bean id="userService" parent="baseTransactionProxy">
+		<property name="proxyInterfaces" value="com.laborguru.service.user.UserService" />
+		<property name="target" ref="userServiceTarget" />
+	</bean>
+
+	<bean id="userServiceTarget" class="com.laborguru.service.user.UserServiceBean"
+		autowire="byType" />
+
+	<bean id="employeeService" parent="baseTransactionProxy">
+		<property name="proxyInterfaces"
+			value="com.laborguru.service.employee.EmployeeService" />
+		<property name="target" ref="employeeServiceTarget" />
+	</bean>
+
+	<bean id="employeeServiceTarget" class="com.laborguru.service.employee.EmployeeServiceBean"
+		autowire="byType" />
+
+	<bean id="authenticateService" class="com.laborguru.service.security.AuthenticationService">
+		<property name="service" ref="userService" />
+		<property name="loginTries" value="${conn.max_login_times}" />
+	</bean>
+
+	<bean id="uploadStoreDefinitionService" parent="baseTransactionProxy">
+		<property name="proxyInterfaces"
+			value="com.laborguru.service.store.file.UploadStoreDefinitionService" />
+		<property name="target" ref="uploadStoreDefinitionServiceTarget" />
+	</bean>
+
+	<bean id="uploadStoreDefinitionServiceTarget"
+		class="com.laborguru.service.store.file.UploadStoreDefinitionServiceBean">
+		<property name="customerService" ref="customerService" />
+		<property name="storeDefinitionFileParser" ref="storeDefinitionFileParser" />
+		<property name="storeService" ref="storeService" />
+	</bean>
+
+	<bean id="uploadEmployeeDefinitionService" parent="baseTransactionProxy">
+		<property name="proxyInterfaces"
+			value="com.laborguru.service.employee.file.UploadEmployeeDefinitionService" />
+		<property name="target" ref="uploadEmployeeDefinitionServiceTarget" />
+	</bean>
+
+	<bean id="uploadEmployeeDefinitionServiceTarget"
+		class="com.laborguru.service.employee.file.UploadEmployeeDefinitionServiceBean">
+		<property name="employeeDefinitionFileParser" ref="employeeDefinitionFileParser" />
+		<property name="storeService" ref="storeService" />
+		<property name="employeeService" ref="employeeService" />
+		<property name="positionService" ref="positionService" />
+		<property name="customerService" ref="customerService" />
+	</bean>
+
+	<bean id="scheduleService" parent="baseTransactionProxy">
+		<property name="proxyInterfaces"
+			value="com.laborguru.service.schedule.ScheduleService" />
+		<property name="target" ref="scheduleServiceTarget" />
+	</bean>
+
+	<bean id="scheduleServiceTarget" class="com.laborguru.service.schedule.ScheduleServiceBean"
+		autowire="byType" />
+	<bean id="shiftService" parent="baseTransactionProxy">
+		<property name="proxyInterfaces" value="com.laborguru.service.schedule.ShiftService" />
+		<property name="target" ref="shiftServiceTarget" />
+	</bean>
+
+	<bean id="shiftServiceTarget" class="com.laborguru.service.schedule.ShiftServiceBean"
+		autowire="byType" />
+
+	<bean id="staffingServiceTarget" class="com.laborguru.service.staffing.StaffingServiceBean"
+		autowire="byType" />
+
+	<bean id="staffingService" parent="baseTransactionProxy">
+		<property name="proxyInterfaces"
+			value="com.laborguru.service.staffing.StaffingService" />
+		<property name="target" ref="staffingServiceTarget" />
+	</bean>
+
+	<bean id="managerServiceTarget" class="com.laborguru.service.manager.ManagerServiceBean"
+		autowire="byType" />
+
+	<bean id="managerService" parent="baseTransactionProxy">
+		<property name="proxyInterfaces" value="com.laborguru.service.manager.ManagerService" />
+		<property name="target" ref="managerServiceTarget" />
+	</bean>
+
+	<bean id="dailyFlashServiceTarget" class="com.laborguru.service.report.DailyFlashServiceBean"
+		autowire="byType" />
+
+	<bean id="dailyFlashService" parent="baseTransactionProxy">
+		<property name="proxyInterfaces" value="com.laborguru.service.report.DailyFlashService" />
+		<property name="target" ref="dailyFlashServiceTarget" />
+	</bean>
+
+	<bean id="transactionManager"
+		class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+		<property name="sessionFactory">
+			<ref bean="mySessionFactory" />
+		</property>
+	</bean>
+
+	<bean id="transactionAttributeSourceDefault"
+		class="org.springframework.transaction.interceptor.MatchAlwaysTransactionAttributeSource" />
+
+	<!-- Mail service -->
+	<bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
+		<property name="host" value="${email.smpt.host}" />
+		<property name="port" value="${email.smpt.port}" />
+		<property name="username" value="${email.smpt.username}" />
+		<property name="password" value="${email.smpt.password}" />
+		<property name="javaMailProperties">
+			<props>
+				<!-- Use SMTP-AUTH to authenticate to SMTP server -->
+				<prop key="mail.smtp.auth">true</prop>
+				<!-- Use TLS to encrypt communication with SMTP server -->
+				<prop key="mail.smtp.starttls.enable">false</prop>
+			</props>
+		</property>
+	</bean>
+
+	<!-- Mail message -->
+	<bean id="mailMessage" class="org.springframework.mail.SimpleMailMessage">
+		<property name="from" value="${email.from}" />
+	</bean>
+
+	<bean id="emailService" class="com.laborguru.service.email.EmailServiceBean"
+		autowire="byType">
+		<property name="mailSender" ref="mailSender" />
+		<property name="mailMessage" ref="mailMessage" />
+		<property name="enabled" value="true" />
+		<property name="velocityEngine" ref="velocityEngine" />
+	</bean>
+
+	<!-- Velocity Template -->
+	<bean id="velocityEngine"
+		class="org.springframework.ui.velocity.VelocityEngineFactoryBean">
+		<property name="velocityProperties">
+			<props>
+				<prop key="resource.loader">class</prop>
+				<prop key="class.resource.loader.class">
+					org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+				</prop>
+			</props>
+		</property>
+	</bean>
+</beans>
+

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="util"  namespace="/util" extends="spm-default">
+		<action name="updateSchedule" class="com.laborguru.action.util.UpdateSchedulesAction">
+			<result name="success">/tiles/util/updateSchedules.jsp</result>
+		</action>
+		<action name="updateStaffing" class="com.laborguru.action.util.UpdateStaffingAction">
+			<result name="success">/tiles/util/updateSchedules.jsp</result>
+		</action>
+		<action name="batchupdateschedule" class="com.laborguru.action.util.BatchUpdateScheduleAction">
+			<result name="success">/tiles/util/updateSchedules.jsp</result>
+		</action>		
+	</package>
+</struts>

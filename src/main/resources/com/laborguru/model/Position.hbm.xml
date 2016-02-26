@@ -1,0 +1,67 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.laborguru.model">
+	<class name="Position" table="tbl_positions">
+
+		<id name="id" type="int" unsaved-value="null" column="position_id">
+			<generator class="identity" />
+		</id>
+		
+		<property name="name" column="name" length="100" />
+		<property name="manager" column="manager" not-null="true" type="boolean"/>
+		<property name="guestService" column="guest_service" not-null="true" type="boolean"/>
+		
+		
+		<property name="utilizationBottom" type="double">
+			<column name="utilization_bottom" not-null="false" default="65.00" />
+		</property>
+		
+		<property name="utilizationTop" type="double">
+			<column name="utilization_top" not-null="false" default="85.00" />
+		</property>
+		
+		<property name="utilizationMinimum" type="integer">
+			<column name="utilization_min" not-null="false" default="0" />
+		</property>
+		
+		<property name="utilizationMaximum" type="integer">
+			<column name="utilization_max" not-null="false" default="0" />
+		</property>
+
+        <property name="variable2Opening" column="variable2_opening" type="double" not-null="false"/>       
+        <property name="variable2Flexible" column="variable2_flexible" type="double" not-null="false"/>       
+        <property name="variable3Opening" column="variable3_opening" type="double" not-null="false"/>       
+        <property name="variable3Flexible" column="variable3_flexible" type="double" not-null="false"/>       
+        <property name="variable4Opening" column="variable4_opening" type="double" not-null="false"/>       
+        <property name="variable4Flexible" column="variable4_flexible" type="double" not-null="false"/>       
+		
+		<many-to-one name="store" class="Store" foreign-key="fk_positions_stores">
+			<column name="store_id"/>
+		</many-to-one>
+		
+ 		<many-to-one name="positionGroup" class="PositionGroup" foreign-key="fk_positions_position_groups">
+			<column name="position_group_id" not-null="false"/>
+		</many-to-one>		
+		
+	    <list name="dayOfWeekData" cascade="all" table="tbl_day_of_week_values" lazy="true" inverse="true">
+	        <key column="position_id" foreign-key="fk_position_dayofweekvalues"/>
+	        <list-index column="day_of_week"/>
+	        <one-to-many class="DayOfWeekData"/>
+	    </list>		
+	    	
+	    <set name="dayPartData" cascade="all" table="tbl_day_part_values" lazy="true" inverse="true">
+	        <key column="position_id" foreign-key="fk_positions_daypartvalues"/>
+	        <one-to-many class="DayPartData"/>
+	    </set>
+	    
+	    <property name="positionIndex" column="position_index" type="int" not-null="true"/>
+	    	    
+	</class>	
+	<database-object>
+		<create>ALTER TABLE tbl_positions AUTO_INCREMENT=1000</create>
+		<drop></drop>
+	</database-object> 	    		
+</hibernate-mapping>

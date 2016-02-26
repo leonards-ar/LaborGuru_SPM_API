@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="user" namespace="/user" extends="spm-default">		
+		<action name="user_*" method="{1}" class="com.laborguru.action.user.UserPrepareAction">
+			<result name="edit" type="tiles">editUserPage</result>
+			<result name="show" type="tiles">showUserPage</result>
+			<result name="list" type="tiles">listUserPage</result>
+			<result name="listAction" type="redirectAction">user_list</result>
+			<result name="input" type="tiles">editUserPage</result>			
+		</action>
+		
+					
+	</package>
+</struts>

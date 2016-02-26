@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="security" namespace="/security" extends="spm-default">
+    	<default-interceptor-ref name="defaultStack"/>
+    	
+		<action name="accessdenied" class="com.laborguru.action.security.AccessDeniedAction">
+			<result name="success" type="tiles">accessDeniedPage</result>
+		</action>
+	</package>
+</struts>

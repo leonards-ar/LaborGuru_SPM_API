@@ -1,0 +1,79 @@
+<!DOCTYPE validators PUBLIC "-//OpenSymphony Group//XWork Validator 1.0.2//EN"
+       "http://www.opensymphony.com/xwork/xwork-validator-1.0.2.dtd">
+<validators>	    	
+	<field name="variable2Opening">
+	   <field-validator type="conversion" short-circuit="true">
+	   		<message key="error.secondaryvariables.variable2open.invalid"/>
+	    </field-validator>
+		<field-validator type="required">
+			<message key="error.secondaryvariables.variable2open.required" />
+		</field-validator>	    	
+		<field-validator type="double">
+			<param name="minInclusive">0.0</param>
+			<message key="error.secondaryvariables.variable2open.invalid"/>
+		</field-validator>
+	</field>
+	<field name="variable2Flexible">
+	   <field-validator type="conversion" short-circuit="true">
+	   		<message key="error.secondaryvariables.variable2flex.invalid"/>
+	    </field-validator>
+		<field-validator type="required">
+			<message key="error.secondaryvariables.variable2flex.required" />
+		</field-validator>	    	
+		<field-validator type="double">
+			<param name="minInclusive">0.0</param>
+			<message key="error.secondaryvariables.variable2flex.invalid"/>
+		</field-validator>
+	</field>
+
+	<field name="variable3Opening">
+	   <field-validator type="conversion" short-circuit="true">
+	   		<message key="error.secondaryvariables.variable3open.invalid"/>
+	    </field-validator>
+		<field-validator type="required">
+			<message key="error.secondaryvariables.variable3open.required" />
+		</field-validator>	    	
+		<field-validator type="double">
+			<param name="minInclusive">0.0</param>
+			<message key="error.secondaryvariables.variable3open.invalid"/>
+		</field-validator>
+	</field>
+	<field name="variable3Flexible">
+	   <field-validator type="conversion" short-circuit="true">
+	   		<message key="error.secondaryvariables.variable3flex.invalid"/>
+	    </field-validator>
+		<field-validator type="required">
+			<message key="error.secondaryvariables.variable3flex.required" />
+		</field-validator>	    	
+		<field-validator type="double">
+			<param name="minInclusive">0.0</param>
+			<message key="error.secondaryvariables.variable3flex.invalid"/>
+		</field-validator>
+	</field>
+
+	<field name="variable4Opening">
+	   <field-validator type="conversion" short-circuit="true">
+	   		<message key="error.secondaryvariables.variable4open.invalid"/>
+	    </field-validator>
+		<field-validator type="required">
+			<message key="error.secondaryvariables.variable4open.required" />
+		</field-validator>	    	
+		<field-validator type="double">
+			<param name="minInclusive">0.0</param>
+			<message key="error.secondaryvariables.variable4open.invalid"/>
+		</field-validator>
+	</field>
+	<field name="variable4Flexible">
+	   <field-validator type="conversion" short-circuit="true">
+	   		<message key="error.secondaryvariables.variable4flex.invalid"/>
+	    </field-validator>
+		<field-validator type="required">
+			<message key="error.secondaryvariables.variable4flex.required" />
+		</field-validator>	    	
+		<field-validator type="double">
+			<param name="minInclusive">0.0</param>
+			<message key="error.secondaryvariables.variable4flex.invalid"/>
+		</field-validator>
+	</field>
+
+</validators>

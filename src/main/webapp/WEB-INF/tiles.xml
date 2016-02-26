@@ -1,0 +1,540 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+
+<tiles-definitions>
+	<definition name="baseLayout" template="/layouts/base.jsp">
+		<put-attribute name="htmlExtHeader" value="/tiles/defaultHtmlExtHeader.jsp" />
+		<put-attribute name="splash" value="/tiles/splash.jsp" />
+		<put-attribute name="header" value="/tiles/header.jsp" />
+		<put-attribute name="footer" value="/tiles/footer.jsp" />
+	</definition>
+
+	<definition name="baseLayoutWithMenu" template="/layouts/base_menu.jsp" extends="baseLayout">
+		<put-attribute name="header" value="/tiles/headermenu.jsp" />
+	</definition>
+
+	<definition name="popUp" template="/layouts/pop_up.jsp">
+		<put-attribute name="htmlExtHeader" value="/tiles/defaultHtmlExtHeader.jsp" />
+		<put-attribute name="popUpHeader" value="/tiles/popup_header.jsp" />
+		<put-attribute name="popUpFooter" value="/tiles/popup_footer.jsp" />
+	</definition>
+
+	<definition name="printLayout" template="/layouts/print.jsp">
+		<put-attribute name="htmlExtHeader" value="/tiles/defaultHtmlExtHeader.jsp" />
+		<put-attribute name="header" value="/tiles/print_header.jsp" />
+		<put-attribute name="footer" value="/tiles/print_footer.jsp" />
+	</definition>
+	
+	<!--  Error -->
+	<definition name="errorPage" extends="baseLayout">
+		<put-attribute name="body" value="/tiles/error.jsp" />
+	</definition>
+
+
+	<!--  Login and Security -->
+	<definition name="loginPage" extends="baseLayout">
+		<put-attribute name="body" value="/tiles/login/login.jsp" />
+	</definition>
+
+	<definition name="employeeHomePage" extends="baseLayoutWithMenu">
+		<put-attribute name="htmlExtHeader" value="/tiles/dojoHtmlExtHeader.jsp" />
+		<put-attribute name="body" value="/tiles/home/employee_home.jsp" />
+	</definition>
+
+	<definition name="adminHomePage" extends="baseLayoutWithMenu">
+		<put-attribute name="body" value="/tiles/home/admin_home.jsp" />
+	</definition>
+	
+	<definition name="homePage" extends="baseLayoutWithMenu">
+		<put-attribute name="body" value="/tiles/home/default_home.jsp" />
+	</definition>
+		
+	<definition name="accessDeniedPage" extends="baseLayoutWithMenu">
+		<put-attribute name="body" value="/tiles/security/accessdenied.jsp" />
+	</definition>
+	
+	<!-- Employee tiles definition -->
+	<definition name="listEmployeesPage" extends="baseLayoutWithMenu">
+		<put-attribute name="body" value="/tiles/employee/list.jsp" />
+	</definition>
+		
+	<definition name="editEmployeePage" extends="baseLayoutWithMenu">
+		<put-attribute name="htmlExtHeader" value="/tiles/dojoHtmlExtHeader.jsp" />
+		<put-attribute name="body" value="/tiles/employee/edit.jsp" />
+	</definition>
+
+	<definition name="showEmployeePage" extends="baseLayoutWithMenu">
+		<put-attribute name="body" value="/tiles/employee/view.jsp" />
+	</definition>	
+	
+	<!--  Store tiles definition -->
+	<definition name="listStoresPage" extends="baseLayoutWithMenu">
+		<put-attribute name="body" value="/tiles/store/list.jsp" />
+	</definition>
+		
+	<definition name="editStorePage" extends="baseLayoutWithMenu">
+		<put-attribute name="body" value="/tiles/store/edit.jsp" />
+	</definition>
+
+	<definition name="showStorePage" extends="baseLayoutWithMenu">
+		<put-attribute name="body" value="/tiles/store/view.jsp" />
+	</definition>	
+	
+	<definition name="storeExtendedCRUD" template="/layouts/store/store_ext_crud.jsp" extends="baseLayoutWithMenu">
+	  <put-attribute name="storeData" value="/tiles/store/storedata.jsp" />
+	</definition>
+	
+	<definition name="editWeekdayGuestServ" extends="storeExtendedCRUD">
+		<put-attribute name="storeExtDataBody" value="/tiles/store/weekdayguestserv_edit.jsp" />
+	</definition>
+
+	<definition name="showWeekdayGuestServ" extends="storeExtendedCRUD">
+		<put-attribute name="storeExtDataBody" value="/tiles/store/weekdayguestserv_view.jsp" />
+	</definition>
+
+	<definition name="editOperationTimePage" extends="storeExtendedCRUD">
+		<put-attribute name="storeExtDataBody" value="/tiles/store/operationtimes_edit.jsp" />
+	</definition>
+
+	<definition name="showOperationTimePage" extends="storeExtendedCRUD">
+		<put-attribute name="storeExtDataBody" value="/tiles/store/operationtimes_view.jsp" />
+	</definition>
+	
+	<definition name="editPositionNames" extends="storeExtendedCRUD">
+		<put-attribute name="storeExtDataBody" value="/tiles/store/positionnames_edit.jsp" />
+	</definition>
+
+	<definition name="showPositionNames" extends="storeExtendedCRUD">
+		<put-attribute name="storeExtDataBody" value="/tiles/store/positionnames_view.jsp" />
+	</definition>	
+
+	<definition name="editVariableDefinitions" extends="storeExtendedCRUD">
+		<put-attribute name="storeExtDataBody" value="/tiles/store/variabledefinitions_edit.jsp" />
+	</definition>
+
+	<definition name="showVariableDefinitions" extends="storeExtendedCRUD">
+		<put-attribute name="storeExtDataBody" value="/tiles/store/variabledefinitions_view.jsp" />
+	</definition>	
+
+	<definition name="editSecondaryVariables" extends="storeExtendedCRUD">
+		<put-attribute name="storeExtDataBody" value="/tiles/store/secondaryvariables_edit.jsp" />
+	</definition>
+
+	<definition name="showSecondaryVariables" extends="storeExtendedCRUD">
+		<put-attribute name="storeExtDataBody" value="/tiles/store/secondaryvariables_view.jsp" />
+	</definition>	
+	
+	<definition name="editDaypartDefinition" extends="storeExtendedCRUD">
+		<put-attribute name="storeExtDataBody" value="/tiles/store/daypartdefinition_edit.jsp" />
+	</definition>
+
+	<definition name="showDaypartDefinition" extends="storeExtendedCRUD">
+		<put-attribute name="storeExtDataBody" value="/tiles/store/daypartdefinition_view.jsp" />
+	</definition>		
+	
+	<definition name="editWeekendGuestServ" extends="storeExtendedCRUD">
+		<put-attribute name="storeExtDataBody" value="/tiles/store/weekendguestserv_edit.jsp" />
+	</definition>
+
+	<definition name="showWeekendGuestServ" extends="storeExtendedCRUD">
+		<put-attribute name="storeExtDataBody" value="/tiles/store/weekendguestserv_view.jsp" />
+	</definition>
+	
+	<definition name="editVariableFlexible" extends="storeExtendedCRUD">
+		<put-attribute name="storeExtDataBody" value="/tiles/store/variableflexible_edit.jsp" />
+	</definition>
+
+	<definition name="showVariableFlexible" extends="storeExtendedCRUD">
+		<put-attribute name="storeExtDataBody" value="/tiles/store/variableflexible_view.jsp" />
+	</definition>			
+
+	<definition name="editVariableOpening" extends="storeExtendedCRUD">
+		<put-attribute name="storeExtDataBody" value="/tiles/store/variableopening_edit.jsp" />
+	</definition>
+
+	<definition name="showVariableOpening" extends="storeExtendedCRUD">
+		<put-attribute name="storeExtDataBody" value="/tiles/store/variableopening_view.jsp" />
+	</definition>		
+	
+	<definition name="editFixedGuestServ" extends="storeExtendedCRUD">
+		<put-attribute name="storeExtDataBody" value="/tiles/store/fixedguestserv_edit.jsp" />
+	</definition>
+
+	<definition name="showFixedGuestServ" extends="storeExtendedCRUD">
+		<put-attribute name="storeExtDataBody" value="/tiles/store/fixedguestserv_view.jsp" />
+	</definition>		
+
+	<definition name="editFixedFlexible" extends="storeExtendedCRUD">
+		<put-attribute name="storeExtDataBody" value="/tiles/store/fixedflexible_edit.jsp" />
+	</definition>
+
+	<definition name="showFixedFlexible" extends="storeExtendedCRUD">
+		<put-attribute name="storeExtDataBody" value="/tiles/store/fixedflexible_view.jsp" />
+	</definition>	
+
+	<definition name="editMinimumStaffing" extends="storeExtendedCRUD">
+		<put-attribute name="storeExtDataBody" value="/tiles/store/minimumstaffing_edit.jsp" />
+	</definition>
+
+	<definition name="showMinimumStaffing" extends="storeExtendedCRUD">
+		<put-attribute name="storeExtDataBody" value="/tiles/store/minimumstaffing_view.jsp" />
+	</definition>	
+	
+	<definition name="editFixedOpening" extends="storeExtendedCRUD">
+		<put-attribute name="storeExtDataBody" value="/tiles/store/fixedopening_edit.jsp" />
+	</definition>
+
+	<definition name="showFixedOpening" extends="storeExtendedCRUD">
+		<put-attribute name="storeExtDataBody" value="/tiles/store/fixedopening_view.jsp" />
+	</definition>	
+	
+	<definition name="editFixedClosing" extends="storeExtendedCRUD">
+		<put-attribute name="storeExtDataBody" value="/tiles/store/fixedclosing_edit.jsp" />
+	</definition>
+
+	<definition name="showFixedClosing" extends="storeExtendedCRUD">
+		<put-attribute name="storeExtDataBody" value="/tiles/store/fixedclosing_view.jsp" />
+	</definition>	
+
+	<definition name="editFixedPostRush" extends="storeExtendedCRUD">
+		<put-attribute name="storeExtDataBody" value="/tiles/store/fixedpostrush_edit.jsp" />
+	</definition>
+
+	<definition name="showFixedPostRush" extends="storeExtendedCRUD">
+		<put-attribute name="storeExtDataBody" value="/tiles/store/fixedpostrush_view.jsp" />
+	</definition>	
+
+	<definition name="editUtilization" extends="storeExtendedCRUD">
+		<put-attribute name="storeExtDataBody" value="/tiles/store/utilization_edit.jsp" />
+	</definition>
+
+	<definition name="showUtilization" extends="storeExtendedCRUD">
+		<put-attribute name="storeExtDataBody" value="/tiles/store/utilization_view.jsp" />
+	</definition>
+
+	<definition name="editUtilizationLimits" extends="storeExtendedCRUD">
+		<put-attribute name="storeExtDataBody" value="/tiles/store/utilizationlimits_edit.jsp" />
+	</definition>
+
+	<definition name="showUtilizationLimits" extends="storeExtendedCRUD">
+		<put-attribute name="storeExtDataBody" value="/tiles/store/utilizationlimits_view.jsp" />
+	</definition>
+	
+	<definition name="editActivitySharing" extends="storeExtendedCRUD">
+		<put-attribute name="storeExtDataBody" value="/tiles/store/activitysharing_edit.jsp" />
+	</definition>	
+	
+	<definition name="showActivitySharing" extends="storeExtendedCRUD">
+		<put-attribute name="storeExtDataBody" value="/tiles/store/activitysharing_view.jsp" />
+	</definition>
+
+	<definition name="editPositionGroup" extends="storeExtendedCRUD">
+		<put-attribute name="storeExtDataBody" value="/tiles/store/positiongroupnames_edit.jsp" />
+	</definition>	
+	
+	<definition name="showPositionGroup" extends="storeExtendedCRUD">
+		<put-attribute name="storeExtDataBody" value="/tiles/store/positiongroupnames_view.jsp" />
+	</definition>
+	
+	<definition name="editOtherFactorsPage" extends="storeExtendedCRUD">
+		<put-attribute name="storeExtDataBody" value="/tiles/store/otherfactors_edit.jsp" />
+	</definition>	
+	
+	<definition name="showOtherFactorsPage" extends="storeExtendedCRUD">
+		<put-attribute name="storeExtDataBody" value="/tiles/store/otherfactors_view.jsp" />
+	</definition>
+
+	<definition name="editStoreProjectionSettings" extends="storeExtendedCRUD">
+		<put-attribute name="storeExtDataBody" value="/tiles/store/projectionsettings_edit.jsp" />
+	</definition>
+
+	<definition name="showStoreProjectionSettings" extends="storeExtendedCRUD">
+		<put-attribute name="storeExtDataBody" value="/tiles/store/projectionsettings_view.jsp" />
+	</definition>	
+		
+	<!-- Customer tiles definition -->
+	<definition name="listCustomersPage" extends="baseLayoutWithMenu">
+		<put-attribute name="body" value="/tiles/customer/list.jsp" />
+	</definition>
+		
+	<definition name="editCustomerPage" extends="baseLayoutWithMenu">
+		<put-attribute name="body" value="/tiles/customer/edit.jsp" />
+	</definition>
+
+	<definition name="showCustomerPage" extends="baseLayoutWithMenu">
+		<put-attribute name="body" value="/tiles/customer/view.jsp" />
+	</definition>	
+	
+	<definition name="editCustomerRegionPage" extends="baseLayoutWithMenu">
+		<put-attribute name="body" value="/tiles/customer/region_edit.jsp" />
+	</definition>		
+	
+	<!-- Projections -->
+	<definition name="editHalfHourPage" extends="baseLayoutWithMenu">
+		<put-attribute name="body" value="/tiles/projection/halfhour.jsp" />
+	</definition>
+	
+	<definition name="editDailyPage" extends="baseLayoutWithMenu">
+		<put-attribute name="htmlExtHeader" value="/tiles/projectionsHtmlExtHeader.jsp" />
+		<put-attribute name="body" value="/tiles/projection/daily.jsp" />
+	</definition>		
+
+	<definition name="editSettingsPage" extends="baseLayoutWithMenu">
+		<put-attribute name="body" value="/tiles/projection/settings.jsp" />
+	</definition>
+
+	<definition name="editActualValuesPage" extends="baseLayoutWithMenu">
+		<put-attribute name="htmlExtHeader" value="/tiles/projectionsHtmlExtHeader.jsp" />	
+		<put-attribute name="body" value="/tiles/projection/actualHistoricValues.jsp" />
+	</definition>			
+	<!-- Schedule -->
+	<definition name="editShiftByEmployeeByDatePage" extends="baseLayoutWithMenu">
+		<put-attribute name="htmlExtHeader" value="/tiles/scheduleHtmlExtHeader.jsp" />
+		<put-attribute name="body" value="/tiles/schedule/addshiftbyemployee.jsp"/>
+	</definition>
+
+	<definition name="editShiftByEmployeeByPositionByDatePage" extends="baseLayoutWithMenu">
+		<put-attribute name="htmlExtHeader" value="/tiles/scheduleHtmlExtHeader.jsp" />
+		<put-attribute name="body" value="/tiles/schedule/addshiftbyemployeebyposition.jsp"/>
+	</definition>		
+
+	<definition name="showScheduleDetailsPage" extends="popUp">
+		<put-attribute name="htmlExtHeader" value="/tiles/dojoHtmlExtHeader.jsp" />
+		<put-attribute name="body" value="/tiles/schedule/schedule_details.jsp"/>
+	</definition>
+
+	<definition name="editShiftByEmployeeByWeekPage" extends="baseLayoutWithMenu">
+		<put-attribute name="htmlExtHeader" value="/tiles/scheduleHtmlExtHeader.jsp" />
+		<put-attribute name="body" value="/tiles/schedule/addweekshiftbyemployee.jsp"/>
+	</definition>
+	
+	<definition name="editShiftByPositionByWeekPage" extends="baseLayoutWithMenu">
+		<put-attribute name="htmlExtHeader" value="/tiles/scheduleHtmlExtHeader.jsp" />
+		<put-attribute name="body" value="/tiles/schedule/addweekshiftbyposition.jsp"/>
+	</definition>
+
+	<definition name="viewPrintShiftByPositionByWeekPage" extends="baseLayoutWithMenu">
+		<put-attribute name="htmlExtHeader" value="/tiles/printscheduleHtmlExtHeader.jsp" />
+		<put-attribute name="body" value="/tiles/schedule/printweekshiftbyposition.jsp"/>
+	</definition>
+
+	<definition name="viewPrintShiftByPositionByDayPage" extends="baseLayoutWithMenu">
+		<put-attribute name="htmlExtHeader" value="/tiles/printscheduleHtmlExtHeader.jsp" />
+		<put-attribute name="body" value="/tiles/schedule/printdayshiftbyposition.jsp"/>
+	</definition>
+	
+	<definition name="viewPrintShiftByEmployeeByWeekPage" extends="baseLayoutWithMenu">
+		<put-attribute name="htmlExtHeader" value="/tiles/printscheduleHtmlExtHeader.jsp" />
+		<put-attribute name="body" value="/tiles/schedule/printweekshiftbyemployee.jsp"/>
+	</definition>
+
+	<definition name="viewPrintShiftByEmployeeByDayPage" extends="baseLayoutWithMenu">
+		<put-attribute name="htmlExtHeader" value="/tiles/printscheduleHtmlExtHeader.jsp" />
+		<put-attribute name="body" value="/tiles/schedule/printdayshiftbyemployee.jsp"/>
+	</definition>
+
+	<definition name="viewPrintTotalHoursByPositionByWeekPage" extends="baseLayoutWithMenu">
+		<put-attribute name="htmlExtHeader" value="/tiles/printscheduleHtmlExtHeader.jsp" />
+		<put-attribute name="body" value="/tiles/schedule/printweektotalhoursbyposition.jsp"/>
+	</definition>	
+	<!--  Print -->
+	<definition name="printShiftByPositionByWeekPage" extends="printLayout">
+		<put-attribute name="htmlExtHeader" value="/tiles/printscheduleHtmlExtHeader.jsp" />
+		<put-attribute name="body" value="/tiles/schedule/print_printweekshiftbyposition.jsp"/>
+	</definition>
+
+	<definition name="printShiftByPositionByDayPage" extends="printLayout">
+		<put-attribute name="htmlExtHeader" value="/tiles/printscheduleHtmlExtHeader.jsp" />
+		<put-attribute name="body" value="/tiles/schedule/print_printdayshiftbyposition.jsp"/>
+	</definition>
+
+	<definition name="printShiftByEmployeeByWeekPage" extends="printLayout">
+		<put-attribute name="htmlExtHeader" value="/tiles/printscheduleHtmlExtHeader.jsp" />
+		<put-attribute name="body" value="/tiles/schedule/print_printweekshiftbyemployee.jsp"/>
+	</definition>
+
+	<definition name="printShiftByEmployeeByDayPage" extends="printLayout">
+		<put-attribute name="htmlExtHeader" value="/tiles/printscheduleHtmlExtHeader.jsp" />
+		<put-attribute name="body" value="/tiles/schedule/print_printdayshiftbyemployee.jsp"/>
+	</definition>
+	
+	<definition name="viewPrintShiftBreaksByWeekPage" extends="baseLayoutWithMenu">
+		<put-attribute name="htmlExtHeader" value="/tiles/printscheduleHtmlExtHeader.jsp" />
+		<put-attribute name="body" value="/tiles/schedule/printweekshiftbreaks.jsp"/>
+	</definition>	
+	
+	<!-- User tiles definition -->
+	<definition name="listUserPage" extends="baseLayoutWithMenu">
+		<put-attribute name="body" value="/tiles/user/list.jsp" />
+	</definition>
+		
+	<definition name="editUserPage" extends="baseLayoutWithMenu">
+		<put-attribute name="body" value="/tiles/user/edit.jsp" />
+	</definition>
+
+	<definition name="showUserPage" extends="baseLayoutWithMenu">
+		<put-attribute name="body" value="/tiles/user/view.jsp" />
+	</definition>	
+
+	<!-- Employee by Store tiles definition -->	
+	<definition name="listStoreEmployeePage" extends="storeExtendedCRUD">
+		<put-attribute name="storeExtDataBody" value="/tiles/store/user_list.jsp" />
+	</definition>
+
+	<definition name="editStoreEmployeePage" extends="storeExtendedCRUD">
+		<put-attribute name="storeExtDataBody" value="/tiles/store/user_edit.jsp" />
+	</definition>	
+	
+	<definition name="showStoreEmployeePage" extends="storeExtendedCRUD">
+		<put-attribute name="storeExtDataBody" value="/tiles/store/user_view.jsp" />
+	</definition>
+	
+	<!-- Customer Managers tiles definition -->
+	<definition name="customerUsersData" template="/layouts/customer/customer_ext_crud.jsp" extends="baseLayoutWithMenu">
+	  <put-attribute name="objectData" value="/tiles/customer/customerdata.jsp" />
+	</definition>
+
+	<definition name="listCustomerUserPage" extends="customerUsersData">
+		<put-attribute name="objectExtDataBody" value="/tiles/customer/customeruser_list.jsp" />
+	</definition>
+
+	<definition name="showCustomerUserPage" extends="customerUsersData">
+		<put-attribute name="objectExtDataBody" value="/tiles/customer/user_view.jsp" />
+	</definition>
+	
+	<definition name="editCustomerUserPage" extends="customerUsersData">
+		<put-attribute name="objectExtDataBody" value="/tiles/customer/user_edit.jsp" />
+	</definition>	
+	
+	<!-- Regional Managers tiles definition -->
+	<definition name="regionalUsersData" template="/layouts/customer/customer_ext_crud.jsp" extends="baseLayoutWithMenu">
+	  <put-attribute name="objectData" value="/tiles/customer/regiondata.jsp" />
+	</definition>
+
+	<definition name="listRegionalUserPage" extends="regionalUsersData">
+		<put-attribute name="objectExtDataBody" value="/tiles/customer/regionaluser_list.jsp" />
+	</definition>
+
+	<definition name="showRegionalUserPage" extends="regionalUsersData">
+		<put-attribute name="objectExtDataBody" value="/tiles/customer/user_view.jsp" />
+	</definition>
+	
+	<definition name="editRegionalUserPage" extends="regionalUsersData">
+		<put-attribute name="objectExtDataBody" value="/tiles/customer/user_edit.jsp" />
+	</definition>	
+	
+	<!-- Area Managers tiles definition -->
+	<definition name="areaUsersData" template="/layouts/customer/customer_ext_crud.jsp" extends="baseLayoutWithMenu">
+	  <put-attribute name="objectData" value="/tiles/customer/areadata.jsp" />
+	</definition>
+
+	<definition name="listAreaUserPage" extends="areaUsersData">
+		<put-attribute name="objectExtDataBody" value="/tiles/customer/areauser_list.jsp" />
+	</definition>
+
+	<definition name="showAreaUserPage" extends="areaUsersData">
+		<put-attribute name="objectExtDataBody" value="/tiles/customer/user_view.jsp" />
+	</definition>
+	
+	<definition name="editAreaUserPage" extends="areaUsersData">
+		<put-attribute name="objectExtDataBody" value="/tiles/customer/user_edit.jsp" />
+	</definition>
+	
+	<!-- Sales upload pages -->
+	<definition name="salesUploadPage" extends="baseLayoutWithMenu">
+		<put-attribute name="body" value="/tiles/sales/upload.jsp" />
+	</definition>	
+
+	<definition name="uploadRemovePage" extends="baseLayoutWithMenu">
+		<put-attribute name="body" value="/tiles/sales/remove.jsp" />
+	</definition>				
+	
+	<!-- TotalHours page -->
+	<definition name="showWeeklyTotalHours" extends="baseLayoutWithMenu">
+		<put-attribute name="htmlExtHeader" value="/tiles/reportHtmlExtHeader.jsp" />
+		<put-attribute name="body" value="/tiles/report/weeklyTotalHours_report.jsp" />
+	</definition>
+		
+	<definition name="showHalfHours" extends="baseLayoutWithMenu">
+		<put-attribute name="htmlExtHeader" value="/tiles/reportHtmlExtHeader.jsp" />
+		<put-attribute name="body" value="/tiles/report/halfhours_report.jsp" />
+	</definition>
+
+	<definition name="showPerformanceEfficiencyReport" extends="baseLayoutWithMenu">
+		<put-attribute name="htmlExtHeader" value="/tiles/reportHtmlExtHeader.jsp" />
+		<put-attribute name="body" value="/tiles/report/performance_efficiency_report.jsp" />
+	</definition>
+
+	<definition name="showScheduleExecutionEfficiencyReport" extends="baseLayoutWithMenu">
+		<put-attribute name="htmlExtHeader" value="/tiles/reportHtmlExtHeader.jsp" />
+		<put-attribute name="body" value="/tiles/report/schedule_execution_efficiency_report.jsp" />
+	</definition>
+
+	<definition name="showHistoricalComparisonReport" extends="baseLayoutWithMenu">
+		<put-attribute name="htmlExtHeader" value="/tiles/reportHtmlExtHeader.jsp" />
+		<put-attribute name="body" value="/tiles/report/historical_comparison_report.jsp"/>
+	</definition>
+	
+	<definition name="showDailyFlashHours" extends="baseLayoutWithMenu">
+		<put-attribute name="htmlExtHeader" value="/tiles/report/dailyFlashReportHtmlExtHeader.jsp" />
+		<put-attribute name="body" value="/tiles/report/daily_flash_report_table.jsp" />
+	</definition>	
+  
+    <definition name="showCustomerReport" extends="baseLayoutWithMenu">
+      <put-attribute name="htmlExtHeader" value="/tiles/reportHtmlExtHeader.jsp" />
+      <put-attribute name="body" value="/tiles/report/customer_report.jsp"/>
+    </definition>
+
+    <definition name="showRegionReport" extends="baseLayoutWithMenu">
+      <put-attribute name="htmlExtHeader" value="/tiles/reportHtmlExtHeader.jsp" />
+      <put-attribute name="body" value="/tiles/report/region_report.jsp"/>
+     </definition>
+  
+    <definition name="showAreaReport" extends="baseLayoutWithMenu">
+      <put-attribute name="htmlExtHeader" value="/tiles/reportHtmlExtHeader.jsp" />
+    <put-attribute name="body" value="/tiles/report/area_report.jsp"/>
+  </definition>
+    	
+	<!-- Upload Store Page -->
+	<definition name="storeDefinitionUploadPage" extends="baseLayoutWithMenu">
+		<put-attribute name="body" value="/tiles/store/uploaddefinition_edit.jsp" />
+	</definition>
+
+	<!-- Upload Store Page -->
+	<definition name="employeesDefinitionUploadPage" extends="baseLayoutWithMenu">
+		<put-attribute name="body" value="/tiles/employee/uploaddefinition_edit.jsp" />
+	</definition>
+		
+	<!-- Actual hours upload pages -->
+	<definition name="actualHoursUploadPage" extends="baseLayoutWithMenu">
+		<put-attribute name="body" value="/tiles/actualhours/actualHoursUpload.jsp" />
+	</definition>	
+	
+	<!-- Demo Wizard pages -->
+	<definition name="demoWizardStep1Page" extends="baseLayout">
+		<put-attribute name="body" value="/tiles/demo/step1.jsp" />
+	</definition>	
+	<definition name="demoWizardStep2Page" extends="baseLayout">
+		<put-attribute name="body" value="/tiles/demo/step2.jsp" />
+	</definition>	
+	<definition name="demoWizardStep3Page" extends="baseLayout">
+		<put-attribute name="body" value="/tiles/demo/step3.jsp" />
+	</definition>	
+	<definition name="demoWizardStep4Page" extends="baseLayout">
+		<put-attribute name="body" value="/tiles/demo/step4.jsp" />
+	</definition>	
+	<definition name="demoWizardStep5Page" extends="baseLayout">
+		<put-attribute name="body" value="/tiles/demo/step5.jsp" />
+	</definition>	
+	<definition name="demoWizardStep6Page" extends="baseLayout">
+		<put-attribute name="body" value="/tiles/demo/step6.jsp" />
+	</definition>	
+	<definition name="demoWizardStep7Page" extends="baseLayout">
+		<put-attribute name="body" value="/tiles/demo/step7.jsp" />
+	</definition>	
+	<definition name="demoWizardStep8Page" extends="baseLayout">
+		<put-attribute name="body" value="/tiles/demo/step8.jsp" />
+	</definition>	
+</tiles-definitions>

@@ -1,0 +1,14 @@
+<!DOCTYPE validators PUBLIC "-//OpenSymphony Group//XWork Validator 1.0.2// 
+       EN" "http://www.opensymphony.com/xwork/xwork-validator-1.0.2.dtd"> 
+<validators> 
+
+  <field name="newPositionGroup">
+       <field-validator type="requiredstring">
+			<message key="error.storeoperations.positiongroups.name.required" />
+      </field-validator>
+       <!-- field-validator type="fieldexpression">
+		<param name="expression"><![CDATA[ positionGroups.contains(new com.laborguru.model.PositionGroup(newPositionGroup) ]]></param>
+		<message key="error.storeoperations.positiongroups.name.duplicated"/>
+      </field-validator-->
+  </field>
+</validators> 

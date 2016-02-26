@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.laborguru.model">
+	<class name="DayPart" table="tbl_day_parts">
+	
+		<id name="id" type="int" unsaved-value="null" column="day_part_id">
+			<generator class="identity" />
+		</id>
+		
+		<property name="name" column="name" type="string" length="100" />
+		<property name="positionIndex" column="position_index" type="int" />
+		<property name="startHour" column="start_hour" type="timestamp" />
+		
+		<many-to-one name="store" class="Store" column="store_id" not-null="true" foreign-key="fk_dayparts_stores" />
+	</class>
+	<database-object>
+		<create>ALTER TABLE tbl_day_parts AUTO_INCREMENT=1000</create>
+		<drop></drop>
+	</database-object>   	
+</hibernate-mapping>

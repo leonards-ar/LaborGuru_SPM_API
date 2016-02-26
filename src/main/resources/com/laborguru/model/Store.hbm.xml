@@ -1,0 +1,79 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.laborguru.model">
+
+	  <typedef name="distributionEnumType" class='com.laborguru.model.hibernate.EnumUserType'>
+	      <param name="enumClassName">com.laborguru.model.DistributionType</param>
+	  </typedef>
+
+	<class name="Store" table="tbl_stores">
+		<id name="id" type="int" unsaved-value="null" column="store_id">
+			<generator class="identity" />
+		</id>
+		<property name="name" column="name" type="string" length="150" />
+		<property name="code" column="code" type="string" length="150" />
+		<property name="firstDayOfWeekAsInteger" column="first_day_of_week" type="int"/>
+		<property name="creationDate" column="creation_date" type="timestamp"/>
+		<property name="lastUpdateDate" column="last_update_date" type="timestamp"/>
+		<property name="demo" column="demo" type="boolean"/>
+		<property name="inTimeOnly" column="in_time_only" type="boolean"/>
+		
+		<property name="dailyProjectionsWeeksDefault" column="daily_projections_weeks_default" type="int"/>
+		<property name="halfHourProjectionsWeeksDefault" column="half_hour_projections_weeks_default" type="int"/>
+		<property name="averageVariable" column="average_variable" type="double"/>
+		
+	    <property name="allPositionsUtilization" type="double">
+			<column name="all_pos_utilization" not-null="false" default="90.00" />
+		</property>
+
+		<property name="minimumFloorManagementHours" column="minimum_floor_Management_hours" type="int"/>
+		
+		<property name="scheduleInefficiency" column="schedule_inefficiency" type="double"/>
+		<property name="fillInefficiency" column="fill_inefficiency" type="double"/>
+		<property name="trainingFactor" column="training_factor" type="double"/>
+		<property name="earnedBreakFactor" column="earned_break_factor" type="double"/>
+		<property name="floorManagementFactor" column="floor_management_factor" type="double"/>
+
+		<property name="distributionType" column="distribution_type" type="distributionEnumType"/>
+
+	    <list name="positions" cascade="all-delete-orphan" table="tbl_positions" lazy="true" inverse="true">
+	        <key column="store_id" foreign-key="fk_stores_positions"/>
+	        <list-index column="position_index"/>
+	        <one-to-many class="Position"/>
+	    </list>
+	    		
+	    <list name="variableDefinitions" cascade="all-delete-orphan" table="tbl_store_variable_definitions" lazy="true" inverse="true">
+	        <key column="store_id" foreign-key="fk_stores_variable_definitions"/>
+	        <list-index column="variable_index"/>
+	        <one-to-many class="StoreVariableDefinition"/>
+	    </list>
+	    	    		
+	    <list name="operationTimes" cascade="all-delete-orphan" table="tbl_operation_times" lazy="false" inverse="true">
+	        <key column="store_id" foreign-key="fk_stores_operationtimes"/>
+	        <list-index column="day_of_week"/>
+	        <one-to-many class="OperationTime"/>
+	    </list>
+	    	
+	    <list name="dayParts" cascade="all-delete-orphan" table="tbl_day_parts" lazy="true" inverse="true">
+	        <key column="store_id" foreign-key="fk_stores_dayparts"/>
+	        <list-index column="position_index"/>
+	        <one-to-many class="DayPart"/>
+	    </list>
+
+		<set name="positionGroups" cascade="all-delete-orphan" table="tbl_position_groups" lazy="true" inverse="true">
+	        <key column="store_id" foreign-key="fk_stores_position_groups"/>
+	        <one-to-many class="PositionGroup"/>
+	    </set>
+	    	    	    	    
+		<many-to-one name="area" class="Area" foreign-key="fk_stores_areas">
+			<column name="area_id"/>
+		</many-to-one>
+	</class>
+	<database-object>
+		<create>ALTER TABLE tbl_stores AUTO_INCREMENT=1000</create>
+		<drop></drop>
+	</database-object> 	
+</hibernate-mapping>

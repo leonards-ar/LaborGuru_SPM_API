@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.laborguru.model">
+	<class name="Region" table="tbl_regions">
+		<id name="id" type="int" unsaved-value="null" column="region_id">
+			<generator class="identity" />
+		</id>
+		<property name="name" column="name" type="string" length="100" />
+
+		<many-to-one name="customer" class="Customer" column="customer_id" not-null="true" foreign-key="fk_regions_customer"/>
+
+	    <set name="areas" table="tbl_areas" lazy="true" cascade="all-delete-orphan" inverse="true">
+	        <key column="region_id" foreign-key="fk_regions_areas"/>
+	        <one-to-many class="Area"/>
+	    </set>			
+	</class>
+	<database-object>
+		<create>ALTER TABLE tbl_regions AUTO_INCREMENT=1000</create>
+		<drop></drop>
+	</database-object>   	
+</hibernate-mapping>

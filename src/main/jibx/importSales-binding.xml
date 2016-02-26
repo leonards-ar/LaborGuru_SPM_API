@@ -1,0 +1,30 @@
+<binding xmlns:tns="http://www.laborguru.com/webservices/sales" name="importSalesBinding" package="com.laborguru.webservice.sales.binding">
+  <namespace uri="http://www.laborguru.com/webservices/sales" default="elements" prefix="sal" />
+  <mapping name="importSalesRequest" class="com.laborguru.webservice.sales.binding.ImportSalesRequest">
+    <value name="storeCode" get-method="getStoreCode" set-method="setStoreCode"/>
+    <value name="storeLocation" get-method="getStoreLocation" set-method="setStoreLocation"/>
+    <value name="salesDate" get-method="getSalesDate" set-method="setSalesDate"/>
+    <value name="salesDateFormat" get-method="getSalesDateFormat" set-method="setSalesDateFormat" usage="optional"/>
+    <structure map-as="tns:SalesItemList" get-method="getSalesItemList" set-method="setSalesItemList" name="salesItemList"/>
+   </mapping>
+ 
+   <mapping abstract="true" type-name="tns:SalesItemList" class="com.laborguru.webservice.sales.binding.SalesItemList">
+    <collection get-method="getSalesItemLists" set-method="setSalesItemLists" create-type="java.util.ArrayList">
+      <structure map-as="tns:SalesItem" name="salesItem"/>
+    </collection>
+  </mapping>
+  
+  <mapping abstract="true" type-name="tns:SalesItem" class="com.laborguru.webservice.sales.binding.SalesItem">
+    <value style="element" name="halfHour" get-method="getHalfHour" set-method="setHalfHour"/>
+    <value style="element" name="mainValue" get-method="getMainValue" set-method="setMainValue"/>
+    <value style="element" name="secondValue" get-method="getSecondValue" set-method="setSecondValue" usage="optional"/>
+    <value style="element" name="thirdValue" get-method="getThirdValue" set-method="setThirdValue" usage="optional"/>
+    <value style="element" name="fourthValue" get-method="getFourthValue" set-method="setFourthValue" usage="optional"/>
+  </mapping>
+  
+  <mapping name="importSalesResponse" class="com.laborguru.webservice.sales.binding.ImportSalesResponse">
+    <value name="transactionsReceived" get-method="getTransactionsReceived" set-method="setTransactionsReceived"/>
+    <value name="transactionsProcessed" get-method="getTransactionsProcessed" set-method="setTransactionsProcessed"/> 
+  </mapping>
+  
+</binding>

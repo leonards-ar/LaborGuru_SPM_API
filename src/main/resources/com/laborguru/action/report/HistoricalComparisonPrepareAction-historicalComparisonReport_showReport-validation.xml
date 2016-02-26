@@ -1,0 +1,23 @@
+<!DOCTYPE validators PUBLIC "-//OpenSymphony Group//XWork Validator 1.0.2//EN" 
+	"http://www.opensymphony.com/xwork/xwork-validator-1.0.2.dtd"> 
+<validators> 
+  <field name="index">
+		<field-validator type="required">
+			<message key="error.historicalComparison.reportType.required" />
+		</field-validator>
+  </field> 
+  <field name="startDate">
+  	<field-validator type="required" >
+  		<message key="error.historicalComparison.startDate.required" />
+  	</field-validator>
+  </field>
+  <field name="endDate">
+  	<field-validator type="required">
+  		<message key="error.historicalComparison.endDate.required" />
+  	</field-validator>
+  </field>
+  <validator type="expression">
+  	<param name="expression">startDate &lt; endDate</param>
+  	<message key="error.historicalcomparison.endDateGTstartDate" />
+  </validator>
+</validators> 

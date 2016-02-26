@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="customer" namespace="/customer" extends="spm-default">		
+		<action name="customer_*" method="{1}" class="com.laborguru.action.customer.CustomerPrepareAction">
+			<result name="edit" type="tiles">editCustomerPage</result>
+			<result name="show" type="tiles">showCustomerPage</result>
+			<result name="list" type="tiles">listCustomersPage</result>
+			<result name="input" type="tiles">editCustomerPage</result>			
+			<result name="success" type="redirectAction">customer_list</result>
+		</action>
+		
+		<action name="customerRegion_*" method="{1}" class="com.laborguru.action.customer.CustomerRegionPrepareAction">
+			<result name="edit" type="tiles">editCustomerRegionPage</result>
+			<result name="success" type="redirectAction">customer_edit</result>
+			<result name="input" type="tiles">editCustomerRegionPage</result>			
+		</action>
+		
+		<action name="customerUser_*" method="{1}" class="com.laborguru.action.customer.CustomerUserPrepareAction">
+			<result name="edit" type="tiles">editCustomerUserPage</result>
+			<result name="show" type="tiles">showCustomerUserPage</result>
+			<result name="list" type="tiles">listCustomerUserPage</result>
+			<result name="input" type="tiles">editCustomerUserPage</result>			
+			<result name="listAction" type="redirectAction">
+			  <param name="actionName">customerUser_list</param>
+			  <param name="paramId">${paramId}</param>
+			</result>
+		</action>
+		
+		<action name="regionalUser_*" method="{1}" class="com.laborguru.action.customer.RegionalUserPrepareAction">
+			<result name="edit" type="tiles">editRegionalUserPage</result>
+			<result name="show" type="tiles">showRegionalUserPage</result>
+			<result name="list" type="tiles">listRegionalUserPage</result>
+			<result name="input" type="tiles">editRegionalUserPage</result>			
+			<result name="listAction" type="redirectAction">
+			  <param name="actionName">regionalUser_list</param>
+			  <param name="paramId">${paramId}</param>
+			</result>
+		</action>
+		
+		<action name="areaUser_*" method="{1}" class="com.laborguru.action.customer.AreaUserPrepareAction">
+			<result name="edit" type="tiles">editAreaUserPage</result>
+			<result name="show" type="tiles">showAreaUserPage</result>
+			<result name="list" type="tiles">listAreaUserPage</result>
+			<result name="input" type="tiles">editAreaUserPage</result>			
+			<result name="listAction" type="redirectAction">
+			  <param name="actionName">areaUser_list</param>
+			  <param name="paramId">${paramId}</param>
+			</result>
+		</action>		
+						
+	</package>
+</struts>

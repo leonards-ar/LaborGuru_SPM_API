@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="actualhours" namespace="/actualhours" extends="spm-default">		
+
+		<action name="actual_hours_*" method="{1}" class="com.laborguru.action.actualhours.UploadPrepareAction">
+			<result name="edit" type="tiles">actualHoursUploadPage</result>
+			<result name="input" type="tiles">actualHoursUploadPage</result>
+			<result name="cancel" type="redirectAction">
+				<param name="actionName">store_list</param>
+				<param name="namespace">/store</param>
+			</result>			
+		</action>			
+					
+	</package>
+</struts>

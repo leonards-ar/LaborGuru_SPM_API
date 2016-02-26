@@ -1,0 +1,81 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	elementFormDefault="qualified" attributeFormDefault="qualified"
+	targetNamespace="http://www.laborguru.com/webservices/sales"
+	xmlns:spmws="http://www.laborguru.com/webservices/sales">
+	<xs:element name="importSalesRequest">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="storeCode" minOccurs="1" maxOccurs="1">
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:maxLength value="150" />
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="storeLocation" minOccurs="1" maxOccurs="1">
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:maxLength value="12" />
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="salesDate" maxOccurs="1" minOccurs="1">
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:maxLength value="8" />
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="salesDateFormat" maxOccurs="1" minOccurs="0" type="xs:string"/>
+				<xs:element name="salesItemList" type="spmws:SalesItemList" minOccurs="1" maxOccurs="1"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:complexType name="SalesItemList">
+		<xs:sequence>
+			<xs:element name="salesItem" type="spmws:SalesItem" minOccurs="1" maxOccurs="10000" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="SalesItem">
+		<xs:all>
+			<xs:element name="halfHour" minOccurs="1" maxOccurs="1">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="8" />
+						<xs:pattern value="\d\d:\d\d" />
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="mainValue" minOccurs="1" maxOccurs="1">
+				<xs:simpleType>
+					<xs:restriction base="xs:double" />
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="secondValue" minOccurs="0" maxOccurs="1">
+				<xs:simpleType>
+					<xs:restriction base="xs:double" />
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="thirdValue" minOccurs="0" maxOccurs="1">
+				<xs:simpleType>
+					<xs:restriction base="xs:double" />
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="fourthValue" minOccurs="0" maxOccurs="1">
+				<xs:simpleType>
+					<xs:restriction base="xs:double" />
+				</xs:simpleType>
+			</xs:element>
+		</xs:all>
+	</xs:complexType>
+	
+	<xs:element name="importSalesResponse">
+	 <xs:complexType>
+	   <xs:sequence>
+	     <xs:element name="transactionsReceived" type="xs:integer"/>
+	     <xs:element name="transactionsProcessed" type="xs:integer"/>
+	   </xs:sequence>
+	 </xs:complexType>
+	</xs:element>
+	
+</xs:schema>

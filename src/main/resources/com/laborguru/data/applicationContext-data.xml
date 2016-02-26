@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+
+	<bean id='referenceData' class="java.util.HashMap" singleton="true">
+		<description>Reference data for SPM</description>
+		<constructor-arg>
+			<map>
+				<entry key="states-us">
+					<ref bean="states-us"/>
+				</entry>
+				<entry key="status">
+					<ref bean="status"/>
+				</entry>
+				<entry key="scheduleViews">
+					<ref bean="scheduleViews"/>
+				</entry>
+				<entry key="weeklyScheduleViews">
+					<ref bean="weeklyScheduleViews"/>
+				</entry>
+				<entry key="printScheduleViews">
+					<ref bean="printScheduleViews"/>
+				</entry>
+				<entry key="printDailyScheduleViews">
+					<ref bean="printDailyScheduleViews"/>
+				</entry>
+				<entry key="usedWeeks">
+					<ref bean="usedWeeks"/>
+				</entry>
+				<entry key="managerRole">
+					<ref bean="storeManagerRole"/>
+				</entry>
+				<entry key="employeeRole">
+					<ref bean="employeeRole"/>
+				</entry>
+				<entry key="adminRole">
+					<ref bean="adminRole"/>
+				</entry>				
+				<entry key="customerRole">
+					<ref bean="customerManagerRole"/>
+				</entry>				
+				<entry key="regionalRole">
+					<ref bean="regionalManagerRole"/>
+				</entry>				
+				<entry key="areaRole">
+					<ref bean="areaManagerRole"/>
+				</entry>
+				<entry key="reportTypes">
+					<ref bean="reportTypes"/>
+				</entry>
+				<entry key="reportGrouping">
+					<ref bean="reportGrouping"/>
+				</entry>
+				<entry key="historicalDataType" value-ref="historicReportDataType"/>				
+			</map>
+		</constructor-arg>
+	</bean> 
+	
+	<bean id="states-us" class="java.util.ArrayList" singleton="true">
+		<description>United States - 51 States Map for Combos</description>
+		<constructor-arg>
+			<list>
+				<value>Alabama</value>
+				<value>Alaska</value>
+				<value>Arizona</value>
+				<value>Arkansas</value>
+				<value>California</value>
+				<value>Colorado</value>
+				<value>Connecticut</value>
+				<value>D.C.</value>
+				<value>Delaware</value>
+				<value>Florida</value>
+				<value>Georgia</value>
+				<value>Hawaii</value>
+				<value>Idaho</value>
+				<value>Illinois</value>
+				<value>Indiana</value>
+				<value>Iowa</value>
+				<value>Kansas</value>
+				<value>Kentucky</value>
+				<value>Louisiana</value>
+				<value>Maine</value>
+				<value>Maryland</value>
+				<value>Massachusetts</value>
+				<value>Michigan</value>
+				<value>Minnesota</value>
+				<value>Mississippi</value>
+				<value>Missouri</value>
+				<value>Montana</value>
+				<value>Nebraska</value>
+				<value>Nevada</value>
+				<value>New Hampshire</value>
+				<value>New Jersey</value>
+				<value>New Mexico</value>
+				<value>New York</value>
+				<value>North Carolina</value>
+				<value>North Dakota</value>
+				<value>Ohio</value>
+				<value>Oklahoma</value>
+				<value>Oregon</value>
+				<value>Pennsylvania</value>
+				<value>Rhode Island</value>
+				<value>South Carolina</value>
+				<value>South Dakota</value>
+				<value>Tennessee</value>
+				<value>Texas</value>
+				<value>Utah</value>
+				<value>Vermont</value>
+				<value>Virginia</value>
+				<value>Washington</value>
+				<value>West Virginia</value>
+				<value>Wisconsin</value>
+				<value>Wyoming</value>
+			</list>
+		</constructor-arg>
+	</bean>
+
+	<bean id="status" class="java.util.HashMap" singleton="true">
+		<description>Different user states</description>
+		<constructor-arg>
+			<map>
+				<entry key="0">
+					<value>user.status.enabled</value>
+				</entry>
+				<entry key="1">
+					<value>user.status.disabled</value>
+				</entry>
+			</map>
+		</constructor-arg>
+	</bean>
+	
+	<bean id="usedWeeks" class="java.util.HashMap" singleton="true">
+		<description>Different values for the number of weeks used on the sales projections</description>
+		<constructor-arg>
+			<map>
+				<entry key="1">
+					<value>projection.weekused.option.1</value>
+				</entry>
+				<entry key="2">
+					<value>projection.weekused.option.2</value>
+				</entry>
+				<entry key="3">
+					<value>projection.weekused.option.3</value>
+				</entry>
+				<entry key="4">
+					<value>projection.weekused.option.4</value>
+				</entry>
+			</map>
+		</constructor-arg>
+	</bean>
+
+	<bean id="adminRole" class="com.laborguru.model.Profile">
+	  <description>Administrator Role</description>
+	  <property name="id" value="1"/>
+	</bean>
+	
+	<bean id="storeManagerRole" class="com.laborguru.model.Profile">
+	  <description>Manager Role of a store</description>
+	  <property name="id" value="2"/>
+	</bean>
+	
+	<bean id="employeeRole" class="com.laborguru.model.Profile">
+	  <description>Default employee Role of a store</description>
+	  <property name="id" value="3"/>
+	</bean>	
+	
+	<bean id="customerManagerRole" class="com.laborguru.model.Profile">
+	  <description>Role for users that manages a Client</description>
+	  <property name="id" value="4"/>
+	</bean>
+
+	<bean id="regionalManagerRole" class="com.laborguru.model.Profile">
+	  <description>Role for users that manages a Region</description>
+	  <property name="id" value="5"/>
+	</bean>
+
+	<bean id="areaManagerRole" class="com.laborguru.model.Profile">
+	  <description>Role for users that manages an Area</description>
+	  <property name="id" value="6"/>
+	</bean>
+	
+	<bean id="scheduleViews" class="java.util.HashMap" singleton="true">
+		<description>Different schedule Views</description>
+		<constructor-arg>
+			<map>
+				<entry key="addshiftbyemployee_selectView.action">
+					<value>schedule.addshift.view.weekly</value>
+				</entry>
+				<entry key="addshiftbyemployeebyposition_selectView.action">
+					<value>schedule.addshift.view.position</value>
+				</entry>
+			</map>
+		</constructor-arg>
+	</bean>
+
+	<bean id="weeklyScheduleViews" class="java.util.HashMap" singleton="true">
+		<description>Different Weekly schedule Views</description>
+		<constructor-arg>
+			<map>
+				<entry key="addweeklyshiftbyemployee_selectView.action">
+					<value>schedule.addshift.view.weekly</value>
+				</entry>
+				<entry key="addweeklyshiftbyposition_selectView.action">
+					<value>schedule.addshift.view.position</value>
+				</entry>
+			</map>
+		</constructor-arg>
+	</bean>
+
+	<bean id="printDailyScheduleViews" class="java.util.LinkedHashMap" singleton="true">
+		<description>Different Print Schedule Views</description>
+		<constructor-arg>
+			<map>
+				<entry key="printdailyshiftbyposition_view.action">
+					<value>schedule.printshift.position.view.label</value>
+				</entry>
+				<entry key="printdailyshiftbyemployee_view.action">
+					<value>schedule.printshift.employee.view.label</value>
+				</entry>
+			</map>
+		</constructor-arg>
+	</bean>
+	
+	<bean id="printScheduleViews" class="java.util.LinkedHashMap" singleton="true">
+		<description>Different Print Schedule Views</description>
+		<constructor-arg>
+			<map>
+				<entry key="printweeklyshiftbyposition_view.action">
+					<value>schedule.printshift.position.view.label</value>
+				</entry>
+				<entry key="printweeklyshiftbyemployee_view.action">
+					<value>schedule.printshift.employee.view.label</value>
+				</entry>
+			</map>
+		</constructor-arg>
+	</bean>
+
+	<bean id="reportTypes" class="java.util.HashMap" singleton="true">
+		<description>Different Report Types</description>
+		<constructor-arg>
+			<map>
+				<entry key="totalHoursReport_showFirstReport.action">
+					<value>report.reportType.scheduleCheck.label</value>
+				</entry>
+				<entry key="performanceEfficiencyReport_showFirstReport.action">
+					<value>report.reportType.storePerfomance.label</value>
+				</entry>
+				<entry key="scheduleExecutionEfficiencyReport_showFirstReport.action">
+					<value>report.reportType.scheduleExcution.label</value>
+				</entry>
+			</map>
+		</constructor-arg>
+	</bean>
+	
+	<bean id="reportGrouping" class="java.util.HashMap" singleton="true">
+		<description>Different way of grouping data</description>
+		<constructor-arg>
+			<map>
+				<entry key="total">
+					<value>report.reportGrouping.view.total</value>
+				</entry>
+				<entry key="byPosition">
+					<value>report.reportGrouping.view.position</value>
+				</entry>
+				<entry key="byService">
+					<value>report.reportGrouping.view.service</value>
+				</entry>
+			</map>
+		</constructor-arg>
+	</bean>
+	
+	<bean id="historicReportDataType" class="java.util.HashMap" singleton="true">
+	  <description>Two kind of Data to be shown in the Historical Report</description>
+	  <constructor-arg>
+	  	<map>
+	  		<entry key="absolute" value="report.historicalComparions.dataType.absolute"/>
+	  		<entry key="percentage" value="report.historicalComparions.dataType.percentage"/>
+	  	</map>
+	  </constructor-arg>
+	</bean>	
+	
+</beans>

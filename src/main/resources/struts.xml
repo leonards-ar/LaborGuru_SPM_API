@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<constant name="struts.devMode" value="false" />
+	<constant name="struts.configuration.xml.reload" value="false" />
+	<constant name="struts.ognl.logMissingProperties" value="false" />
+	<constant name="struts.ognl.enableExpressionCache" value="false" />
+	<constant name="struts.el.throwExceptionOnFailure" value="false" />
+	<constant name="struts.serve.static" value="false" />
+	<constant name="struts.custom.i18n.resources" value="defaultmessages, errormessages" />	
+  	<constant name="struts.objectFactory" value="org.apache.struts2.spring.StrutsSpringObjectFactory" />
+	
+	<package name="spm-default" extends="tiles-default">
+		<result-types>
+			<result-type name="tiles"
+				class="org.apache.struts2.views.tiles.TilesResult" />
+		</result-types>
+
+		<interceptors>
+			<interceptor name="spm"	class="com.laborguru.frontend.struts2.SpmInterceptor" />
+			<interceptor name="spmConversionError"	class="com.laborguru.frontend.struts2.SpmConversionErrorInterceptor" />
+
+
+			<interceptor-stack name="spmStack">
+				<interceptor-ref name="spm" />
+				<interceptor-ref name="defaultStack" />
+			</interceptor-stack>
+			
+			<interceptor-stack name="spmStackWithoutConversionError">
+				<interceptor-ref name="spm" />
+                <interceptor-ref name="exception"/>
+                <interceptor-ref name="alias"/>
+                <interceptor-ref name="servletConfig"/>
+                <interceptor-ref name="prepare"/>
+                <interceptor-ref name="i18n"/>
+                <interceptor-ref name="chain"/>
+                <interceptor-ref name="debugging"/>
+                <interceptor-ref name="profiling"/>
+                <interceptor-ref name="scopedModelDriven"/>
+                <interceptor-ref name="modelDriven"/>
+                <interceptor-ref name="fileUpload"/>
+                <interceptor-ref name="checkbox"/>
+                <interceptor-ref name="staticParams"/>
+                <interceptor-ref name="params">                
+                  <param name="excludeParams">dojo\..*,^struts\..*,.*\\.*,.*\(.*,.*\).*,.*@.*</param>
+                </interceptor-ref>
+                
+                <interceptor-ref name="spmConversionError"/>
+                
+                <interceptor-ref name="validation">
+                    <param name="excludeMethods">input,back,cancel,browse,changeWeek,changeDay</param>
+                </interceptor-ref>
+                <interceptor-ref name="workflow">
+                    <param name="excludeMethods">input,back,cancel,browse,changeWeek,changeDay</param>
+                </interceptor-ref>			
+			</interceptor-stack>
+		</interceptors>
+
+		<default-interceptor-ref name="spmStack" />
+
+        <global-results>
+            <result name="login" type="tiles">loginPage</result>
+            <result name="unhandled_error" type="tiles">errorPage</result>
+        </global-results>		
+
+		<global-exception-mappings>
+			<exception-mapping name="ex" result="unhandled_error" exception="java.lang.Exception"/>
+			<exception-mapping name="rtex" result="unhandled_error" exception="java.lang.RuntimeException"/>
+		</global-exception-mappings>        
+	</package>
+
+	<include file="action/login.xml" />
+	<include file="action/security.xml" />
+	<include file="action/home.xml" />
+	<include file="action/employee.xml" />
+	<include file="action/store.xml" />
+	<include file="action/customer.xml" />	
+	<include file="action/projection.xml" />	
+	<include file="action/schedule.xml" />
+	<include file="action/user.xml"/>
+	<include file="action/sales.xml"/>
+	<include file="action/report.xml"/>	
+	<include file="action/actualhours.xml"/>
+	<include file="action/util.xml"/>
+	<include file="action/demo.xml"/>
+</struts>
