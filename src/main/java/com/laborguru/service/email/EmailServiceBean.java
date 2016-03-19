@@ -12,8 +12,9 @@ import java.util.Map;
 import javax.mail.internet.MimeMessage;
 
 import org.apache.commons.lang.builder.ReflectionToStringBuilder;
-import org.apache.log4j.Logger;
 import org.apache.velocity.app.VelocityEngine;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
@@ -28,7 +29,7 @@ import org.springframework.ui.velocity.VelocityEngineUtils;
  *
  */
 public class EmailServiceBean implements EmailService {
-	private static final Logger log = Logger.getLogger(EmailServiceBean.class);
+	private static final Logger log = LoggerFactory.getLogger(EmailServiceBean.class);
 
 	private JavaMailSender mailSender;
 	private SimpleMailMessage mailMessage;

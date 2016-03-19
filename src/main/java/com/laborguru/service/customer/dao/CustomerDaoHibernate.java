@@ -2,10 +2,10 @@ package com.laborguru.service.customer.dao;
 
 import java.util.List;
 
-import org.apache.log4j.Logger;
-
 import com.laborguru.model.Customer;
 import com.laborguru.service.dao.hibernate.SpmHibernateDao;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class CustomerDaoHibernate extends SpmHibernateDao implements CustomerDao {
 
@@ -15,7 +15,7 @@ public class CustomerDaoHibernate extends SpmHibernateDao implements CustomerDao
 	private static final String CUSTOMER_CODE_NULL = "The customer code passed as parameter is null.";
 
 	
-	private static final Logger log = Logger.getLogger(CustomerDaoHibernate.class);	
+	private static final Logger log = LoggerFactory.getLogger(CustomerDaoHibernate.class);
 
 	/**
 	 * 

@@ -15,22 +15,22 @@ import com.laborguru.model.UploadFile;
 public interface UploadFileService {
 
 	/**
-	 * Retrieves an upload file instance by id
-	 * @param uploadFile The upload file with id not null
+	 * Retrieves an uploadfile file instance by id
+	 * @param uploadFile The uploadfile file with id not null
 	 * @return The instance associated or null
 	 */
 	UploadFile getUploadFileById(UploadFile uploadFile);
 
 	/**
-	 * Retrieves a list with all upload files of a given type
-	 * @param The upload type
+	 * Retrieves a list with all uploadfile files of a given type
+	 * @param The uploadfile type
 	 * @return
 	 */
 	List<UploadFile> findUploadFilesByType(UploadEnumType uploadType);
 	
 	/**
-	 * Deletes an upload file from the spm
-	 * @param uploadFile The upload file with id not null
+	 * Deletes an uploadfile file from the spm
+	 * @param uploadFile The uploadfile file with id not null
 	 * @return the UploadFile removed
 	 */
 	UploadFile delete(UploadFile uploadFile);
@@ -39,9 +39,9 @@ public interface UploadFileService {
 	 * Retrieves the number of the Historic Sales associated to the uploadFile passed as parameter.
 	 * This method is an alternative to uploadFile.getHistoricSales.size(). 
 	 * We used it when we only need the number of the HistoricSales but we don't want to iniatilize the historicSales collection. A call to size() 
-	 * will initialize the entire list of historic sales of an upload file. In medium size files >10.000 records the call to size() can be very expensive.
+	 * will initialize the entire list of historic sales of an uploadfile file. In medium size files >10.000 records the call to size() can be very expensive.
  	 * 
-	 * @return The number of historic sales associated to the upload file.
+	 * @return The number of historic sales associated to the uploadfile file.
 	 */	
 	Integer getHistoricSalesSize(UploadFile uploadFile);	
 }

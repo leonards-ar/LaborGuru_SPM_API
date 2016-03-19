@@ -6,7 +6,6 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.List;
 
-import org.apache.log4j.Logger;
 
 import au.com.bytecode.opencsv.CSVReader;
 
@@ -18,6 +17,8 @@ import com.laborguru.model.Store;
 import com.laborguru.model.filter.SearchStoreFilter;
 import com.laborguru.model.service.SalesCSVHistoricSales;
 import com.laborguru.service.store.StoreService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Implements a parser for a CSV sales file
@@ -28,7 +29,7 @@ import com.laborguru.service.store.StoreService;
  */
 public class SalesCSVFileParserBean implements SalesFileParser {
 
-	private static final Logger log = Logger.getLogger(SalesCSVFileProcessorBean.class);
+	private static final Logger log = LoggerFactory.getLogger(SalesCSVFileProcessorBean.class);
 
 	private int allLinesCounter;
 	private int validLinesCounter;
@@ -86,7 +87,7 @@ public class SalesCSVFileParserBean implements SalesFileParser {
 
 	/**
 	 * Close underlying reading and release reources.
-	 * Don't forget to call this method before you finish to preocess the upload.
+	 * Don't forget to call this method before you finish to preocess the uploadfile.
 	 * @throws IOException 
 	 * @see com.laborguru.service.dataimport.csv.SalesFileParser#close()
 	 */

@@ -7,8 +7,9 @@ package com.laborguru.service.schedule.dao;
 
 import java.util.List;
 
-import org.apache.log4j.Logger;
-import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
+import com.laborguru.service.dao.hibernate.SpmHibernateDao;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.laborguru.model.Shift;
 
@@ -19,8 +20,8 @@ import com.laborguru.model.Shift;
  * @since SPM 1.0
  *
  */
-public class ShiftDaoHibernate extends HibernateDaoSupport implements ShiftDao {
-	private static final Logger log = Logger.getLogger(ShiftDaoHibernate.class);	
+public class ShiftDaoHibernate extends SpmHibernateDao implements ShiftDao {
+	private static final Logger log = LoggerFactory.getLogger(ShiftDaoHibernate.class);
 	
 	/**
 	 * 

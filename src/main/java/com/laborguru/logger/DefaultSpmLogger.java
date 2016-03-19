@@ -1,11 +1,12 @@
 package com.laborguru.logger;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.io.IOException;
 import java.text.MessageFormat;
 import java.util.Properties;
-
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
+import java.util.logging.LogManager;
 
 
 public class DefaultSpmLogger implements SpmLogger {
@@ -35,9 +36,9 @@ public class DefaultSpmLogger implements SpmLogger {
 	}
 	
 	public void init() {
-		auditoryLogger = Logger.getLogger(LOG_AUDITORY);
-		messageLogger = Logger.getLogger(LOG_MSG);
-		errorLogger = Logger.getLogger(LOG_ERROR);
+		auditoryLogger = LoggerFactory.getLogger(LOG_AUDITORY);
+		messageLogger = LoggerFactory.getLogger(LOG_MSG);
+		errorLogger = LoggerFactory.getLogger(LOG_ERROR);
 	}
 	
 	 
@@ -75,12 +76,6 @@ public class DefaultSpmLogger implements SpmLogger {
 		
 	}
 
-	public void reconfigure() {
-		LogManager.resetConfiguration();
-        this.init();
-		
-	}
-	
 	private String getStringMessage(String msgKey, Object[] params) {
 		String msgString = logMessagesConfig.getProperty(msgKey);
 		String msg = MessageFormat.format(msgString, params);

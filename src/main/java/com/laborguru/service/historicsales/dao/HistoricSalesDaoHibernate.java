@@ -7,7 +7,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.apache.log4j.Logger;
 import org.joda.time.DateMidnight;
 import org.joda.time.DateTime;
 
@@ -17,6 +16,8 @@ import com.laborguru.model.HistoricSales;
 import com.laborguru.model.Store;
 import com.laborguru.service.dao.hibernate.SpmHibernateDao;
 import com.laborguru.util.SpmConstants;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Hibernate implementation for Historic Sales Dao
@@ -28,7 +29,7 @@ import com.laborguru.util.SpmConstants;
  */
 public class HistoricSalesDaoHibernate extends SpmHibernateDao implements HistoricSalesDao {
 
-	private static final Logger log = Logger.getLogger(HistoricSalesDaoHibernate.class);
+	private static final Logger log = LoggerFactory.getLogger(HistoricSalesDaoHibernate.class);
 	private static final String HISTORIC_SALES_NULL = "The historic sales object passed in as parameter is null";
 	private static final String STORE_NULL = "The store passed in as parameter is null";
 	private static final String DATE_NULL = "The date passed in as parameter is null";
@@ -90,7 +91,7 @@ public class HistoricSalesDaoHibernate extends SpmHibernateDao implements Histor
 			log.debug("Before getting total historic sales for time period - Parameters: Store Id: "+ store.getId() + ", from date: " + from.toDate() + ", to date: " + to.toDate());
 		}
 	
-		List<BigDecimal> totalResult = getHibernateTemplate().findByNamedParam("select sum(hs.mainValue) from HistoricSales hs " +
+		List<BigDecimal> totalResult = (List<BigDecimal>)getHibernateTemplate().findByNamedParam("select sum(hs.mainValue) from HistoricSales hs " +
 				"where hs.store.id=:storeId AND hs.dateTime >= :startDate AND hs.dateTime <= :endDate",
 				new String[] {"storeId", "startDate", "endDate"}, new Object[] {store.getId(), from.toDate(), to.toDate()});
 		
@@ -223,7 +224,7 @@ public class HistoricSalesDaoHibernate extends SpmHibernateDao implements Histor
 			log.debug("Before getting historic sales - Parameters: Store Id:"+ store.getId()+" selectedDate:"+selectedDate.toString("yyyy-MM-dd"));
 		}
 		
-		List<HistoricSales> hsList = getHibernateTemplate().findByNamedParam("from HistoricSales hs where hs.store.id =:storeId and DATE(hs.dateTime) = STR_TO_DATE(:selectedDate,'%Y-%m-%d')",
+		List<HistoricSales> hsList = (List<HistoricSales>)getHibernateTemplate().findByNamedParam("from HistoricSales hs where hs.store.id =:storeId and DATE(hs.dateTime) = STR_TO_DATE(:selectedDate,'%Y-%m-%d')",
 			new String[]{"storeId","selectedDate"}, new Object[]{store.getId(),selectedDate.toString("yyyy-MM-dd")});
 
 		Map<Date,HistoricSales> retMap = new HashMap<Date,HistoricSales>(SpmConstants.HALF_HOURS_IN_A_DAY);

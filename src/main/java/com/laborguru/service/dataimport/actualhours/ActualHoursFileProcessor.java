@@ -19,10 +19,10 @@ public interface ActualHoursFileProcessor {
 	
 	/**
 	 * This method process the file passed as parameter.
-	 * @param file: the file to upload and save
+	 * @param file: the file to uploadfile and save
 	 * @param uploadFile: Optional helper object used to pass information to the service. 
 	 * 
-	 * @return The upload file entity created.
+	 * @return The uploadfile file entity created.
 	 */
 	FileProcessed processAndSaveFile(File file, UploadFileInfo uploadFileInfo);
 	

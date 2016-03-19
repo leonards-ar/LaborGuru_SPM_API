@@ -6,7 +6,7 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
-import org.apache.log4j.Logger;
+
 import org.apache.poi.ss.usermodel.Row;
 
 import com.laborguru.exception.ErrorEnum;
@@ -17,9 +17,11 @@ import com.laborguru.model.Position;
 import com.laborguru.model.PositionGroup;
 import com.laborguru.model.Store;
 import com.laborguru.util.PoiUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
- * Represents a Labor Assumption Section from the store definition upload file
+ * Represents a Labor Assumption Section from the store definition uploadfile file
  * 
  * @author <a href="cnunezre@gmail.com">Cristian Nunez Rebolledo</a>
  * @version 1.0
@@ -28,7 +30,7 @@ import com.laborguru.util.PoiUtils;
  */
 public class LaborAssumption extends BaseStoreSection {
 
-	private static final Logger log = Logger.getLogger(LaborAssumption.class);
+	private static final Logger log = LoggerFactory.getLogger(LaborAssumption.class);
 
 	private static final String BOTTOM_UTILIZATION = "Bottom";
 	private static final String TOP_UTILIZATION = "Top";

@@ -3,8 +3,8 @@ package com.laborguru.frontend.model;
 import java.math.BigDecimal;
 import java.util.Date;
 
-import org.apache.commons.lang.builder.ToStringBuilder;
-import org.apache.commons.lang.builder.ToStringStyle;
+import org.apache.commons.lang3.builder.ToStringBuilder;
+import org.apache.commons.lang3.builder.ToStringStyle;
 
 import com.laborguru.util.CalendarUtils;
 import com.laborguru.util.NumberUtils;

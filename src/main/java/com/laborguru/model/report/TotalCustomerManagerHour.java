@@ -1,6 +1,6 @@
 package com.laborguru.model.report;
 
-import org.apache.commons.lang.builder.ToStringBuilder;
+import org.apache.commons.lang3.builder.ToStringBuilder;
 
 import com.laborguru.model.Region;
 
@@ -26,7 +26,7 @@ public class TotalCustomerManagerHour extends TotalManagerHour {
 	}
 
 	/**
-	 * @param customer the customer to set
+	 * @param region the customer to set
 	 */
 	public void setRegion(Region region) {
 		this.region = region;

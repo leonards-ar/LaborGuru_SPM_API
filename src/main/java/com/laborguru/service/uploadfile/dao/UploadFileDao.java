@@ -23,34 +23,34 @@ public interface UploadFileDao {
 	void saveOrUpdate(UploadFile uploadFile);
 
 	/**
-	 * Retrieves an upload file instance by id. Takes the id of the instance passed as parameter.
-	 * @param id An upload file instance with id not null.
+	 * Retrieves an uploadfile file instance by id. Takes the id of the instance passed as parameter.
+	 * @param id An uploadfile file instance with id not null.
 	 * @return The full instance associated with the id or null
 	 */
 	UploadFile getUploadFileById(UploadFile uploadFile);
 
 	/**
-	 * Returns all the upload instances of a given type
-	 * @param The upload Type
+	 * Returns all the uploadfile instances of a given type
+	 * @param The uploadfile Type
 	 * @return a list of UploadFiles
 	 */
 	List<UploadFile> findByType(UploadEnumType uploadType);	
 	
 	/**
-	 * Returns all the upload instances stored in the DB
+	 * Returns all the uploadfile instances stored in the DB
 	 * @return a list of UploadFiles
 	 */
 	List<UploadFile> findAll();
 
 	/**
-	 * Removes an uploadFile from the system. It also removes all the historic sales associated with the upload file.
+	 * Removes an uploadFile from the system. It also removes all the historic sales associated with the uploadfile file.
 	 * @param uploadFile an attached instance of uploadFile.
 	 */
 	void delete(UploadFile uploadFile);	
 	
 	/**
-	 * Returns an upload file by storeId, Historic Sales date and UploadType
-	 * It used to retrieve the upload file in the actual load through web.
+	 * Returns an uploadfile file by storeId, Historic Sales date and UploadType
+	 * It used to retrieve the uploadfile file in the actual load through web.
 	 * @param storeId
 	 * @param hsDate
 	 * @param uploadType
@@ -62,9 +62,9 @@ public interface UploadFileDao {
 	 * Retrieves the number of the Historic Sales associated to the uploadFile passed as parameter.
 	 * This method is an alternative to uploadFile.getHistoricSales.size(). 
 	 * We used it when we only need the number of the HistoricSales but we don't want to iniatilize the historicSales collection. A call to size() 
-	 * will initialize the entire list of historic sales of an upload file.
+	 * will initialize the entire list of historic sales of an uploadfile file.
 	 * 
-	 * @return The number of historic sales associated to the upload file.
+	 * @return The number of historic sales associated to the uploadfile file.
 	 */	
 	Integer getHistoricSalesSize(UploadFile uploadFile);
 }

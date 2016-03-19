@@ -10,10 +10,11 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.apache.log4j.Logger;
 import org.joda.time.DateMidnight;
 import org.joda.time.DateTime;
-import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.orm.hibernate4.support.HibernateDaoSupport;
 
 import com.laborguru.model.DailyProjectedStaffing;
 import com.laborguru.model.Position;
@@ -29,7 +30,7 @@ import com.laborguru.util.CalendarUtils;
  *
  */
 public class StaffingDaoHibernate extends HibernateDaoSupport implements StaffingDao {
-	private static final Logger log = Logger.getLogger(StaffingDaoHibernate.class);
+	private static final Logger log = LoggerFactory.getLogger(StaffingDaoHibernate.class);
 	
 	/**
 	 * 
@@ -174,7 +175,7 @@ public class StaffingDaoHibernate extends HibernateDaoSupport implements Staffin
 			log.debug("Before getting total projected staffing for time period - Parameters: Store Id: "+ store.getId() + ", from date: " + from.toDate() + ", to date: " + to.toDate());
 		}
 	
-		List<Double> totalResult = getHibernateTemplate().findByNamedParam("select sum(ds.totalDailyTarget) from DailyProjectedStaffing ds " +
+		List<Double> totalResult = (List<Double>)getHibernateTemplate().findByNamedParam("select sum(ds.totalDailyTarget) from DailyProjectedStaffing ds " +
 				"where ds.position.store.id=:storeId AND ds.date >= :startDate AND ds.date <= :endDate",
 				new String[] {"storeId", "startDate", "endDate"}, new Object[] {store.getId(), from.toDate(), to.toDate()});
 		
@@ -201,7 +202,7 @@ public class StaffingDaoHibernate extends HibernateDaoSupport implements Staffin
 			log.debug("Before getting total projected staffing by position for time period - Parameters: Store Id: "+ store.getId() + ", from date: " + from.toDate() + ", to date: " + to.toDate());
 		}
 	
-		List<Object[]> totalResult = getHibernateTemplate().findByNamedParam("select ds.position.id, sum(ds.totalDailyTarget) from DailyProjectedStaffing ds " +
+		List<Object[]> totalResult = (List<Object[]>)getHibernateTemplate().findByNamedParam("select ds.position.id, sum(ds.totalDailyTarget) from DailyProjectedStaffing ds " +
 				"where ds.position.store.id=:storeId AND ds.date >= :startDate AND ds.date <= :endDate group by ds.position.id",
 				new String[] {"storeId", "startDate", "endDate"}, new Object[] {store.getId(), from.toDate(), to.toDate()});
 		

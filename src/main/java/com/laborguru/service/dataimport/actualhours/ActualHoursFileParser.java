@@ -31,7 +31,7 @@ public interface ActualHoursFileParser {
 	
 	/**
 	 * Close underlying reading and release reources.
-	 * Don't forget to call this method before you finish to preocess the upload.
+	 * Don't forget to call this method before you finish to preocess the uploadfile.
 	 */
 	void close();
 	

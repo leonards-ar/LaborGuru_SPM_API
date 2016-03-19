@@ -5,12 +5,13 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Iterator;
 
-import org.apache.log4j.Logger;
 import org.apache.poi.ss.usermodel.Row;
 
 import com.laborguru.exception.InvalidUploadFileException;
 import com.laborguru.model.Store;
 import com.laborguru.util.PoiUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Parses a store definition file
@@ -22,7 +23,7 @@ import com.laborguru.util.PoiUtils;
  */
 public class StoreDefinitionFileParserBean implements StoreDefinitionFileParser {
 
-	private static final Logger log = Logger.getLogger(StoreDefinitionFileParserBean.class);
+	private static final Logger log = LoggerFactory.getLogger(StoreDefinitionFileParserBean.class);
 
 	/**
 	 * @param storeToUpload

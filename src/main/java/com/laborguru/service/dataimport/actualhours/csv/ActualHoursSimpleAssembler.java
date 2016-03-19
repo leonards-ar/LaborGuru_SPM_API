@@ -1,8 +1,6 @@
 package com.laborguru.service.dataimport.actualhours.csv;
 
-import java.util.Date;
-
-import org.apache.log4j.Logger;
+import java.util.Date;;
 
 import com.laborguru.exception.FileParserException;
 import com.laborguru.model.ActualHours;
@@ -11,6 +9,8 @@ import com.laborguru.model.Store;
 import com.laborguru.service.dataimport.actualhours.ActualHoursAssembler;
 import com.laborguru.util.CalendarUtils;
 import com.laborguru.util.NumberUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Line[]
@@ -26,7 +26,7 @@ import com.laborguru.util.NumberUtils;
  *
  */
 public class ActualHoursSimpleAssembler implements ActualHoursAssembler {
-	private static final Logger log = Logger.getLogger(ActualHoursSimpleAssembler.class);
+	private static final Logger log = LoggerFactory.getLogger(ActualHoursSimpleAssembler.class);
 
 	private final static String DATE_PARSE_FORMAT = "M/dd/yyyy";
 

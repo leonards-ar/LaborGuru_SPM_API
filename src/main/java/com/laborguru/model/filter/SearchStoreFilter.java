@@ -18,7 +18,7 @@ public class SearchStoreFilter {
 	private Integer customerId;
 	
 	//The customer code matchs exact value. This behaviour It's required by the uploader. Do not modify without looking at
-	//the consequences in the historic sales upload process. 
+	//the consequences in the historic sales uploadfile process.
 	private String customerCode;
 	
 	private String name;

@@ -39,7 +39,7 @@ public class UploadFileServiceBean implements UploadFileService {
 	}
 
 	/**
-	 * Retrieves all the upload files instances that exist in the system 
+	 * Retrieves all the uploadfile files instances that exist in the system
 	 * @return
 	 * @see com.laborguru.service.uploadfile.UploadFileService#findAllUploadFilesByType()
 	 */

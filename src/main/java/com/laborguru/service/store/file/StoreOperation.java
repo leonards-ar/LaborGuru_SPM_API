@@ -7,7 +7,6 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-import org.apache.log4j.Logger;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
 
@@ -24,10 +23,12 @@ import com.laborguru.model.PositionGroup;
 import com.laborguru.model.Store;
 import com.laborguru.model.StoreVariableDefinition;
 import com.laborguru.util.PoiUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 
 /**
- * Represents a Store Operation Section from the store definition upload file
+ * Represents a Store Operation Section from the store definition uploadfile file
  * 
  * @author <a href="cnunezre@gmail.com">Cristian Nunez Rebolledo</a>
  * @version 1.0
@@ -36,7 +37,7 @@ import com.laborguru.util.PoiUtils;
  */
 public class StoreOperation extends BaseStoreSection {
 
-	private static final Logger log = Logger.getLogger(StoreOperation.class);
+	private static final Logger log = LoggerFactory.getLogger(StoreOperation.class);
 
 	private static final String FIRST_DAY_OF_WEEK = "First day of week";
 	private static final String OPEN = "Open";
@@ -45,7 +46,7 @@ public class StoreOperation extends BaseStoreSection {
 	private static final String CLOSING_EXTRA_HOURS = "Closing extra hours";
 	
 	//Projections Defaults
-	//TODO:Include this on the upload file
+	//TODO:Include this on the uploadfile file
 	private static final Integer DAILY_PROJECTION_WEEK_DEFAULT = 4;
 	private static final Integer HALF_HOUR_PROJECTION_WEEK_DEFAULT = 4;
 	

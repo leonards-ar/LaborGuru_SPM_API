@@ -4,6 +4,8 @@ import java.util.List;
 
 import com.laborguru.model.Customer;
 import com.laborguru.service.customer.dao.CustomerDao;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 
 /**
@@ -13,6 +15,8 @@ import com.laborguru.service.customer.dao.CustomerDao;
  * @since SPM 1.0
  *
  */
+@Service("CustomerService")
+@Transactional
 public class CustomerServiceBean implements CustomerService {
 	
 	CustomerDao customerDao;

@@ -2,8 +2,9 @@ package com.laborguru.service.position.dao;
 
 import java.util.List;
 
-import org.apache.log4j.Logger;
-import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.orm.hibernate4.support.HibernateDaoSupport;
 
 import com.laborguru.model.Employee;
 import com.laborguru.model.Position;
@@ -18,7 +19,7 @@ import com.laborguru.service.employee.dao.EmployeeDaoHibernate;
  *
  */
 public class PositionDaoHibernate extends HibernateDaoSupport implements PositionDao {
-	private static final Logger log = Logger.getLogger(PositionDaoHibernate.class);	
+	private static final Logger log = LoggerFactory.getLogger(PositionDaoHibernate.class);
 
 
 	/**

@@ -2,7 +2,6 @@ package com.laborguru.service.manager.dao;
 
 import java.util.List;
 
-import org.apache.log4j.Logger;
 
 import com.laborguru.model.Area;
 import com.laborguru.model.AreaUser;
@@ -13,9 +12,11 @@ import com.laborguru.model.Region;
 import com.laborguru.model.RegionalUser;
 import com.laborguru.model.filter.SearchManagerFilter;
 import com.laborguru.service.dao.hibernate.SpmHibernateDao;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class ManagerDaoHibernate extends SpmHibernateDao implements ManagerDao {
-	private static Logger log = Logger.getLogger(ManagerDaoHibernate.class);
+	private static Logger log = LoggerFactory.getLogger(ManagerDaoHibernate.class);
 	
 	public ManagerDaoHibernate() {
 	}

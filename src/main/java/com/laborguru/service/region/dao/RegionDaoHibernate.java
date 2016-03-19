@@ -2,7 +2,7 @@ package com.laborguru.service.region.dao;
 
 import java.util.List;
 
-import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
+import com.laborguru.service.dao.hibernate.SpmHibernateDao;
 
 import com.laborguru.exception.SpmCheckedException;
 import com.laborguru.model.Region;
@@ -15,7 +15,7 @@ import com.laborguru.model.Region;
  * @since SPM 1.0
  *
  */
-public class RegionDaoHibernate extends HibernateDaoSupport implements RegionDao {
+public class RegionDaoHibernate extends SpmHibernateDao implements RegionDao {
 
 	/**
 	 * 

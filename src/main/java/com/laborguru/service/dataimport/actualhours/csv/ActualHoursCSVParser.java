@@ -5,17 +5,18 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 
-import org.apache.log4j.Logger;
 
 import au.com.bytecode.opencsv.CSVReader;
 
 import com.laborguru.exception.FileParserException;
 import com.laborguru.exception.InvalidUploadFileException;
 import com.laborguru.service.dataimport.actualhours.ActualHoursFileParser;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public abstract class ActualHoursCSVParser implements ActualHoursFileParser {
 
-	protected static final Logger log = Logger.getLogger(ActualHoursCSVParser.class);
+	protected static final Logger log = LoggerFactory.getLogger(ActualHoursCSVParser.class);
 	
 	protected int allLinesCounter;
 	protected int validLinesCounter;
@@ -68,7 +69,7 @@ public abstract class ActualHoursCSVParser implements ActualHoursFileParser {
 
 	/**
 	 * Close underlying reading and release reources.
-	 * Don't forget to call this method before you finish to preocess the upload.
+	 * Don't forget to call this method before you finish to preocess the uploadfile.
 	 * @throws IOException 
 	 * @see com.laborguru.service.dataimport.csv.SalesFileParser#close()
 	 */

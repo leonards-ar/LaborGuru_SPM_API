@@ -11,10 +11,12 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.apache.log4j.Logger;
+
 import org.joda.time.DateMidnight;
 import org.joda.time.DateTime;
-import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.orm.hibernate4.support.HibernateDaoSupport;
 
 import com.laborguru.model.Store;
 import com.laborguru.model.StoreSchedule;
@@ -29,7 +31,7 @@ import com.laborguru.util.SpmConstants;
  *
  */
 public class ScheduleDaoHibernate extends HibernateDaoSupport implements ScheduleDao {
-	private static final Logger log = Logger.getLogger(ScheduleDaoHibernate.class);	
+	private static final Logger log = LoggerFactory.getLogger(ScheduleDaoHibernate.class);
 
 	private static final String STORE_NULL = "The store passed in as parameter is null";
 	/**
@@ -129,7 +131,7 @@ public class ScheduleDaoHibernate extends HibernateDaoSupport implements Schedul
 			log.debug("Before getting total scheduled hours for time period - Parameters: Store Id: "+ store.getId() + ", from date: " + from.toDate() + ", to date: " + to.toDate());
 		}
 	
-		List<BigDecimal> totalResult = getHibernateTemplate().findByNamedQueryAndNamedParam("totalScheduledHoursByDate",
+		List<BigDecimal> totalResult = (List<BigDecimal>)getHibernateTemplate().findByNamedQueryAndNamedParam("totalScheduledHoursByDate",
 				new String[] {"storeId", "startDate", "endDate"}, new Object[] {store.getId(), from.toDate(), to.toDate()});
 		
 		if(log.isDebugEnabled()){
@@ -160,7 +162,7 @@ public class ScheduleDaoHibernate extends HibernateDaoSupport implements Schedul
 			log.debug("Before getting total scheduled labor cost for time period - Parameters: Store Id: "+ store.getId() + ", from date: " + from.toDate() + ", to date: " + to.toDate());
 		}
 	
-		List<BigDecimal> totalResult = getHibernateTemplate().findByNamedQueryAndNamedParam("totalScheduledLaborCostByDate",
+		List<BigDecimal> totalResult = (List<BigDecimal>)getHibernateTemplate().findByNamedQueryAndNamedParam("totalScheduledLaborCostByDate",
 				new String[] {"storeId", "startDate", "endDate"}, new Object[] {store.getId(), from.toDate(), to.toDate()});
 		
 		if(log.isDebugEnabled()){
@@ -191,7 +193,7 @@ public class ScheduleDaoHibernate extends HibernateDaoSupport implements Schedul
 			log.debug("Before getting total scheduled hours by position for time period - Parameters: Store Id: "+ store.getId() + ", from date: " + from.toDate() + ", to date: " + to.toDate());
 		}
 	
-		List<Object[]> totalResult = getHibernateTemplate().findByNamedQueryAndNamedParam("totalScheduledHoursByPositionByDate",
+		List<Object[]> totalResult = (List<Object[]>)getHibernateTemplate().findByNamedQueryAndNamedParam("totalScheduledHoursByPositionByDate",
 				new String[] {"storeId", "startDate", "endDate"}, new Object[] {store.getId(), from.toDate(), to.toDate()});
 		
 		if(log.isDebugEnabled()){

@@ -9,10 +9,10 @@
 			<list>
 				<value>/applicationContext-dao.xml</value>
 				<value>/applicationContext-services.xml</value>
-				<value>/applicationContext-actions.xml</value>
+				<!--<value>/applicationContext-actions.xml</value>-->
 				<value>/applicationContext.xml</value>
 				<value>/com/laborguru/data/applicationContext-data.xml</value>
-				<value>/com/laborguru/report/applicationContext-report.xml</value>
+				<!--<value>/com/laborguru/report/applicationContext-report.xml</value>-->
 			</list>
 		</constructor-arg>
 	</bean>

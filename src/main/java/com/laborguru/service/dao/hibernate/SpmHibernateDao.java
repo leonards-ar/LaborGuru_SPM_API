@@ -1,9 +1,13 @@
 package com.laborguru.service.dao.hibernate;
 
-import org.apache.log4j.Logger;
-import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
+
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.laborguru.service.dao.SpmDaoUtils;
+import org.springframework.orm.hibernate4.HibernateTemplate;
 
 /**
  * Hibernate DAO Supperclass
@@ -12,14 +16,19 @@ import com.laborguru.service.dao.SpmDaoUtils;
  * @since SPM 1.0
  *
  */
-public class SpmHibernateDao extends HibernateDaoSupport implements SpmDaoUtils {
+public class SpmHibernateDao  implements SpmDaoUtils {
+
+	private SessionFactory sessionFactory;
+	private HibernateTemplate hibernateTemplate;
+
+	private final Logger log = LoggerFactory.getLogger((SpmHibernateDao.class));
 
 	/**
-	 * 
+	 *
 	 */
 	public SpmHibernateDao() {
 	}
-	
+
 	/**
 	 * This method checks if an Object value must be included
 	 * in a filter.
@@ -29,7 +38,7 @@ public class SpmHibernateDao extends HibernateDaoSupport implements SpmDaoUtils 
 	protected boolean includeInFilter(Object value) {
 		return value != null;
 	}
-	
+
 	/**
 	 * This method checks if a String value must be included
 	 * in a filter.
@@ -48,25 +57,25 @@ public class SpmHibernateDao extends HibernateDaoSupport implements SpmDaoUtils 
 	 */
 	protected boolean includeInFilter(Integer value) {
 		return includeInFilter((Object)value) && value.intValue() >= 0;
-	}	
-	
+	}
+
 	/**
 	 *  This methods clear the session. Empty the complete first level of hibernate cache.
 	 */
 	public void clearSession(){
-		getHibernateTemplate().clear();
+		getSessionFactory().getCurrentSession().clear();
 	}
 
 	/**
 	 *  This methods flush the session to the database.
 	 */
 	public void flushSession(){
-		getHibernateTemplate().flush();
+		getSessionFactory().getCurrentSession().flush();
 	}
-	
+
 	/**
 	 * Validate wheter ther argument passed as parameter is null and throws an IllegalArgumentException exception
-	 * 
+	 *
 	 * @param the argument
 	 * @param The name of the argumente
 	 * @param The logger
@@ -75,8 +84,29 @@ public class SpmHibernateDao extends HibernateDaoSupport implements SpmDaoUtils 
 		if (arg == null){
 			String msg = "The"+ nameArg + " passed in as parameter is null";
 			log.error(msg);
-			throw new IllegalArgumentException(msg);			
+			throw new IllegalArgumentException(msg);
 		}
 	}
-	
+
+	/**
+	 * This is a wrapper to adapt hibernate4 with the old configuration.
+	 * @return
+	 */
+
+	public HibernateTemplate getHibernateTemplate() {
+		return hibernateTemplate;
+	}
+
+	public Session getSession(){
+		return getSessionFactory().getCurrentSession();
+	}
+
+	public SessionFactory getSessionFactory() {
+		return sessionFactory;
+	}
+
+	public void setSessionFactory(SessionFactory sessionFactory) {
+		this.sessionFactory = sessionFactory;
+		this.hibernateTemplate = new HibernateTemplate(sessionFactory);
+	}
 }

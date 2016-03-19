@@ -9,7 +9,6 @@ import java.util.NoSuchElementException;
 import java.util.Properties;
 import java.util.ResourceBundle;
 
-import org.apache.log4j.Logger;
 import org.dom4j.Document;
 import org.dom4j.DocumentHelper;
 import org.dom4j.Element;
@@ -18,10 +17,12 @@ import com.laborguru.exception.ErrorEnum;
 import com.laborguru.exception.SpmUncheckedException;
 import com.laborguru.model.report.TotalHistoricalHour;
 import com.laborguru.model.report.TotalHour;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class FusionXmlDataConverter {
 
-	private static Logger log = Logger.getLogger(FusionXmlDataConverter.class);
+	private static Logger log = LoggerFactory.getLogger(FusionXmlDataConverter.class);
 
 	private HashMap<String, String> reportConfigurations;
 
