@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import org.apache.log4j.Logger;
 import org.joda.time.DateTime;
 
 import com.laborguru.frontend.model.HalfHourElement;
@@ -18,6 +17,8 @@ import com.laborguru.service.projection.dao.ProjectionDao;
 import com.laborguru.service.staffing.StaffingService;
 import com.laborguru.util.CalendarUtils;
 import com.laborguru.util.SpmConstants;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  *
@@ -28,7 +29,7 @@ import com.laborguru.util.SpmConstants;
  */
 public class ProjectionServiceBean implements ProjectionService {
 
-	private static final Logger log = Logger.getLogger(ProjectionServiceBean.class);
+	private static final Logger log = LoggerFactory.getLogger(ProjectionServiceBean.class);
 	
 	private ProjectionDao projectionDao;
 	private StaffingService staffingService;

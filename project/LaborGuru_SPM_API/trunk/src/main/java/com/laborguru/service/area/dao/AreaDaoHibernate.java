@@ -2,7 +2,7 @@ package com.laborguru.service.area.dao;
 
 import java.util.List;
 
-import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
+import com.laborguru.service.dao.hibernate.SpmHibernateDao;
 
 import com.laborguru.model.Area;
 
@@ -13,7 +13,7 @@ import com.laborguru.model.Area;
  * @since SPM 1.0
  *
  */
-public class AreaDaoHibernate extends HibernateDaoSupport implements AreaDao {
+public class AreaDaoHibernate extends SpmHibernateDao implements AreaDao {
 
 	/**
 	 * 

@@ -9,6 +9,7 @@ import java.util.Properties;
 
 import org.hibernate.HibernateException;
 import org.hibernate.MappingException;
+import org.hibernate.engine.spi.SessionImplementor;
 import org.hibernate.usertype.ParameterizedType;
 import org.hibernate.usertype.UserType;
 
@@ -83,6 +84,16 @@ public class EnumUserType implements UserType, ParameterizedType {
 
 	public int hashCode(Object x) throws HibernateException {
 		return x.hashCode();
+	}
+
+	@Override
+	public Object nullSafeGet(ResultSet resultSet, String[] strings, SessionImplementor sessionImplementor, Object o) throws HibernateException, SQLException {
+		return null;
+	}
+
+	@Override
+	public void nullSafeSet(PreparedStatement preparedStatement, Object o, int i, SessionImplementor sessionImplementor) throws HibernateException, SQLException {
+
 	}
 
 	public boolean equals(Object x, Object y) throws HibernateException {

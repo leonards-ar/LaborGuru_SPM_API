@@ -2,8 +2,6 @@ package com.laborguru.service.dataimport.actualhours.csv;
 
 import java.io.File;
 
-import org.apache.log4j.Logger;
-
 import com.laborguru.exception.InvalidUploadFileException;
 import com.laborguru.model.ActualHours;
 import com.laborguru.service.actualhours.ActualHoursService;
@@ -11,8 +9,10 @@ import com.laborguru.service.dataimport.FileProcessed;
 import com.laborguru.service.dataimport.UploadFileInfo;
 import com.laborguru.service.dataimport.actualhours.ActualHoursFileParser;
 import com.laborguru.service.dataimport.actualhours.ActualHoursFileProcessor;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
- 
+
 /**
  * This class import sales data from a CSV file.
  * Process the file, build the HistoricSales objects and persit them in the database.
@@ -24,7 +24,7 @@ import com.laborguru.service.dataimport.actualhours.ActualHoursFileProcessor;
  */
 public class ActualHoursFileProcessorBean implements ActualHoursFileProcessor {
 
-	private static final Logger log = Logger.getLogger(ActualHoursFileProcessorBean.class);
+	private static final Logger log = LoggerFactory.getLogger(ActualHoursFileProcessorBean.class);
 
 	private ActualHoursFileParser fileParser;
 	private ActualHoursService actualHoursService;
@@ -33,7 +33,7 @@ public class ActualHoursFileProcessorBean implements ActualHoursFileProcessor {
 	 * This method process the file passed as parameter, creates and persist the entities contained by the file.
 	 * @param file
 	 * @param uploadFileInfo 
-	 * @return The persisted upload file information
+	 * @return The persisted uploadfile file information
 	 */
 	public FileProcessed processAndSaveFile(File file, UploadFileInfo uploadFileInfo) {
 
@@ -47,7 +47,7 @@ public class ActualHoursFileProcessorBean implements ActualHoursFileProcessor {
 			}
 
 			if (uploadFileInfo.getFilename() == null){
-				throw new IllegalArgumentException("file name in upload file info is null");
+				throw new IllegalArgumentException("file name in uploadfile file info is null");
 			}
 
 			fileParser.assembleFileParser(file, 1);

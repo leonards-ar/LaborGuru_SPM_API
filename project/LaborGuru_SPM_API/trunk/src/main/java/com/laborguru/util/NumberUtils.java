@@ -4,7 +4,9 @@ import java.math.BigDecimal;
 import java.text.DecimalFormat;
 import java.text.ParseException;
 
-import org.apache.log4j.Logger;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Utility class to handle number related methods
@@ -15,7 +17,7 @@ import org.apache.log4j.Logger;
  */
 public class NumberUtils {
 
-	private final static Logger log = Logger.getLogger(NumberUtils.class);
+	private final static Logger log = LoggerFactory.getLogger(NumberUtils.class);
 
 	public static final String DECIMAL_FORMAT = "#,##0.###";
 	

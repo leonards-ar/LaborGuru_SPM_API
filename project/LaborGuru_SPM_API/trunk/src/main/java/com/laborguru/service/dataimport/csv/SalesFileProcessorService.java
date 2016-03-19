@@ -17,11 +17,11 @@ public interface SalesFileProcessorService {
 	
 	/**
 	 * This method process the file passed as parameter, creates and persist an UploadFile object and the sales records contained in the file.
-	 * @param file: the file to upload and save
+	 * @param file: the file to uploadfile and save
 	 * @param uploadFile: Optional helper objec used to pass information to the service. The values defined in the object are going to be used when 
 	 * creating the UploadFile instance. If null method defaults are used. 	 
 	 * 
-	 * @return The upload file entity created.
+	 * @return The uploadfile file entity created.
 	 */
 	UploadFileProcessed processAndSaveFile(File file, UploadFile uploadFile);
 	

@@ -3,13 +3,15 @@ package com.laborguru.service.store;
 import java.util.Date;
 import java.util.List;
 
-import org.apache.log4j.Logger;
-
 import com.laborguru.exception.SpmCheckedException;
 import com.laborguru.model.Store;
 import com.laborguru.model.filter.SearchStoreFilter;
 import com.laborguru.service.store.dao.StoreDao;
 import com.laborguru.service.store.dao.StoreDao.OrderFindN;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  * Implementation for Store Service
@@ -25,9 +27,11 @@ import com.laborguru.service.store.dao.StoreDao.OrderFindN;
  * @since SPM 1.0
  *
  */
+@Service("StoreService")
+@Transactional
 public class StoreServiceBean implements StoreService {
 
-	private static final Logger log = Logger.getLogger(StoreServiceBean.class);
+	private static final Logger log = LoggerFactory.getLogger(StoreServiceBean.class);
 	
 	private static final String STORE_ID_NULL = "the store id passed in as parameter is null";
 	private static final String STORE_NULL = "the store passed in as parameter is null";

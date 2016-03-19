@@ -2,16 +2,16 @@ package com.laborguru.service.user.dao;
 
 import java.util.List;
 
-import org.apache.log4j.Logger;
+import com.laborguru.service.dao.hibernate.SpmHibernateDao;
+
 
 import com.laborguru.model.Profile;
 import com.laborguru.model.User;
 import com.laborguru.model.filter.SearchUserFilter;
-import com.laborguru.service.dao.hibernate.SpmHibernateDao;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 
-
- 
 /**
  * Implementation for UserDao
  * @author <a href="cnunezre@gmail.com">Cristian Nunez Rebolledo</a>
@@ -21,7 +21,7 @@ import com.laborguru.service.dao.hibernate.SpmHibernateDao;
  */
 public class UserDaoHibernate extends SpmHibernateDao implements UserDao {
 	
-	private static Logger log = Logger.getLogger(UserDaoHibernate.class);
+	private static Logger log = LoggerFactory.getLogger(UserDaoHibernate.class);
 	
 	
 	/* (non-Javadoc)

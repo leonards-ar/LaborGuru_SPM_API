@@ -4,7 +4,6 @@ import java.util.Date;
 import java.util.List;
 import java.util.Random;
 
-import org.apache.log4j.Logger;
 
 import com.laborguru.exception.ErrorEnum;
 import com.laborguru.exception.SpmCheckedException;
@@ -13,14 +12,20 @@ import com.laborguru.model.User;
 import com.laborguru.model.UserStatus;
 import com.laborguru.model.filter.SearchUserFilter;
 import com.laborguru.service.user.dao.UserDao;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  * Spring Implementation for UserService
  * @author cnunez
  *
  */
+@Service("userService")
+@Transactional
 public class UserServiceBean implements UserService {
-	private static final Logger log = Logger.getLogger(UserServiceBean.class);
+	private static final Logger log = LoggerFactory.getLogger(UserServiceBean.class);
 	
 	public static final String USER_NULL = "The user passed as parameter cannot be can not be null";
 	public static final String USER_NAME_NULL = "The user passed as parameter cannot have null username";

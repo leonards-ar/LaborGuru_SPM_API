@@ -2,7 +2,6 @@ package com.laborguru.service.store.file;
 
 import java.util.EnumSet;
 
-import org.apache.log4j.Logger;
 import org.apache.poi.ss.usermodel.Row;
 
 import com.laborguru.exception.ErrorEnum;
@@ -12,10 +11,12 @@ import com.laborguru.model.Customer;
 import com.laborguru.model.Region;
 import com.laborguru.model.Store;
 import com.laborguru.util.PoiUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 
 /**
- * Represents a Store Information Section from the store definition upload file
+ * Represents a Store Information Section from the store definition uploadfile file
  *
  * @author <a href="cnunezre@gmail.com">Cristian Nunez Rebolledo</a>
  * @version 1.0
@@ -23,7 +24,7 @@ import com.laborguru.util.PoiUtils;
  *
  */
 public class StoreInformation extends BaseStoreSection{
-	private static final Logger log = Logger.getLogger(StoreInformation.class);
+	private static final Logger log = LoggerFactory.getLogger(StoreInformation.class);
 
 	public enum StoreInformationField{
 		

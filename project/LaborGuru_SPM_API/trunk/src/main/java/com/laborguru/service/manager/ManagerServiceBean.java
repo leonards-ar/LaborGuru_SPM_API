@@ -3,7 +3,6 @@ package com.laborguru.service.manager;
 import java.util.Date;
 import java.util.List;
 
-import org.apache.log4j.Logger;
 
 import com.laborguru.exception.ErrorEnum;
 import com.laborguru.exception.SpmCheckedException;
@@ -15,6 +14,8 @@ import com.laborguru.model.User;
 import com.laborguru.model.filter.SearchManagerFilter;
 import com.laborguru.service.manager.dao.ManagerDao;
 import com.laborguru.service.user.dao.UserDao;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * 
@@ -24,7 +25,7 @@ import com.laborguru.service.user.dao.UserDao;
  * 
  */
 public class ManagerServiceBean implements ManagerService {
-	private static final Logger log = Logger
+	private static final Logger log = LoggerFactory
 			.getLogger(ManagerServiceBean.class);
 
 	private ManagerDao managerDao;

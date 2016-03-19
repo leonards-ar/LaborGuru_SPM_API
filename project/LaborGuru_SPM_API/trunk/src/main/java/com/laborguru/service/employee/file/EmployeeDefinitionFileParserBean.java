@@ -10,8 +10,8 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-import org.apache.commons.lang.StringUtils;
-import org.apache.log4j.Logger;
+import org.apache.commons.lang3.StringUtils;
+
 import org.apache.poi.ss.usermodel.Row;
 
 import com.laborguru.exception.InvalidUploadFileException;
@@ -22,13 +22,16 @@ import com.laborguru.model.Position;
 import com.laborguru.model.Region;
 import com.laborguru.model.Store;
 import com.laborguru.util.PoiUtils;
+import org.slf4j.LoggerFactory;
+import org.slf4j.Logger;
+
 
 /**
  * @author mariano
  *
  */
 public class EmployeeDefinitionFileParserBean implements EmployeeDefinitionFileParser {
-	private static final Logger log = Logger.getLogger(EmployeeDefinitionFileParserBean.class);
+	private static final Logger log = LoggerFactory.getLogger(EmployeeDefinitionFileParserBean.class);
 
 	/**
 	 * 

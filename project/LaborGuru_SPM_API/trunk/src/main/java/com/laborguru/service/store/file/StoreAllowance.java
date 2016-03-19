@@ -1,24 +1,20 @@
 package com.laborguru.service.store.file;
 
+import com.laborguru.exception.ErrorEnum;
+import com.laborguru.exception.InvalidFieldUploadFileException;
+import com.laborguru.model.*;
+import com.laborguru.util.PoiUtils;
+import org.apache.poi.ss.usermodel.Row;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.util.EnumSet;
 import java.util.HashSet;
 import java.util.Set;
 
-import org.apache.log4j.Logger;
-import org.apache.poi.ss.usermodel.Row;
-
-import com.laborguru.exception.ErrorEnum;
-import com.laborguru.exception.InvalidFieldUploadFileException;
-import com.laborguru.model.DayOfWeekData;
-import com.laborguru.model.DayPart;
-import com.laborguru.model.DayPartData;
-import com.laborguru.model.Position;
-import com.laborguru.model.Store;
-import com.laborguru.util.PoiUtils;
-
 
 /**
- * Represents the Store Allowances Section from the store definition upload file
+ * Represents the Store Allowances Section from the store definition uploadfile file
  * 
  * @author <a href="cnunezre@gmail.com">Cristian Nunez Rebolledo</a>
  * @version 1.0
@@ -27,7 +23,7 @@ import com.laborguru.util.PoiUtils;
  */
 public class StoreAllowance extends BaseStoreSection{
 
-	private static final Logger log = Logger.getLogger(StoreAllowance.class);
+	private static final Logger log = LoggerFactory.getLogger(StoreAllowance.class);
 	
 	public enum StoreAllowanceField{
 		

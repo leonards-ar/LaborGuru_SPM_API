@@ -7,7 +7,7 @@ import com.laborguru.service.customer.CustomerService;
 import com.laborguru.service.store.StoreService;
 
 /**
- * Defines the business interface for upload store definitions to the system
+ * Defines the business interface for uploadfile store definitions to the system
  * 
  * @author <a href="cnunezre@gmail.com">Cristian Nunez Rebolledo</a>
  * @version 1.0

@@ -3,7 +3,7 @@
 
 <beans>
 
-	<bean id='referenceData' class="java.util.HashMap" singleton="true">
+	<bean id='referenceData' class="java.util.HashMap" scope="singleton">
 		<description>Reference data for SPM</description>
 		<constructor-arg>
 			<map>
@@ -36,13 +36,13 @@
 				</entry>
 				<entry key="adminRole">
 					<ref bean="adminRole"/>
-				</entry>				
+				</entry>
 				<entry key="customerRole">
 					<ref bean="customerManagerRole"/>
-				</entry>				
+				</entry>
 				<entry key="regionalRole">
 					<ref bean="regionalManagerRole"/>
-				</entry>				
+				</entry>
 				<entry key="areaRole">
 					<ref bean="areaManagerRole"/>
 				</entry>
@@ -52,12 +52,12 @@
 				<entry key="reportGrouping">
 					<ref bean="reportGrouping"/>
 				</entry>
-				<entry key="historicalDataType" value-ref="historicReportDataType"/>				
+				<!--<entry key="historicalDataType" value-ref="historicReportDataType"/>				-->
 			</map>
 		</constructor-arg>
-	</bean> 
+	</bean>
 	
-	<bean id="states-us" class="java.util.ArrayList" singleton="true">
+	<bean id="states-us" class="java.util.ArrayList" scope="singleton">
 		<description>United States - 51 States Map for Combos</description>
 		<constructor-arg>
 			<list>
@@ -116,7 +116,7 @@
 		</constructor-arg>
 	</bean>
 
-	<bean id="status" class="java.util.HashMap" singleton="true">
+	<bean id="status" class="java.util.HashMap" scope="singleton">
 		<description>Different user states</description>
 		<constructor-arg>
 			<map>
@@ -130,7 +130,7 @@
 		</constructor-arg>
 	</bean>
 	
-	<bean id="usedWeeks" class="java.util.HashMap" singleton="true">
+	<bean id="usedWeeks" class="java.util.HashMap" scope="singleton">
 		<description>Different values for the number of weeks used on the sales projections</description>
 		<constructor-arg>
 			<map>
@@ -163,7 +163,7 @@
 	<bean id="employeeRole" class="com.laborguru.model.Profile">
 	  <description>Default employee Role of a store</description>
 	  <property name="id" value="3"/>
-	</bean>	
+	</bean>
 	
 	<bean id="customerManagerRole" class="com.laborguru.model.Profile">
 	  <description>Role for users that manages a Client</description>
@@ -180,7 +180,7 @@
 	  <property name="id" value="6"/>
 	</bean>
 	
-	<bean id="scheduleViews" class="java.util.HashMap" singleton="true">
+	<bean id="scheduleViews" class="java.util.HashMap" scope="singleton">
 		<description>Different schedule Views</description>
 		<constructor-arg>
 			<map>
@@ -194,7 +194,7 @@
 		</constructor-arg>
 	</bean>
 
-	<bean id="weeklyScheduleViews" class="java.util.HashMap" singleton="true">
+	<bean id="weeklyScheduleViews" class="java.util.HashMap" scope="singleton">
 		<description>Different Weekly schedule Views</description>
 		<constructor-arg>
 			<map>
@@ -208,7 +208,7 @@
 		</constructor-arg>
 	</bean>
 
-	<bean id="printDailyScheduleViews" class="java.util.LinkedHashMap" singleton="true">
+	<bean id="printDailyScheduleViews" class="java.util.LinkedHashMap" scope="singleton">
 		<description>Different Print Schedule Views</description>
 		<constructor-arg>
 			<map>
@@ -222,7 +222,7 @@
 		</constructor-arg>
 	</bean>
 	
-	<bean id="printScheduleViews" class="java.util.LinkedHashMap" singleton="true">
+	<bean id="printScheduleViews" class="java.util.LinkedHashMap" scope="singleton">
 		<description>Different Print Schedule Views</description>
 		<constructor-arg>
 			<map>
@@ -236,7 +236,7 @@
 		</constructor-arg>
 	</bean>
 
-	<bean id="reportTypes" class="java.util.HashMap" singleton="true">
+	<bean id="reportTypes" class="java.util.HashMap" scope="singleton">
 		<description>Different Report Types</description>
 		<constructor-arg>
 			<map>
@@ -253,7 +253,7 @@
 		</constructor-arg>
 	</bean>
 	
-	<bean id="reportGrouping" class="java.util.HashMap" singleton="true">
+	<bean id="reportGrouping" class="java.util.HashMap" scope="singleton">
 		<description>Different way of grouping data</description>
 		<constructor-arg>
 			<map>
@@ -270,7 +270,7 @@
 		</constructor-arg>
 	</bean>
 	
-	<bean id="historicReportDataType" class="java.util.HashMap" singleton="true">
+	<bean id="historicReportDataType" class="java.util.HashMap" scope="singleton">
 	  <description>Two kind of Data to be shown in the Historical Report</description>
 	  <constructor-arg>
 	  	<map>
@@ -278,6 +278,6 @@
 	  		<entry key="percentage" value="report.historicalComparions.dataType.percentage"/>
 	  	</map>
 	  </constructor-arg>
-	</bean>	
+	</bean>
 	
 </beans>

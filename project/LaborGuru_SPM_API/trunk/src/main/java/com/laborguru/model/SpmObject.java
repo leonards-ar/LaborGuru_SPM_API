@@ -2,7 +2,7 @@ package com.laborguru.model;
 
 import java.io.Serializable;
 
-import org.apache.commons.lang.builder.ToStringStyle;
+import org.apache.commons.lang3.builder.ToStringStyle;
 
 
 /**

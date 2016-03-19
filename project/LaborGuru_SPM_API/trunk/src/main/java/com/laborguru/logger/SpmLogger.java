@@ -2,8 +2,6 @@ package com.laborguru.logger;
 
 public interface SpmLogger {
 
-	public void reconfigure();
-
 	public void debugLog(String msgKey, Object[] params);
 
 	public void auditLog(String msgKey, Object[] params);

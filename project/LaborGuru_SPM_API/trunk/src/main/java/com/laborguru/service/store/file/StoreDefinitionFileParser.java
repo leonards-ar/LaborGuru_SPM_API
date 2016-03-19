@@ -18,7 +18,7 @@ public interface StoreDefinitionFileParser {
 	 * Makes an store from the file passed as parameter
 	 * 
 	 * @param storeToUpload
-	 * @return The store to upload
+	 * @return The store to uploadfile
 	 */
 	Store parseStore(File storeToUpload);
 }

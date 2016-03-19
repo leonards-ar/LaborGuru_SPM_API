@@ -13,9 +13,10 @@ import java.util.GregorianCalendar;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import org.apache.log4j.Logger;
 
 import com.laborguru.model.DayOfWeek;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  *
@@ -26,7 +27,7 @@ import com.laborguru.model.DayOfWeek;
  */
 public class CalendarUtils {
 
-	private final static Logger log = Logger.getLogger(CalendarUtils.class);
+	private final static Logger log = LoggerFactory.getLogger(CalendarUtils.class);
 
 	private final static Pattern INPUT_TIME_REGEXP[] = {Pattern.compile("^\\s*(\\d{1})(\\d\\d){1}\\s*([aApP][mM]*)*\\s*$"), Pattern.compile("^\\s*(\\d\\d){1}(\\d\\d){1}\\s*([aApP][mM]*)*\\s*$"), Pattern.compile("^\\s*(\\d*)[:.]*(\\d\\d)*\\s*([aApP][mM]*)*\\s*$")};
 

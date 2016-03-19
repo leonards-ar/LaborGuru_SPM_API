@@ -3,7 +3,6 @@ package com.laborguru.service.employee;
 import java.util.Date;
 import java.util.List;
 
-import org.apache.log4j.Logger;
 
 import com.laborguru.exception.ErrorEnum;
 import com.laborguru.exception.SpmCheckedException;
@@ -16,10 +15,16 @@ import com.laborguru.model.filter.SearchEmployeeFilter;
 import com.laborguru.service.employee.dao.EmployeeDao;
 import com.laborguru.service.store.dao.StoreDao;
 import com.laborguru.service.user.dao.UserDao;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
+@Service("EmployeeService")
+@Transactional
 public class EmployeeServiceBean implements EmployeeService {
 
-	private static final Logger log = Logger.getLogger(EmployeeServiceBean.class);
+	private static final Logger log = LoggerFactory.getLogger(EmployeeServiceBean.class);
 	
 	private EmployeeDao employeeDao;
 	private StoreDao storeDao;

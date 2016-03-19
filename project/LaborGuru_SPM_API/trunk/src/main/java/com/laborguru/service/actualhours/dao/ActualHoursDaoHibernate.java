@@ -3,17 +3,18 @@ package com.laborguru.service.actualhours.dao;
 import java.util.Date;
 import java.util.List;
 
-import org.apache.log4j.Logger;
 import org.joda.time.DateMidnight;
 import org.joda.time.DateTime;
 
 import com.laborguru.model.ActualHours;
 import com.laborguru.model.Store;
 import com.laborguru.service.dao.hibernate.SpmHibernateDao;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class ActualHoursDaoHibernate extends SpmHibernateDao implements ActualHoursDao {
 
-	private static final Logger log = Logger.getLogger(ActualHoursDaoHibernate.class);
+	private static final Logger log = LoggerFactory.getLogger(ActualHoursDaoHibernate.class);
 	private static final String ACTUAL_HOURS_NULL = "The actual hours object passed in as parameter is null";
 	private static final String ACTUAL_HOURS_SEARCH_PARAMETERS_NULL = "The search parameters (date, store id) passed in as parameter are null";
 
@@ -60,7 +61,7 @@ public class ActualHoursDaoHibernate extends SpmHibernateDao implements ActualHo
 		DateTime dateTime = new DateTime(date);
 		
 		List<ActualHours> actualHours = (List<ActualHours>)getHibernateTemplate().findByNamedParam(
-				"from ActualHours actualHours where actualHours.store.id = :storeId and DATE(actualHours.date) = STR_TO_DATE(:date,'%Y-%m-%d')", 
+				"from ActualHours actualHours where actualHours.store.id = :storeId and DATE(actualHours.date) = STR_TO_DATE(:date,'%Y-%m-%d')",
 				new String []{"storeId", "date"}, new Object[]{storeId, dateTime.toString("yyyy-MM-dd")});
 		
 		if (actualHours.isEmpty()){
@@ -86,7 +87,7 @@ public class ActualHoursDaoHibernate extends SpmHibernateDao implements ActualHo
 			log.debug("Before getting total actual hours for time period - Parameters: Store Id: "+ store.getId() + ", from date: " + from.toDate() + ", to date: " + to.toDate());
 		}
 	
-		List<Double> totalResult = getHibernateTemplate().findByNamedParam("select sum(ah.hours) from ActualHours ah " +
+		List<Double> totalResult = (List<Double>)getHibernateTemplate().findByNamedParam("select sum(ah.hours) from ActualHours ah " +
 				"where ah.store.id=:storeId AND ah.date >= :startDate AND ah.date <= :endDate",
 				new String[] {"storeId", "startDate", "endDate"}, new Object[] {store.getId(), from.toDate(), to.toDate()});
 		

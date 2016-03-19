@@ -13,10 +13,12 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import org.apache.log4j.Logger;
+
 import org.joda.time.DateMidnight;
 import org.joda.time.DateTime;
-import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.orm.hibernate4.support.HibernateDaoSupport;
 
 import com.laborguru.model.DailyProjection;
 import com.laborguru.model.HalfHourProjection;
@@ -32,7 +34,7 @@ import com.laborguru.util.SpmConstants;
  */
 public class ProjectionDaoHibernate extends HibernateDaoSupport implements ProjectionDao {
 
-	private static final Logger log = Logger.getLogger(ProjectionDaoHibernate.class);
+	private static final Logger log = LoggerFactory.getLogger(ProjectionDaoHibernate.class);
 
 	private static final int DECIMAL_SCALE = 16;
 	private static final RoundingMode ROUNDING_MODE = RoundingMode.HALF_EVEN;
@@ -122,7 +124,7 @@ public class ProjectionDaoHibernate extends HibernateDaoSupport implements Proje
 		}
 		
 		//We are retrieving daily totals for all the days that are in the date range
-		List<Object[]> avgSalesList = getHibernateTemplate().findByNamedParam("select sum(hs.mainValue), hs.dayOfWeek from HistoricSales hs " +
+		List<Object[]> avgSalesList = (List<Object[]>)getHibernateTemplate().findByNamedParam("select sum(hs.mainValue), hs.dayOfWeek from HistoricSales hs " +
 				"where hs.store.id=:storeId AND hs.dateTime >= :startDate AND hs.dateTime <= :endDate AND hs.mainValue > 0 group by date(hs.dateTime) order by hs.dayOfWeek",
 				new String[] {"storeId", "startDate", "endDate"}, new Object[] {store.getId(), startTime.toDate(), endTime.toDate()} );
 
@@ -184,7 +186,7 @@ public class ProjectionDaoHibernate extends HibernateDaoSupport implements Proje
 			log.debug("Before getting daily projections - Parameters: Store Id:"+ store.getId()+" selectedDate:"+dt.toString());
 		}
 
-		List<DailyProjection> projections =  getHibernateTemplate().findByNamedParam("from DailyProjection dp where dp.store.id=:storeId and dp.projectionDate=:projectionDate" , 
+		List<DailyProjection> projections =  (List<DailyProjection>)getHibernateTemplate().findByNamedParam("from DailyProjection dp where dp.store.id=:storeId and dp.projectionDate=:projectionDate" ,
 				new String[]{"storeId", "projectionDate"}, 
 				new Object[]{store.getId(), dt.toDate()});
 		

@@ -3,11 +3,13 @@ package com.laborguru.service.store.dao;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.apache.log4j.Logger;
+import com.laborguru.service.dao.hibernate.SpmHibernateDao;
+
 
 import com.laborguru.model.Store;
 import com.laborguru.model.filter.SearchStoreFilter;
-import com.laborguru.service.dao.hibernate.SpmHibernateDao;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Hibernate implementation for Store Dao 
@@ -18,7 +20,7 @@ import com.laborguru.service.dao.hibernate.SpmHibernateDao;
  */
 public class StoreDaoHibernate extends SpmHibernateDao implements StoreDao {
 
-	private static final Logger log = Logger.getLogger(StoreDaoHibernate.class);	
+	private static final Logger log = LoggerFactory.getLogger(StoreDaoHibernate.class);
 	
 	private static final String STORE_ID_NULL = "the store id passed in as parameter is null";
 	private static final String STORE_NULL = "the store passed in as parameter is null";
@@ -55,8 +57,8 @@ public class StoreDaoHibernate extends SpmHibernateDao implements StoreDao {
 		String hql = getHql(storeFilter);
 		
 		log.debug("In applyFilter with sql:"+ hql);
-		
-		return (List<Store>)getHibernateTemplate().find(hql);	
+
+		return (List<Store>)getHibernateTemplate().find(hql);
 	}
 
 	private String getHql(SearchStoreFilter storeFilter) {
@@ -70,7 +72,7 @@ public class StoreDaoHibernate extends SpmHibernateDao implements StoreDao {
 		}
 
 		//The code comparison matchs exact value. This behaviour It's required by the uploader. Do not modify without looking at
-		//the consequences in the historic sales upload process. 
+		//the consequences in the historic sales uploadfile process.
 		if (includeInFilter(storeFilter.getCustomerCode())) {
 			hqlParams.add("store.area.region.customer.code like '" + storeFilter.getCustomerCode()+"'");
 		}		

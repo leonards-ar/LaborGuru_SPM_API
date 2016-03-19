@@ -2,16 +2,17 @@ package com.laborguru.service.employee.dao;
 
 import java.util.List;
 
-import org.apache.log4j.Logger;
 
 import com.laborguru.model.Employee;
 import com.laborguru.model.Store;
 import com.laborguru.model.filter.SearchEmployeeFilter;
 import com.laborguru.service.dao.hibernate.SpmHibernateDao;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class EmployeeDaoHibernate extends SpmHibernateDao implements EmployeeDao {
 
-	private static final Logger log = Logger.getLogger(EmployeeDaoHibernate.class);	
+	private static final Logger log = LoggerFactory.getLogger(EmployeeDaoHibernate.class);
 
 	/**
 	 * 

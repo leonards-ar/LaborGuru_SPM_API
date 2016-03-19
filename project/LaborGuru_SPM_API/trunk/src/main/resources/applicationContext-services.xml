@@ -163,63 +163,63 @@
 		<property name="profileDao" ref="profileDao" />
 	</bean>
 
-	<bean id="reportServiceTarget" class="com.laborguru.service.report.ReportServiceBean">
-		<property name="reportDao" ref="reportDao" />
-		<property name="staffingService" ref="staffingService" />
-		<property name="projectionService" ref="projectionService" />
-		<property name="scheduleService" ref="scheduleService" />
-		<property name="dailyFlashService" ref="dailyFlashService" />
-		<property name="storeDao" ref="storeDao" />
-	</bean>
+	<!--<bean id="reportServiceTarget" class="com.laborguru.service.report.ReportServiceBean">-->
+		<!--<property name="reportDao" ref="reportDao" />-->
+		<!--<property name="staffingService" ref="staffingService" />-->
+		<!--<property name="projectionService" ref="projectionService" />-->
+		<!--<property name="scheduleService" ref="scheduleService" />-->
+		<!--<property name="dailyFlashService" ref="dailyFlashService" />-->
+		<!--<property name="storeDao" ref="storeDao" />-->
+	<!--</bean>-->
 
-	<bean id="reportService" parent="baseTransactionProxy">
-		<property name="proxyInterfaces" value="com.laborguru.service.report.ReportService" />
-		<property name="target" ref="reportServiceTarget" />
-	</bean>
+	<!--<bean id="reportService" parent="baseTransactionProxy">-->
+		<!--<property name="proxyInterfaces" value="com.laborguru.service.report.ReportService" />-->
+		<!--<property name="target" ref="reportServiceTarget" />-->
+	<!--</bean>-->
 
-	<bean id="reportCustomerServiceTarget" class="com.laborguru.service.report.ReportCustomerServiceBean">
-		<property name="reportDao" ref="reportDao" />
-		<property name="staffingService" ref="staffingService" />
-		<property name="customerService" ref="customerService" />
-		<property name="regionService" ref="regionService" />
-		<property name="projectionService" ref="projectionService" />
-		<property name="scheduleService" ref="scheduleService" />
-	</bean>
+	<!--<bean id="reportCustomerServiceTarget" class="com.laborguru.service.report.ReportCustomerServiceBean">-->
+		<!--<property name="reportDao" ref="reportDao" />-->
+		<!--<property name="staffingService" ref="staffingService" />-->
+		<!--<property name="customerService" ref="customerService" />-->
+		<!--<property name="regionService" ref="regionService" />-->
+		<!--<property name="projectionService" ref="projectionService" />-->
+		<!--<property name="scheduleService" ref="scheduleService" />-->
+	<!--</bean>-->
 
-	<bean id="reportCustomerService" parent="baseTransactionProxy">
-		<property name="proxyInterfaces"
-			value="com.laborguru.service.report.ReportCustomerService" />
-		<property name="target" ref="reportCustomerServiceTarget" />
-	</bean>
+	<!--<bean id="reportCustomerService" parent="baseTransactionProxy">-->
+		<!--<property name="proxyInterfaces"-->
+			<!--value="com.laborguru.service.report.ReportCustomerService" />-->
+		<!--<property name="target" ref="reportCustomerServiceTarget" />-->
+	<!--</bean>-->
 
-	<bean id="reportRegionServiceTarget" class="com.laborguru.service.report.ReportRegionServiceBean">
-		<property name="reportDao" ref="reportDao" />
-		<property name="staffingService" ref="staffingService" />
-		<property name="regionService" ref="regionService" />
-		<property name="areaService" ref="areaService" />
-		<property name="projectionService" ref="projectionService" />
-		<property name="scheduleService" ref="scheduleService" />
-	</bean>
+	<!--<bean id="reportRegionServiceTarget" class="com.laborguru.service.report.ReportRegionServiceBean">-->
+		<!--<property name="reportDao" ref="reportDao" />-->
+		<!--<property name="staffingService" ref="staffingService" />-->
+		<!--<property name="regionService" ref="regionService" />-->
+		<!--<property name="areaService" ref="areaService" />-->
+		<!--<property name="projectionService" ref="projectionService" />-->
+		<!--<property name="scheduleService" ref="scheduleService" />-->
+	<!--</bean>-->
 
-	<bean id="reportRegionService" parent="baseTransactionProxy">
-		<property name="proxyInterfaces"
-			value="com.laborguru.service.report.ReportRegionService" />
-		<property name="target" ref="reportRegionServiceTarget" />
-	</bean>
+	<!--<bean id="reportRegionService" parent="baseTransactionProxy">-->
+		<!--<property name="proxyInterfaces"-->
+			<!--value="com.laborguru.service.report.ReportRegionService" />-->
+		<!--<property name="target" ref="reportRegionServiceTarget" />-->
+	<!--</bean>-->
 
-	<bean id="reportAreaServiceTarget" class="com.laborguru.service.report.ReportAreaServiceBean">
-		<property name="reportDao" ref="reportDao" />
-		<property name="staffingService" ref="staffingService" />
-		<property name="areaService" ref="areaService" />
-		<property name="projectionService" ref="projectionService" />
-		<property name="scheduleService" ref="scheduleService" />
-	</bean>
+	<!--<bean id="reportAreaServiceTarget" class="com.laborguru.service.report.ReportAreaServiceBean">-->
+		<!--<property name="reportDao" ref="reportDao" />-->
+		<!--<property name="staffingService" ref="staffingService" />-->
+		<!--<property name="areaService" ref="areaService" />-->
+		<!--<property name="projectionService" ref="projectionService" />-->
+		<!--<property name="scheduleService" ref="scheduleService" />-->
+	<!--</bean>-->
 
-	<bean id="reportAreaService" parent="baseTransactionProxy">
-		<property name="proxyInterfaces"
-			value="com.laborguru.service.report.ReportAreaService" />
-		<property name="target" ref="reportAreaServiceTarget" />
-	</bean>
+	<!--<bean id="reportAreaService" parent="baseTransactionProxy">-->
+		<!--<property name="proxyInterfaces"-->
+			<!--value="com.laborguru.service.report.ReportAreaService" />-->
+		<!--<property name="target" ref="reportAreaServiceTarget" />-->
+	<!--</bean>-->
 
 
 	<bean id="userService" parent="baseTransactionProxy">
@@ -239,10 +239,10 @@
 	<bean id="employeeServiceTarget" class="com.laborguru.service.employee.EmployeeServiceBean"
 		autowire="byType" />
 
-	<bean id="authenticateService" class="com.laborguru.service.security.AuthenticationService">
-		<property name="service" ref="userService" />
-		<property name="loginTries" value="${conn.max_login_times}" />
-	</bean>
+	<!--<bean id="authenticateService" class="com.laborguru.service.security.AuthenticationService">-->
+		<!--<property name="service" ref="userService" />-->
+		<!--<property name="loginTries" value="${conn.max_login_times}" />-->
+	<!--</bean>-->
 
 	<bean id="uploadStoreDefinitionService" parent="baseTransactionProxy">
 		<property name="proxyInterfaces"
@@ -305,16 +305,16 @@
 		<property name="target" ref="managerServiceTarget" />
 	</bean>
 
-	<bean id="dailyFlashServiceTarget" class="com.laborguru.service.report.DailyFlashServiceBean"
-		autowire="byType" />
+	<!--<bean id="dailyFlashServiceTarget" class="com.laborguru.service.report.DailyFlashServiceBean"-->
+		<!--autowire="byType" />-->
 
-	<bean id="dailyFlashService" parent="baseTransactionProxy">
-		<property name="proxyInterfaces" value="com.laborguru.service.report.DailyFlashService" />
-		<property name="target" ref="dailyFlashServiceTarget" />
-	</bean>
+	<!--<bean id="dailyFlashService" parent="baseTransactionProxy">-->
+		<!--<property name="proxyInterfaces" value="com.laborguru.service.report.DailyFlashService" />-->
+		<!--<property name="target" ref="dailyFlashServiceTarget" />-->
+	<!--</bean>-->
 
 	<bean id="transactionManager"
-		class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+		class="org.springframework.orm.hibernate4.HibernateTransactionManager">
 		<property name="sessionFactory">
 			<ref bean="mySessionFactory" />
 		</property>

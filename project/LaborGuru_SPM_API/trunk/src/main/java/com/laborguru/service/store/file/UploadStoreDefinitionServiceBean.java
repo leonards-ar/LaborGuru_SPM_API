@@ -3,7 +3,6 @@ package com.laborguru.service.store.file;
 import java.io.File;
 import java.util.List;
 
-import org.apache.log4j.Logger;
 
 import com.laborguru.exception.ErrorEnum;
 import com.laborguru.exception.InvalidFieldUploadFileException;
@@ -19,10 +18,12 @@ import com.laborguru.model.Store;
 import com.laborguru.model.filter.SearchStoreFilter;
 import com.laborguru.service.customer.CustomerService;
 import com.laborguru.service.store.StoreService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class UploadStoreDefinitionServiceBean implements UploadStoreDefinitionService {
 
-	private static final Logger log = Logger.getLogger(UploadStoreDefinitionServiceBean.class);
+	private static final Logger log = LoggerFactory.getLogger(UploadStoreDefinitionServiceBean.class);
 
 	private StoreDefinitionFileParser storeDefinitionFileParser;
 	private StoreService storeService;

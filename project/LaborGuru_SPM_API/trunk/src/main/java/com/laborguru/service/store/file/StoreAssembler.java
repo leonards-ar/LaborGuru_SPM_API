@@ -1,10 +1,11 @@
 package com.laborguru.service.store.file;
 
-import org.apache.log4j.Logger;
 import org.apache.poi.ss.usermodel.Row;
 
 import com.laborguru.model.Store;
 import com.laborguru.service.store.file.BaseStoreSection.StoreSection;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * This class assembles a store instance from an excel file.
@@ -18,7 +19,7 @@ import com.laborguru.service.store.file.BaseStoreSection.StoreSection;
  */
 public class StoreAssembler {
 	
-	private static final Logger log = Logger.getLogger(StoreAssembler.class);
+	private static final Logger log = LoggerFactory.getLogger(StoreAssembler.class);
 	
 	private Store store;
 	private StoreInformation storeInformation;

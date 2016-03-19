@@ -3,7 +3,6 @@ package com.laborguru.service.dataimport.csv;
 import java.io.File;
 import java.util.Date;
 
-import org.apache.log4j.Logger;
 
 import com.laborguru.exception.InvalidUploadFileException;
 import com.laborguru.model.HistoricSales;
@@ -13,6 +12,8 @@ import com.laborguru.service.dao.SpmDaoUtils;
 import com.laborguru.service.historicsales.HistoricSalesService;
 import com.laborguru.service.uploadfile.UploadEnumType;
 import com.laborguru.service.uploadfile.dao.UploadFileDao;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * This class import sales data from a CSV file.
@@ -25,7 +26,7 @@ import com.laborguru.service.uploadfile.dao.UploadFileDao;
  */
 public class SalesCSVFileProcessorBean implements SalesFileProcessorService {
 
-	private static final Logger log = Logger.getLogger(SalesCSVFileProcessorBean.class);
+	private static final Logger log = LoggerFactory.getLogger(SalesCSVFileProcessorBean.class);
 
 	private SalesFileParser fileParser;
 	private HistoricSalesService historicSalesService;
@@ -37,7 +38,7 @@ public class SalesCSVFileProcessorBean implements SalesFileProcessorService {
 	 * @param file
 	 * @param uploadFile: Optional helper object used to pass information to the method. The values defined in the object are going to be used. 
 	 * If null method defaults are used. 
-	 * @return The persisted upload file information
+	 * @return The persisted uploadfile file information
 	 * @see com.laborguru.service.dataimport.csv.SalesFileProcessorService#processAndSaveFile(java.io.File)
 	 */
 	public UploadFileProcessed processAndSaveFile(File file, UploadFile uploadFile) {
@@ -84,7 +85,7 @@ public class SalesCSVFileProcessorBean implements SalesFileProcessorService {
 			historicSales = fileParser.getNextRecord();
 
 			//If we find at least one historicSales to persist
-			//We persist the upload File instance first, so the historic sales are associated with the upload file		
+			//We persist the uploadfile File instance first, so the historic sales are associated with the uploadfile file
 			if (historicSales != null){
 				uploadFileDao.saveOrUpdate(uploadToSave);			
 			}

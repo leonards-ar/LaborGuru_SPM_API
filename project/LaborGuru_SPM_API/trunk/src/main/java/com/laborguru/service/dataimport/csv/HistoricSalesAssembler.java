@@ -4,8 +4,6 @@ import java.math.BigDecimal;
 import java.util.Calendar;
 import java.util.Date;
 
-import org.apache.log4j.Logger;
-
 import com.laborguru.exception.FileParserException;
 import com.laborguru.model.Customer;
 import com.laborguru.model.HistoricSales;
@@ -14,6 +12,8 @@ import com.laborguru.model.service.SalesCSVHistoricSales;
 import com.laborguru.util.CalendarUtils;
 import com.laborguru.util.NumberUtils;
 import com.laborguru.util.SpmConstants;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Line[]
@@ -33,7 +33,7 @@ import com.laborguru.util.SpmConstants;
  *
  */
 public class HistoricSalesAssembler {
-	private static final Logger log = Logger.getLogger(HistoricSalesAssembler.class);
+	private static final Logger log = LoggerFactory.getLogger(HistoricSalesAssembler.class);
 
 	private final static String DATE_PARSE_FORMAT = "M/dd/yyyy";
 	
