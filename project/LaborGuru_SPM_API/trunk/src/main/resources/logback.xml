@@ -15,11 +15,11 @@
             additivity="false">
         <appender-ref ref="STDOUT" />
     </logger>
-    <logger name="org.apache.commons.dbcp2" level="debug"
+    <logger name="org.apache.commons.dbcp2" level="INFO"
             additivity="false">
         <appender-ref ref="STDOUT" />
     </logger>
-    <logger name="org.springframework" level="debug" additivity="false">
+    <logger name="org.springframework" level="debug" additivity="INFO">
         <appender-ref ref="STDOUT" />
     </logger>
 
