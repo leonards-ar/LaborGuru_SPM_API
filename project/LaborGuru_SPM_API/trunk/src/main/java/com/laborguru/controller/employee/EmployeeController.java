@@ -5,6 +5,7 @@ import com.laborguru.frontend.mapper.DtoMapper;
 import com.laborguru.model.Employee;
 import com.laborguru.model.Store;
 import com.laborguru.service.employee.EmployeeService;
+import com.laborguru.controller.BaseController;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -20,10 +22,10 @@ import java.util.List;
  */
 
 @RestController
-public class EmployeeController {
+public class EmployeeController extends BaseController {
     private final static org.slf4j.Logger logger = LoggerFactory.getLogger(EmployeeController.class);
 
-    private final DtoMapper dtoMapper = new DtoMapper();
+
     @Autowired
     private EmployeeService employeeService;
 
@@ -36,8 +38,13 @@ public class EmployeeController {
 
         Store store = new Store();
         store.setId(1);
-        List<Employee> employees = employeeService.getEmployeesByStore(store);
-        return new ResponseEntity<List<EmployeeDto>>(dtoMapper.toDto(employees), HttpStatus.OK);
+
+        List<EmployeeDto> employeeDto = new LinkedList<>();
+
+        for(Employee employee: employeeService.getEmployeesByStore(store)){
+            employeeDto.add(getDtoMapper().toDto(employee));
+        }
+        return new ResponseEntity(employeeDto, HttpStatus.OK);
     }
 
     public EmployeeService getEmployeeService() {
