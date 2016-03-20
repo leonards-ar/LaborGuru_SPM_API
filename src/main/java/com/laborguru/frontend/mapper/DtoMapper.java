@@ -1,10 +1,12 @@
 package com.laborguru.frontend.mapper;
 
-import com.laborguru.frontend.dto.EmployeeDto;
-import com.laborguru.model.Employee;
+import com.laborguru.frontend.dto.*;
+import com.laborguru.model.*;
 
+import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Set;
 
 /**
  * Created by federicobarreraoro on 3/19/16.
@@ -25,14 +27,77 @@ public class DtoMapper extends Mapper {
         return dto;
     }
 
-    public List<EmployeeDto> toDto(List<Employee> employees){
+    public StoreDto toDto(Store store) {
+        StoreDto dto = new StoreDto();
+        dto.setId(store.getId());
+        dto.setClientName(store.getArea().getRegion().getCustomer().getName());
+        dto.setCode(store.getCode());
+        dto.setName(store.getName());
 
-        List<EmployeeDto> employeeDto = new LinkedList<EmployeeDto>();
+        return dto;
+    }
 
-        for(Employee employee: employees){
-            employeeDto.add(toDto(employee));
+    public CustomerDto toDto(Customer customer) {
+        CustomerDto customerDto = new CustomerDto();
+
+        customerDto.setId(customer.getId());
+        customerDto.setName(customer.getName());
+        customerDto.setCode(customer.getCode());
+
+        Set<RegionDto> regionsDto = new HashSet();
+        for(Region region: customer.getRegions()){
+
+            regionsDto.add(toDto(region));
+
         }
 
-        return employeeDto;
+        customerDto.setRegionDto(regionsDto);
+
+        return customerDto;
     }
+
+    public CustomerDto toTinyDto(Customer customer){
+        CustomerDto customerDto = new CustomerDto();
+
+        customerDto.setId(customer.getId());
+        customerDto.setName(customer.getName());
+        customerDto.setCode(customer.getCode());
+
+        return customerDto;
+    }
+
+    public RegionDto toTinyDto(Region region){
+        RegionDto regionDto = new RegionDto();
+
+        regionDto.setId(region.getId());
+        regionDto.setName(region.getName());
+
+        return regionDto;
+    }
+
+    public RegionDto toDto(Region region){
+        RegionDto regionDto = new RegionDto();
+
+        regionDto.setId(region.getId());
+        regionDto.setName(region.getName());
+
+        Set<AreaDto> areasDto = new HashSet();
+        for(Area area: region.getAreas()){
+            areasDto.add(toDto(area));
+        }
+
+        regionDto.setArea(areasDto);
+
+        return regionDto;
+    }
+
+    public AreaDto toDto(Area area){
+        AreaDto areaDto = new AreaDto();
+
+        areaDto.setId(area.getId());
+        areaDto.setName(area.getName());
+
+        return areaDto;
+    }
+
 }
