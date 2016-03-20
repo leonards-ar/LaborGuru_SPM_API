@@ -43,7 +43,7 @@ public interface CustomerService extends Service {
 	 * @param customer
 	 * @return The complete customer object
 	 */
-	List<Customer> getAllCustomers();
+//	List<Customer> getAllCustomers();
 
 	/**
 	 * Retrieves a list of customers filtered by the customerSearch
