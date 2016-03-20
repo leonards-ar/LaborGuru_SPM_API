@@ -1,14 +1,15 @@
 package com.laborguru.controller.customer;
 
 import com.laborguru.controller.BaseController;
+import com.laborguru.exception.ErrorEnum;
+import com.laborguru.exception.SpmUncheckedException;
 import com.laborguru.frontend.dto.CustomerDto;
 import com.laborguru.model.Customer;
 import com.laborguru.service.customer.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -36,6 +37,21 @@ public class CustomerController
         return customersDto;
     }
 
+    @RequestMapping(method = RequestMethod.POST)
+    public ResponseEntity<CustomerDto> createCustomer(@RequestBody CustomerDto customerDto){
+
+        Customer customer = getDomainMapper().toDomain(customerDto);
+
+        try{
+            customerService.save(customer);
+        } catch (Exception e){
+
+        }
+
+        return new ResponseEntity(getDtoMapper().toDto(customer), HttpStatus.CREATED);
+
+    }
+
     @RequestMapping(value="/{customerId}", method = RequestMethod.GET)
     public CustomerDto getCustomer(@PathVariable Integer customerId){
 
@@ -45,4 +61,19 @@ public class CustomerController
         return getDtoMapper().toDto(customerService.getCustomerById(tmp));
     }
 
+    @RequestMapping(value="/{customerId}", method = RequestMethod.PUT)
+    public ResponseEntity<Void> updateCustomer(@RequestBody CustomerDto customerDto){
+
+        Customer customer = getDomainMapper().toDomain(customerDto);
+            try{
+                customerService.save(customer);
+            } catch (Exception e){
+                throw new SpmUncheckedException(e.getCause(), e.getMessage(), ErrorEnum.GENERIC_ERROR);
+            }
+
+            return new ResponseEntity(HttpStatus.NO_CONTENT);
+    }
+
 }
+
+
