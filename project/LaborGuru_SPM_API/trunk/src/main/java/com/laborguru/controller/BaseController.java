@@ -1,5 +1,6 @@
 package com.laborguru.controller;
 
+import com.laborguru.frontend.mapper.DomainMapper;
 import com.laborguru.frontend.mapper.DtoMapper;
 
 /**
@@ -7,9 +8,15 @@ import com.laborguru.frontend.mapper.DtoMapper;
  */
 public abstract class BaseController {
 
-    private final com.laborguru.frontend.mapper.DtoMapper dtoMapper = new com.laborguru.frontend.mapper.DtoMapper();
+    private final DtoMapper dtoMapper = new DtoMapper();
+
+    private final DomainMapper domainMapper = new DomainMapper();
 
     public DtoMapper getDtoMapper() {
         return dtoMapper;
+    }
+
+    public DomainMapper getDomainMapper() {
+        return domainMapper;
     }
 }
