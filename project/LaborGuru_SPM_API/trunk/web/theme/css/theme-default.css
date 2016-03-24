@@ -920,7 +920,7 @@ body.page-container-boxed .page-container {
   color: #ffffff;
 }
 .x-navigation > li.xn-profile .profile-mini {
-  display: none;
+  display: block;
   width: 50px;
   padding: 7px;
 }
