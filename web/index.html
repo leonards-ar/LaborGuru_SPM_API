@@ -1,159 +1,587 @@
 <!DOCTYPE html>
-<html ng-app="web">
-<head>
-  <title></title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta charset="utf-8">
-  <link href="app.less" type="text/css" rel="stylesheet/less">
-</head>
-<body>
+<html lang="en">
+    <head>
+        <!-- META SECTION -->
+        <title>Joli Admin - Responsive Bootstrap Admin Template</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <!-- Livereload script for development only (stripped during dist build) -->
-  <script src="http://localhost:35729/livereload.js" data-concat="false"></script>
+        <link rel="icon" href="favicon.ico" type="theme/image/x-icon" />
+        <!-- END META SECTION -->
 
-  <!-- JS from Bower Components -->
-  <script src="bower_components/less.js/dist/less-1.6.2.js" data-concat="false"></script>
-  <script src="bower_components/jquery/jquery.js"></script>
-  <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
-  <script src="bower_components/underscore/underscore.js"></script>
-  <script src="bower_components/moment/moment.js"></script>
-  <script src="bower_components/angular/angular.js"></script>
-  <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
-  <script src="bower_components/angular-animate/angular-animate.js"></script>
-  <script src="bower_components/angular-resource/angular-resource.js"></script>
-  <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
-  <script src="bower_components/angular-ui-utils/ui-utils.js"></script>
-  <!-- Add New Bower Component JS Above -->
+        <!-- CSS INCLUDE -->
+        <link rel="stylesheet" type="text/css" id="theme" href="theme/css/theme-default.css"/>
+        <!-- EOF CSS INCLUDE -->
+    </head>
+    <body>
+        <!-- START PAGE CONTAINER -->
+        <div class="page-container">
+            <!-- PAGE CONTENT -->
+            <div class="page-content">
+
+                <!-- START X-NAVIGATION VERTICAL -->
+                <ul class="x-navigation x-navigation-horizontal x-navigation-panel">
+                    <!-- SEARCH -->
+                    <li class="xn-logo">
+                      <img src="img/logo.png"/>
+                    </li>
+                    <!-- END SEARCH -->
+                    <!-- Menues -->
+                    <li class="xn-openable">
+                        <a href="#"><span class="fa fa-home"></span> <span class="xn-text">Home</span></a>
+                    </li>
+                    <li class="xn-openable">
+                        <a href="#"><span class="fa fa-users"></span> <span class="xn-text">Users</span></a>
+                    </li>
+                    <li class="xn-openable">
+                        <a href="#"><span class="fa fa-coffee"></span> <span class="xn-text">Store</span></a>
+                    </li>
+                    <li class="xn-openable">
+                        <a href="#"><span class="fa fa-building-o"></span> <span class="xn-text">Customers</span></a>
+                    </li>
 
 
-  <!-- Main App JS -->
-  <script src="app.js"></script>
-  <script src="app/shared/header.js"></script>
-  <!-- Add New Component JS Above -->
-  <div class="vd_body">
-        <!-- Header Start -->
-        <!-- <div ng-include="'app/shared/header.html'"></div> -->
-        <header class="header-4" id="header" ng-controller="HeaderCtrl">
-            <div class="vd_top-menu-wrapper">
-                <div class="container ">
-                    <div class="vd_top-nav vd_nav-width  ">
-                        <div class="vd_panel-header">
-                            <!-- <div class="logo">
-                                <a href="#/">
+                    <!-- End Menues -->
+                    <!-- DROP DOWN -->
+                    <li class="xn-text  pull-right">
+                          <a href="#" class="dropdown-toggle" data-toggle="dropdown">User<span class="fa fa-angle-down"></span></a>
+                          <ul class="dropdown-menu">
+                            <li><a href="#" class="panel-collapse"><span class="fa fa-cog"></span> Profile</a></li>
+                            <li><a href="#" class="panel-collapse"><span class="fa fa-sign-out"></span> Sign Out</a></li>
+                          </ul>
+                      <!-- </li> -->
+                      <!-- <ul class="panel-controls" style="margin-top: 2px;">
+                        <li class="dropdown">
+                           <ul class="dropdown" style="margin-top: 2px;">
+                              <a href="#" class="dropdown-toggle" data-toggle="dropdown">User<span class="fa fa-angle-down"></span></a>
+                              <li><a href="#" class="panel-collapse"><span class="fa fa-cog"></span> Profile</a></li>
+                              <li><a href="#" class="panel-collapse"><span class="fa fa-sign-out"></span> Sign Out</a></li>
+                          </ul>
+                        </li>
+                      </ul> -->
+                    </li>
+                    <!-- END DROP DOWN -->
 
-                                    <img alt="logo" src="img/logo4.png">
+                    <!-- MESSAGES -->
+                    <!-- <li class="xn-icon-button pull-right">
+                        <a href="#"><span class="fa fa-comments"></span></a>
+                        <div class="informer informer-danger">4</div>
+                        <div class="panel panel-primary animated zoomIn xn-drop-left xn-panel-dragging">
+                            <div class="panel-heading">
+                                <h3 class="panel-title"><span class="fa fa-comments"></span> Messages</h3>
+                                <div class="pull-right">
+                                    <span class="label label-danger">4 new</span>
+                                </div>
+                            </div>
+                            <div class="panel-body list-group list-group-contacts scroll" style="height: 200px;">
+                                <a href="#" class="list-group-item">
+                                    <div class="list-group-status status-online"></div>
+                                    <img src="theme/assets/images/users/user2.jpg" class="pull-left" alt="John Doe"/>
+                                    <span class="contacts-title">John Doe</span>
+                                    <p>Praesent placerat tellus id augue condimentum</p>
                                 </a>
-                            </div> -->
-                            <div style="padding: 8px;">
-                                <a href="#/">
-                                    <div style="display: table-cell;vertical-align: middle;">
-                                        <img alt="logo" class="logo" src="img/logo.png">
-                                    </div>
+                                <a href="#" class="list-group-item">
+                                    <div class="list-group-status status-away"></div>
+                                    <img src="theme/assets/images/users/user.jpg" class="pull-left" alt="Dmitry Ivaniuk"/>
+                                    <span class="contacts-title">Dmitry Ivaniuk</span>
+                                    <p>Donec risus sapien, sagittis et magna quis</p>
+                                </a>
+                                <a href="#" class="list-group-item">
+                                    <div class="list-group-status status-away"></div>
+                                    <img src="theme/assets/images/users/user3.jpg" class="pull-left" alt="Nadia Ali"/>
+                                    <span class="contacts-title">Nadia Ali</span>
+                                    <p>Mauris vel eros ut nunc rhoncus cursus sed</p>
+                                </a>
+                                <a href="#" class="list-group-item">
+                                    <div class="list-group-status status-offline"></div>
+                                    <img src="theme/assets/images/users/user6.jpg" class="pull-left" alt="Darth Vader"/>
+                                    <span class="contacts-title">Darth Vader</span>
+                                    <p>I want my money back!</p>
                                 </a>
                             </div>
-                            <!-- logo -->
-                            <div class="vd_panel-menu  hidden-sm hidden-xs">
+                            <div class="panel-footer text-center">
+                                <a href="pages-messages.html">Show all messages</a>
                             </div>
-                            <div class="vd_panel-menu left-pos visible-sm visible-xs">
-                                <span class="menu" data-action="toggle-navbar-left">
-                                    <i class="fa fa-ellipsis-v"></i>
-                                </span>
-                            </div>
-                            <div class="vd_panel-menu visible-sm visible-xs">
-                                <span class="menu visible-xs" data-action="submenu">
-                                    <i class="fa fa-bars"></i>
-                                </span>
-                            </div>
-                            <!-- vd_panel-menu -->
                         </div>
-                        <!-- vd_panel-header -->
-                    </div>
-                    <div class="vd_container">
-                        <div class="row">
-                            <div class="col-xs-12">
-                                <div class="vd_mega-menu-wrapper">
-                                    <div class="vd_mega-menu pull-right" ng-show="true">
-                                        <ul class="mega-ul">
+                    </li> -->
+                    <!-- END MESSAGES -->
+                    <!-- TASKS -->
+                    <!-- <li class="xn-icon-button pull-right">
+                        <a href="#"><span class="fa fa-tasks"></span></a>
+                        <div class="informer informer-warning">3</div>
+                        <div class="panel panel-primary animated zoomIn xn-drop-left xn-panel-dragging">
+                            <div class="panel-heading">
+                                <h3 class="panel-title"><span class="fa fa-tasks"></span> Tasks</h3>
+                                <div class="pull-right">
+                                    <span class="label label-warning">3 active</span>
+                                </div>
+                            </div>
+                            <div class="panel-body list-group scroll" style="height: 200px;">
+                                <a class="list-group-item" href="#">
+                                    <strong>Phasellus augue arcu, elementum</strong>
+                                    <div class="progress progress-small progress-striped active">
+                                        <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width: 50%;">50%</div>
+                                    </div>
+                                    <small class="text-muted">John Doe, 25 Sep 2014 / 50%</small>
+                                </a>
+                                <a class="list-group-item" href="#">
+                                    <strong>Aenean ac cursus</strong>
+                                    <div class="progress progress-small progress-striped active">
+                                        <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%;">80%</div>
+                                    </div>
+                                    <small class="text-muted">Dmitry Ivaniuk, 24 Sep 2014 / 80%</small>
+                                </a>
+                                <a class="list-group-item" href="#">
+                                    <strong>Lorem ipsum dolor</strong>
+                                    <div class="progress progress-small progress-striped active">
+                                        <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100" style="width: 95%;">95%</div>
+                                    </div>
+                                    <small class="text-muted">John Doe, 23 Sep 2014 / 95%</small>
+                                </a>
+                                <a class="list-group-item" href="#">
+                                    <strong>Cras suscipit ac quam at tincidunt.</strong>
+                                    <div class="progress progress-small">
+                                        <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%;">100%</div>
+                                    </div>
+                                    <small class="text-muted">John Doe, 21 Sep 2014 /</small><small class="text-success"> Done</small>
+                                </a>
+                            </div>
+                            <div class="panel-footer text-center">
+                                <a href="pages-tasks.html">Show all tasks</a>
+                            </div>
+                        </div>
+                    </li> -->
+                    <!-- END TASKS -->
+                </ul>
+                <!-- END X-NAVIGATION VERTICAL -->
 
-                                            <li id="top-menu-profile" class="profile mega-li">
-                                                <a href="#" class="mega-link" data-action="click-trigger">
-                                                    <span class="mega-name">
-                                                        {{currentUser()}} <i class="fa fa-caret-down fa-fw"></i>
-                                                    </span>
-                                                </a>
-                                                <div class="vd_mega-menu-content  width-xs-2  left-xs left-sm" data-action="click-target">
-                                                    <div class="child-menu">
-                                                        <div class="content-list content-menu">
-                                                            <ul class="list-wrapper pd-lr-10">
-                                                                <!-- <li>
-                                                                    <a href="#">
-                                                                        <div class="menu-icon">
-                                                                            <i class="glyphicon glyphicon-bullhorn"></i>
-                                                                        </div>
-                                                                        <div class="menu-text">
-                                                                            <a target="_blank" href="http://goo.gl/forms/O45TE0lWV5">Feedback</a>
-                                                                        </div>
-                                                                    </a>
-                                                                </li>
-                                                                <li>
-                                                                    <a href="#">
-                                                                        <div class="menu-icon">
-                                                                            <i class="append-icon fa fa-fw fa-bug"></i>
-                                                                        </div>
-                                                                        <div class="menu-text">
-                                                                            <a target="_blank" href="https://github.com/mulesoft-consulting/cloud-console/issues">Report a Problem</a>
-                                                                        </div>
-                                                                    </a>
-                                                                </li>
-                                                                <li class="line"></li>
-                                                                <li>
-                                                                    <a href="#">
-                                                                        <div class="menu-icon">
-                                                                            <i class="append-icon fa fa-fw fa-briefcase"></i>
-                                                                        </div>
-                                                                        <div class="menu-text">
-                                                                            <a tooltip="For platform sizing please visit Demand planner" target="_blank" href="https://demand-planner.tools.mulesoft.com">Demand planner</a>
-                                                                        </div>
-                                                                    </a>
-                                                                </li>
-                                                                <li class="line"></li> -->
-                                                                <li>
-                                                                    <a href="javascript:void(0)" ng-click="logout()">
-                                                                        <div class="menu-icon"><i class=" fa fa-sign-out"></i></div>
-                                                                        <div class="menu-text">{{'default.button.signout.label' | translate}}</div>
-                                                                    </a>
-                                                                </li>
+                <!-- START BREADCRUMB -->
+                <!-- <ul class="breadcrumb">
+                    <li><a href="#">Home</a></li>
+                    <li class="active">Dashboard</li>
+                </ul> -->
+                <!-- END BREADCRUMB -->
 
+                <!-- PAGE CONTENT WRAPPER -->
+                <div class="page-content-wrap">
 
-                                                            </ul>
-                                                        </div>
-                                                    </div>
-                                                </div>
+                    <!-- START WIDGETS -->
+                    <div class="row">
+                        <div class="col-md-3">
 
-                                            </li>
-                                        </ul>
-                                        <!-- Head menu search form ends -->
+                            <!-- START WIDGET SLIDER -->
+                            <div class="widget widget-default widget-carousel">
+                                <div class="owl-carousel" id="owl-example">
+                                    <div>
+                                        <div class="widget-title">Total Visitors</div>
+                                        <div class="widget-subtitle">27/08/2014 15:23</div>
+                                        <div class="widget-int">3,548</div>
+                                    </div>
+                                    <div>
+                                        <div class="widget-title">Returned</div>
+                                        <div class="widget-subtitle">Visitors</div>
+                                        <div class="widget-int">1,695</div>
+                                    </div>
+                                    <div>
+                                        <div class="widget-title">New</div>
+                                        <div class="widget-subtitle">Visitors</div>
+                                        <div class="widget-int">1,977</div>
+                                    </div>
+                                </div>
+                                <div class="widget-controls">
+                                    <a href="#" class="widget-control-right widget-remove" data-toggle="tooltip" data-placement="top" title="Remove Widget"><span class="fa fa-times"></span></a>
+                                </div>
+                            </div>
+                            <!-- END WIDGET SLIDER -->
+
+                        </div>
+                        <div class="col-md-3">
+
+                            <!-- START WIDGET MESSAGES -->
+                            <div class="widget widget-default widget-item-icon" onclick="location.href='pages-messages.html';">
+                                <div class="widget-item-left">
+                                    <span class="fa fa-envelope"></span>
+                                </div>
+                                <div class="widget-data">
+                                    <div class="widget-int num-count">48</div>
+                                    <div class="widget-title">New messages</div>
+                                    <div class="widget-subtitle">In your mailbox</div>
+                                </div>
+                                <div class="widget-controls">
+                                    <a href="#" class="widget-control-right widget-remove" data-toggle="tooltip" data-placement="top" title="Remove Widget"><span class="fa fa-times"></span></a>
+                                </div>
+                            </div>
+                            <!-- END WIDGET MESSAGES -->
+
+                        </div>
+                        <div class="col-md-3">
+
+                            <!-- START WIDGET REGISTRED -->
+                            <div class="widget widget-default widget-item-icon" onclick="location.href='pages-address-book.html';">
+                                <div class="widget-item-left">
+                                    <span class="fa fa-user"></span>
+                                </div>
+                                <div class="widget-data">
+                                    <div class="widget-int num-count">375</div>
+                                    <div class="widget-title">Registred users</div>
+                                    <div class="widget-subtitle">On your website</div>
+                                </div>
+                                <div class="widget-controls">
+                                    <a href="#" class="widget-control-right widget-remove" data-toggle="tooltip" data-placement="top" title="Remove Widget"><span class="fa fa-times"></span></a>
+                                </div>
+                            </div>
+                            <!-- END WIDGET REGISTRED -->
+
+                        </div>
+                        <div class="col-md-3">
+
+                            <!-- START WIDGET CLOCK -->
+                            <div class="widget widget-info widget-padding-sm">
+                                <div class="widget-big-int plugin-clock">00:00</div>
+                                <div class="widget-subtitle plugin-date">Loading...</div>
+                                <div class="widget-controls">
+                                    <a href="#" class="widget-control-right widget-remove" data-toggle="tooltip" data-placement="left" title="Remove Widget"><span class="fa fa-times"></span></a>
+                                </div>
+                                <div class="widget-buttons widget-c3">
+                                    <div class="col">
+                                        <a href="#"><span class="fa fa-clock-o"></span></a>
+                                    </div>
+                                    <div class="col">
+                                        <a href="#"><span class="fa fa-bell"></span></a>
+                                    </div>
+                                    <div class="col">
+                                        <a href="#"><span class="fa fa-calendar"></span></a>
                                     </div>
                                 </div>
                             </div>
+                            <!-- END WIDGET CLOCK -->
 
                         </div>
                     </div>
+                    <!-- END WIDGETS -->
+
+                    <div class="row">
+                        <div class="col-md-4">
+
+                            <!-- START USERS ACTIVITY BLOCK -->
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <div class="panel-title-box">
+                                        <h3>Users Activity</h3>
+                                        <span>Users vs returning</span>
+                                    </div>
+                                    <ul class="panel-controls" style="margin-top: 2px;">
+                                        <li><a href="#" class="panel-fullscreen"><span class="fa fa-expand"></span></a></li>
+                                        <li><a href="#" class="panel-refresh"><span class="fa fa-refresh"></span></a></li>
+                                        <li class="dropdown">
+                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="fa fa-cog"></span></a>
+                                            <ul class="dropdown-menu">
+                                                <li><a href="#" class="panel-collapse"><span class="fa fa-angle-down"></span> Collapse</a></li>
+                                                <li><a href="#" class="panel-remove"><span class="fa fa-times"></span> Remove</a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="panel-body padding-0">
+                                    <div class="chart-holder" id="dashboard-bar-1" style="height: 200px;"></div>
+                                </div>
+                            </div>
+                            <!-- END USERS ACTIVITY BLOCK -->
+
+                        </div>
+                        <div class="col-md-4">
+
+                            <!-- START VISITORS BLOCK -->
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <div class="panel-title-box">
+                                        <h3>Visitors</h3>
+                                        <span>Visitors (last month)</span>
+                                    </div>
+                                    <ul class="panel-controls" style="margin-top: 2px;">
+                                        <li><a href="#" class="panel-fullscreen"><span class="fa fa-expand"></span></a></li>
+                                        <li><a href="#" class="panel-refresh"><span class="fa fa-refresh"></span></a></li>
+                                        <li class="dropdown">
+                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="fa fa-cog"></span></a>
+                                            <ul class="dropdown-menu">
+                                                <li><a href="#" class="panel-collapse"><span class="fa fa-angle-down"></span> Collapse</a></li>
+                                                <li><a href="#" class="panel-remove"><span class="fa fa-times"></span> Remove</a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="panel-body padding-0">
+                                    <div class="chart-holder" id="dashboard-donut-1" style="height: 200px;"></div>
+                                </div>
+                            </div>
+                            <!-- END VISITORS BLOCK -->
+
+                        </div>
+
+						<div class="col-md-4">
+
+                            <!-- START PROJECTS BLOCK -->
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <div class="panel-title-box">
+                                        <h3>Projects</h3>
+                                        <span>Projects activity</span>
+                                    </div>
+                                    <ul class="panel-controls" style="margin-top: 2px;">
+                                        <li><a href="#" class="panel-fullscreen"><span class="fa fa-expand"></span></a></li>
+                                        <li><a href="#" class="panel-refresh"><span class="fa fa-refresh"></span></a></li>
+                                        <li class="dropdown">
+                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="fa fa-cog"></span></a>
+                                            <ul class="dropdown-menu">
+                                                <li><a href="#" class="panel-collapse"><span class="fa fa-angle-down"></span> Collapse</a></li>
+                                                <li><a href="#" class="panel-remove"><span class="fa fa-times"></span> Remove</a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="panel-body panel-body-table">
+
+                                    <div class="table-responsive">
+                                        <table class="table table-bordered table-striped">
+                                            <thead>
+                                                <tr>
+                                                    <th width="50%">Project</th>
+                                                    <th width="20%">Status</th>
+                                                    <th width="30%">Activity</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td><strong>Joli Admin</strong></td>
+                                                    <td><span class="label label-danger">Developing</span></td>
+                                                    <td>
+                                                        <div class="progress progress-small progress-striped active">
+                                                            <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width: 85%;">85%</div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td><strong>Gemini</strong></td>
+                                                    <td><span class="label label-warning">Updating</span></td>
+                                                    <td>
+                                                        <div class="progress progress-small progress-striped active">
+                                                            <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width: 40%;">40%</div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td><strong>Taurus</strong></td>
+                                                    <td><span class="label label-warning">Updating</span></td>
+                                                    <td>
+                                                        <div class="progress progress-small progress-striped active">
+                                                            <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width: 72%;">72%</div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td><strong>Leo</strong></td>
+                                                    <td><span class="label label-success">Support</span></td>
+                                                    <td>
+                                                        <div class="progress progress-small progress-striped active">
+                                                            <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width: 100%;">100%</div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td><strong>Virgo</strong></td>
+                                                    <td><span class="label label-success">Support</span></td>
+                                                    <td>
+                                                        <div class="progress progress-small progress-striped active">
+                                                            <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width: 100%;">100%</div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+
+                                            </tbody>
+                                        </table>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <!-- END PROJECTS BLOCK -->
+
+                        </div>
+                    </div>
+
+                    <div class="row">
+						<div class="col-md-8">
+
+                            <!-- START SALES BLOCK -->
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <div class="panel-title-box">
+                                        <h3>Sales</h3>
+                                        <span>Sales activity by period you selected</span>
+                                    </div>
+                                    <ul class="panel-controls panel-controls-title">
+                                        <li>
+                                            <div id="reportrange" class="dtrange">
+                                                <span></span><b class="caret"></b>
+                                            </div>
+                                        </li>
+                                        <li><a href="#" class="panel-fullscreen rounded"><span class="fa fa-expand"></span></a></li>
+                                    </ul>
+
+                                </div>
+                                <div class="panel-body">
+                                    <div class="row stacked">
+                                        <div class="col-md-4">
+                                            <div class="progress-list">
+                                                <div class="pull-left"><strong>In Queue</strong></div>
+                                                <div class="pull-right">75%</div>
+                                                <div class="progress progress-small progress-striped active">
+                                                    <div class="progress-bar progress-bar-primary" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width: 75%;">75%</div>
+                                                </div>
+                                            </div>
+                                            <div class="progress-list">
+                                                <div class="pull-left"><strong>Shipped Products</strong></div>
+                                                <div class="pull-right">450/500</div>
+                                                <div class="progress progress-small progress-striped active">
+                                                    <div class="progress-bar progress-bar-primary" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width: 90%;">90%</div>
+                                                </div>
+                                            </div>
+                                            <div class="progress-list">
+                                                <div class="pull-left"><strong class="text-danger">Returned Products</strong></div>
+                                                <div class="pull-right">25/500</div>
+                                                <div class="progress progress-small progress-striped active">
+                                                    <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width: 5%;">5%</div>
+                                                </div>
+                                            </div>
+                                            <div class="progress-list">
+                                                <div class="pull-left"><strong class="text-warning">Progress Today</strong></div>
+                                                <div class="pull-right">75/150</div>
+                                                <div class="progress progress-small progress-striped active">
+                                                    <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width: 50%;">50%</div>
+                                                </div>
+                                            </div>
+                                            <p><span class="fa fa-warning"></span> Data update in end of each hour. You can update it manual by pressign update button</p>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <div id="dashboard-map-seles" style="width: 100%; height: 200px"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- END SALES BLOCK -->
+
+                        </div>
+						<div class="common-modal modal fade" id="common-Modal1" tabindex="-1" role="dialog" aria-hidden="true">
+							<div class="modal-content">
+								<ul class="list-inline item-details">
+									<li><a href="http://themifycloud.com/downloads/janux-premium-responsive-bootstrap-admin-dashboard-template/">Admin templates</a></li>
+									<li><a href="http://themescloud.org">Bootstrap themes</a></li>
+								</ul>
+							</div>
+						</div>
+
+                        <div class="col-md-4">
+
+                            <!-- START SALES & EVENTS BLOCK -->
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <div class="panel-title-box">
+                                        <h3>Sales & Event</h3>
+                                        <span>Event "Purchase Button"</span>
+                                    </div>
+                                    <ul class="panel-controls" style="margin-top: 2px;">
+                                        <li><a href="#" class="panel-fullscreen"><span class="fa fa-expand"></span></a></li>
+                                        <li><a href="#" class="panel-refresh"><span class="fa fa-refresh"></span></a></li>
+                                        <li class="dropdown">
+                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="fa fa-cog"></span></a>
+                                            <ul class="dropdown-menu">
+                                                <li><a href="#" class="panel-collapse"><span class="fa fa-angle-down"></span> Collapse</a></li>
+                                                <li><a href="#" class="panel-remove"><span class="fa fa-times"></span> Remove</a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="panel-body padding-0">
+                                    <div class="chart-holder" id="dashboard-line-1" style="height: 200px;"></div>
+                                </div>
+                            </div>
+                            <!-- END SALES & EVENTS BLOCK -->
+
+                        </div>
+                    </div>
+
+                    <!-- START DASHBOARD CHART -->
+					<div class="chart-holder" id="dashboard-area-1" style="height: 200px;"></div>
+					<div class="block-full-width">
+
+                    </div>
+                    <!-- END DASHBOARD CHART -->
+
                 </div>
-                <!-- container -->
+                <!-- END PAGE CONTENT WRAPPER -->
             </div>
-            <!-- vd_primary-menu-wrapper -->
-
-        </header>
-
-  <div>
-    <div id="content" class="container">
-      <div class="row">
-        <div ui-view>
+            <!-- END PAGE CONTENT -->
         </div>
-      </div>
-    </div>
-  </div>
+        <!-- END PAGE CONTAINER -->
 
-</body>
+        <!-- MESSAGE BOX-->
+        <div class="message-box animated fadeIn" data-sound="alert" id="mb-signout">
+            <div class="mb-container">
+                <div class="mb-middle">
+                    <div class="mb-title"><span class="fa fa-sign-out"></span> Log <strong>Out</strong> ?</div>
+                    <div class="mb-content">
+                        <p>Are you sure you want to log out?</p>
+                        <p>Press No if youwant to continue work. Press Yes to logout current user.</p>
+                    </div>
+                    <div class="mb-footer">
+                        <div class="pull-right">
+                            <a href="pages-login.html" class="btn btn-success btn-lg">Yes</a>
+                            <button class="btn btn-default btn-lg mb-control-close">No</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- END MESSAGE BOX-->
+
+        <!-- START PRELOADS -->
+        <audio id="audio-alert" src="theme/audio/alert.mp3" preload="auto"></audio>
+        <audio id="audio-fail" src="theme/audio/fail.mp3" preload="auto"></audio>
+        <!-- END PRELOADS -->
+
+    <!-- START SCRIPTS -->
+        <!-- START PLUGINS -->
+        <script type="text/javascript" src="theme/js/plugins/jquery/jquery.min.js"></script>
+        <script type="text/javascript" src="theme/js/plugins/jquery/jquery-ui.min.js"></script>
+        <script type="text/javascript" src="theme/js/plugins/bootstrap/bootstrap.min.js"></script>
+        <!-- END PLUGINS -->
+
+        <!-- START THIS PAGE PLUGINS-->
+        <script type='text/javascript' src='theme/js/plugins/icheck/icheck.min.js'></script>
+        <script type="text/javascript" src="theme/js/plugins/mcustomscrollbar/jquery.mCustomScrollbar.min.js"></script>
+        <script type="text/javascript" src="theme/js/plugins/scrolltotop/scrolltopcontrol.js"></script>
+
+        <script type="text/javascript" src="theme/js/plugins/morris/raphael-min.js"></script>
+        <script type="text/javascript" src="theme/js/plugins/morris/morris.min.js"></script>
+        <script type="text/javascript" src="theme/js/plugins/rickshaw/d3.v3.js"></script>
+        <script type="text/javascript" src="theme/js/plugins/rickshaw/rickshaw.min.js"></script>
+        <script type='text/javascript' src='theme/js/plugins/jvectormap/jquery-jvectormap-1.2.2.min.js'></script>
+        <script type='text/javascript' src='theme/js/plugins/jvectormap/jquery-jvectormap-world-mill-en.js'></script>
+        <script type='text/javascript' src='theme/js/plugins/bootstrap/bootstrap-datepicker.js'></script>
+        <script type="text/javascript" src="theme/js/plugins/owl/owl.carousel.min.js"></script>
+
+        <script type="text/javascript" src="theme/js/plugins/moment.min.js"></script>
+        <script type="text/javascript" src="theme/js/plugins/daterangepicker/daterangepicker.js"></script>
+        <!-- END THIS PAGE PLUGINS-->
+
+        <!-- START TEMPLATE -->
+        <script type="text/javascript" src="theme/js/settings.js"></script>
+
+        <script type="text/javascript" src="theme/js/plugins.js"></script>
+        <script type="text/javascript" src="theme/js/actions.js"></script>
+
+        <script type="text/javascript" src="theme/js/demo_dashboard.js"></script>
+        <!-- END TEMPLATE -->
+    <!-- END SCRIPTS -->
+    </body>
 </html>

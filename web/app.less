@@ -5,10 +5,14 @@
 
 /* Component LESS */
 @import "app/shared/header.less";
+@import "app/login/login.less";
+@import "app/customer/customer-list.less";
+@import "app/home/home.less";
 /* Add Component LESS Above */
 
 /* Required for Angular UI Bootstrap */
 .nav, .pagination, .carousel, .panel-title a { cursor: pointer; }
+
 
 /* Personal preference for BS modal.  The LESS below makes the backdrop white and
    causes the modal to fade in rather than slide in. */
@@ -21,3 +25,8 @@
 //		.translate(0,0);
 //	}
 //}
+
+
+.container{
+    width: 100% !important;
+}
