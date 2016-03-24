@@ -1,98 +1,98 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <!-- META SECTION -->
-    <title>Joli Admin - Responsive Bootstrap Admin Template</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="icon" href="favicon.ico" type="theme/image/x-icon" />
-    <!-- END META SECTION -->
-    <!-- CSS INCLUDE -->
-    <link rel="stylesheet" type="text/css" id="theme" href="theme/css/theme-default.css"/>
-    <!-- EOF CSS INCLUDE -->
-  </head>
-  <body>
-    <!-- MESSAGE BOX-->
-    <div class="message-box animated fadeIn" data-sound="alert" id="mb-signout">
-      <div class="mb-container">
-        <div class="mb-middle">
-          <div class="mb-title">
-            <span class="fa fa-sign-out">
-              </span> Log <strong>Out</strong> ?</div>
-              <div class="mb-content">
-                <p>Are you sure you want to log out?</p>
-                <p>Press No if youwant to continue work. Press Yes to logout current user.</p>
-              </div>
-              <div class="mb-footer">
-                <div class="pull-right">
-                  <a href="pages-login.html" class="btn btn-success btn-lg">Yes</a>
-                  <button class="btn btn-default btn-lg mb-control-close">No</button>
-                </div>
+<html ng-app="web">
+<head>
+  <title>Laborguru</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta charset="utf-8">
+  <link href="app.less" type="text/css" rel="stylesheet/less">
+  <link rel="stylesheet" type="text/css" id="theme" href="theme/css/theme-default.css"/>
+</head>
+<body>
+
+  <!-- Livereload script for development only (stripped during dist build) -->
+  <script src="http://localhost:35729/livereload.js" data-concat="false"></script>
+
+  <!-- JS from Bower Components -->
+  <script src="bower_components/less.js/dist/less-1.6.2.js" data-concat="false"></script>
+  <script src="bower_components/jquery/jquery.js"></script>
+  <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+  <script src="bower_components/underscore/underscore.js"></script>
+  <script src="bower_components/moment/moment.js"></script>
+  <script src="bower_components/angular/angular.js"></script>
+  <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+  <script src="bower_components/angular-animate/angular-animate.js"></script>
+  <script src="bower_components/angular-resource/angular-resource.js"></script>
+  <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+  <script src="bower_components/angular-ui-utils/ui-utils.js"></script>
+  <!-- Add New Bower Component JS Above -->
+
+
+  <!-- Main App JS -->
+  <script src="app.js"></script>
+  <!-- <script src="app/shared/header.js"></script> -->
+  <script src="app/customer/customer-list.js"></script>
+  <script src="service/customer.js"></script>
+  <!-- Add New Component JS Above -->
+
+  <!-- MESSAGE BOX-->
+  <div class="message-box animated fadeIn" data-sound="alert" id="mb-signout">
+    <div class="mb-container">
+      <div class="mb-middle">
+        <div class="mb-title">
+          <span class="fa fa-sign-out">
+            </span> Log <strong>Out</strong> ?</div>
+            <div class="mb-content">
+              <p>Are you sure you want to log out?</p>
+              <p>Press No if youwant to continue work. Press Yes to logout current user.</p>
+            </div>
+            <div class="mb-footer">
+              <div class="pull-right">
+                <a href="pages-login.html" class="btn btn-success btn-lg">Yes</a>
+                <button class="btn btn-default btn-lg mb-control-close">No</button>
               </div>
             </div>
           </div>
         </div>
-        <!-- END MESSAGE BOX-->
-        <!-- START PRELOADS -->
-        <audio id="audio-alert" src="theme/audio/alert.mp3" preload="auto">
-        </audio>
-        <audio id="audio-fail" src="theme/audio/fail.mp3" preload="auto">
-        </audio>
-        <!-- END PRELOADS -->
-        <!-- START SCRIPTS -->
-        <!-- START PLUGINS -->
-        <script type="text/javascript" src="theme/js/plugins/jquery/jquery.min.js">
-        </script>
-        <script type="text/javascript" src="theme/js/plugins/jquery/jquery-ui.min.js">
-        </script>
-        <script type="text/javascript" src="theme/js/plugins/bootstrap/bootstrap.min.js">
-        </script>
-        <!-- END PLUGINS -->
-        <!-- START THIS PAGE PLUGINS-->
-        <script type='text/javascript' src='theme/js/plugins/icheck/icheck.min.js'>
-        </script>
-        <script type="text/javascript" src="theme/js/plugins/mcustomscrollbar/jquery.mCustomScrollbar.min.js">
-        </script>
-        <script type="text/javascript" src="theme/js/plugins/scrolltotop/scrolltopcontrol.js">
-        </script>
-        <script type="text/javascript" src="theme/js/plugins/morris/raphael-min.js">
-        </script>
-        <script type="text/javascript" src="theme/js/plugins/morris/morris.min.js">
-        </script>
-        <script type="text/javascript" src="theme/js/plugins/rickshaw/d3.v3.js">
-        </script>
-        <script type="text/javascript" src="theme/js/plugins/rickshaw/rickshaw.min.js">
-        </script>
-        <script type='text/javascript' src='theme/js/plugins/jvectormap/jquery-jvectormap-1.2.2.min.js'>
-        </script>
-        <script type='text/javascript' src='theme/js/plugins/jvectormap/jquery-jvectormap-world-mill-en.js'>
-        </script>
-        <script type='text/javascript' src='theme/js/plugins/bootstrap/bootstrap-datepicker.js'>
-        </script>
-        <script type="text/javascript" src="theme/js/plugins/owl/owl.carousel.min.js">
-        </script>
-        <script type="text/javascript" src="theme/js/plugins/moment.min.js">
-        </script>
-        <script type="text/javascript" src="theme/js/plugins/daterangepicker/daterangepicker.js">
-        </script>
-        <!-- END THIS PAGE PLUGINS-->
-        <!-- START TEMPLATE -->
-        <!-- <script type="text/javascript" src="theme/js/settings.js">
-      </script> -->
-      <script type="text/javascript" src="theme/js/plugins.js">
-      </script>
-      <script type="text/javascript" src="theme/js/actions.js">
-      </script>
-      <!-- <script type="text/javascript" src="theme/js/demo_dashboard.js">
-    </script> -->
+      </div>
+      <!-- END MESSAGE BOX-->
+      <!-- START PRELOADS -->
+      <audio id="audio-alert" src="theme/audio/alert.mp3" preload="auto"></audio>
+      <audio id="audio-fail" src="theme/audio/fail.mp3" preload="auto"></audio>
+      <!-- END PRELOADS -->
+      <!-- START SCRIPTS -->
+      <!-- START PLUGINS -->
+      <script type="text/javascript" src="theme/js/plugins/jquery/jquery.min.js"></script>
+      <script type="text/javascript" src="theme/js/plugins/jquery/jquery-ui.min.js"></script>
+      <script type="text/javascript" src="theme/js/plugins/bootstrap/bootstrap.min.js"></script>
+      <!-- END PLUGINS -->
+      <!-- START THIS PAGE PLUGINS-->
+      <script type='text/javascript' src='theme/js/plugins/icheck/icheck.min.js'></script>
+      <script type="text/javascript" src="theme/js/plugins/mcustomscrollbar/jquery.mCustomScrollbar.min.js"></script>
+      <script type="text/javascript" src="theme/js/plugins/scrolltotop/scrolltopcontrol.js"></script>
+      <script type="text/javascript" src="theme/js/plugins/morris/raphael-min.js"></script>
+      <script type="text/javascript" src="theme/js/plugins/morris/morris.min.js"></script>
+      <script type="text/javascript" src="theme/js/plugins/rickshaw/d3.v3.js"></script>
+      <script type="text/javascript" src="theme/js/plugins/rickshaw/rickshaw.min.js"></script>
+      <script type='text/javascript' src='theme/js/plugins/jvectormap/jquery-jvectormap-1.2.2.min.js'></script>
+      <script type='text/javascript' src='theme/js/plugins/jvectormap/jquery-jvectormap-world-mill-en.js'></script>
+      <script type='text/javascript' src='theme/js/plugins/bootstrap/bootstrap-datepicker.js'></script>
+      <script type="text/javascript" src="theme/js/plugins/owl/owl.carousel.min.js"></script>
+      <script type="text/javascript" src="theme/js/plugins/moment.min.js"></script>
+      <script type="text/javascript" src="theme/js/plugins/daterangepicker/daterangepicker.js"></script>
+      <script type="text/javascript" src="theme/js/plugins/datatables/jquery.dataTables.min.js"></script>
+      <!-- END THIS PAGE PLUGINS-->
+      <!-- START TEMPLATE -->
+      <!-- <script type="text/javascript" src="theme/js/settings.js"></script> -->
+    <script type="text/javascript" src="theme/js/plugins.js"></script>
+    <script type="text/javascript" src="theme/js/actions.js"></script>
+    <!-- <script type="text/javascript" src="theme/js/demo_dashboard.js"></script> -->
     <!-- END TEMPLATE -->
     <!-- END SCRIPTS -->
     <!-- START PAGE CONTAINER -->
     <div class="page-container">
-      <!-- PAGE CONTENT -->
-      <div class="page-content">
+
         <!-- START X-NAVIGATION VERTICAL -->
         <ul class="x-navigation x-navigation-horizontal x-navigation-panel">
           <!-- SEARCH -->
@@ -123,14 +123,7 @@
             </a>
           </li>
           <li class="xn-openable">
-            <a href="#">
-              <span class="fa fa-building-o">
-              </span>
-              <span class="xn-text">Customers</span>
-            </a>
-          </li>
-          <li class="xn-openable">
-            <a href="#">
+            <a href="#/customer">
               <span class="fa fa-building-o">
               </span>
               <span class="xn-text">Customers</span>
@@ -154,9 +147,16 @@
           <!-- End Avatar -->
         </ul>
         <!-- END X-NAVIGATION VERTICAL -->
-      </div>
-      <!-- END PAGE CONTENT -->
     </div>
     <!-- END PAGE CONTAINER -->
-  </body>
+    <div id="content" class="container">
+      <div class="row">
+        <div ui-view>
+        </div>
+      </div>
+    </div>
+    </div>
+
+
+</body>
 </html>
