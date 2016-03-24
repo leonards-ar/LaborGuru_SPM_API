@@ -1147,7 +1147,7 @@ body.page-container-boxed .page-container {
   display: block;
 }
 .x-navigation.x-navigation-minimized .profile-mini {
-  display: block;
+  display: none;
   border-bottom: 0px;
 }
 /* END X-NAVIGATION FEATURES */
@@ -3977,7 +3977,7 @@ background: #1caf9a !important;
 }
 
 .login-container.picture {
-  background: url("../img/backgrounds/nature-4.jpg") left top no-repeat;
+  background: url("../img/backgrounds/nature-4.jpg") left top repeat;
   height:800px;
 }
 
