@@ -5,11 +5,11 @@ var site_settings = '<div class="ts-button">'
     +'<div class="ts-body">'
 	    +'<div class="ts-title">Themes</div>'
         +'<div class="ts-themes">'
-            +'<a href="#" class="active" data-theme="css/theme-default.css"><img src="img/themes/default.jpg"/></a>'
-            +'<a href="#" data-theme="css/theme-brown.css"><img src="img/themes/brown.jpg"/></a>'
-            +'<a href="#" data-theme="css/theme-blue.css"><img src="img/themes/blue.jpg"/></a>'
-            +'<a href="#" data-theme="css/theme-white.css"><img src="img/themes/light.jpg"/></a>'
-            +'<a href="#" data-theme="css/theme-black.css"><img src="img/themes/black.jpg"/></a>'
+            +'<a href="#" class="active" data-theme="theme/css/theme-default.css"><img src="theme/img/themes/default.jpg"/></a>'
+            +'<a href="#" data-theme="theme/css/theme-brown.css"><img src="theme/img/themes/brown.jpg"/></a>'
+            +'<a href="#" data-theme="theme/css/theme-blue.css"><img src="theme/img/themes/blue.jpg"/></a>'
+            +'<a href="#" data-theme="theme/css/theme-white.css"><img src="theme/img/themes/light.jpg"/></a>'
+            +'<a href="#" data-theme="theme/css/theme-black.css"><img src="theme/img/themes/black.jpg"/></a>'
         +'</div>'
 		+'<div class="ts-title">Layout</div>'
         +'<div class="ts-row">'
@@ -44,7 +44,7 @@ var site_settings = '<div class="ts-button">'
 var settings_block = document.createElement('div');
     settings_block.className = "theme-settings";
     settings_block.innerHTML = site_settings;
-    document.body.appendChild(settings_block);
+    //document.body.appendChild(settings_block);
 
 $(document).ready(function(){
 
