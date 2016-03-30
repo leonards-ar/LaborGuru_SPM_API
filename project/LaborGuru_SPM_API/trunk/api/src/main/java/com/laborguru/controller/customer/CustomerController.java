@@ -9,7 +9,7 @@ import com.laborguru.service.customer.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
+    import org.springframework.web.bind.annotation.*;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -18,13 +18,14 @@ import java.util.List;
  * Created by federicobarreraoro on 3/20/16.
  */
 
+@CrossOrigin
 @RestController
 @RequestMapping("/api/customer")
 public class CustomerController
         extends BaseController {
 
     @Autowired
-    CustomerService customerService;
+    private CustomerService customerService;
 
     @RequestMapping(method = RequestMethod.GET)
     public List<CustomerDto> getAllCustomers() {
