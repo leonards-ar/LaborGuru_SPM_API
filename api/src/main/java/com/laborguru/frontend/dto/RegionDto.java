@@ -1,5 +1,8 @@
 package com.laborguru.frontend.dto;
 
+import org.apache.commons.lang3.builder.ToStringBuilder;
+import org.apache.commons.lang3.builder.ToStringStyle;
+
 import java.util.Set;
 
 /**
@@ -33,5 +36,13 @@ public class RegionDto {
 
     public void setArea(Set<AreaDto> area) {
         this.area = area;
+    }
+
+    public String toString(){
+        return new ToStringBuilder(this, ToStringStyle.MULTI_LINE_STYLE)
+                .append("id" , id)
+                .append("name",name)
+                .append("area", area)
+                .toString();
     }
 }
