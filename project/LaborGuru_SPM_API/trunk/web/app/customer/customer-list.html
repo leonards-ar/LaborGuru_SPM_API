@@ -5,13 +5,14 @@
           <div class="col-md-8">
         <!-- START DEFAULT DATATABLE -->
         <div class="panel panel-default">
-            <!-- <div class="panel-heading">
-                <ul class="panel-controls">
+            <div class="panel-heading">
+                <button class="btn btn-info btn-rounded btn-lg pull-right" type="button">Add New Customer</button>
+                <!-- <ul class="panel-controls">
                     <li><a href="#" class="panel-collapse"><span class="fa fa-angle-down"></span></a></li>
                     <li><a href="#" class="panel-refresh"><span class="fa fa-refresh"></span></a></li>
                     <li><a href="#" class="panel-remove"><span class="fa fa-times"></span></a></li>
-                </ul>
-            </div> -->
+                </ul> -->
+            </div>
             <div class="panel-body">
                 <table datatable="" class="table datatable">
                     <thead>
@@ -28,13 +29,13 @@
                             <td>{{customer.code}}</td>
                             <td>{{customer.name}}</td>
                             <td>
-                              <ul class="panel-controls">
-                                  <li><a href="#"><span class="fa fa-info-circle"></span></a>
-                                  <li><a href="#"><span class="fa fa-pencil-square"></span></a>
-                                  <li><a href="#"><span class="fa fa-eraser"></span></a>
-                                  <li><a href="#"><span class="fa fa-user"></span></a>
-                                  <li><a href="#"><span class="fa fa-group"></span></a>
-                              </ul>
+                              <div class="pull-right">
+                                  <button class="btn btn-primary" ng-click="showCustomer(customer.id)"><i class="glyphicon glyphicon-info-sign"></i></a>
+                                  <button class="btn btn-info"><i class="glyphicon glyphicon-pencil"></i></button>
+                                  <button class="btn btn-success" ng-click="removeCustomer(customer.id)"><i class="glyphicon glyphicon-remove"></i></button>
+                                  <button class="btn btn-warning"><i class="fa fa-user"></i></button>
+                                  <button class="btn btn-danger"><i class="fa fa-group"></i></button>
+                              </div>
                             </td>
                         </tr>
                     </tbody>
