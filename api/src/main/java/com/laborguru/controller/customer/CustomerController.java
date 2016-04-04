@@ -75,6 +75,18 @@ public class CustomerController
             return new ResponseEntity(HttpStatus.NO_CONTENT);
     }
 
+    @RequestMapping(value="/{customerId}", method = RequestMethod.DELETE)
+    public ResponseEntity<Void> removeCustomer(@RequestBody CustomerDto customerDto){
+        Customer customer = getDomainMapper().toDomain(customerDto);
+        try{
+            customerService.delete(customer);
+        } catch (Exception e){
+            throw new SpmUncheckedException(e.getCause(), e.getMessage(), ErrorEnum.GENERIC_ERROR);
+        }
+
+        return new ResponseEntity<Void>(HttpStatus.NO_CONTENT);
+    }
+
 }
 
 

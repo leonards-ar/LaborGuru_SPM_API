@@ -1,4 +1,4 @@
-angular.module('web').controller('CustomerListCtrl',function($scope,$modal,customerService, $location, $window,$log){
+angular.module('web').controller('CustomerListCtrl',function($scope,$modal,customerService, $location, $rootScope, $window,$log){
 
 var vm = $scope;
 vm.dataLoading = false;
@@ -41,11 +41,12 @@ vm.showCustomer = function(customerId){
     );
   };
 
-  vm.remove  = function(customerId){
+  vm.removeCustomer  = function(customerId){
     var promise = customerService.removeCustomer(customerId);
     promise.then(function(){
       vm.message = "Customer deleted";
-      rootScope.showSuccessAlert = true;
+      $rootScope.showSuccessAlert = true;
     });
-  }
+  };
+
 });
