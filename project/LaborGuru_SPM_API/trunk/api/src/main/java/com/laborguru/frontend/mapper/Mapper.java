@@ -9,8 +9,13 @@ import java.util.Date;
 public abstract class Mapper {
 
     SimpleDateFormat simpleDateFormat = new SimpleDateFormat("MM/dd/yyyy");
+    SimpleDateFormat simpleHourFormat = new SimpleDateFormat("HH:mm");
 
-    String format(Date date) {
+    String formatDate(Date date) {
         return simpleDateFormat.format(date);
+    }
+
+    String formatHour(Date date) {
+        return simpleHourFormat.format(date);
     }
 }

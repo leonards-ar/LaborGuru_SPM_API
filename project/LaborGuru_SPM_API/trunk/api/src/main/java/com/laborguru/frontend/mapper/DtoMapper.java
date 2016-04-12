@@ -30,6 +30,21 @@ public class DtoMapper extends Mapper {
     public StoreDto toDto(Store store) {
         StoreDto dto = new StoreDto();
         dto.setId(store.getId());
+        Area area = store.getArea();
+        dto.setArea(toDto(area));
+        Region region = area.getRegion();
+        dto.setRegion(toTinyDto(region));
+        Customer customer = region.getCustomer();
+        dto.setClientName(customer.getName());
+        dto.setCode(store.getCode());
+        dto.setName(store.getName());
+
+        return dto;
+    }
+
+    public StoreDto toTinyDto(Store store){
+        StoreDto dto = new StoreDto();
+        dto.setId(store.getId());
         dto.setClientName(store.getArea().getRegion().getCustomer().getName());
         dto.setCode(store.getCode());
         dto.setName(store.getName());
@@ -98,6 +113,18 @@ public class DtoMapper extends Mapper {
         areaDto.setName(area.getName());
 
         return areaDto;
+    }
+
+    public OperationTimeDto toDto(List<OperationTime> otList){
+
+        OperationTimeDto oDto = new OperationTimeDto();
+        for(OperationTime ot: otList) {
+            oDto.addCloseHour(formatHour(ot.getCloseHour()));
+            oDto.addClosingExtraHours(ot.getClosingExtraHours());
+            oDto.addOpenHour(formatHour(ot.getOpenHour()));
+            oDto.addOpeningExtraHours(ot.getOpeningExtraHours());
+        }
+        return oDto;
     }
 
 }

@@ -3132,6 +3132,9 @@ blockquote.pull-right {
 .table .progress-small {
   margin: 7px 0px 8px;
 }
+.table .st-sort-descent {
+
+}
 /* EOF TABLES */
 /* Datatables */
 .dataTable {
@@ -3258,6 +3261,16 @@ td.dataTables_empty {
   height: 10px;
   display: block;
 }
+.st-sort-descent:before,
+.st-sort-ascent:before {
+  float: right;
+  font-family: 'FontAwesome';
+  opacity: 0.9;
+  filter: alpha(opacity = 90);
+  width: 10px;
+  height: 10px;
+  display: block;
+}
 .sorting:before {
   content: "\f0dc";
   opacity: 0.3;
@@ -3266,9 +3279,19 @@ td.dataTables_empty {
 .sorting_desc:before {
   content: "\f0d8";
 }
+
+.st-sort-descent:before {
+  content: "\f0d8";
+}
+
 .sorting_asc:before {
   content: "\f0d7";
 }
+
+.st-sort-ascent:before {
+  content: "\f0d7";
+}
+
 .sorting_asc_disabled:before,
 .sorting_desc_disabled:before {
   opacity: 0.1;
