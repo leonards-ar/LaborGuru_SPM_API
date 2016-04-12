@@ -3,7 +3,7 @@ angular.module('web').controller('StoreListCtrl',function($scope,$modal,storeSer
   var vm = $scope;
   vm.dataLoading = false;
   vm.rowCollection = [];
-  vm.itemsByPage = 15;
+  vm.itemsByPage = 20;
 
   storeService.getStores()
   				       .then(function(res){
