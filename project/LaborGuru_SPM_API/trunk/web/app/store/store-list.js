@@ -1,0 +1,21 @@
+angular.module('web').controller('StoreListCtrl',function($scope,$modal,storeService, $location, $rootScope, $window,$log){
+
+  var vm = $scope;
+  vm.dataLoading = false;
+  vm.rowCollection = [];
+  vm.itemsByPage = 15;
+
+  storeService.getStores()
+  				       .then(function(res){
+                   vm.rowCollection = res;
+                   //vm.displayedCollection = [].concat(vm.rowCollection)
+                 },function(res){
+                   $log.log(res.data || "Request Failed");
+                 }
+               );
+
+  vm.showStore = function showStore(showDetailsPath){
+    $location.path( showDetailsPath );
+  };
+
+});
