@@ -1,0 +1,53 @@
+<div class="col-md-12" ng-controller="ShowDetailsCtrl">
+
+      <div class="page-content-wrap">
+        <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+          <div class="page-title" style="background-color:#C2C933">
+              <h2>Store Information</h2>
+          </div>
+          <div class="panel panel-default">
+            <div class="panel-body list-group">
+              <div class="panel-body list-group-item"><b>Client:</b> {{store.clientName}}</div>
+              <div class="panel-body list-group-item"><b>Code:</b> {{store.code}}</div>
+              <div class="panel-body list-group-item"><b>Name:</b> {{store.name}}</div>
+              <div class="panel-body list-group-item"><b>Region:</b> {{store.region.name}}</div>
+              <div class="panel-body list-group-item"><b>Area:</b> {{store.area.name}}</div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4"></div>
+      </div>
+      <div class="row">
+        <!-- Start Store Operation Pannel -->
+        <div class="col-md-4">
+          <div class="panel panel-default">
+            <div class="pannel-title" style="background-color:#C2C933">
+              <h3>Store Operations</h3>
+            </div>
+            <div class="panel-body">
+              <div class="panel panel-default">
+                <div class="">
+                </div>
+              <ul>
+                <li>
+                  <p> <a ng-click="showOperationTime(store.id)" href="javascript:void(0)"> Hours of operation
+
+                  </a>
+                </li>
+                <li>Daypart definition</li>
+                <li>Position names</li>
+                <li>Group names</li>
+                <li>Projections</li>
+                <li>Variable Definitions</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4"></div>
+        <div class="col-md-4"></div>
+      </div>
+
+
+</div>

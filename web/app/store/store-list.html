@@ -1,0 +1,62 @@
+<div class="col-md-12" ng-controller="StoreListCtrl">
+  <div class="page-content-wrap">
+
+      <div class="row">
+          <div class="col-md-8">
+        <!-- START DEFAULT DATATABLE -->
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <button class="btn btn-info btn-rounded btn-lg pull-right" type="button">Add New Customer</button>
+                <!-- <ul class="panel-controls">
+                    <li><a href="#" class="panel-collapse"><span class="fa fa-angle-down"></span></a></li>
+                    <li><a href="#" class="panel-refresh"><span class="fa fa-refresh"></span></a></li>
+                    <li><a href="#" class="panel-remove"><span class="fa fa-times"></span></a></li>
+                </ul> -->
+            </div>
+            <div class="panel-body">
+                <table st-table="displayedCollection" st-safe-src="rowCollection" class="table table-striped" st-sort-ascent="sorting_asc" and st-sort-descent="sorting_desc">
+                    <thead>
+                        <tr>
+                          <th colspan="4">
+			                         <input st-search="" placeholder="search" class="input-sm form-control" type="text"/>
+                          </th>
+                        </tr>
+                        <tr>
+                            <th class="st-sort-ascent" st-sort="clientName">Client</th>
+                            <th st-sort="code">Number</th>
+                            <th st-sort="name">Name</th>
+                            <th>&nbsp;</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                       <tr ng-repeat="store in displayedCollection">
+                            <td>{{store.clientName}}</td>
+                            <td>{{store.code}}</td>
+                            <td>{{store.name}}</td>
+                            <td>
+                              <div class="pull-right">
+                                  <button class="btn btn-primary" ng-click="showStore('/store/show/'+store.id)"><i class="glyphicon glyphicon-info-sign"></i></button>
+                                  <button class="btn btn-info"><i class="glyphicon glyphicon-pencil"></i></button>
+                                  <button class="btn btn-success" ng-click="removeStore(store.id)"><i class="glyphicon glyphicon-remove"></i></button>
+                                  <button class="btn btn-warning"><i class="fa fa-user"></i></button>
+                                  <button class="btn btn-danger"><i class="fa fa-group"></i></button>
+                              </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                			<tr>
+                				<td colspan="4" class="text-center">
+                					<div st-pagination="" st-items-by-page="itemsByPage" st-displayed-pages="8"></div>
+                				</td>
+                			</tr>
+        		        </tfoot>
+                </table>
+            </div>
+        </div>
+        <!-- END DEFAULT DATATABLE -->
+      </div>
+    </div>
+  </div>
+
+</div>
