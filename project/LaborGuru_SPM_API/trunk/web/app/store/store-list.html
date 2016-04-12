@@ -16,13 +16,19 @@
             <div class="panel-body">
                 <table st-table="displayedCollection" st-safe-src="rowCollection" class="table table-striped" st-sort-ascent="sorting_asc" and st-sort-descent="sorting_desc">
                     <thead>
+                      <tr>
+                        <th>
+                          <input ng-model="itemsByPage" id="items" class="input-sm"  form-control ng-valid ng-dirty ng-valid-number type="number"/>
+                        </th>
+                        <th colspan="3">&nbsp;</th>
+                      </tr>
                         <tr>
                           <th colspan="4">
 			                         <input st-search="" placeholder="search" class="input-sm form-control" type="text"/>
                           </th>
                         </tr>
                         <tr>
-                            <th class="st-sort-ascent" st-sort="clientName">Client</th>
+                            <th st-sort="clientName">Client</th>
                             <th st-sort="code">Number</th>
                             <th st-sort="name">Name</th>
                             <th>&nbsp;</th>

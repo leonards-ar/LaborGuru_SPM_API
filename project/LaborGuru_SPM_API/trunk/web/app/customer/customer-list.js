@@ -2,8 +2,8 @@ angular.module('web').controller('CustomerListCtrl',function($scope,$modal,custo
 
 var vm = $scope;
 vm.dataLoading = false;
-vm.customerList = {};
-
+vm.customerList = [];
+vm.itemsByPage=20;
 customerService.getCustomers()
 				       .then(function(res){
                  vm.customerList = res;

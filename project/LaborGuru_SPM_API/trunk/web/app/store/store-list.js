@@ -8,7 +8,6 @@ angular.module('web').controller('StoreListCtrl',function($scope,$modal,storeSer
   storeService.getStores()
   				       .then(function(res){
                    vm.rowCollection = res;
-                   //vm.displayedCollection = [].concat(vm.rowCollection)
                  },function(res){
                    $log.log(res.data || "Request Failed");
                  }
