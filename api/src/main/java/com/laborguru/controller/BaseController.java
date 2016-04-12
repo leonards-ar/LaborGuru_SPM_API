@@ -6,6 +6,7 @@ import com.laborguru.frontend.mapper.DtoMapper;
 /**
  * Created by federicobarreraoro on 3/19/16.
  */
+
 public abstract class BaseController {
 
     private final DtoMapper dtoMapper = new DtoMapper();

@@ -9,6 +9,10 @@ public class StoreDto {
     private String clientName;
     private String code;
     private String name;
+    private Boolean isDemo;
+
+    private RegionDto region;
+    private AreaDto area;
 
 
 
@@ -42,5 +46,21 @@ public class StoreDto {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public RegionDto getRegion() {
+        return region;
+    }
+
+    public void setRegion(RegionDto region) {
+        this.region = region;
+    }
+
+    public AreaDto getArea() {
+        return area;
+    }
+
+    public void setArea(AreaDto area) {
+        this.area = area;
     }
 }
