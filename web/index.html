@@ -8,6 +8,9 @@
 	<meta charset="utf-8">
   <link href="app.less" type="text/css" rel="stylesheet/less">
   <link rel="stylesheet" type="text/css" id="theme" href="theme/css/theme-default.css"/>
+  <link rel="stylesheet" type="text/css" href="css/style.css"/>
+  <link rel="stylesheet" href="bower_components/Spinkit/css/spinkit.css">
+  <link rel="stylesheet" href="bower_components/angular-block-ui/dist/angular-block-ui.min.css"/>
 </head>
 <body>
 
@@ -82,6 +85,8 @@
   <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
   <script src="bower_components/angular-ui-utils/ui-utils.js"></script>
   <script src="bower_components/angular-smart-table/dist/smart-table.min.js"></script>
+  <script src="bower_components/angular-block-ui/dist/angular-block-ui.min.js"></script>
+
   <!-- Add New Bower Component JS Above -->
 
 
@@ -95,10 +100,12 @@
   <script src="service/storeService.js"></script>
   <script src="app/store/details/show-details.js"></script>
   <script src="app/store/details/show-operationTime.js"></script>
+  <script src="service/loginService.js"></script>
+  <script src="service/uiHelper.js"></script>
   <!-- Add New Component JS Above -->
 
     <!-- START PAGE CONTAINER -->
-    <div class="page-container">
+    <div class="page-content-wrap">
 
         <!-- START X-NAVIGATION VERTICAL -->
         <ul class="x-navigation x-navigation-horizontal x-navigation-panel">
@@ -154,16 +161,17 @@
           <!-- End Avatar -->
         </ul>
         <!-- END X-NAVIGATION VERTICAL -->
+
     </div>
     <!-- END PAGE CONTAINER -->
+
     <div id="content" class="container">
       <div class="row">
         <div ui-view>
         </div>
       </div>
     </div>
-    </div>
-
+    <!-- </div> -->
     <div class="message-box message-box-success animated fadeIn" id="message-box-success" ng-show={{showSuccessAlert}}>
                 <div class="mb-container">
                     <div class="mb-middle">
@@ -176,6 +184,20 @@
                         </div>
                     </div>
                 </div>
+            </div>
+
+            <div id="page-loading" class="page-loading-container" style="display:none">
+              <div class="page-loading-main-content"></div>
+                <div class="page-loading-content">
+                    <!-- <img alt="logo" src="img/logo.png"> -->
+                    <div class="spinner">
+                      <div class="rect1"></div>
+                      <div class="rect2"></div>
+                      <div class="rect3"></div>
+                      <div class="rect4"></div>
+                  </div>
+                </div>
+
             </div>
 </body>
 </html>
