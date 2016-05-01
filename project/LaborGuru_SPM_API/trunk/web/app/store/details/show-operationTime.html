@@ -5,12 +5,12 @@
 	</div>
 	<div class="modal-body">
 		<div class="row">
-			<table>
+			<table allign="center" border="0" cellpadding="6" cellspacing="0" colspan="0" cellspan="0">
 				<thead>
 					<tr>
-						<th class="label-default" style="background-color:#D5DB3C"><b>Client</b></th>
-						<th class="label-default" style="background-color:#D5DB3C"><b>Number</b></th>
-						<th class="label-default" style="background-color:#D5DB3C"><b>Name</b></th>
+						<th class="editFormOddRow"><b>Client</b></th>
+						<th class="editFormOddRow"><b>Number</b></th>
+						<th class="editFormOddRow"><b>Name</b></th>
 					</tr>
 				</thead>
 				<tbody>
@@ -23,6 +23,13 @@
 			</table>
 		</div>
 
-		<p>Body&hellip;</p>
+	  <div>
+			<table id="editFormTable" border="0" cellpadding="6" cellspacing="0" colspan="0" cellspan="0">
+      	<tr class="editFormOddRow">
+        	<td align="right" class="form_label" nowrap>{{'store.storeoperations.firstdayofweek.label' | translate}}" /></td>
+          <td align="left" class="value">{{ firstDayOfWeek }}</td>
+        </tr>
+      </table>
+	  </div>
 	</div>
 </div>

@@ -14,6 +14,7 @@ angular.module('web').controller('ShowDetailsCtrl',function($scope,$stateParams,
                );
 
 vm.showOperationTime = function (storeId){
+  alert("Estoy Aca!!!!!!");
   var promise = storeService.loadHoursOfOperation(storeId);
   promise.then(function(data){
 

@@ -4,5 +4,6 @@ var vm = $scope
 vm.client = showInfo.client;
 vm.number = showInfo.number;
 vm.name = showInfo.name;
+vm.firstDayOfWeek = showInfo.firstDayOfWeek;
 
 });
