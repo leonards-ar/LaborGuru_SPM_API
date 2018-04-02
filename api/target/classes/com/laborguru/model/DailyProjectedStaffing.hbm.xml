@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.laborguru.model">
+	<class name="DailyProjectedStaffing" table="tbl_staffing">
+	
+		<id name="id" type="long" unsaved-value="null" column="staffing_id">
+			<generator class="identity" />
+		</id>
+		
+		<property name="date" type="date">
+			<column name="staffing_date" unique-key="date_position"/>
+		</property>
+		<property name="startingTime" column="starting_time" type="timestamp" />
+		
+		<property name="totalWorkContent" column="total_work_content" type="double" />
+		<property name="totalMinimumStaffing" column="total_minimum_staffing" type="int" />
+		<property name="totalVariableFlexible" column="total_variable_flexible" type="double" />
+		<property name="totalVariableOpening" column="total_variable_opening" type="double" />
+		<property name="fixedFlexible" column="fixed_flexible" type="double" />
+		<property name="fixedOpening" column="fixed_opening" type="double" />
+		<property name="totalServiceHours" column="total_service_hours" type="double" />
+		<property name="totalFlexible" column="total_flexible" type="double" />
+		<property name="totalOpening" column="total_opening" type="double" />
+		<property name="fixedPostRush" column="fixed_post_rush" type="double" />
+		<property name="fixedClosing" column="fixed_closing" type="double" />
+		<property name="totalDailyTarget" column="total_daily_target" type="double" />
+	
+		<many-to-one name="position" class="Position" column="position_id" not-null="true" foreign-key="fk_staffing_positions" unique-key="date_position"/>
+
+	    <list name="halfHourProjectedStaffing" cascade="all-delete-orphan" table="tbl_halfhour_staffing" lazy="true" inverse="true">
+	        <key column="staffing_id" foreign-key="fk_halfhours_staffing"/>
+	        <list-index column="half_hour_index"/>
+	        <one-to-many class="HalfHourProjectedStaffing"/>
+	    </list>
+	</class>
+	<database-object>
+		<create>ALTER TABLE tbl_staffing AUTO_INCREMENT=1000</create>
+		<drop></drop>
+	</database-object>   	
+</hibernate-mapping>

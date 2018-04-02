@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.laborguru.model">
+	<class name="HalfHourProjection" table="tbl_halfhour_projections">
+	
+		<id name="id" type="long" unsaved-value="null" column="half_hour_id">
+			<generator class="identity" />
+		</id>
+		<property name="adjustedValue" column="adjusted_value" type="big_decimal"/>
+		<property name="index" column="half_hour_index" type="int" />
+		<property name="time" column="time" type="timestamp" />
+		
+		<many-to-one name="projection" class="DailyProjection" column="projection_id" not-null="true" foreign-key="fk_halfhours_projections" />
+	</class>  	
+	
+	<database-object>
+		<create>ALTER TABLE tbl_halfhour_projections AUTO_INCREMENT=1000</create>
+		<drop></drop>
+	</database-object>
+	
+</hibernate-mapping>

@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.laborguru.model">
+    <class name="Profile" table="tbl_profiles">
+
+        <id name="id" type="int" unsaved-value="null" column="profile_id">
+	        <generator class="identity" />
+        </id>
+
+        <property name="name" column="name" type="string" length="50" not-null="true"/>       
+        <property name="description" column="description" type="string" length="50" />        
+        <property name="homeResult" column="home_result" type="string" length="100" />        
+
+	    <set name="permissions" table="tbl_profiles_permissions" lazy="true">
+	        <key column="profile_id" foreign-key="fk_profiles_permissions"/>
+	        <many-to-many column="permission_id" class="Permission" foreign-key="fk_permissions_profiles"/>
+	    </set>
+    </class>
+	<database-object>
+		<create>ALTER TABLE tbl_profiles AUTO_INCREMENT=1000</create>
+		<drop></drop>
+	</database-object> 	    
+</hibernate-mapping>
+
+

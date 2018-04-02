@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.laborguru.model">
+    <class name="OperationTime" table="tbl_operation_times">
+
+        <id name="id" type="int" unsaved-value="null" column="operation_time_id">
+	        <generator class="identity" />
+        </id>
+
+        <property name="openHour" column="open_hour" type="timestamp" not-null="false"/>       
+        <property name="closeHour" column="close_hour" type="timestamp" not-null="false"/>        
+        <property name="dayOfWeekIndex" column="day_of_week" type="int" not-null="true"/>
+		<property name="openingExtraHours" type="int">
+			<column name="opening_extra_hours" not-null="false" default="2" />
+		</property>		                
+		<property name="closingExtraHours" type="int">
+			<column name="closing_extra_hours" not-null="false" default="2" />
+		</property>
+
+		<many-to-one name="store" class="Store" foreign-key="fk_operation_times_store">
+			<column name="store_id" not-null="true"/>
+		</many-to-one>
+    </class>
+	<database-object>
+		<create>ALTER TABLE tbl_operation_times AUTO_INCREMENT=1000</create>
+		<drop></drop>
+	</database-object> 	    
+</hibernate-mapping>

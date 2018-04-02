@@ -1,0 +1,84 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.laborguru.model">
+    <class name="User" table="tbl_users">
+
+        <id name="id" type="int" unsaved-value="null" column="user_id">
+        	<generator class="identity" />
+        </id>
+
+        <property name="userName" column="username" type="string" length="50" not-null="true" unique="true"/>       
+        <property name="password" column="password" type="string" length="50" />
+        <property name="status" column="status" type="int" />
+        <property name="email" column="email" type="string" length="100"/>
+        <property name="name" column="name" type="string" length="50" />
+        <property name="surname" column="surname" type="string" length="100" />
+		<property name="lastLogon" column="last_logon" type="timestamp" />
+		<property name="loginCount" column="login_count" type="int"/>
+		<property name="creationDate" column="creation_date" type="timestamp"/>
+		<property name="lastUpdateDate" column="last_update_date" type="timestamp"/>
+	    <set name="profiles" table="tbl_users_profiles" lazy="true">
+	        <key column="user_id" foreign-key="fk_users_profiles"/>
+	        <many-to-many column="profile_id" class="Profile" foreign-key="fk_profiles_users"/>
+	    </set>
+	    
+	    <joined-subclass name="Employee" table="tbl_employees">
+	    	<key column="user_id" foreign-key="fk_users_employees"/>
+	    	
+	    	<many-to-one name="store" class="Store" foreign-key="fk_employees_stores" lazy="false">
+				<column name="store_id"/>
+			</many-to-one>
+  			<many-to-one name="defaultPosition" class="Position" foreign-key="fk_employees_positions">
+				<column name="default_position" not-null="false"/>
+			</many-to-one>
+	    	<property name="manager" column="manager" type="boolean"/>
+        	<property name="phone" column="phone" type="string" length="50"/>
+        	<property name="phone2" column="phone2" type="string" length="50" />
+        	<property name="hireDate" column="hire_date" type="date"/>
+        	<property name="maxHoursWeek" column="max_hours_week" type="int"/>
+        	<property name="maxDaysWeek" column="max_days_week" type="int" />
+        	<property name="maxHoursDay" column="max_hour_day" type="int" />
+        	<property name="address" column="address" type="string" length="100" />
+        	<property name="address2" column="address2" type="string" length="100" />
+        	<property name="city" column="city" type="string" length="100" />
+        	<property name="state" column="state" type="string" length="100" />
+        	<property name="zip" column="zip" type="string" length="50" />
+        	<property name="comments" column="comments" type="string" length="1024" />
+        	<property name="employeeId" column="employee_id" type="string" length="50" />
+        	<property name="wage" column="wage" type="double" />
+    	</joined-subclass>
+    	
+    	<joined-subclass name="CustomerUser" table="tbl_customer_users">
+    	   	<key column="user_id" foreign-key="fk_users_customers"/>
+	    	
+	    	<many-to-one name="customer" class="Customer" foreign-key="fk_customers_users">
+				<column name="customer_id" not-null="true"/>
+			</many-to-one>
+    	</joined-subclass>
+
+    	<joined-subclass name="RegionalUser" table="tbl_region_users">
+    	   	<key column="user_id" foreign-key="fk_users_regions"/>
+	    	
+	    	<many-to-one name="region" class="Region" foreign-key="fk_regions_users">
+				<column name="region_id" not-null="true"/>
+			</many-to-one>
+    	</joined-subclass>
+    	
+    	<joined-subclass name="AreaUser" table="tbl_area_users">
+    	   	<key column="user_id" foreign-key="fk_users_areas"/>
+	    	
+	    	<many-to-one name="area" class="Area" foreign-key="fk_areas_users">
+				<column name="area_id" not-null="true"/>
+			</many-to-one>
+    	</joined-subclass>    	    	
+    </class>
+	<database-object>
+		<create>ALTER TABLE tbl_users AUTO_INCREMENT=1000</create>
+		<drop></drop>
+	</database-object>    
+</hibernate-mapping>
+
+

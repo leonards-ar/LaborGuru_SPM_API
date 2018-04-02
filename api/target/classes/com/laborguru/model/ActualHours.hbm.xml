@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.laborguru.model">
+	<class name="ActualHours" table="tbl_actual_hours">
+	
+		<id name="id" type="long" unsaved-value="null" column="actual_hours_id">
+			<generator class="identity" />
+		</id>
+		<property name="date" column="date" type="timestamp"/>
+		<property name="hours" column="hours" type="double"/>						
+		<many-to-one name="store" class="Store" column="store_id" not-null="true" foreign-key="fk_actul_hours_stores" />
+	</class>
+	
+	<database-object>
+		<create>ALTER TABLE tbl_actual_hours AUTO_INCREMENT=10000</create>
+		<drop></drop>
+	</database-object>   	
+</hibernate-mapping>

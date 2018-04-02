@@ -21,7 +21,7 @@ import java.util.List;
 @CrossOrigin
 @RestController
 @RequestMapping("/api/customer")
-public class CustomerController
+public class  CustomerController
         extends BaseController {
 
     @Autowired

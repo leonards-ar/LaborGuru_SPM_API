@@ -1,0 +1,36 @@
+<!DOCTYPE validators PUBLIC "-//OpenSymphony Group//XWork Validator 1.0.2//EN"
+       "http://www.opensymphony.com/xwork/xwork-validator-1.0.2.dtd">
+<validators>	    	
+	<field name="utilizationBottom">
+	   <field-validator type="conversion" short-circuit="true">
+	   		<message key="error.utilization.bottom.invalid"/>
+	    </field-validator>
+		<field-validator type="required">
+			<message key="error.utilization.bottom.required" />
+		</field-validator>	    	
+		<field-validator type="double">
+			<param name="minInclusive">0.01</param>
+			<param name="maxInclusive">100.00</param>
+			<message key="error.utilization.bottom.invalid"/>
+		</field-validator>
+	</field>
+	<field name="utilizationTop">
+	   <field-validator type="conversion" short-circuit="true">
+	   		<message key="error.utilization.top.invalid"/>
+	    </field-validator>
+		<field-validator type="required">
+			<message key="error.utilization.top.required" />
+		</field-validator>	    	
+	    	
+		<field-validator type="double">
+			<param name="minInclusive">0.01</param>
+			<param name="maxInclusive">100.00</param>
+			<message key="error.utilization.top.invalid"/>
+		</field-validator>
+	</field>
+	
+	<validator type="expression">
+		<param name="expression"><![CDATA[ ( (utilizationBottom == null) || (utilizationTop == null) ) || (utilizationBottom <= utilizationTop) ]]></param>
+		<message key="error.utilization.bottomLessEqualThanTop.invalid"/>
+	</validator>	
+</validators>

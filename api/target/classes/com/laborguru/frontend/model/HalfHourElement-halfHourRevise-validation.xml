@@ -1,0 +1,14 @@
+<!DOCTYPE validators PUBLIC "-//OpenSymphony Group//XWork Validator 1.0.2//EN"
+       "http://www.opensymphony.com/xwork/xwork-validator-1.0.2.dtd">
+<validators>	    	
+	<field name="adjustedValue">
+	   <field-validator type="conversion" short-circuit="true">
+	   		<message key="error.projection.halfhour.double"/>
+	    </field-validator>
+    	
+		<field-validator type="double">
+			<param name="minInclusive">0.00</param>
+			<message key="error.projection.halfhour.double"/>
+		</field-validator>
+	</field>	
+</validators>

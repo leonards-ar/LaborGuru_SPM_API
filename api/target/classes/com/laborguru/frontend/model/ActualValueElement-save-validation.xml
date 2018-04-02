@@ -1,0 +1,24 @@
+<!DOCTYPE validators PUBLIC "-//OpenSymphony Group//XWork Validator 1.0.2//EN"
+       "http://www.opensymphony.com/xwork/xwork-validator-1.0.2.dtd">
+<validators>	    	
+	<field name="mainValue">
+	   <field-validator type="conversion" short-circuit="true">
+	   		<message key="error.actualvalues.mainvalue.nonvalidnumber"/>	   		
+	    </field-validator>
+
+		<field-validator type="double">
+			<param name="minInclusive">0.00</param>
+			<message key="error.actualvalues.mainvalue.double"/>
+		</field-validator>
+	</field>	
+	<field name="hours">
+	   <field-validator type="conversion" short-circuit="true">
+	   		<message key="error.actualvalues.hours.nonvalidnumber"/>	   		
+	    </field-validator>
+
+		<field-validator type="double">
+			<param name="minInclusive">0.00</param>
+			<message key="error.actualvalues.hours.double"/>
+		</field-validator>
+	</field>
+</validators>

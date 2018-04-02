@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.laborguru.model">
+	<class name="EmployeeSchedule" table="tbl_employee_schedules">
+		<id name="id" type="int" unsaved-value="null" column="employee_schedule_id">
+			<generator class="identity" />
+		</id>
+		
+		<many-to-one name="employee" class="Employee" foreign-key="fk_employeeschedules_employees" not-null="true">
+			<column name="employee_id" not-null="true"/>
+		</many-to-one>
+
+		<many-to-one name="storeSchedule" class="StoreSchedule" foreign-key="fk_employeeschedules_storeschedules" not-null="true">
+			<column name="store_schedule_id" not-null="true"/>
+		</many-to-one>
+
+	    <list name="shifts" cascade="all-delete-orphan" table="tbl_shifts" inverse="true" lazy="false">
+	        <key column="employee_schedule_id" foreign-key="fk_employeeschedules_shifts"/>
+	        <list-index column="shift_index"/>
+	        <one-to-many class="Shift"/>
+	    </list>
+	</class>
+	<database-object>
+		<create>ALTER TABLE tbl_employee_schedules AUTO_INCREMENT=1000</create>
+		<drop></drop>
+	</database-object>   	
+</hibernate-mapping>

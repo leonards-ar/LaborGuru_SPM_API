@@ -1,0 +1,28 @@
+<!DOCTYPE validators PUBLIC "-//OpenSymphony Group//XWork Validator 1.0.2//EN"
+       "http://www.opensymphony.com/xwork/xwork-validator-1.0.2.dtd">
+<validators>	    	
+	<field name="utilizationMinimum">
+	   <field-validator type="conversion" short-circuit="true">
+	   		<message key="error.utilization.limits.minimum.invalid"/>
+	    </field-validator>
+	    	
+		<field-validator type="int" short-circuit="true">
+			<param name="min">0</param>
+			<message key="error.utilization.limits.minimum.invalid"/>
+		</field-validator>
+	</field>
+	<field name="utilizationMaximum">
+	   <field-validator type="conversion" short-circuit="true">
+	   		<message key="error.utilization.limits.maximum.invalid"/>
+	    </field-validator>
+	    	
+		<field-validator type="int" short-circuit="true">
+			<param name="min">0</param>
+			<message key="error.utilization.limits.maximum.invalid"/>
+		</field-validator>
+	</field>
+	<validator type="expression">
+		<param name="expression"><![CDATA[ ( (utilizationMinimum == null) || (utilizationMaximum == null)) || (utilizationMinimum <= utilizationMaximum) ]]></param>
+		<message key="error.utilization.limits.minimumLessEqualThanMaximum.invalid"/>
+	</validator>
+</validators>

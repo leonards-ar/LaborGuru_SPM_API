@@ -1,0 +1,44 @@
+<!DOCTYPE validators PUBLIC "-//OpenSymphony Group//XWork Validator 1.0.2//EN"
+       "http://www.opensymphony.com/xwork/xwork-validator-1.0.2.dtd">
+<validators>
+	<field name="name">
+		<field-validator type="requiredstring">
+			<message key="error.name.required" />
+		</field-validator>
+	</field>
+	<field name="surname">
+		<field-validator type="requiredstring">
+			<message key="error.surname.required" />
+		</field-validator>
+	</field>
+	<field name="userName">
+		<field-validator type="requiredstring">
+			<message key="error.username.required" />
+		</field-validator>
+	</field>
+	<field name="maxDaysWeek">
+		<field-validator type="int">
+			<param name="min">0</param>
+			<message key="error.maxDaysWeek.invalid"/>
+		</field-validator>
+	</field>
+	<field name="maxHoursDay">
+		<field-validator type="int">
+			<param name="min">0</param>
+			<message key="error.maxHoursDay.invalid"/>
+		</field-validator>
+	</field>
+	<field name="maxHoursWeek">
+		<field-validator type="int">
+			<param name="min">0</param>
+			<message key="error.maxHoursWeek.invalid"/>
+		</field-validator>
+	</field>
+	<field name="wage">
+		<field-validator type="double">
+			<param name="minInclusive">0.01</param>
+			<message key="error.wage.invalid"/>
+		</field-validator>
+	</field>
+	
+</validators>

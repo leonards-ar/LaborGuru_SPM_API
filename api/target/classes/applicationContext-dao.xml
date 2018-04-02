@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd">
+
+
+    <bean id="myDataSourcePool" class="org.apache.commons.support.BasicDataSource" destroy-method="close">
+        <property name="driverClassName" value="com.mysql.jdbc.Driver" />
+        <property name="url" value="jdbc:mysql://localhost:3306/spm" />
+        <property name="username" value="spm" />
+        <property name="password" value="java1234" />
+        <property name="maxTotal" value="2" />
+        <property name="maxIdle" value="1" />
+        <property name="validationQuery" value="select 1" />
+        <property name="defaultAutoCommit" value="false" />
+    </bean>
+
+    <bean id="hibernateProperties" class="org.springframework.beans.factory.config.PropertiesFactoryBean">
+        <property name="properties">
+            <props>
+                <prop key="hibernate.dialect">
+                    org.hibernate.dialect.MySQLDialect
+                </prop>
+                <prop key="hibernate.show_sql">true</prop>
+                <!--prop key="hibernate.default_schema">spm</prop-->
+                <prop key="hibernate.query.substitutions">true 1, false 0</prop>
+            </props>
+        </property>
+    </bean>
+
+    <bean id="mySessionFactory"	class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+        <property name="dataSource">
+            <ref bean="myDataSourcePool" />
+        </property>
+        <property name="mappingResources">
+            <list>
+                <value>com/laborguru/model/MenuItem.hbm.xml</value>
+                <value>com/laborguru/model/Permission.hbm.xml</value>
+                <value>com/laborguru/model/Position.hbm.xml</value>
+                <value>com/laborguru/model/Profile.hbm.xml</value>
+                <value>com/laborguru/model/Store.hbm.xml</value>
+                <value>com/laborguru/model/User.hbm.xml</value>
+                <value>com/laborguru/model/Area.hbm.xml</value>
+                <value>com/laborguru/model/Region.hbm.xml</value>
+                <value>com/laborguru/model/Customer.hbm.xml</value>
+                <value>com/laborguru/model/OperationTime.hbm.xml</value>
+                <value>com/laborguru/model/DayPart.hbm.xml</value>
+                <value>com/laborguru/model/DayOfWeekData.hbm.xml</value>
+                <value>com/laborguru/model/DayPartData.hbm.xml</value>
+                <value>com/laborguru/model/PositionGroup.hbm.xml</value>
+                <value>com/laborguru/model/HalfHourProjection.hbm.xml</value>
+                <value>com/laborguru/model/DailyProjection.hbm.xml</value>
+                <value>com/laborguru/model/HistoricSales.hbm.xml</value>
+                <value>com/laborguru/model/StoreSchedule.hbm.xml</value>
+                <value>com/laborguru/model/EmployeeSchedule.hbm.xml</value>
+                <value>com/laborguru/model/Shift.hbm.xml</value>
+                <value>com/laborguru/model/HalfHourProjectedStaffing.hbm.xml</value>
+                <value>com/laborguru/model/DailyProjectedStaffing.hbm.xml</value>
+                <value>com/laborguru/model/UploadFile.hbm.xml</value>
+                <value>com/laborguru/model/ActualHours.hbm.xml</value>
+                <value>com/laborguru/model/StoreVariableDefinition.hbm.xml</value>
+                <value>com/laborguru/model/DailyFlash.hbm.xml</value>
+                <value>com/laborguru/model/DailyFlashDetail.hbm.xml</value>
+            </list>
+        </property>
+        <property name="hibernateProperties">
+            <ref bean="hibernateProperties" />
+        </property>
+    </bean>
+
+    <bean id="hibernateTemplate" class="org.springframework.orm.hibernate4.HibernateTemplate">
+        <property name="sessionFactory">
+            <ref bean="mySessionFactory" />
+        </property>
+    </bean>
+
+    <bean id="menuDao" class="com.laborguru.service.menu.dao.MenuDaoHibernate" autowire="byType"/>
+
+    <bean id="userDao" class="com.laborguru.service.user.dao.UserDaoHibernate" autowire="byType"/>
+
+    <bean id="employeeDao" class="com.laborguru.service.employee.dao.EmployeeDaoHibernate" autowire="byType"/>
+
+    <bean id="positionDao" class="com.laborguru.service.position.dao.PositionDaoHibernate" autowire="byType"/>
+
+    <bean id="positionGroupDao" class="com.laborguru.service.positionGroup.dao.PositionGroupDaoHibernate" autowire="byType"/>
+
+    <bean id="storeDao" class="com.laborguru.service.store.dao.StoreDaoHibernate" autowire="byType"/>
+
+    <bean id="areaDao" class="com.laborguru.service.area.dao.AreaDaoHibernate" autowire="byType"/>
+
+    <bean id="regionDao" class="com.laborguru.service.region.dao.RegionDaoHibernate" autowire="byType"/>
+
+    <bean id="customerDao" class="com.laborguru.service.customer.dao.CustomerDaoHibernate" autowire="byType"/>
+
+    <bean id="projectionDao" class="com.laborguru.service.projection.dao.ProjectionDaoHibernate" autowire="byType"/>
+
+    <bean id="profileDao" class="com.laborguru.service.profile.dao.ProfileDaoHibernate" autowire="byType"/>
+
+    <bean id="scheduleDao" class="com.laborguru.service.schedule.dao.ScheduleDaoHibernate" autowire="byType"/>
+
+    <bean id="staffingDao" class="com.laborguru.service.staffing.dao.StaffingDaoHibernate" autowire="byType"/>
+
+    <bean id="managerDao" class="com.laborguru.service.manager.dao.ManagerDaoHibernate" autowire="byType"/>
+
+    <bean id="uploadFileDao" class="com.laborguru.service.uploadfile.dao.UploadFileDaoHibernate" autowire="byType"/>
+
+    <bean id="historicSalesDao" class="com.laborguru.service.historicsales.dao.HistoricSalesDaoHibernate" autowire="byType"/>
+
+    <!--<bean id="reportDao" class="com.laborguru.service.report.dao.SqlMapReportDao" autowire="byType"/>-->
+
+    <bean id="actualHoursDao" class="com.laborguru.service.actualhours.dao.ActualHoursDaoHibernate" autowire="byType"/>
+
+    <bean id="spmDaoUtils" class="com.laborguru.service.dao.hibernate.SpmHibernateDao" autowire="byType"/>
+
+    <bean id="shiftDao" class="com.laborguru.service.schedule.dao.ShiftDaoHibernate" autowire="byType"/>
+
+    <!--<bean id="dailyFlashDao" class="com.laborguru.service.report.dao.DailyFlashDaoHibernate" autowire="byType"/>-->
+
+</beans>

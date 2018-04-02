@@ -1,0 +1,13 @@
+<p>
+Estimado ${employee.name},
+</p>
+<p>
+El horario para ${weekStartDay} ha sido publicado. Si quiere conocer el horario por favor ingrese al 
+<b>Labor Guru scheduler</b> en <a href="http://www.laborguru.com/sign_on.html">http://www.laborguru.com/sign_on.html</a>
+</p>
+<p>
+Muchas gracias,
+</p>
+<p>
+Equipo de Soporte de Labor Guru
+</p>
